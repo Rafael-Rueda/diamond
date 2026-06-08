@@ -26,11 +26,11 @@ const dotVariants = cva(
     {
         variants: {
             variant: {
-                dot: "rounded-full peer-checked:border-(--diamond-accent,#2b7fff)",
-                square: "rounded peer-checked:border-(--diamond-accent,#2b7fff)",
+                dot: "rounded-full peer-checked:border-(--diamond-accent,#2b7fff) peer-checked:bg-(--diamond-accent,#2b7fff)",
+                square: "rounded peer-checked:border-(--diamond-accent,#2b7fff) peer-checked:bg-(--diamond-accent,#2b7fff)",
                 bullseye:
-                    "size-5 rounded-full peer-checked:border-(--diamond-accent,#2b7fff) peer-checked:shadow-[inset_0_0_0_3px_var(--diamond-surface,#fff),0_0_0_1.5px_var(--diamond-accent,#2b7fff)]",
-                card: "rounded-full peer-checked:border-(--diamond-accent,#2b7fff)",
+                    "size-5 rounded-full peer-checked:border-(--diamond-accent,#2b7fff) peer-checked:bg-(--diamond-accent,#2b7fff) peer-checked:ring-[3px] peer-checked:ring-inset peer-checked:ring-(--diamond-surface,#fff)",
+                card: "rounded-full peer-checked:border-(--diamond-accent,#2b7fff) peer-checked:bg-(--diamond-accent,#2b7fff)",
                 segmented: "",
                 "size-pill": "",
                 vertical: "",
@@ -116,15 +116,7 @@ function SingleRadio({
                 className="peer sr-only"
             />
             {v === "segmented" || v === "size-pill" ? null : (
-                <span className={cn(dotVariants({ variant: v }), "cursor-pointer")}>
-                    <span
-                        aria-hidden="true"
-                        className={cn(
-                            "size-2 rounded-full bg-(--diamond-accent,#2b7fff) opacity-0 transition-opacity peer-checked:opacity-100",
-                            v === "square" && "rounded-sm",
-                        )}
-                    />
-                </span>
+                <span className={cn(dotVariants({ variant: v }), "cursor-pointer")} />
             )}
             {(label ?? children) ? <span>{label ?? children}</span> : null}
         </>
@@ -134,7 +126,7 @@ function SingleRadio({
         return (
             <label
                 className={cn(
-                    "inline-flex min-w-[180px] cursor-pointer select-none items-center gap-3 rounded-md border-[1.5px] border-(--diamond-border,#d9d5cc) bg-(--diamond-surface,#fff) px-3.5 py-3 text-[14px] transition-colors has-[input:checked]:border-(--diamond-accent,#2b7fff) has-[input:checked]:bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_6%,white)]",
+                    "inline-flex min-w-[180px] cursor-pointer select-none items-center gap-3 rounded-md border-[1.5px] border-(--diamond-border,#d9d5cc) bg-(--diamond-surface,#fff) px-3.5 py-3 text-(--diamond-ink,#1a1917) text-[14px] transition-colors has-[input:checked]:border-(--diamond-accent,#2b7fff) has-[input:checked]:bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_6%,var(--diamond-surface,#fff))]",
                     disabled && "pointer-events-none opacity-50",
                     className,
                 )}
@@ -291,9 +283,9 @@ function GroupRadio({
                         <label
                             key={i.id}
                             className={cn(
-                                "flex aspect-square cursor-pointer items-center justify-center rounded-md border-[1.5px] bg-(--diamond-surface,#fff) text-2xl transition-colors",
+                                "flex aspect-square cursor-pointer items-center justify-center rounded-md border-[1.5px] bg-(--diamond-surface,#fff) text-2xl text-(--diamond-ink,#1a1917) transition-colors",
                                 on
-                                    ? "border-(--diamond-accent,#2b7fff) bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_8%,white)]"
+                                    ? "border-(--diamond-accent,#2b7fff) bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_15%,var(--diamond-surface,#fff))] text-(--diamond-accent,#2b7fff)"
                                     : "border-(--diamond-border,#d9d5cc) hover:border-(--diamond-accent,#2b7fff)",
                                 i.disabled && "pointer-events-none opacity-50",
                             )}
@@ -328,9 +320,9 @@ function GroupRadio({
                         <label
                             key={i.id}
                             className={cn(
-                                "flex cursor-pointer items-center gap-3 rounded-md border-[1.5px] bg-(--diamond-surface,#fff) px-3.5 py-3 text-[14px] transition-colors",
+                                "flex cursor-pointer items-center gap-3 rounded-md border-[1.5px] bg-(--diamond-surface,#fff) px-3.5 py-3 text-(--diamond-ink,#1a1917) text-[14px] transition-colors",
                                 on
-                                    ? "border-(--diamond-accent,#2b7fff) bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_6%,white)]"
+                                    ? "border-(--diamond-accent,#2b7fff) bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_8%,var(--diamond-surface,#fff))]"
                                     : "border-(--diamond-border,#d9d5cc) hover:border-(--diamond-accent,#2b7fff)",
                                 i.disabled && "pointer-events-none opacity-50",
                             )}
@@ -343,12 +335,7 @@ function GroupRadio({
                                 disabled={i.disabled}
                                 className="peer sr-only"
                             />
-                            <span className={cn(dotVariants({ variant: "dot" }), "cursor-pointer")}>
-                                <span
-                                    aria-hidden="true"
-                                    className="size-2 rounded-full bg-(--diamond-accent,#2b7fff) opacity-0 peer-checked:opacity-100"
-                                />
-                            </span>
+                            <span className={cn(dotVariants({ variant: "dot" }), "cursor-pointer")} />
                             <span className="flex flex-1 flex-col">
                                 <span className="font-semibold">{i.label}</span>
                                 {i.description ? <span className="text-(--diamond-muted,#6b6862) text-[11px]">{i.description}</span> : null}
@@ -366,7 +353,7 @@ function GroupRadio({
             <ul
                 role="radiogroup"
                 className={cn(
-                    "m-0 min-w-[220px] list-none divide-y divide-(--diamond-border,#d9d5cc) rounded-md border border-(--diamond-border,#d9d5cc) bg-(--diamond-surface,#fff) p-0",
+                    "m-0 min-w-[220px] list-none divide-y divide-(--diamond-border,#d9d5cc) rounded-md border border-(--diamond-border,#d9d5cc) bg-(--diamond-surface,#fff) p-0 text-(--diamond-ink,#1a1917)",
                     className,
                 )}
                 style={inlineStyle}
@@ -387,12 +374,7 @@ function GroupRadio({
                                         disabled={i.disabled}
                                         className="peer sr-only"
                                     />
-                                    <span className={cn(dotVariants({ variant: "dot" }), "cursor-pointer")}>
-                                        <span
-                                            aria-hidden="true"
-                                            className="size-2 rounded-full bg-(--diamond-accent,#2b7fff) opacity-0 peer-checked:opacity-100"
-                                        />
-                                    </span>
+                                    <span className={cn(dotVariants({ variant: "dot" }), "cursor-pointer")} />
                                 </span>
                             </label>
                         </li>
@@ -405,7 +387,7 @@ function GroupRadio({
     return (
         <div
             role="radiogroup"
-            className={cn("flex flex-col gap-2.5", className)}
+            className={cn("flex flex-col gap-2.5 text-(--diamond-ink,#1a1917)", className)}
             style={inlineStyle}
             {...(rest as React.HTMLAttributes<HTMLDivElement>)}
         >
@@ -425,12 +407,7 @@ function GroupRadio({
                         disabled={i.disabled}
                         className="peer sr-only"
                     />
-                    <span className={cn(dotVariants({ variant: "dot" }), "cursor-pointer")}>
-                        <span
-                            aria-hidden="true"
-                            className="size-2 rounded-full bg-(--diamond-accent,#2b7fff) opacity-0 peer-checked:opacity-100"
-                        />
-                    </span>
+                    <span className={cn(dotVariants({ variant: "dot" }), "cursor-pointer")} />
                     <span>{i.label}</span>
                 </label>
             ))}

@@ -182,7 +182,7 @@ export const OfflineIndicator = React.forwardRef<HTMLDivElement, OfflineIndicato
                         <button
                             type="button"
                             onClick={onRetry}
-                            className="inline-flex h-6 cursor-pointer items-center rounded-sm bg-(--diamond-ink,#1a1917) px-2 font-medium text-(--diamond-surface,#fff) text-[10px] hover:bg-[color-mix(in_oklab,var(--diamond-ink,#1a1917)_85%,white)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--diamond-accent,#2b7fff)"
+                            className="inline-flex h-6 cursor-pointer items-center rounded-sm bg-(--diamond-ink,#1a1917) px-2 font-medium text-(--diamond-surface,#fff) text-[10px] hover:bg-[color-mix(in_oklab,var(--diamond-ink,#1a1917)_85%,var(--diamond-surface,#fff))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--diamond-accent,#2b7fff)"
                         >
                             {retryLabel}
                         </button>

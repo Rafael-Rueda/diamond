@@ -152,12 +152,16 @@ function SingleCheckbox({
                     <X
                         size={12}
                         weight="bold"
-                        className="text-(--diamond-accent,#2b7fff) opacity-0 transition-opacity peer-checked/parent:opacity-100"
+                        className="text-(--diamond-accent,#2b7fff) opacity-0 transition-opacity group-has-[input:checked]:opacity-100"
                     />
                 </span>
             ) : (
                 <span className={cn(boxVariants({ variant: v }), "cursor-pointer")}>
-                    <Check size={12} weight="bold" className="text-white opacity-0 peer-checked:opacity-100" />
+                    <Check
+                        size={12}
+                        weight="bold"
+                        className="text-(--diamond-on-accent,#fff) opacity-0 transition-opacity group-has-[input:checked]:opacity-100"
+                    />
                 </span>
             )}
             {(label ?? children) ? <span>{label ?? children}</span> : null}
@@ -168,7 +172,7 @@ function SingleCheckbox({
         return (
             <label
                 className={cn(
-                    "peer/parent inline-flex min-w-[180px] cursor-pointer select-none items-center gap-3 rounded-md border-[1.5px] border-(--diamond-border,#d9d5cc) bg-(--diamond-surface,#fff) px-3.5 py-3 text-(--diamond-ink,#1a1917) text-[14px] transition-colors has-[input:checked]:border-(--diamond-accent,#2b7fff) has-[input:checked]:bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_6%,white)]",
+                    "group inline-flex min-w-[180px] cursor-pointer select-none items-center gap-3 rounded-md border-[1.5px] border-(--diamond-border,#d9d5cc) bg-(--diamond-surface,#fff) px-3.5 py-3 text-(--diamond-ink,#1a1917) text-[14px] transition-colors has-[input:checked]:border-(--diamond-accent,#2b7fff) has-[input:checked]:bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_8%,var(--diamond-surface,#fff))]",
                     disabled && "pointer-events-none opacity-50",
                     className,
                 )}
@@ -182,7 +186,7 @@ function SingleCheckbox({
     return (
         <label
             className={cn(
-                "peer/parent inline-flex cursor-pointer select-none items-center gap-2.5 text-(--diamond-ink,#1a1917) text-[14px]",
+                "group inline-flex cursor-pointer select-none items-center gap-2.5 text-(--diamond-ink,#1a1917) text-[14px]",
                 disabled && "pointer-events-none opacity-50",
                 className,
             )}
@@ -273,7 +277,7 @@ function GroupCheckbox({
             {...(rest as React.HTMLAttributes<HTMLDivElement>)}
         >
             {v === "select-all" ? (
-                <label className="flex cursor-pointer select-none items-center gap-2.5 border-(--diamond-border,#d9d5cc) border-b pb-2 font-semibold text-[14px]">
+                <label className="group flex cursor-pointer select-none items-center gap-2.5 border-(--diamond-border,#d9d5cc) border-b pb-2 font-semibold text-(--diamond-ink,#1a1917) text-[14px]">
                     <input
                         type="checkbox"
                         checked={selected.length === allIds.length && allIds.length > 0}
@@ -284,7 +288,11 @@ function GroupCheckbox({
                         className="peer sr-only"
                     />
                     <span className={cn(boxVariants({ variant: "square" }), "cursor-pointer")}>
-                        <Check size={12} weight="bold" className="text-white opacity-0 peer-checked:opacity-100" />
+                        <Check
+                            size={12}
+                            weight="bold"
+                            className="text-(--diamond-on-accent,#fff) opacity-0 group-has-[input:checked]:opacity-100"
+                        />
                     </span>
                     {selectAll ?? "Select all"}
                 </label>
@@ -302,7 +310,11 @@ function GroupCheckbox({
                             className="peer sr-only"
                         />
                         <span className={cn(boxVariants({ variant: "square" }), "cursor-pointer")}>
-                            <Check size={12} weight="bold" className="text-white opacity-0 peer-checked:opacity-100" />
+                            <Check
+                                size={12}
+                                weight="bold"
+                                className="text-(--diamond-on-accent,#fff) opacity-0 group-has-[input:checked]:opacity-100"
+                            />
                         </span>
                     </>
                 );
@@ -311,7 +323,7 @@ function GroupCheckbox({
                         <label
                             key={i.id}
                             className={cn(
-                                "inline-flex min-w-[130px] cursor-pointer select-none items-center gap-3 rounded-md border-[1.5px] border-(--diamond-border,#d9d5cc) bg-(--diamond-surface,#fff) px-3.5 py-3 text-[14px] transition-colors has-[input:checked]:border-(--diamond-accent,#2b7fff) has-[input:checked]:bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_6%,white)]",
+                                "group inline-flex min-w-[130px] cursor-pointer select-none items-center gap-3 rounded-md border-[1.5px] border-(--diamond-border,#d9d5cc) bg-(--diamond-surface,#fff) px-3.5 py-3 text-(--diamond-ink,#1a1917) text-[14px] transition-colors has-[input:checked]:border-(--diamond-accent,#2b7fff) has-[input:checked]:bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_8%,var(--diamond-surface,#fff))]",
                                 i.disabled && "pointer-events-none opacity-50",
                             )}
                         >
@@ -325,7 +337,7 @@ function GroupCheckbox({
                         <label
                             key={i.id}
                             className={cn(
-                                "flex cursor-pointer select-none items-center justify-between rounded-md border bg-(--diamond-surface,#fff) px-3 py-2.5",
+                                "group flex cursor-pointer select-none items-center justify-between rounded-md border bg-(--diamond-surface,#fff) px-3 py-2.5 text-(--diamond-ink,#1a1917)",
                                 on ? "border-(--diamond-accent,#2b7fff)" : "border-(--diamond-border,#d9d5cc)",
                                 i.disabled && "pointer-events-none opacity-50",
                             )}
@@ -342,7 +354,7 @@ function GroupCheckbox({
                     <label
                         key={i.id}
                         className={cn(
-                            "inline-flex cursor-pointer select-none items-center gap-2.5 text-[14px]",
+                            "group inline-flex cursor-pointer select-none items-center gap-2.5 text-(--diamond-ink,#1a1917) text-[14px]",
                             i.disabled && "pointer-events-none opacity-50",
                         )}
                     >

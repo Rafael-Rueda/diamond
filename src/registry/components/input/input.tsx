@@ -28,7 +28,7 @@ const inputVariants = cva(inputBase, {
             underline:
                 "rounded-none border-0 border-b-[1.5px] border-(--diamond-border,#d9d5cc) bg-transparent px-0 py-2 focus-visible:border-(--diamond-accent,#2b7fff)",
             filled:
-                "rounded-md border border-transparent bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_8%,white)] px-3.5 py-2.5 focus-visible:bg-(--diamond-surface,#fff) focus-visible:border-(--diamond-accent,#2b7fff)",
+                "rounded-md border border-transparent bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_10%,var(--diamond-surface,#fff))] px-3.5 py-2.5 focus-visible:bg-(--diamond-surface,#fff) focus-visible:border-(--diamond-accent,#2b7fff)",
             floating: "", /* drawn by wrapper */
             terminal:
                 "rounded-sm border border-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_40%,#0a0a08)] bg-[#0a0a08] px-3 py-2.5 font-mono text-(--diamond-accent,#2b7fff) text-[13px] placeholder:text-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_50%,#0a0a08)]",

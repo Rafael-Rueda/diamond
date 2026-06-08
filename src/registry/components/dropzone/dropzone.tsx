@@ -35,7 +35,7 @@ const baseVariants = cva(
                     "size-32 flex-col gap-1 rounded-full border-[1.5px] border-(--diamond-border,#d9d5cc) border-dashed bg-(--diamond-surface,#fff) p-4",
             },
             isDragging: {
-                true: "border-(--diamond-accent,#2b7fff) bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_8%,white)]",
+                true: "border-(--diamond-accent,#2b7fff) bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_10%,var(--diamond-surface,#fff))]",
                 false: "",
             },
         },
@@ -159,7 +159,7 @@ export const Dropzone = React.forwardRef<HTMLLabelElement, DropzoneProps>(functi
                             className={cn(
                                 "flex aspect-square cursor-pointer items-center justify-center rounded-md border border-(--diamond-border,#d9d5cc) bg-(--diamond-surface,#fff) text-(--diamond-muted,#9a968e) transition-colors",
                                 isDragging && "border-(--diamond-accent,#2b7fff)",
-                                f && "border-(--diamond-accent,#2b7fff)/40 bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_10%,white)] text-(--diamond-accent,#2b7fff)",
+                                f && "border-(--diamond-accent,#2b7fff)/40 bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_12%,var(--diamond-surface,#fff))] text-(--diamond-accent,#2b7fff)",
                                 isAdd && "border-dashed",
                             )}
                         >

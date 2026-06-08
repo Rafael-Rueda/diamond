@@ -93,6 +93,27 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(fu
 
     if (v === "tag-pills" || v === "chip-dark") {
         const dark = v === "chip-dark";
+        const addTags = (raw: string[]) => {
+            const dedup: string[] = [];
+            for (const t of raw) {
+                if (!t) continue;
+                if (selected.includes(t) || dedup.includes(t)) continue;
+                dedup.push(t);
+            }
+            if (dedup.length) set([...selected, ...dedup]);
+        };
+        const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            const val = e.target.value;
+            if (/\s/.test(val)) {
+                const parts = val.split(/\s+/);
+                const endsWithSpace = /\s$/.test(val);
+                const toCommit = endsWithSpace ? parts : parts.slice(0, -1);
+                addTags(toCommit.filter(Boolean));
+                setDraft(endsWithSpace ? "" : (parts[parts.length - 1] ?? ""));
+                return;
+            }
+            setDraft(val);
+        };
         return (
             <div ref={ref} className={cn(wrapperVariants({ variant: v }), className)} style={inlineStyle} {...rest}>
                 {selected.map((val) => (
@@ -101,8 +122,8 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(fu
                         className={cn(
                             "inline-flex items-center gap-1 rounded-md py-1 pr-1 pl-2.5 text-[13px]",
                             dark
-                                ? "rounded-full bg-(--diamond-ink,#1a1917) text-(--diamond-surface,#fff)"
-                                : "bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_12%,white)] text-(--diamond-accent,#2b7fff)",
+                                ? "rounded-full bg-[#1a1917] text-[#f5f3ef]"
+                                : "bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_14%,var(--diamond-surface,#fff))] text-[var(--diamond-accent-deep,color-mix(in_oklab,var(--diamond-accent,#2b7fff)_80%,#000))]",
                         )}
                     >
                         {labelFor(val)}
@@ -118,17 +139,30 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(fu
                 ))}
                 <input
                     value={draft}
-                    onChange={(e) => setDraft(e.target.value)}
+                    onChange={onInputChange}
                     onKeyDown={(e) => {
-                        if (e.key === "Enter" && creatable) {
+                        if (e.key === "Enter") {
                             e.preventDefault();
-                            commit();
-                        } else if (e.key === "Backspace" && !draft && selected.length) {
+                            const trimmed = draft.trim();
+                            if (trimmed) addTags([trimmed]);
+                            setDraft("");
+                            return;
+                        }
+                        if (e.key === "Backspace" && !draft && selected.length) {
                             remove(selected[selected.length - 1]);
                         }
                     }}
-                    placeholder={selected.length ? "" : placeholder}
-                    className="min-w-[80px] flex-1 border-0 bg-transparent px-1 py-1 text-[14px] outline-none placeholder:text-(--diamond-muted,#9a968e)"
+                    onPaste={(e) => {
+                        const text = e.clipboardData.getData("text");
+                        if (/\s/.test(text)) {
+                            e.preventDefault();
+                            const parts = text.split(/\s+/).filter(Boolean);
+                            if (parts.length) addTags(parts);
+                            setDraft("");
+                        }
+                    }}
+                    placeholder={selected.length ? "" : (creatable === false ? placeholder : `${placeholder} (space to add)`)}
+                    className="min-w-[80px] flex-1 border-0 bg-transparent px-1 py-1 text-(--diamond-ink,#1a1917) text-[14px] outline-none placeholder:text-(--diamond-muted,#9a968e)"
                 />
             </div>
         );
@@ -261,9 +295,9 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(fu
                                     disabled={o.disabled}
                                     onClick={() => toggle(o.value)}
                                     className={cn(
-                                        "flex w-full cursor-pointer items-center gap-2 rounded px-2.5 py-2 text-left text-[13px]",
+                                        "flex w-full cursor-pointer items-center gap-2 rounded px-2.5 py-2 text-left text-(--diamond-ink,#1a1917) text-[13px]",
                                         on
-                                            ? "bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_10%,white)]"
+                                            ? "bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_12%,var(--diamond-surface,#fff))] text-[var(--diamond-accent-deep,color-mix(in_oklab,var(--diamond-accent,#2b7fff)_80%,#000))]"
                                             : "hover:bg-(--diamond-surface-alt,#ebe8e1)",
                                         o.disabled && "pointer-events-none opacity-50",
                                     )}

@@ -194,7 +194,7 @@ export const DateRangePicker = React.forwardRef<HTMLDivElement, DateRangePickerP
                                 isStart || isEnd
                                     ? "rounded-full bg-(--diamond-accent,#2b7fff) text-(--diamond-on-accent,#fff)"
                                     : inRange
-                                      ? "bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_15%,white)] text-(--diamond-accent,#2b7fff)"
+                                      ? "bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_18%,var(--diamond-surface,#fff))] text-(--diamond-accent-deep,color-mix(in_oklab,var(--diamond-accent,#2b7fff)_80%,#000))"
                                       : "rounded-full hover:bg-(--diamond-surface-alt,#ebe8e1)",
                             )}
                         >

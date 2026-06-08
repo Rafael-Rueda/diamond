@@ -171,7 +171,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(function Sel
                                     className={cn(
                                         "flex w-full cursor-pointer items-center justify-between gap-2.5 rounded px-2.5 py-2 text-left text-[13px] transition-colors",
                                         on
-                                            ? "bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_10%,white)] text-(--diamond-accent,#2b7fff)"
+                                            ? "bg-[color-mix(in_oklab,var(--diamond-accent,#2b7fff)_12%,var(--diamond-surface,#fff))] text-(--diamond-accent-deep,color-mix(in_oklab,var(--diamond-accent,#2b7fff)_80%,#000))"
                                             : "text-(--diamond-ink,#1a1917) hover:bg-(--diamond-surface-alt,#ebe8e1)",
                                         o.disabled && "pointer-events-none opacity-50",
                                         v === "terminal" && (on ? "bg-[#1a1a18] text-(--diamond-accent,#2b7fff)" : "text-[#d4d0c8] hover:bg-[#1a1a18]"),
