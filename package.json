@@ -1,0 +1,89 @@
+{
+    "name": "@rueda.dev/gems-diamond",
+    "version": "0.1.0",
+    "description": "Diamond - The UI skin of the Rueda.Dev ecosystem. A shadcn-style, Radix + Tailwind component library installed file-by-file into your project.",
+    "author": "Rueda.Dev",
+    "license": "MIT",
+    "type": "module",
+    "bin": {
+        "diamond": "./dist/cli/index.js"
+    },
+    "main": "./dist/public/index.js",
+    "types": "./dist/public/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/public/index.d.ts",
+            "import": "./dist/public/index.js"
+        },
+        "./config": {
+            "types": "./dist/public/config.d.ts",
+            "import": "./dist/public/config.js"
+        }
+    },
+    "files": [
+        "dist",
+        "src/registry",
+        "templates",
+        "README.md"
+    ],
+    "workspaces": [
+        "apps/*"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.build.json",
+        "dev": "tsc -p tsconfig.build.json --watch",
+        "cli": "node --loader tsx ./src/cli/index.ts",
+        "docs": "npm run dev --workspace apps/docs",
+        "docs:build": "npm run build --workspace apps/docs",
+        "docs:preview": "npm run preview --workspace apps/docs",
+        "lint": "eslint . --ext .ts,.tsx",
+        "lint:fix": "eslint . --ext .ts,.tsx --fix",
+        "test": "vitest run",
+        "prepublishOnly": "npm run build"
+    },
+    "dependencies": {
+        "commander": "^12.1.0",
+        "cosmiconfig": "^9.0.0",
+        "cosmiconfig-typescript-loader": "^6.1.0",
+        "execa": "^9.5.1",
+        "ora": "^8.1.1",
+        "picocolors": "^1.1.1",
+        "prompts": "^2.4.2",
+        "zod": "^3.23.8"
+    },
+    "peerDependencies": {
+        "react": ">=18",
+        "react-dom": ">=18"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.4.15",
+        "@phosphor-icons/react": "^2.1.7",
+        "@radix-ui/react-popover": "^1.1.2",
+        "@radix-ui/react-slot": "^1.1.0",
+        "@radix-ui/react-toast": "^1.2.2",
+        "@radix-ui/react-tooltip": "^1.1.4",
+        "@rueda.dev/config": "^1.6.1",
+        "@types/node": "^22.9.0",
+        "@types/prompts": "^2.4.9",
+        "@types/react": "^18.3.12",
+        "@types/react-dom": "^18.3.1",
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.1.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "tailwind-merge": "^2.5.4",
+        "tsx": "^4.19.2",
+        "typescript": "^5.6.3",
+        "vitest": "^2.1.5"
+    },
+    "keywords": [
+        "ui",
+        "components",
+        "radix",
+        "tailwind",
+        "design-system",
+        "rueda",
+        "diamond",
+        "shadcn"
+    ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "button",
+  "name": "Button",
+  "description": "59 button variants. Tailwind-only, Radix Slot composition, single file.",
+  "kind": "ui",
+  "files": [
+    { "source": "button.tsx", "target": "button.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@radix-ui/react-slot",      "version": "^1.1.0", "kind": "runtime" },
+    { "name": "class-variance-authority",  "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                      "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",            "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["primitive", "interactive", "form"],
+
+  "documentation": {
+    "groups": {
+      "Solid & Filled": ["solid", "gradient", "glow", "pill", "layer", "arrow"],
+      "Outlined":       ["outline", "dashed", "double", "fill", "dotborder", "trace"],
+      "Subtle":         ["ghost", "soft", "underline", "caret", "glass", "stamp"],
+      "Expressive":     ["neobrutal", "retro", "pixel", "terminal", "aurora", "sketch"],
+      "Shaped":         ["notch", "chevron", "ticket", "mono-ticket", "exec"],
+      "Utility":        ["icon-chip", "split", "circle", "status", "darkcard", "lift"],
+      "Motion":         ["liquid", "ring", "scan", "breathe", "wave", "morse"],
+      "Reactive":       ["magnet", "reveal", "progress", "gooey", "confetti", "fold"],
+      "Surface":        ["paper", "grain", "tape", "cloud", "neumorph", "longshadow"],
+      "Identity":       ["glitch", "slash", "scope", "badge", "counter", "url"]
+    },
+    "samples": {
+      "default": "Get started",
+      "perVariant": {
+        "circle":    { "label": "+" },
+        "exec":      { "label": "Contact" },
+        "terminal":  { "label": "deploy" },
+        "pixel":     { "label": "Start" },
+        "scan":      { "label": "Enter" },
+        "glitch":    { "label": "Jack In" },
+        "longshadow":{ "label": "Push" },
+        "mono-ticket":{ "label": "Confirm" },
+        "caret":     { "label": "Learn more" },
+        "counter":   { "label": "Inbox", "props": { "data-count": 12 } },
+        "reveal":    { "label": "Hover me", "props": { "data-alt": "Open →" } },
+        "wave":      { "label": "Listening" },
+        "morse":     { "label": "Connecting" },
+        "status":    { "label": "Online" },
+        "confetti":  { "label": "Celebrate" },
+        "url":       { "label": "docs/api" },
+        "badge":     { "label": "Status" }
+      }
+    }
+  }
+}

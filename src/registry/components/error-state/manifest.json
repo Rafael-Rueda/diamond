@@ -1,0 +1,35 @@
+{
+  "id": "error-state",
+  "name": "Error State",
+  "description": "System failure containers — classic 404, 500 server, playful broken, connection lost, terminal output and friendly code.",
+  "kind": "ui",
+  "files": [
+    { "source": "error-state.tsx", "target": "error-state.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-slot",     "version": "^1.1.0", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["feedback", "state", "error"],
+
+  "documentation": {
+    "groups": {
+      "Errors": ["not-found", "server", "broken", "connection", "terminal", "friendly"]
+    },
+    "samples": {
+      "default": "Something went wrong",
+      "perVariant": {
+        "not-found":  { "label": "Page not found" },
+        "server":     { "label": "Server error" },
+        "broken":     { "label": "Something broke" },
+        "connection": { "label": "Connection lost" },
+        "terminal":   { "label": "" },
+        "friendly":   { "label": "Unexpected error" }
+      }
+    }
+  }
+}

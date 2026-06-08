@@ -1,0 +1,22 @@
+/* Diamond · Sakura theme — cherry blossom pink on petal cream / deep plum (light + dark). */
+:root {
+  --diamond-accent:        #ec4899;
+  --diamond-on-accent:     #ffffff;
+  --diamond-accent-deep:   #9d174d;
+  --diamond-accent-soft:   color-mix(in oklab, var(--diamond-accent) 28%, var(--diamond-surface));
+  --diamond-gradient:      linear-gradient(135deg, #ec4899, #f472b6 40%, #fbbf24);
+
+  --diamond-surface:       #fef5f8;
+  --diamond-surface-alt:   #fbe6ee;
+  --diamond-ink:           #3f1d3a;
+  --diamond-muted:         #9b6c8a;
+  --diamond-border:        #f5d0df;
+}
+
+:root.dark {
+  --diamond-surface:       #1f0a18;
+  --diamond-surface-alt:   #2d1424;
+  --diamond-ink:           #fef5f8;
+  --diamond-muted:         #c89bb8;
+  --diamond-border:        #3d1c2e;
+}

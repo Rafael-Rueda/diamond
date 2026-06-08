@@ -1,0 +1,26 @@
+---
+import DocsLayout from '@/layouts/DocsLayout.astro';
+import { loadAllManifests } from '@/lib/registry';
+
+const manifests = loadAllManifests();
+---
+
+<DocsLayout title="Components">
+  <h1 class="text-3xl font-semibold tracking-tight mb-8">Components</h1>
+  <ul class="space-y-3">
+    {manifests.map((m) => (
+      <li>
+        <a
+          href={`/components/${m.id}`}
+          class="block rounded-md border border-[var(--diamond-border)] bg-[var(--diamond-surface-alt)] px-4 py-3 hover:border-[var(--diamond-accent)] transition-colors"
+        >
+          <div class="flex items-baseline gap-3">
+            <span class="font-semibold">{m.name}</span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--diamond-muted)]">{m.kind}</span>
+          </div>
+          <p class="text-sm text-[var(--diamond-muted)] mt-1">{m.description}</p>
+        </a>
+      </li>
+    ))}
+  </ul>
+</DocsLayout>

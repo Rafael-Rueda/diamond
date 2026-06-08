@@ -1,0 +1,40 @@
+{
+  "id": "slider",
+  "name": "Slider",
+  "description": "Single-thumb or two-thumb range slider, wrapping real <input type=\"range\"> — classic, thick, floating value, stepped, gradient, mono single; range, range-thick, range-bubbles, range-fields, range-histogram, range-mono dual.",
+  "kind": "ui",
+  "files": [
+    { "source": "slider.tsx", "target": "slider.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "input"],
+
+  "documentation": {
+    "groups": {
+      "Single": ["classic", "thick", "floating", "stepped", "gradient", "mono"],
+      "Range":  ["range", "range-thick", "range-bubbles", "range-fields", "range-histogram", "range-mono"]
+    },
+    "samples": {
+      "default": "Adjust",
+      "perVariant": {
+        "classic":         { "label": "" },
+        "thick":           { "label": "" },
+        "floating":        { "label": "" },
+        "stepped":         { "label": "" },
+        "gradient":        { "label": "" },
+        "mono":            { "label": "" },
+        "range":           { "label": "" },
+        "range-thick":     { "label": "" },
+        "range-bubbles":   { "label": "" },
+        "range-fields":    { "label": "" },
+        "range-histogram": { "label": "" },
+        "range-mono":      { "label": "" }
+      }
+    }
+  }
+}

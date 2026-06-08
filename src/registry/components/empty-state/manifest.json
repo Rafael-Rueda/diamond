@@ -1,0 +1,35 @@
+{
+  "id": "empty-state",
+  "name": "Empty State",
+  "description": "“No data to show” containers with art, copy and CTA — inbox, CTA, no-results, dropzone, editorial 404, all caught up.",
+  "kind": "ui",
+  "files": [
+    { "source": "empty-state.tsx", "target": "empty-state.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-slot",     "version": "^1.1.0", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["feedback", "state"],
+
+  "documentation": {
+    "groups": {
+      "States": ["inbox", "cta", "no-results", "dropzone", "editorial", "caught-up"]
+    },
+    "samples": {
+      "default": "Nothing here yet",
+      "perVariant": {
+        "inbox":       { "label": "No messages yet" },
+        "cta":         { "label": "Create your first project" },
+        "no-results":  { "label": "No results found" },
+        "dropzone":    { "label": "Folder is empty" },
+        "editorial":   { "label": "Nothing here yet" },
+        "caught-up":   { "label": "All caught up!" }
+      }
+    }
+  }
+}

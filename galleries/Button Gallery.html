@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Button Gallery — 60 Variants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --bg: #f5f3ef;
+    --bg-2: #ebe8e1;
+    --fg: #1a1917;
+    --fg-2: #6b6862;
+    --border: #d9d5cc;
+    --accent: #2b7fff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  body { min-height: 100vh; }
+
+  /* ------------ PAGE LAYOUT ------------ */
+  .page {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 56px 48px 120px;
+  }
+  .header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .header h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  .header h1 em { font-style: italic; color: var(--fg-2); font-weight: 400; }
+  .header .sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--fg-2);
+    max-width: 320px;
+    text-align: right;
+    line-height: 1.6;
+  }
+  .meta-row {
+    display: flex; gap: 24px; margin-bottom: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--fg-2);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .meta-row span { display: inline-flex; align-items: center; gap: 8px; }
+  .meta-row .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  /* ------------ SECTION ------------ */
+  .section { margin-bottom: 72px; }
+  .section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    padding-bottom: 14px; margin-bottom: 32px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .section-head .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--fg-2);
+    letter-spacing: 0.1em;
+  }
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .section-head .desc {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--fg-2);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ------------ GRID ------------ */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  @media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+
+  .cell {
+    background: var(--bg);
+    padding: 48px 32px 32px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: space-between;
+    min-height: 240px;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .cell:hover { background: var(--bg-2); }
+  .cell .label {
+    position: absolute;
+    top: 14px; left: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--fg-2);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .cell .idx {
+    position: absolute;
+    top: 14px; right: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--fg-2);
+    letter-spacing: 0.1em;
+  }
+  .cell .btn-stage {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+  }
+  .cell .footnote {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--fg-2);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin-top: 12px;
+    min-height: 14px;
+  }
+
+  /* ------------ TWEAKS PANEL ------------ */
+  .tweaks {
+    position: fixed;
+    right: 24px; bottom: 24px;
+    width: 320px;
+    background: #1a1917;
+    color: #f5f3ef;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    font-family: 'Inter', sans-serif;
+    z-index: 9999;
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .tweaks.hidden { display: none; }
+  .tweaks-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .tweaks-header .title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .tweaks-header .close {
+    background: none; border: none; color: rgba(245,243,239,0.5);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .tweaks-body { padding: 16px; max-height: 60vh; overflow-y: auto; }
+  .tweaks-row { margin-bottom: 16px; }
+  .tweaks-row:last-child { margin-bottom: 0; }
+  .tweaks-row label {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,243,239,0.7);
+    margin-bottom: 8px;
+  }
+  .tweaks-row label .val { color: var(--accent); }
+  .tweaks-row input[type="range"] {
+    width: 100%; -webkit-appearance: none; appearance: none;
+    height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; outline: none;
+  }
+  .tweaks-row input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #f5f3ef; cursor: pointer;
+  }
+  .tweaks-row input[type="text"] {
+    width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    color: #f5f3ef; padding: 8px 10px; border-radius: 6px;
+    font-family: 'Inter', sans-serif; font-size: 13px; outline: none;
+  }
+  .tweaks-row input[type="text"]:focus { border-color: var(--accent); }
+  .swatches { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; }
+  .swatch {
+    aspect-ratio: 1; border-radius: 6px; cursor: pointer; border: 2px solid transparent;
+    transition: transform 0.15s;
+  }
+  .swatch:hover { transform: scale(1.1); }
+  .swatch.active { border-color: #f5f3ef; }
+  .font-picker { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .font-btn {
+    padding: 8px 10px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(245,243,239,0.8); border-radius: 6px; cursor: pointer;
+    font-size: 12px; text-align: center;
+  }
+  .font-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+  .fab {
+    position: fixed; right: 24px; bottom: 24px;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: #1a1917; color: #f5f3ef; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    z-index: 9998;
+    font-size: 18px;
+  }
+  .fab.hidden { display: none; }
+
+  /* ------------ TOAST ------------ */
+  .toast {
+    position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
+    background: #1a1917; color: #f5f3ef; padding: 10px 16px;
+    border-radius: 8px; font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    z-index: 10000;
+    opacity: 0; transition: opacity 0.2s, transform 0.2s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(4px); }
+
+  /* ================================================================= */
+  /*                      BUTTON VARIANT STYLES                        */
+  /* ================================================================= */
+
+  /* All variants use these CSS vars, set on the stage wrapper */
+  .btn {
+    --c: var(--accent);
+    --c-dark: color-mix(in oklab, var(--c) 80%, black);
+    --c-light: color-mix(in oklab, var(--c) 30%, white);
+    --c-fg: #ffffff;
+    font-family: var(--btn-font, 'Inter'), sans-serif;
+    font-size: var(--btn-size, 15px);
+    font-weight: var(--btn-weight, 500);
+    border-radius: var(--btn-radius, 10px);
+    padding: var(--btn-pady, 12px) var(--btn-padx, 22px);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: 0.01em;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    text-decoration: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  /* 01 — Solid */
+  .v-solid { background: var(--c); color: var(--c-fg); }
+  .v-solid:hover { background: var(--c-dark); transform: translateY(-1px); }
+
+  /* 02 — Outline */
+  .v-outline { background: transparent; color: var(--c); border: 1.5px solid var(--c); }
+  .v-outline:hover { background: var(--c); color: var(--c-fg); }
+
+  /* 03 — Ghost */
+  .v-ghost { background: transparent; color: var(--c); }
+  .v-ghost:hover { background: color-mix(in oklab, var(--c) 12%, transparent); }
+
+  /* 04 — Soft */
+  .v-soft { background: color-mix(in oklab, var(--c) 15%, white); color: var(--c-dark); }
+  .v-soft:hover { background: color-mix(in oklab, var(--c) 25%, white); }
+
+  /* 05 — Pill */
+  .v-pill { background: var(--c); color: var(--c-fg); border-radius: 999px; padding: 12px 28px; }
+  .v-pill:hover { background: var(--c-dark); }
+
+  /* 06 — 3D / Neobrutal */
+  .v-3d {
+    background: var(--c); color: var(--c-fg);
+    border: 2px solid #1a1917;
+    box-shadow: 4px 4px 0 0 #1a1917;
+    border-radius: 6px;
+    font-weight: 700;
+  }
+  .v-3d:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 #1a1917; }
+  .v-3d:active { transform: translate(4px, 4px); box-shadow: 0 0 0 0 #1a1917; }
+
+  /* 07 — Gradient shine */
+  .v-gradient {
+    color: var(--c-fg); border-radius: 10px;
+    background: linear-gradient(135deg, var(--c), color-mix(in oklab, var(--c) 60%, #000));
+    box-shadow: 0 4px 14px -2px color-mix(in oklab, var(--c) 40%, transparent);
+  }
+  .v-gradient:hover { transform: translateY(-1px); box-shadow: 0 8px 20px -4px color-mix(in oklab, var(--c) 50%, transparent); }
+
+  /* 08 — Glass */
+  .v-glass {
+    background: color-mix(in oklab, var(--c) 20%, transparent);
+    backdrop-filter: blur(10px);
+    color: var(--c);
+    border: 1px solid color-mix(in oklab, var(--c) 30%, transparent);
+    border-radius: 12px;
+  }
+  .v-glass:hover { background: color-mix(in oklab, var(--c) 30%, transparent); }
+
+  /* 09 — Glow / Neon */
+  .v-glow {
+    background: var(--c); color: var(--c-fg);
+    box-shadow: 0 0 24px color-mix(in oklab, var(--c) 50%, transparent),
+                0 0 0 1px color-mix(in oklab, var(--c) 80%, transparent);
+  }
+  .v-glow:hover {
+    box-shadow: 0 0 36px color-mix(in oklab, var(--c) 70%, transparent),
+                0 0 0 1px var(--c);
+  }
+
+  /* 10 — Icon chip */
+  .v-iconchip {
+    background: var(--c); color: var(--c-fg);
+    padding-left: 14px;
+    border-radius: 999px;
+  }
+  .v-iconchip .icon-wrap {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: color-mix(in oklab, white 30%, transparent);
+    display: flex; align-items: center; justify-content: center;
+    margin-right: -6px;
+  }
+
+  /* 11 — Underline link */
+  .v-underline {
+    background: transparent; color: var(--c);
+    padding: 4px 0; border-radius: 0;
+    position: relative; font-weight: 500;
+  }
+  .v-underline::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 1.5px; background: var(--c);
+    transform-origin: right;
+    transition: transform 0.3s;
+  }
+  .v-underline:hover::after { transform-origin: left; transform: scaleX(1); }
+
+  /* 12 — Retro tab */
+  .v-retro {
+    background: var(--c); color: var(--c-fg);
+    border-radius: 4px;
+    border-top: 1px solid color-mix(in oklab, white 30%, var(--c));
+    border-left: 1px solid color-mix(in oklab, white 30%, var(--c));
+    border-right: 2px solid var(--c-dark);
+    border-bottom: 2px solid var(--c-dark);
+    font-weight: 600;
+  }
+  .v-retro:active {
+    border-top: 2px solid var(--c-dark);
+    border-left: 2px solid var(--c-dark);
+    border-right: 1px solid color-mix(in oklab, white 30%, var(--c));
+    border-bottom: 1px solid color-mix(in oklab, white 30%, var(--c));
+  }
+
+  /* 13 — Sliding fill */
+  .v-fill {
+    background: transparent; color: var(--c);
+    border: 1.5px solid var(--c);
+    overflow: hidden; z-index: 0;
+  }
+  .v-fill::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--c); z-index: -1;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .v-fill:hover { color: var(--c-fg); }
+  .v-fill:hover::before { transform: translateX(0); }
+
+  /* 14 — Dashed */
+  .v-dashed {
+    background: color-mix(in oklab, var(--c) 8%, transparent);
+    color: var(--c);
+    border: 1.5px dashed var(--c);
+  }
+  .v-dashed:hover { background: color-mix(in oklab, var(--c) 20%, transparent); }
+
+  /* 15 — Double border */
+  .v-double {
+    background: transparent; color: var(--c);
+    border: 3px double var(--c);
+    font-weight: 600;
+  }
+  .v-double:hover { background: var(--c); color: var(--c-fg); }
+
+  /* 16 — Shadow lift */
+  .v-lift {
+    background: white; color: var(--c-dark);
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  .v-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -4px color-mix(in oklab, var(--c) 25%, transparent);
+    border-color: var(--c);
+    color: var(--c);
+  }
+
+  /* 17 — Split / Dual action */
+  .v-split {
+    padding: 0; background: var(--c); color: var(--c-fg);
+    display: inline-flex; overflow: hidden;
+  }
+  .v-split .main { padding: 12px 20px; }
+  .v-split .sep { width: 1px; background: color-mix(in oklab, white 30%, transparent); }
+  .v-split .more { padding: 12px 12px; cursor: pointer; }
+  .v-split:hover { background: var(--c-dark); }
+
+  /* 18 — Notched corner */
+  .v-notch {
+    background: var(--c); color: var(--c-fg);
+    border-radius: 0;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .v-notch:hover { background: var(--c-dark); }
+
+  /* 19 — Arrow slide */
+  .v-arrow {
+    background: var(--c); color: var(--c-fg);
+    padding-right: 40px;
+    overflow: hidden;
+  }
+  .v-arrow .arrow {
+    position: absolute; right: 16px; top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s;
+  }
+  .v-arrow:hover .arrow { transform: translateY(-50%) translateX(4px); }
+
+  /* 20 — Ticket / Coupon */
+  .v-ticket {
+    background: var(--c); color: var(--c-fg);
+    border-radius: 10px;
+    position: relative;
+    padding: 12px 26px;
+    font-weight: 600;
+  }
+  .v-ticket::before, .v-ticket::after {
+    content: ''; position: absolute; top: 50%; transform: translateY(-50%);
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--bg);
+  }
+  .v-ticket::before { left: -4px; }
+  .v-ticket::after { right: -4px; }
+
+  /* 21 — Magnetic stripe / Layer */
+  .v-layer {
+    background: var(--c); color: var(--c-fg);
+    box-shadow:
+      0 0 0 0 transparent,
+      4px 4px 0 -1px var(--c-light),
+      8px 8px 0 -2px color-mix(in oklab, var(--c) 20%, white);
+  }
+  .v-layer:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:
+      0 0 0 0 transparent,
+      6px 6px 0 -1px var(--c-light),
+      12px 12px 0 -2px color-mix(in oklab, var(--c) 20%, white);
+  }
+
+  /* 22 — Terminal / Command */
+  .v-terminal {
+    background: #1a1917; color: var(--c);
+    font-family: 'JetBrains Mono', monospace;
+    border-radius: 6px;
+    padding: 10px 18px;
+    border: 1px solid #2d2c28;
+    font-weight: 500;
+  }
+  .v-terminal::before {
+    content: '$'; color: var(--c-light); margin-right: 8px;
+  }
+  .v-terminal:hover { background: #262521; }
+
+  /* 23 — Aurora gradient border */
+  .v-aurora {
+    background: white; color: var(--fg);
+    border-radius: 10px;
+    position: relative;
+    padding: 12px 22px;
+    border: 2px solid transparent;
+    background:
+      linear-gradient(white, white) padding-box,
+      linear-gradient(90deg, var(--c), color-mix(in oklab, var(--c) 50%, magenta), var(--c)) border-box;
+    background-size: 100% 100%, 200% 200%;
+    animation: auroraShift 4s linear infinite;
+    font-weight: 600;
+  }
+  @keyframes auroraShift {
+    0% { background-position: 0% 50%, 0% 50%; }
+    100% { background-position: 0% 50%, 200% 50%; }
+  }
+
+  /* 24 — Minimal caret */
+  .v-caret {
+    background: transparent; color: var(--fg);
+    border-bottom: 1px solid var(--fg);
+    border-radius: 0;
+    padding: 6px 0;
+    padding-right: 4px;
+    font-weight: 500;
+  }
+  .v-caret .c { color: var(--c); font-weight: 700; margin-right: 6px; }
+  .v-caret:hover { color: var(--c); border-color: var(--c); }
+
+  /* 25 — Stamped / Embossed */
+  .v-stamp {
+    background: var(--c-light); color: var(--c-dark);
+    border-radius: 8px;
+    box-shadow:
+      inset 2px 2px 4px rgba(0,0,0,0.08),
+      inset -2px -2px 4px rgba(255,255,255,0.6);
+    font-weight: 600;
+    border: 1px solid color-mix(in oklab, var(--c) 20%, white);
+  }
+  .v-stamp:hover {
+    box-shadow:
+      inset 1px 1px 2px rgba(0,0,0,0.15),
+      inset -1px -1px 2px rgba(255,255,255,0.4);
+  }
+
+  /* 26 — Pixel / 8-bit */
+  .v-pixel {
+    background: var(--c); color: var(--c-fg);
+    font-family: 'JetBrains Mono', monospace;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    padding: 12px 22px;
+    box-shadow:
+      0 -4px 0 0 color-mix(in oklab, white 20%, var(--c)) inset,
+      0 4px 0 0 var(--c-dark) inset,
+      4px 0 0 0 var(--c-dark) inset,
+      -4px 0 0 0 color-mix(in oklab, white 15%, var(--c)) inset;
+  }
+  .v-pixel:active { transform: translateY(2px); }
+
+  /* 27 — Circular icon only */
+  .v-circle {
+    width: 52px; height: 52px; padding: 0;
+    border-radius: 50%;
+    background: var(--c); color: var(--c-fg);
+    box-shadow: 0 4px 12px -2px color-mix(in oklab, var(--c) 40%, transparent);
+  }
+  .v-circle:hover { transform: scale(1.05); }
+
+  /* 28 — Segmented status */
+  .v-status {
+    background: color-mix(in oklab, var(--c) 10%, white);
+    color: var(--c-dark);
+    border-radius: 999px;
+    padding: 8px 16px 8px 10px;
+    font-weight: 500;
+    border: 1px solid color-mix(in oklab, var(--c) 25%, white);
+  }
+  .v-status .led {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--c);
+    box-shadow: 0 0 8px var(--c);
+    display: inline-block;
+    animation: statusPulse 2s ease-in-out infinite;
+  }
+  @keyframes statusPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  /* 29 — Handwritten sketch */
+  .v-sketch {
+    background: transparent; color: var(--fg);
+    border: 2px solid var(--c);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    padding: 12px 24px;
+  }
+  .v-sketch:hover {
+    border-radius: 15px 225px 15px 255px/225px 15px 255px 15px;
+    background: color-mix(in oklab, var(--c) 12%, transparent);
+  }
+
+  /* 30 — Monospace ticket stub */
+  .v-mono-ticket {
+    background: var(--fg); color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 14px 22px;
+    border-radius: 2px;
+    border: 1px solid var(--fg);
+  }
+  .v-mono-ticket::before { content: '◆'; color: var(--c); margin-right: 10px; }
+  .v-mono-ticket:hover { background: var(--c); border-color: var(--c); }
+
+  /* 31 — Dotted border morph */
+  .v-dotborder {
+    background: transparent; color: var(--c);
+    border: none;
+    padding: 14px 24px;
+    position: relative;
+  }
+  .v-dotborder::before {
+    content: ''; position: absolute; inset: 0;
+    border: 2px dotted var(--c);
+    border-radius: inherit;
+    transition: inset 0.3s;
+  }
+  .v-dotborder:hover::before { inset: -4px; }
+
+  /* 32 — Inset pocket */
+  .v-pocket {
+    background: linear-gradient(180deg, color-mix(in oklab, var(--c) 10%, white), color-mix(in oklab, var(--c) 20%, white));
+    color: var(--c-dark);
+    border: 1px solid color-mix(in oklab, var(--c) 25%, white);
+    border-bottom: 2px solid color-mix(in oklab, var(--c) 40%, white);
+    border-radius: 8px;
+    font-weight: 600;
+  }
+  .v-pocket:active { border-bottom-width: 1px; transform: translateY(1px); }
+
+  /* 33 — Animated border trace */
+  .v-trace {
+    background: transparent;
+    color: var(--fg);
+    padding: 12px 22px;
+    font-weight: 500;
+    position: relative;
+    border-radius: 10px;
+  }
+  .v-trace svg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    overflow: visible;
+  }
+  .v-trace rect {
+    fill: none; stroke: var(--c); stroke-width: 1.5;
+    rx: 10; ry: 10;
+    stroke-dasharray: 8 200;
+    stroke-dashoffset: 0;
+    transition: stroke-dasharray 0.5s, stroke-dashoffset 0.5s;
+    width: 100%; height: 100%;
+    animation: traceSpin 3s linear infinite;
+  }
+  @keyframes traceSpin {
+    to { stroke-dashoffset: -208; }
+  }
+
+  /* 34 — Chevron stack */
+  .v-chevron {
+    background: var(--c); color: var(--c-fg);
+    padding: 14px 32px 14px 22px;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+    font-weight: 600;
+    border-radius: 0;
+    letter-spacing: 0.04em;
+  }
+  .v-chevron:hover { filter: brightness(0.92); }
+
+  /* 35 — Soft dark card */
+  .v-darkcard {
+    background: #1a1917; color: var(--bg);
+    border-radius: 10px;
+    padding: 14px 24px;
+    font-weight: 500;
+    position: relative;
+    border: 1px solid #2d2c28;
+  }
+  .v-darkcard .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c); box-shadow: 0 0 8px var(--c); }
+  .v-darkcard:hover { background: #252420; }
+
+  /* 36 — Letter-spaced executive */
+  .v-exec {
+    background: transparent; color: var(--fg);
+    border: 1px solid var(--fg);
+    padding: 16px 36px;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .v-exec:hover { background: var(--c); color: var(--c-fg); border-color: var(--c); letter-spacing: 0.3em; }
+
+  /* ================================================================= */
+  /*                    EXPANSION WAVE II — CREATIVE                    */
+  /* ================================================================= */
+
+  /* 37 — Liquid blob morph */
+  .v-liquid {
+    background: var(--c); color: var(--c-fg);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    font-weight: 600;
+    transition: border-radius 0.8s ease, background 0.3s;
+    animation: liquidMorph 8s ease-in-out infinite;
+  }
+  @keyframes liquidMorph {
+    0%,100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    33% { border-radius: 70% 30% 50% 50% / 50% 70% 30% 50%; }
+    66% { border-radius: 50% 50% 30% 70% / 70% 30% 70% 30%; }
+  }
+  .v-liquid:hover { animation-duration: 2s; background: var(--c-dark); }
+
+  /* 38 — Magnetic arrow trail */
+  .v-magnet {
+    background: transparent; color: var(--fg);
+    border: 1.5px solid var(--fg);
+    padding-left: 40px;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  .v-magnet::before {
+    content: '→'; position: absolute; left: 14px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--c);
+    transition: left 0.3s, color 0.3s;
+  }
+  .v-magnet:hover {
+    border-color: var(--c); background: var(--c); color: var(--c-fg);
+    padding-left: 50px;
+  }
+  .v-magnet:hover::before { left: 22px; color: var(--c-fg); }
+
+  /* 39 — Ring pulse (CTA attention) */
+  .v-ring {
+    background: var(--c); color: var(--c-fg);
+    border-radius: 999px;
+    font-weight: 600;
+    padding: 12px 28px;
+  }
+  .v-ring::before {
+    content: ''; position: absolute; inset: -6px;
+    border-radius: 999px;
+    border: 2px solid var(--c);
+    opacity: 0.6;
+    animation: ringPulse 2s ease-out infinite;
+  }
+  @keyframes ringPulse {
+    0% { transform: scale(0.95); opacity: 0.7; }
+    100% { transform: scale(1.25); opacity: 0; }
+  }
+
+  /* 40 — Scan line / Matrix */
+  .v-scan {
+    background: #0a0a08; color: var(--c);
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    padding: 12px 22px;
+    border: 1px solid color-mix(in oklab, var(--c) 50%, #0a0a08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .v-scan::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 0%, color-mix(in oklab, var(--c) 30%, transparent) 50%, transparent 100%);
+    animation: scanLine 2.5s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes scanLine {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+
+  /* 41 — Paper / Torn edge */
+  .v-paper {
+    background: #fafaf7; color: var(--fg);
+    border: 1px solid color-mix(in oklab, var(--c) 40%, #fafaf7);
+    border-radius: 2px;
+    padding: 14px 26px;
+    box-shadow:
+      1px 1px 0 0 var(--c),
+      2px 2px 0 0 color-mix(in oklab, var(--c) 50%, white),
+      3px 3px 8px rgba(0,0,0,0.04);
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  .v-paper:hover { transform: translate(-1px, -1px); box-shadow: 2px 2px 0 0 var(--c), 4px 4px 0 0 color-mix(in oklab, var(--c) 50%, white), 6px 6px 12px rgba(0,0,0,0.05); }
+
+  /* 42 — Split reveal letters */
+  .v-reveal {
+    background: var(--c); color: var(--c-fg);
+    overflow: hidden;
+    padding: 14px 26px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .v-reveal .txt { display: inline-block; transition: transform 0.35s cubic-bezier(.7,.1,.2,1); }
+  .v-reveal .txt-alt {
+    position: absolute; left: 50%; top: 100%;
+    transform: translateX(-50%);
+    transition: top 0.35s cubic-bezier(.7,.1,.2,1);
+  }
+  .v-reveal:hover .txt { transform: translateY(-150%); }
+  .v-reveal:hover .txt-alt { top: 50%; transform: translate(-50%, -50%); }
+
+  /* 43 — Noise / Grain */
+  .v-grain {
+    background: var(--c); color: var(--c-fg);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-radius: 4px;
+    position: relative;
+    padding: 14px 28px;
+    overflow: hidden;
+  }
+  .v-grain::after {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  /* 44 — Gooey pill */
+  .v-gooey {
+    background: color-mix(in oklab, var(--c) 15%, white);
+    color: var(--c-dark);
+    border-radius: 999px;
+    padding: 10px 10px 10px 20px;
+    gap: 12px;
+    font-weight: 600;
+  }
+  .v-gooey .pip {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--c); color: white;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform 0.3s cubic-bezier(.6,-.5,.3,1.5);
+  }
+  .v-gooey:hover .pip { transform: rotate(90deg) scale(1.1); }
+
+  /* 45 — Asymmetric slash */
+  .v-slash {
+    background: var(--c); color: var(--c-fg);
+    border-radius: 0;
+    padding: 12px 28px 12px 20px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+    padding-right: 36px;
+  }
+  .v-slash:hover { filter: brightness(0.9); }
+
+  /* 46 — Cyberpunk / glitch */
+  .v-glitch {
+    background: #0a0a08; color: var(--c);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 26px;
+    border: 1px solid var(--c);
+    border-radius: 0;
+    clip-path: polygon(0 8px, 8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px));
+    box-shadow: 0 0 20px color-mix(in oklab, var(--c) 30%, transparent);
+  }
+  .v-glitch:hover {
+    animation: glitchShake 0.3s steps(2) infinite;
+    text-shadow: 2px 0 color-mix(in oklab, var(--c) 80%, red), -2px 0 color-mix(in oklab, var(--c) 80%, cyan);
+  }
+  @keyframes glitchShake {
+    0%, 100% { transform: translate(0); }
+    50% { transform: translate(1px, -1px); }
+  }
+
+  /* 47 — Progress button */
+  .v-progress {
+    background: color-mix(in oklab, var(--c) 12%, white);
+    color: var(--c-dark);
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .v-progress::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 0;
+    background: var(--c);
+    opacity: 0.25;
+    transition: width 1.2s ease-out;
+  }
+  .v-progress:hover::before { width: 100%; }
+
+  /* 48 — Long shadow */
+  .v-longshadow {
+    background: var(--c); color: var(--c-fg);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 14px 28px;
+    text-shadow:
+      1px 1px 0 var(--c-dark),
+      2px 2px 0 var(--c-dark),
+      3px 3px 0 var(--c-dark),
+      4px 4px 0 var(--c-dark),
+      5px 5px 0 var(--c-dark),
+      6px 6px 0 color-mix(in oklab, var(--c) 40%, black);
+  }
+
+  /* 49 — Aperture / scope */
+  .v-scope {
+    background: transparent; color: var(--fg);
+    padding: 12px 22px 12px 40px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-weight: 500;
+  }
+  .v-scope::before {
+    content: ''; position: absolute; left: 14px; top: 50%;
+    transform: translateY(-50%);
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--c);
+    box-shadow: inset 0 0 0 3px var(--bg), 0 0 0 3px color-mix(in oklab, var(--c) 25%, transparent);
+  }
+  .v-scope:hover { border-color: var(--c); }
+
+  /* 50 — Breathing / pulse soft */
+  .v-breathe {
+    background: var(--c); color: var(--c-fg);
+    border-radius: 14px;
+    padding: 14px 28px;
+    font-weight: 600;
+    animation: breathe 3s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--c) 60%, transparent); }
+    50% { box-shadow: 0 0 0 10px color-mix(in oklab, var(--c) 0%, transparent); }
+  }
+
+  /* 51 — Tape label */
+  .v-tape {
+    background: color-mix(in oklab, var(--c) 30%, white);
+    color: var(--c-dark);
+    padding: 14px 28px;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    border-radius: 0;
+    transform: rotate(-1.5deg);
+    box-shadow: 0 1px 0 color-mix(in oklab, var(--c) 50%, white);
+    border-left: 1px dashed color-mix(in oklab, var(--c) 60%, white);
+    border-right: 1px dashed color-mix(in oklab, var(--c) 60%, white);
+  }
+  .v-tape:hover { transform: rotate(0deg); }
+
+  /* 52 — Badge / Tag */
+  .v-badge {
+    background: var(--c); color: var(--c-fg);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 8px 14px 8px 32px;
+    border-radius: 4px;
+  }
+  .v-badge::before {
+    content: ''; position: absolute; left: 12px; top: 50%;
+    transform: translateY(-50%);
+    width: 10px; height: 10px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+
+  /* 53 — Fold / origami */
+  .v-fold {
+    background: var(--c); color: var(--c-fg);
+    padding: 14px 24px;
+    font-weight: 600;
+    border-radius: 6px;
+    position: relative;
+  }
+  .v-fold::after {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 14px; height: 14px;
+    background: linear-gradient(-135deg, var(--bg) 50%, color-mix(in oklab, var(--c) 30%, black) 50%);
+    border-bottom-left-radius: 4px;
+    box-shadow: -1px 1px 2px rgba(0,0,0,0.15);
+  }
+  .v-fold:hover::after { width: 20px; height: 20px; transition: all 0.25s; }
+
+  /* 54 — Morse / binary */
+  .v-morse {
+    background: transparent; color: var(--fg);
+    font-family: 'JetBrains Mono', monospace;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-size: 13px;
+    border: 1px solid var(--border);
+    gap: 12px;
+  }
+  .v-morse .dots {
+    display: inline-flex; gap: 3px; align-items: center;
+  }
+  .v-morse .dots span {
+    width: 4px; height: 4px; background: var(--c); border-radius: 50%;
+    animation: morseBlink 1.6s ease-in-out infinite;
+  }
+  .v-morse .dots span:nth-child(2) { animation-delay: 0.2s; width: 12px; border-radius: 2px; }
+  .v-morse .dots span:nth-child(3) { animation-delay: 0.4s; }
+  .v-morse .dots span:nth-child(4) { animation-delay: 0.6s; width: 12px; border-radius: 2px; }
+  @keyframes morseBlink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+  /* 55 — Vertical pill with count */
+  .v-counter {
+    background: var(--fg); color: var(--bg);
+    padding: 6px 6px 6px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+    gap: 10px;
+  }
+  .v-counter .num {
+    background: var(--c); color: var(--c-fg);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+  }
+
+  /* 56 — Soft cloud */
+  .v-cloud {
+    background: #ffffff;
+    color: var(--c-dark);
+    padding: 14px 28px;
+    border-radius: 16px;
+    font-weight: 600;
+    box-shadow:
+      0 1px 2px rgba(0,0,0,0.04),
+      0 2px 6px rgba(0,0,0,0.04),
+      inset 0 1px 0 rgba(255,255,255,0.8),
+      0 10px 30px -10px color-mix(in oklab, var(--c) 30%, transparent);
+    border: 1px solid color-mix(in oklab, var(--c) 15%, white);
+  }
+  .v-cloud:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.05), 0 20px 40px -10px color-mix(in oklab, var(--c) 40%, transparent); }
+
+  /* 57 — Monospace URL */
+  .v-url {
+    background: color-mix(in oklab, var(--c) 8%, white);
+    color: var(--c-dark);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: 1px solid color-mix(in oklab, var(--c) 20%, white);
+    gap: 8px;
+  }
+  .v-url .slash { color: color-mix(in oklab, var(--c) 50%, white); }
+  .v-url:hover { background: color-mix(in oklab, var(--c) 15%, white); }
+
+  /* 58 — Neumorphic soft */
+  .v-neumorph {
+    background: var(--bg);
+    color: var(--c-dark);
+    border-radius: 14px;
+    padding: 14px 28px;
+    font-weight: 600;
+    box-shadow:
+      6px 6px 12px rgba(0,0,0,0.08),
+      -6px -6px 12px rgba(255,255,255,0.9);
+  }
+  .v-neumorph:active {
+    box-shadow:
+      inset 4px 4px 8px rgba(0,0,0,0.08),
+      inset -4px -4px 8px rgba(255,255,255,0.9);
+  }
+
+  /* 59 — Voice / waveform */
+  .v-wave {
+    background: var(--c); color: var(--c-fg);
+    padding: 10px 22px 10px 16px;
+    border-radius: 999px;
+    gap: 10px;
+    font-weight: 600;
+  }
+  .v-wave .bars { display: inline-flex; gap: 2px; align-items: center; height: 18px; }
+  .v-wave .bars span {
+    width: 2px; background: currentColor; border-radius: 1px;
+    animation: waveBars 1s ease-in-out infinite;
+  }
+  .v-wave .bars span:nth-child(1) { height: 40%; animation-delay: 0s; }
+  .v-wave .bars span:nth-child(2) { height: 80%; animation-delay: 0.15s; }
+  .v-wave .bars span:nth-child(3) { height: 60%; animation-delay: 0.3s; }
+  .v-wave .bars span:nth-child(4) { height: 90%; animation-delay: 0.45s; }
+  .v-wave .bars span:nth-child(5) { height: 50%; animation-delay: 0.6s; }
+  @keyframes waveBars {
+    0%, 100% { transform: scaleY(0.4); }
+    50% { transform: scaleY(1.2); }
+  }
+
+  /* 60 — Confetti CTA */
+  .v-confetti {
+    background: var(--c); color: var(--c-fg);
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    overflow: visible;
+  }
+  .v-confetti::before, .v-confetti::after {
+    content: ''; position: absolute;
+    width: 6px; height: 6px;
+    background: var(--c);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .v-confetti:hover::before {
+    animation: confetti1 0.8s ease-out;
+  }
+  .v-confetti:hover::after {
+    animation: confetti2 0.8s ease-out;
+    background: color-mix(in oklab, var(--c) 40%, yellow);
+  }
+  @keyframes confetti1 {
+    0% { top: 50%; left: 10%; opacity: 1; }
+    100% { top: -150%; left: -10%; opacity: 0; transform: rotate(180deg); }
+  }
+  @keyframes confetti2 {
+    0% { top: 50%; right: 10%; opacity: 1; }
+    100% { top: -150%; right: -10%; opacity: 0; transform: rotate(-180deg); }
+  }
+
+  /* ------------ ICON SVG STYLING ------------ */
+  .btn svg.icn { width: 1em; height: 1em; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+/* ---- TWEAK DEFAULTS (edited by host) ---- */
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent": "#e11d48",
+  "label": "Get started",
+  "size": 15,
+  "radius": 10,
+  "weight": 400,
+  "padX": 24,
+  "padY": 12,
+  "font": "Inter"
+}/*EDITMODE-END*/;
+
+const SWATCHES = [
+  '#2b7fff', '#000000', '#e11d48', '#10b981',
+  '#f59e0b', '#8b5cf6', '#ec4899', '#14b8a6',
+  '#f97316', '#06b6d4', '#84cc16', '#6366f1',
+  '#0ea5e9', '#a855f7', '#22c55e', '#ef4444'
+];
+
+const FONTS = ['Inter', 'Space Grotesk', 'Fraunces', 'JetBrains Mono'];
+
+// Simple SVG icons
+const Icn = {
+  Arrow: () => <svg className="icn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>,
+  Check: () => <svg className="icn" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>,
+  Plus: () => <svg className="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>,
+  Play: () => <svg className="icn" viewBox="0 0 24 24"><path d="M7 5l12 7-12 7V5z" fill="currentColor"/></svg>,
+  Down: () => <svg className="icn" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>,
+  Download: () => <svg className="icn" viewBox="0 0 24 24"><path d="M12 3v13M7 11l5 5 5-5M4 21h16"/></svg>,
+  Heart: () => <svg className="icn" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>,
+  Bolt: () => <svg className="icn" viewBox="0 0 24 24"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>,
+  Spark: () => <svg className="icn" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg>,
+};
+
+/* Button variants registry */
+const VARIANTS = [
+  // Solid family
+  { id:'solid', name:'Solid',          class:'v-solid',        group:'Solid & Filled',   label:null, icon:null,      note:'Primary action' },
+  { id:'gradient', name:'Gradient',    class:'v-gradient',     group:'Solid & Filled',   label:null, icon:'Arrow',   note:'Marketing CTA' },
+  { id:'glow', name:'Glow',            class:'v-glow',         group:'Solid & Filled',   label:null, icon:'Spark',   note:'Attention-grabbing' },
+  { id:'pill', name:'Pill',            class:'v-pill',         group:'Solid & Filled',   label:null, icon:null,      note:'Friendly tone' },
+  { id:'layer', name:'Stacked',        class:'v-layer',        group:'Solid & Filled',   label:null, icon:null,      note:'Layered depth' },
+  { id:'arrow', name:'Arrow Slide',    class:'v-arrow',        group:'Solid & Filled',   label:null, icon:null,      note:'Hover reveals motion', custom:'arrow' },
+
+  // Outlined
+  { id:'outline', name:'Outline',      class:'v-outline',      group:'Outlined',         label:null, icon:null,      note:'Secondary action' },
+  { id:'dashed', name:'Dashed',        class:'v-dashed',       group:'Outlined',         label:null, icon:'Plus',    note:'Add / optional' },
+  { id:'double', name:'Double',        class:'v-double',       group:'Outlined',         label:null, icon:null,      note:'Editorial feel' },
+  { id:'fill', name:'Sliding Fill',    class:'v-fill',         group:'Outlined',         label:null, icon:null,      note:'Hover for fill' },
+  { id:'dotborder', name:'Dotted Morph', class:'v-dotborder',  group:'Outlined',         label:null, icon:null,      note:'Expands on hover' },
+  { id:'trace', name:'Animated Trace', class:'v-trace',        group:'Outlined',         label:null, icon:null,      note:'Continuous motion',  custom:'trace' },
+
+  // Subtle / Ghost
+  { id:'ghost', name:'Ghost',          class:'v-ghost',        group:'Subtle',           label:null, icon:null,      note:'Tertiary action' },
+  { id:'soft', name:'Soft',            class:'v-soft',         group:'Subtle',           label:null, icon:null,      note:'Low-key affirmative' },
+  { id:'underline', name:'Underline',  class:'v-underline',    group:'Subtle',           label:null, icon:null,      note:'Text-link style' },
+  { id:'caret', name:'Caret',          class:'v-caret',        group:'Subtle',           label:'Learn more', icon:null, note:'Minimal nav',      custom:'caret' },
+  { id:'glass', name:'Glass',          class:'v-glass',        group:'Subtle',           label:null, icon:null,      note:'Frosted translucent' },
+  { id:'stamp', name:'Stamped',        class:'v-stamp',        group:'Subtle',           label:null, icon:null,      note:'Soft emboss' },
+
+  // Expressive
+  { id:'3d', name:'Neobrutal',         class:'v-3d',           group:'Expressive',       label:null, icon:null,      note:'Hard shadow pop' },
+  { id:'retro', name:'Retro',          class:'v-retro',        group:'Expressive',       label:null, icon:null,      note:'90s OS chrome' },
+  { id:'pixel', name:'Pixel',          class:'v-pixel',        group:'Expressive',       label:'Start',  icon:null,  note:'8-bit aesthetic' },
+  { id:'terminal', name:'Terminal',    class:'v-terminal',     group:'Expressive',       label:'deploy', icon:null,  note:'CLI command style' },
+  { id:'aurora', name:'Aurora',        class:'v-aurora',       group:'Expressive',       label:null, icon:null,      note:'Animated gradient border' },
+  { id:'sketch', name:'Sketch',        class:'v-sketch',       group:'Expressive',       label:null, icon:null,      note:'Hand-drawn border' },
+
+  // Utility / Specialized
+  { id:'iconchip', name:'Icon Chip',   class:'v-iconchip',     group:'Utility',          label:null, icon:null,      note:'Prepended icon slot', custom:'iconchip' },
+  { id:'split', name:'Split Action',   class:'v-split',        group:'Utility',          label:null, icon:null,      note:'Dual-action menu',    custom:'split' },
+  { id:'circle', name:'Circular',      class:'v-circle',       group:'Utility',          label:'',   icon:'Plus',    note:'FAB / icon-only' },
+  { id:'status', name:'Status',        class:'v-status',       group:'Utility',          label:'Online', icon:null,  note:'Live indicator',      custom:'status' },
+  { id:'darkcard', name:'Dark Card',   class:'v-darkcard',     group:'Utility',          label:null, icon:null,      note:'Inverted surface',    custom:'darkcard' },
+  { id:'lift', name:'Shadow Lift',     class:'v-lift',         group:'Utility',          label:null, icon:'Arrow',   note:'Neutral card button' },
+
+  // Decorative / Distinct shapes
+  { id:'notch', name:'Notched',        class:'v-notch',        group:'Shaped',           label:null, icon:null,      note:'Cut corners' },
+  { id:'chevron', name:'Chevron',      class:'v-chevron',      group:'Shaped',           label:null, icon:null,      note:'Directional shape' },
+  { id:'ticket', name:'Ticket',        class:'v-ticket',       group:'Shaped',           label:null, icon:null,      note:'Coupon cutout' },
+  { id:'mono-ticket', name:'Mono Stub', class:'v-mono-ticket', group:'Shaped',           label:'Confirm', icon:null, note:'Monospace receipt' },
+  { id:'exec', name:'Executive',       class:'v-exec',         group:'Shaped',           label:'Contact',  icon:null, note:'Editorial minimal' },
+
+  // Wave II — Motion & Reactive
+  { id:'liquid', name:'Liquid Morph',  class:'v-liquid',       group:'Motion',           label:null, icon:null,      note:'Organic blob animation' },
+  { id:'ring', name:'Ring Pulse',      class:'v-ring',         group:'Motion',           label:null, icon:null,      note:'Attention ping' },
+  { id:'scan', name:'Scan Line',       class:'v-scan',         group:'Motion',           label:'Enter',  icon:null,  note:'Cyber scanner sweep' },
+  { id:'breathe', name:'Breathe',      class:'v-breathe',      group:'Motion',           label:null, icon:null,      note:'Soft pulse loop' },
+  { id:'wave', name:'Voice Wave',      class:'v-wave',         group:'Motion',           label:'Listening', icon:null, note:'Live waveform bars', custom:'wave' },
+  { id:'morse', name:'Morse',          class:'v-morse',        group:'Motion',           label:'Connecting', icon:null, note:'Signal blink',      custom:'morse' },
+
+  // Wave II — Reactive hovers
+  { id:'magnet', name:'Magnetic',      class:'v-magnet',       group:'Reactive',         label:null, icon:null,      note:'Arrow slides on hover' },
+  { id:'reveal', name:'Text Reveal',   class:'v-reveal',       group:'Reactive',         label:null, icon:null,      note:'Label swaps on hover', custom:'reveal' },
+  { id:'progress', name:'Progress Fill', class:'v-progress',   group:'Reactive',         label:null, icon:null,      note:'Fills on hover' },
+  { id:'gooey', name:'Gooey',          class:'v-gooey',        group:'Reactive',         label:null, icon:null,      note:'Rotating pip',         custom:'gooey' },
+  { id:'confetti', name:'Confetti',    class:'v-confetti',     group:'Reactive',         label:'Celebrate', icon:null, note:'Hover bursts' },
+  { id:'dotted', name:'Fold Corner',   class:'v-fold',         group:'Reactive',         label:null, icon:null,      note:'Corner peels on hover' },
+
+  // Wave II — Surface & Texture
+  { id:'paper', name:'Paper Note',     class:'v-paper',        group:'Surface',          label:null, icon:null,      note:'Stacked paper card' },
+  { id:'grain', name:'Grain',          class:'v-grain',        group:'Surface',          label:null, icon:null,      note:'Noise-textured fill' },
+  { id:'tape', name:'Tape',            class:'v-tape',         group:'Surface',          label:null, icon:null,      note:'Masking-tape strip' },
+  { id:'cloud', name:'Cloud',          class:'v-cloud',        group:'Surface',          label:null, icon:null,      note:'Soft elevated card' },
+  { id:'neumorph', name:'Neumorphic',  class:'v-neumorph',     group:'Surface',          label:null, icon:null,      note:'Soft extrusion' },
+  { id:'longshadow', name:'Long Shadow', class:'v-longshadow', group:'Surface',          label:'Push',   icon:null,  note:'Retro letter shadow' },
+
+  // Wave II — Identity
+  { id:'glitch', name:'Glitch',        class:'v-glitch',       group:'Identity',         label:'Jack In', icon:null, note:'Cyberpunk clip-path' },
+  { id:'slash', name:'Slash',          class:'v-slash',        group:'Identity',         label:null, icon:null,      note:'Angled sharp edge' },
+  { id:'scope', name:'Scope',          class:'v-scope',        group:'Identity',         label:null, icon:null,      note:'Reticle affordance' },
+  { id:'badge', name:'Badge',          class:'v-badge',        group:'Identity',         label:'Status', icon:null,  note:'Circle glyph badge' },
+  { id:'counter', name:'Counter',      class:'v-counter',      group:'Identity',         label:'Inbox', icon:null,   note:'Pill with count',      custom:'counter' },
+  { id:'url', name:'URL',              class:'v-url',          group:'Identity',         label:'docs/api', icon:null, note:'Monospace path', custom:'url' },
+];
+
+function ButtonPreview({ v, label, accent }) {
+  const lbl = v.label !== null && v.label !== undefined ? v.label : label;
+  const IconComp = v.icon ? Icn[v.icon] : null;
+
+  if (v.custom === 'split') {
+    return (
+      <button className={`btn ${v.class}`}>
+        <span className="main">{lbl}</span>
+        <span className="sep"></span>
+        <span className="more"><Icn.Down/></span>
+      </button>
+    );
+  }
+  if (v.custom === 'iconchip') {
+    return (
+      <button className={`btn ${v.class}`}>
+        <span className="icon-wrap"><Icn.Arrow/></span>
+        {lbl}
+      </button>
+    );
+  }
+  if (v.custom === 'status') {
+    return (
+      <button className={`btn ${v.class}`}>
+        <span className="led"></span>
+        {lbl}
+      </button>
+    );
+  }
+  if (v.custom === 'darkcard') {
+    return (
+      <button className={`btn ${v.class}`}>
+        <span className="dot"></span>
+        {lbl}
+      </button>
+    );
+  }
+  if (v.custom === 'caret') {
+    return (
+      <button className={`btn ${v.class}`}>
+        <span className="c">→</span>{lbl}
+      </button>
+    );
+  }
+  if (v.custom === 'arrow') {
+    return (
+      <button className={`btn ${v.class}`}>
+        {lbl}
+        <span className="arrow">→</span>
+      </button>
+    );
+  }
+  if (v.custom === 'trace') {
+    return (
+      <button className={`btn ${v.class}`}>
+        <svg preserveAspectRatio="none"><rect /></svg>
+        {lbl}
+      </button>
+    );
+  }
+  if (v.custom === 'wave') {
+    return (
+      <button className={`btn ${v.class}`}>
+        <span className="bars"><span/><span/><span/><span/><span/></span>
+        {lbl}
+      </button>
+    );
+  }
+  if (v.custom === 'morse') {
+    return (
+      <button className={`btn ${v.class}`}>
+        {lbl}
+        <span className="dots"><span/><span/><span/><span/></span>
+      </button>
+    );
+  }
+  if (v.custom === 'reveal') {
+    return (
+      <button className={`btn ${v.class}`}>
+        <span className="txt">{lbl}</span>
+        <span className="txt-alt">{lbl} →</span>
+      </button>
+    );
+  }
+  if (v.custom === 'gooey') {
+    return (
+      <button className={`btn ${v.class}`}>
+        {lbl}
+        <span className="pip">→</span>
+      </button>
+    );
+  }
+  if (v.custom === 'counter') {
+    return (
+      <button className={`btn ${v.class}`}>
+        {lbl}
+        <span className="num">12</span>
+      </button>
+    );
+  }
+  if (v.custom === 'url') {
+    return (
+      <button className={`btn ${v.class}`}>
+        <span className="slash">/</span>{lbl}
+      </button>
+    );
+  }
+
+  return (
+    <button className={`btn ${v.class}`}>
+      {IconComp && v.id !== 'circle' ? <IconComp/> : null}
+      {v.id === 'circle' ? <IconComp/> : lbl}
+    </button>
+  );
+}
+
+function Tweaks({ state, setState, open, setOpen }) {
+  if (!open) {
+    return <button className="fab" onClick={() => setOpen(true)} title="Open tweaks">✎</button>;
+  }
+  const set = (k, v) => {
+    setState(prev => ({ ...prev, [k]: v }));
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [k]: v } }, '*');
+  };
+
+  return (
+    <div className="tweaks">
+      <div className="tweaks-header">
+        <span className="title">Tweaks</span>
+        <button className="close" onClick={() => setOpen(false)}>×</button>
+      </div>
+      <div className="tweaks-body">
+
+        <div className="tweaks-row">
+          <label>Label <span className="val">text</span></label>
+          <input type="text" value={state.label} onChange={e => set('label', e.target.value)} />
+        </div>
+
+        <div className="tweaks-row">
+          <label>Accent <span className="val">{state.accent}</span></label>
+          <div className="swatches">
+            {SWATCHES.map(s => (
+              <div key={s}
+                   className={`swatch ${state.accent === s ? 'active' : ''}`}
+                   style={{ background: s }}
+                   onClick={() => set('accent', s)} />
+            ))}
+          </div>
+          <input type="text" value={state.accent} onChange={e => set('accent', e.target.value)} style={{marginTop: 8}}/>
+        </div>
+
+        <div className="tweaks-row">
+          <label>Font <span className="val">{state.font}</span></label>
+          <div className="font-picker">
+            {FONTS.map(f => (
+              <div key={f} className={`font-btn ${state.font === f ? 'active' : ''}`} onClick={() => set('font', f)}>{f}</div>
+            ))}
+          </div>
+        </div>
+
+        <div className="tweaks-row">
+          <label>Size <span className="val">{state.size}px</span></label>
+          <input type="range" min="11" max="22" value={state.size} onChange={e => set('size', +e.target.value)} />
+        </div>
+
+        <div className="tweaks-row">
+          <label>Radius <span className="val">{state.radius}px</span></label>
+          <input type="range" min="0" max="28" value={state.radius} onChange={e => set('radius', +e.target.value)} />
+        </div>
+
+        <div className="tweaks-row">
+          <label>Weight <span className="val">{state.weight}</span></label>
+          <input type="range" min="300" max="800" step="100" value={state.weight} onChange={e => set('weight', +e.target.value)} />
+        </div>
+
+        <div className="tweaks-row">
+          <label>Padding X <span className="val">{state.padX}px</span></label>
+          <input type="range" min="10" max="48" value={state.padX} onChange={e => set('padX', +e.target.value)} />
+        </div>
+
+        <div className="tweaks-row">
+          <label>Padding Y <span className="val">{state.padY}px</span></label>
+          <input type="range" min="6" max="24" value={state.padY} onChange={e => set('padY', +e.target.value)} />
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const [state, setState] = useState(TWEAK_DEFAULTS);
+  const [tweaksOpen, setTweaksOpen] = useState(false);
+  const [editAvail, setEditAvail] = useState(false);
+  const [toast, setToast] = useState('');
+
+  // Listen for host edit-mode toggles
+  useEffect(() => {
+    const onMsg = (e) => {
+      const t = e.data && e.data.type;
+      if (t === '__activate_edit_mode') { setTweaksOpen(true); setEditAvail(true); }
+      if (t === '__deactivate_edit_mode') { setTweaksOpen(false); }
+    };
+    window.addEventListener('message', onMsg);
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+    return () => window.removeEventListener('message', onMsg);
+  }, []);
+
+  // Apply CSS vars globally
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty('--accent', state.accent);
+    root.style.setProperty('--btn-size', state.size + 'px');
+    root.style.setProperty('--btn-radius', state.radius + 'px');
+    root.style.setProperty('--btn-weight', state.weight);
+    root.style.setProperty('--btn-padx', state.padX + 'px');
+    root.style.setProperty('--btn-pady', state.padY + 'px');
+    root.style.setProperty('--btn-font', state.font);
+  }, [state]);
+
+  const showToast = (msg) => {
+    setToast(msg);
+    setTimeout(() => setToast(''), 1400);
+  };
+
+  // Group variants
+  const groups = {};
+  VARIANTS.forEach((v, i) => {
+    if (!groups[v.group]) groups[v.group] = [];
+    groups[v.group].push({ ...v, _i: i });
+  });
+
+  const groupOrder = ['Solid & Filled', 'Outlined', 'Subtle', 'Expressive', 'Shaped', 'Utility', 'Motion', 'Reactive', 'Surface', 'Identity'];
+
+  return (
+    <>
+      <div className="page">
+
+        <header className="header">
+          <h1>Button <em>gallery.</em></h1>
+          <div className="sub">36 reusable variants — customize color, type &amp; shape via the Tweaks panel.</div>
+        </header>
+
+        <div className="meta-row">
+          <span><span className="dot" style={{background: state.accent}}></span>Accent {state.accent}</span>
+          <span>Font {state.font}</span>
+          <span>{VARIANTS.length} variants</span>
+          <span>Click any to copy class</span>
+        </div>
+
+        {groupOrder.map((g, gi) => (
+          <section key={g} className="section">
+            <div className="section-head">
+              <span className="num">§{String(gi + 1).padStart(2, '0')}</span>
+              <h2>{g}</h2>
+              <span className="desc">{groups[g].length} variants</span>
+            </div>
+            <div className="grid">
+              {groups[g].map(v => (
+                <div key={v.id} className="cell" onClick={() => {
+                  navigator.clipboard && navigator.clipboard.writeText(`class="btn ${v.class}"`);
+                  showToast(`Copied .${v.class}`);
+                }}>
+                  <span className="label">{v.name}</span>
+                  <span className="idx">{String(v._i + 1).padStart(2, '0')}</span>
+                  <div className="btn-stage">
+                    <ButtonPreview v={v} label={state.label} accent={state.accent} />
+                  </div>
+                  <div className="footnote">{v.note}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+
+        <footer style={{marginTop: 80, paddingTop: 32, borderTop: '1px solid var(--border)', fontFamily: 'JetBrains Mono, monospace', fontSize: 11, color: 'var(--fg-2)', letterSpacing: '0.1em', textTransform: 'uppercase', display:'flex', justifyContent:'space-between'}}>
+          <span>Button gallery · v1.0</span>
+          <span>Open the Tweaks panel to customize →</span>
+        </footer>
+      </div>
+
+      <Tweaks state={state} setState={setState} open={tweaksOpen} setOpen={setTweaksOpen} />
+
+      <div className={`toast ${toast ? 'show' : ''}`}>{toast}</div>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

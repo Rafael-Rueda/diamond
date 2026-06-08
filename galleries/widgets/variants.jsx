@@ -1,0 +1,1988 @@
+/* Widgets Gallery — Variants */
+const { useState } = React;
+
+/* =============== 01. RICH TEXT EDITOR =============== */
+const Rte1 = () => (
+    <div className="rte">
+        <div className="rte-tb">
+            {["B", "I", "U", "S"].map((b, i) => (
+                <button
+                    key={b}
+                    className={i === 0 ? "on" : ""}
+                    style={{
+                        fontWeight: b === "B" ? 700 : 400,
+                        fontStyle: b === "I" ? "italic" : "normal",
+                        textDecoration: b === "U" ? "underline" : b === "S" ? "line-through" : "none",
+                    }}
+                >
+                    {b}
+                </button>
+            ))}
+            <span className="sep" />
+            {["≡", "⋮≡", "⋮="].map((b) => (
+                <button key={b}>{b}</button>
+            ))}
+            <span className="sep" />
+            {["🔗", "{ }"].map((b) => (
+                <button key={b}>{b}</button>
+            ))}
+        </div>
+        <div className="rte-body">
+            <b>Diamond</b> is a <i>systematic</i> design toolkit with <a>linked references</a> and semantic formatting.
+        </div>
+    </div>
+);
+const Rte2 = () => (
+    <div className="rte">
+        <div className="rte-tb" style={{ gap: 6 }}>
+            <select
+                style={{
+                    fontSize: 11,
+                    border: "1px solid var(--border)",
+                    borderRadius: 4,
+                    padding: "3px 6px",
+                    background: "var(--surface)",
+                }}
+            >
+                <option>Heading 1</option>
+            </select>
+            <select
+                style={{
+                    fontSize: 11,
+                    border: "1px solid var(--border)",
+                    borderRadius: 4,
+                    padding: "3px 6px",
+                    background: "var(--surface)",
+                }}
+            >
+                <option>Inter</option>
+            </select>
+            <span className="sep" />
+            <button className="on" style={{ fontWeight: 700 }}>
+                B
+            </button>
+            <button style={{ fontStyle: "italic" }}>I</button>
+        </div>
+        <div className="rte-body">
+            <div
+                style={{
+                    fontFamily: "Fraunces,serif",
+                    fontSize: 16,
+                    fontWeight: 500,
+                    fontStyle: "italic",
+                    marginBottom: 4,
+                }}
+            >
+                On quiet craft.
+            </div>
+            A measured essay on the discipline of shipping.
+        </div>
+    </div>
+);
+const Rte3 = () => (
+    <div className="rte">
+        <div className="rte-tb" style={{ justifyContent: "center", background: "var(--fg)" }}>
+            {["B", "I", "U", "·", "“", "🔗"].map((b, i) => (
+                <button
+                    key={i}
+                    style={{
+                        color: "var(--bg)",
+                        fontWeight: b === "B" ? 700 : 400,
+                        fontStyle: b === "I" ? "italic" : "normal",
+                    }}
+                >
+                    {b}
+                </button>
+            ))}
+        </div>
+        <div
+            className="rte-body"
+            style={{
+                padding: "14px 16px",
+                fontFamily: "Fraunces,serif",
+                fontSize: 14,
+                fontStyle: "italic",
+                lineHeight: 1.7,
+            }}
+        >
+            "<b>Perfection is achieved</b> not when there is nothing more to add..."
+        </div>
+    </div>
+);
+const Rte4 = () => (
+    <div className="rte">
+        <div className="rte-body" style={{ position: "relative", minHeight: 120, padding: "20px 14px" }}>
+            <div
+                style={{
+                    position: "absolute",
+                    top: 4,
+                    left: 14,
+                    background: "var(--surface)",
+                    padding: "2px 6px",
+                    display: "flex",
+                    gap: 1,
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                    border: "1px solid var(--border)",
+                    borderRadius: 6,
+                }}
+            >
+                {["B", "I", "S", "🔗"].map((b) => (
+                    <button
+                        key={b}
+                        style={{
+                            width: 22,
+                            height: 22,
+                            border: "none",
+                            background: "transparent",
+                            fontWeight: b === "B" ? 700 : 400,
+                        }}
+                    >
+                        {b}
+                    </button>
+                ))}
+            </div>
+            Select text to reveal the <b>floating</b> toolbar above.
+        </div>
+    </div>
+);
+const Rte5 = () => (
+    <div className="rte" style={{ fontFamily: "JetBrains Mono,monospace" }}>
+        <div className="rte-tb" style={{ background: "#0f0f0e", fontSize: 10, gap: 4 }}>
+            {["**B**", "*i*", "~~s~~", "`c`", "[link]", "> quote"].map((b) => (
+                <button key={b} style={{ color: "#d4d0c8", padding: "0 6px", width: "auto" }}>
+                    {b}
+                </button>
+            ))}
+        </div>
+        <div className="rte-body" style={{ background: "#1a1917", color: "#d4d0c8", fontSize: 10 }}>
+            # Diamond{"\n"}A <span style={{ color: "#c084fc" }}>**systematic**</span> toolkit.{"\n"}- List item{"\n"}-
+            [link](diamond.co)
+        </div>
+    </div>
+);
+const Rte6 = () => (
+    <div className="rte">
+        <div
+            className="rte-tb"
+            style={{ background: "var(--bg)", padding: "8px 12px", gap: 8, borderColor: "transparent" }}
+        >
+            <span style={{ fontSize: 10, color: "var(--fg-3)", fontFamily: "JetBrains Mono,monospace" }}>
+                COLLAB · 3 editing
+            </span>
+            <div style={{ display: "flex", marginLeft: "auto" }}>
+                <span
+                    style={{
+                        width: 18,
+                        height: 18,
+                        borderRadius: "50%",
+                        background: "var(--accent)",
+                        marginLeft: -4,
+                        border: "2px solid var(--surface)",
+                    }}
+                />
+                <span
+                    style={{
+                        width: 18,
+                        height: 18,
+                        borderRadius: "50%",
+                        background: "#10b981",
+                        marginLeft: -4,
+                        border: "2px solid var(--surface)",
+                    }}
+                />
+                <span
+                    style={{
+                        width: 18,
+                        height: 18,
+                        borderRadius: "50%",
+                        background: "#f59e0b",
+                        marginLeft: -4,
+                        border: "2px solid var(--surface)",
+                    }}
+                />
+            </div>
+        </div>
+        <div className="rte-body">
+            The team is drafting{" "}
+            <span
+                style={{
+                    background: "color-mix(in oklab, var(--accent) 15%, white)",
+                    borderBottom: "2px solid var(--accent)",
+                    padding: "0 2px",
+                }}
+            >
+                v3.2 release notes
+            </span>{" "}
+            live.
+        </div>
+    </div>
+);
+
+/* =============== 02. COMMAND PALETTE =============== */
+const Cmd1 = () => (
+    <div className="cmdp">
+        <div className="cmdp-input">
+            <span style={{ color: "var(--fg-3)" }}>⌕</span>
+            <input defaultValue="proj" />
+            <span className="kbd">⌘K</span>
+        </div>
+        <div className="cmdp-list">
+            <div className="cmdp-group">PROJECTS</div>
+            <div className="cmdp-item on">
+                <span className="ic">◆</span>Open Diamond v3.2<span className="hk">↵</span>
+            </div>
+            <div className="cmdp-item">
+                <span className="ic">◇</span>Open Atlas<span className="hk">⌘1</span>
+            </div>
+            <div className="cmdp-group">ACTIONS</div>
+            <div className="cmdp-item">
+                <span className="ic">＋</span>New project<span className="hk">⌘N</span>
+            </div>
+        </div>
+    </div>
+);
+const Cmd2 = () => (
+    <div className="cmdp">
+        <div className="cmdp-input" style={{ padding: "12px 14px" }}>
+            <span style={{ color: "var(--accent)", fontSize: 14 }}>≫</span>
+            <input placeholder="Type a command or search…" />
+        </div>
+        <div className="cmdp-list">
+            <div className="cmdp-group">SUGGESTED</div>
+            {["Create document", "Invite team", "Open settings"].map((l, i) => (
+                <div key={l} className={`cmdp-item ${i === 0 ? "on" : ""}`}>
+                    <span className="ic">{["📄", "👥", "⚙"][i]}</span>
+                    {l}
+                </div>
+            ))}
+        </div>
+    </div>
+);
+const Cmd3 = () => (
+    <div
+        className="cmdp"
+        style={{
+            fontFamily: "JetBrains Mono,monospace",
+            background: "#0f0f0e",
+            color: "#d4d0c8",
+            borderColor: "#2d2c28",
+        }}
+    >
+        <div className="cmdp-input" style={{ borderColor: "#2d2c28", padding: "8px 10px" }}>
+            <span style={{ color: "var(--accent)" }}>$</span>
+            <input defaultValue="git: " style={{ color: "#d4d0c8", fontFamily: "inherit" }} />
+            <span style={{ fontSize: 9, color: "#6b6862" }}>[ESC]</span>
+        </div>
+        <div className="cmdp-list">
+            {["commit", "checkout", "push", "pull"].map((l, i) => (
+                <div
+                    key={l}
+                    className={`cmdp-item ${i === 0 ? "on" : ""}`}
+                    style={{
+                        fontSize: 11,
+                        padding: "4px 10px",
+                        background: i === 0 ? "rgba(43,127,255,0.15)" : "transparent",
+                        color: i === 0 ? "var(--accent)" : "#d4d0c8",
+                    }}
+                >
+                    <span style={{ color: "#6b6862" }}>git</span>
+                    {l}
+                    <span style={{ marginLeft: "auto", fontSize: 9, color: "#6b6862" }}>→</span>
+                </div>
+            ))}
+        </div>
+    </div>
+);
+const Cmd4 = () => (
+    <div className="cmdp">
+        <div className="cmdp-input">
+            <span style={{ color: "var(--fg-3)" }}>⌕</span>
+            <input defaultValue="jump" />
+        </div>
+        <div className="cmdp-list">
+            <div className="cmdp-group">JUMP TO</div>
+            {[
+                ["⌘ 1", "Dashboard"],
+                ["⌘ 2", "Projects"],
+                ["⌘ 3", "Team"],
+                ["⌘ 4", "Billing"],
+            ].map(([k, l], i) => (
+                <div key={l} className={`cmdp-item ${i === 1 ? "on" : ""}`}>
+                    <span className="hk" style={{ marginLeft: 0, marginRight: 6 }}>
+                        {k}
+                    </span>
+                    {l}
+                </div>
+            ))}
+        </div>
+    </div>
+);
+const Cmd5 = () => (
+    <div className="cmdp">
+        <div className="cmdp-input">
+            <span style={{ color: "var(--fg-3)" }}>⌕</span>
+            <input defaultValue="ari" />
+        </div>
+        <div className="cmdp-list">
+            <div className="cmdp-group">PEOPLE</div>
+            {[
+                ["AC", "Aria Chen", "Design"],
+                ["AL", "Alex Lee", "Eng"],
+            ].map(([a, n, r], i) => (
+                <div key={n} className={`cmdp-item ${i === 0 ? "on" : ""}`}>
+                    <span
+                        style={{
+                            width: 22,
+                            height: 22,
+                            borderRadius: "50%",
+                            background: "var(--accent)",
+                            color: "white",
+                            fontSize: 9,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            fontWeight: 600,
+                        }}
+                    >
+                        {a}
+                    </span>
+                    {n}
+                    <span style={{ fontSize: 9, color: "var(--fg-3)", marginLeft: "auto" }}>{r}</span>
+                </div>
+            ))}
+        </div>
+    </div>
+);
+const Cmd6 = () => (
+    <div className="cmdp" style={{ borderRadius: 16 }}>
+        <div className="cmdp-input" style={{ padding: "14px 16px", borderBottom: "none" }}>
+            <span style={{ fontFamily: "Fraunces,serif", fontStyle: "italic", fontSize: 14, color: "var(--fg-3)" }}>
+                Ask Diamond
+            </span>
+            <input
+                placeholder="Summarise this quarter…"
+                style={{ fontFamily: "Fraunces,serif", fontStyle: "italic", fontSize: 14 }}
+            />
+            <span className="kbd">↵</span>
+        </div>
+        <div style={{ padding: "0 14px 12px", display: "flex", gap: 6, flexWrap: "wrap" }}>
+            {["Draft a brief", "Find files", "Run a report"].map((s) => (
+                <span
+                    key={s}
+                    style={{
+                        padding: "3px 10px",
+                        background: "var(--bg-2)",
+                        borderRadius: 999,
+                        fontSize: 10,
+                        cursor: "pointer",
+                    }}
+                >
+                    {s}
+                </span>
+            ))}
+        </div>
+    </div>
+);
+
+/* =============== 03. MAP =============== */
+const MapSvg = (props) => (
+    <svg viewBox="0 0 200 150" {...props}>
+        <rect width="200" height="150" fill="#e8e3d8" />
+        <path d="M0,100 Q40,95 80,100 T160,95 L200,98 L200,150 L0,150 Z" fill="#c8d4c0" />
+        <path d="M0,80 Q50,70 100,75 T200,70" fill="none" stroke="#b5c2a8" strokeWidth="0.5" />
+        <path d="M20,0 L28,50 L80,60 L100,40 L140,50 L160,30 L180,0" fill="none" stroke="#d0c4a8" strokeWidth="1.5" />
+        <path d="M0,120 L60,115 L100,125 L160,120 L200,128" fill="none" stroke="var(--accent)" strokeWidth="1.5" />
+    </svg>
+);
+const Mp1 = () => (
+    <div className="map">
+        <MapSvg />
+        <div className="overlay" style={{ top: 10, left: 10 }}>
+            <b>San Francisco</b>
+            <div style={{ color: "var(--fg-3)", fontSize: 9 }}>37.7749° N</div>
+        </div>
+        <div
+            style={{
+                position: "absolute",
+                top: "45%",
+                left: "40%",
+                width: 18,
+                height: 18,
+                borderRadius: "50% 50% 50% 0",
+                transform: "rotate(-45deg)",
+                background: "var(--accent)",
+                border: "2px solid white",
+                boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+            }}
+        />
+    </div>
+);
+const Mp2 = () => (
+    <div className="map">
+        <MapSvg />
+        {[
+            [30, 40, "A"],
+            [55, 60, "B"],
+            [75, 30, "C"],
+            [45, 80, "D"],
+        ].map(([x, y, l]) => (
+            <div
+                key={l}
+                style={{
+                    position: "absolute",
+                    top: `${y}%`,
+                    left: `${x}%`,
+                    width: 22,
+                    height: 22,
+                    borderRadius: "50%",
+                    background: "var(--accent)",
+                    color: "white",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 10,
+                    fontWeight: 700,
+                    border: "2px solid white",
+                    boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+                }}
+            >
+                {l}
+            </div>
+        ))}
+        <div className="overlay" style={{ bottom: 10, right: 10, fontSize: 9 }}>
+            4 LOCATIONS
+        </div>
+    </div>
+);
+const Mp3 = () => (
+    <div className="map" style={{ background: "#1a1917" }}>
+        <svg viewBox="0 0 200 150" style={{ width: "100%", height: "100%" }}>
+            <rect width="200" height="150" fill="#1a1917" />
+            <path d="M0,80 L60,75 L100,85 L160,80 L200,88" fill="none" stroke="var(--accent)" strokeWidth="1.5" />
+            <path
+                d="M20,0 L28,50 L80,60 L100,40 L140,50 L160,30 L180,0"
+                fill="none"
+                stroke="#3d3c38"
+                strokeWidth="1.5"
+            />
+            <circle cx="100" cy="75" r="3" fill="var(--accent)" />
+            <circle cx="100" cy="75" r="12" fill="none" stroke="var(--accent)" strokeWidth="0.5" opacity="0.5" />
+        </svg>
+        <div className="overlay" style={{ top: 10, left: 10, background: "#0f0f0e", color: "#d4d0c8" }}>
+            Dark style<div style={{ color: "#6b6862", fontSize: 9 }}>Mapbox GL</div>
+        </div>
+    </div>
+);
+const Mp4 = () => (
+    <div className="map">
+        <MapSvg />
+        <svg viewBox="0 0 200 150" style={{ position: "absolute", inset: 0 }}>
+            <path
+                d="M20,110 C 50,100 60,60 90,50 C 120,40 140,50 170,30"
+                fill="none"
+                stroke="var(--accent)"
+                strokeWidth="2"
+                strokeDasharray="3,2"
+            />
+        </svg>
+        {[
+            [20, 110, "A"],
+            [170, 30, "B"],
+        ].map(([x, y, l]) => (
+            <div
+                key={l}
+                style={{
+                    position: "absolute",
+                    left: `${x / 2}%`,
+                    top: `${y / 1.5}%`,
+                    width: 18,
+                    height: 18,
+                    borderRadius: "50%",
+                    background: "white",
+                    border: "2px solid var(--accent)",
+                    color: "var(--accent)",
+                    fontSize: 10,
+                    fontWeight: 700,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                }}
+            >
+                {l}
+            </div>
+        ))}
+        <div className="overlay" style={{ bottom: 8, left: 8 }}>
+            <b>4.2 mi</b> · 14 min
+        </div>
+    </div>
+);
+const Mp5 = () => (
+    <div className="map">
+        <svg viewBox="0 0 200 150" style={{ width: "100%", height: "100%" }}>
+            <rect width="200" height="150" fill="#e8e3d8" />
+            <defs>
+                <radialGradient id="hm1">
+                    <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
+                </radialGradient>
+            </defs>
+            {[
+                [60, 50, 30],
+                [130, 70, 40],
+                [100, 100, 25],
+                [40, 90, 20],
+            ].map(([x, y, r], i) => (
+                <circle key={i} cx={x} cy={y} r={r} fill="url(#hm1)" />
+            ))}
+        </svg>
+        <div className="overlay" style={{ top: 10, left: 10 }}>
+            <b>Density</b>
+            <div style={{ fontSize: 9, color: "var(--fg-3)" }}>Orders · 24h</div>
+        </div>
+    </div>
+);
+const Mp6 = () => (
+    <div className="map">
+        <MapSvg />
+        <div
+            style={{
+                position: "absolute",
+                bottom: 12,
+                left: 12,
+                right: 12,
+                background: "var(--surface)",
+                padding: "8px 10px",
+                borderRadius: 6,
+                display: "flex",
+                gap: 10,
+                alignItems: "center",
+                boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+            }}
+        >
+            <div
+                style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: 8,
+                    background: "linear-gradient(135deg, #c4948a, #a9b8c0)",
+                }}
+            />
+            <div style={{ flex: 1, fontSize: 10 }}>
+                <div style={{ fontWeight: 700, fontSize: 11 }}>Atlas Café</div>
+                <div style={{ color: "var(--fg-3)" }}>412 Valencia · ⋆ 4.8</div>
+            </div>
+            <button
+                style={{
+                    padding: "4px 10px",
+                    background: "var(--accent)",
+                    color: "white",
+                    border: "none",
+                    borderRadius: 4,
+                    fontSize: 10,
+                    fontFamily: "inherit",
+                }}
+            >
+                Go →
+            </button>
+        </div>
+    </div>
+);
+
+/* =============== 04. CHARTS =============== */
+const Ch1 = () => (
+    <div className="chart">
+        <div className="chart-hd">
+            <span>Revenue · 6 months</span>
+            <span style={{ color: "var(--success)" }}>+24%</span>
+        </div>
+        <div className="chart-body">
+            <svg viewBox="0 0 200 80" style={{ width: "100%", height: "100%" }}>
+                <defs>
+                    <linearGradient id="la1" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.3" />
+                        <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
+                    </linearGradient>
+                </defs>
+                <polyline
+                    fill="url(#la1)"
+                    stroke="none"
+                    points="0,60 30,45 60,50 90,30 120,35 150,18 180,22 200,12 200,80 0,80"
+                />
+                <polyline
+                    fill="none"
+                    stroke="var(--accent)"
+                    strokeWidth="1.5"
+                    points="0,60 30,45 60,50 90,30 120,35 150,18 180,22 200,12"
+                />
+            </svg>
+        </div>
+    </div>
+);
+const Ch2 = () => (
+    <div className="chart">
+        <div className="chart-hd">
+            <span>Users by channel</span>
+        </div>
+        <div className="chart-body">
+            <svg viewBox="0 0 200 80" style={{ width: "100%", height: "100%" }}>
+                {[65, 45, 72, 38, 58, 50, 70].map((h, i) => (
+                    <rect
+                        key={i}
+                        x={i * 26 + 4}
+                        y={80 - h}
+                        width="20"
+                        height={h}
+                        fill={i === 3 ? "var(--accent)" : "color-mix(in oklab, var(--accent) 30%, white)"}
+                        rx="2"
+                    />
+                ))}
+            </svg>
+        </div>
+    </div>
+);
+const Ch3 = () => (
+    <div className="chart">
+        <div className="chart-hd">
+            <span>Market split</span>
+        </div>
+        <div className="chart-body" style={{ display: "flex", alignItems: "center", gap: 12, padding: 14 }}>
+            <svg viewBox="0 0 40 40" style={{ width: 90, height: 90 }}>
+                <circle cx="20" cy="20" r="16" fill="none" stroke="var(--bg-2)" strokeWidth="8" />
+                <circle
+                    cx="20"
+                    cy="20"
+                    r="16"
+                    fill="none"
+                    stroke="var(--accent)"
+                    strokeWidth="8"
+                    strokeDasharray="48 100"
+                    transform="rotate(-90 20 20)"
+                />
+                <circle
+                    cx="20"
+                    cy="20"
+                    r="16"
+                    fill="none"
+                    stroke="#8b5cf6"
+                    strokeWidth="8"
+                    strokeDasharray="28 100"
+                    strokeDashoffset="-48"
+                    transform="rotate(-90 20 20)"
+                />
+                <circle
+                    cx="20"
+                    cy="20"
+                    r="16"
+                    fill="none"
+                    stroke="#f59e0b"
+                    strokeWidth="8"
+                    strokeDasharray="24 100"
+                    strokeDashoffset="-76"
+                    transform="rotate(-90 20 20)"
+                />
+            </svg>
+            <div style={{ fontSize: 10, display: "flex", flexDirection: "column", gap: 4 }}>
+                {[
+                    ["Pro", "48%", "var(--accent)"],
+                    ["Team", "28%", "#8b5cf6"],
+                    ["Free", "24%", "#f59e0b"],
+                ].map(([l, p, c]) => (
+                    <div key={l} style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                        <span style={{ width: 8, height: 8, background: c, borderRadius: 2 }} />
+                        <span>{l}</span>
+                        <b style={{ marginLeft: "auto" }}>{p}</b>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+);
+const Ch4 = () => (
+    <div className="chart">
+        <div className="chart-hd">
+            <span>User segments</span>
+        </div>
+        <div className="chart-body">
+            <svg viewBox="0 0 200 80" style={{ width: "100%", height: "100%" }}>
+                {Array.from({ length: 30 }).map((_, i) => (
+                    <circle
+                        key={i}
+                        cx={20 + Math.random() * 160}
+                        cy={10 + Math.random() * 60}
+                        r={2 + Math.random() * 4}
+                        fill="var(--accent)"
+                        opacity={0.3 + Math.random() * 0.5}
+                    />
+                ))}
+                <line x1="0" y1="40" x2="200" y2="40" stroke="var(--border)" strokeDasharray="2" />
+            </svg>
+        </div>
+    </div>
+);
+const Ch5 = () => (
+    <div className="chart">
+        <div className="chart-hd">
+            <span>Revenue vs. Target</span>
+        </div>
+        <div className="chart-body">
+            <svg viewBox="0 0 200 80" style={{ width: "100%", height: "100%" }}>
+                {[50, 60, 72, 58, 80].map((h, i) => (
+                    <g key={i}>
+                        <rect x={i * 38 + 4} y="20" width="16" height="60" fill="var(--bg-2)" rx="2" />
+                        <rect x={i * 38 + 4} y={80 - h} width="16" height={h} fill="var(--accent)" rx="2" />
+                        <line
+                            x1={i * 38 + 2}
+                            y1="30"
+                            x2={i * 38 + 22}
+                            y2="30"
+                            stroke="var(--danger)"
+                            strokeDasharray="2"
+                            strokeWidth="1"
+                        />
+                    </g>
+                ))}
+            </svg>
+        </div>
+    </div>
+);
+const Ch6 = () => (
+    <div className="chart">
+        <div className="chart-hd">
+            <span>Performance radar</span>
+        </div>
+        <div className="chart-body">
+            <svg viewBox="0 0 120 100" style={{ width: "100%", height: "100%" }}>
+                <g transform="translate(60,50)">
+                    {[40, 30, 20, 10].map((r) => (
+                        <polygon
+                            key={r}
+                            points={[
+                                0,
+                                -r,
+                                r * 0.95,
+                                -r * 0.31,
+                                r * 0.59,
+                                r * 0.81,
+                                -r * 0.59,
+                                r * 0.81,
+                                -r * 0.95,
+                                -r * 0.31,
+                            ].join(" ")}
+                            fill="none"
+                            stroke="var(--border)"
+                            strokeWidth="0.5"
+                        />
+                    ))}
+                    <polygon
+                        points="0,-34 32,-11 20,28 -18,25 -28,-9"
+                        fill="color-mix(in oklab, var(--accent) 30%, white)"
+                        stroke="var(--accent)"
+                        strokeWidth="1.5"
+                    />
+                </g>
+            </svg>
+        </div>
+    </div>
+);
+
+/* =============== 05. TRANSFER LIST =============== */
+const Tr1 = () => (
+    <div className="tl">
+        <div className="tl-col">
+            <div className="hd">
+                <span>Available</span>
+                <span>4</span>
+            </div>
+            <div className="body">
+                {["Aria", "Beatriz", "Cam", "Dana"].map((n, i) => (
+                    <div key={n} className={`it ${i === 1 ? "on" : ""}`}>
+                        <input type="checkbox" defaultChecked={i === 1} style={{ accentColor: "var(--accent)" }} />
+                        {n}
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div className="tl-ar">
+            <button>→</button>
+            <button>⇒</button>
+            <button>←</button>
+            <button>⇐</button>
+        </div>
+        <div className="tl-col">
+            <div className="hd">
+                <span>Selected</span>
+                <span>2</span>
+            </div>
+            <div className="body">
+                {["Leo", "Mei"].map((n) => (
+                    <div key={n} className="it">
+                        <input type="checkbox" style={{ accentColor: "var(--accent)" }} />
+                        {n}
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+);
+const Tr2 = () => (
+    <div className="tl">
+        <div className="tl-col">
+            <div className="hd">Modules</div>
+            <div className="body">
+                {["Auth", "Billing", "Analytics"].map((m, i) => (
+                    <div key={m} className="it" style={{ gap: 8 }}>
+                        <span style={{ color: "var(--fg-3)" }}>⋮⋮</span>
+                        {m}
+                        <span style={{ marginLeft: "auto", color: "var(--fg-3)" }}>›</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div className="tl-ar">
+            <button>⇋</button>
+        </div>
+        <div className="tl-col" style={{ background: "color-mix(in oklab, var(--accent) 5%, white)" }}>
+            <div
+                className="hd"
+                style={{ background: "color-mix(in oklab, var(--accent) 12%, white)", color: "var(--accent)" }}
+            >
+                In plan
+            </div>
+            <div className="body">
+                {["Dashboard", "Team"].map((m) => (
+                    <div key={m} className="it on">
+                        ◆ {m}
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+);
+const Tr3 = () => (
+    <div className="tl" style={{ gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+        <div className="tl-col">
+            <div className="hd">Rejected ⦶</div>
+            <div className="body">
+                {["Feature A", "Feature B"].map((f) => (
+                    <div key={f} className="it" style={{ color: "var(--fg-3)", textDecoration: "line-through" }}>
+                        {f}
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div className="tl-col" style={{ borderColor: "var(--success)" }}>
+            <div
+                className="hd"
+                style={{ background: "color-mix(in oklab, var(--success) 12%, white)", color: "var(--success)" }}
+            >
+                Approved ✓
+            </div>
+            <div className="body">
+                {["Search", "Filter", "Export"].map((f) => (
+                    <div key={f} className="it">
+                        {f}
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+);
+const Tr4 = () => (
+    <div className="tl">
+        <div className="tl-col">
+            <div className="hd">Pool (8)</div>
+            <div className="body" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 2 }}>
+                {Array.from({ length: 8 }).map((_, i) => (
+                    <div
+                        key={i}
+                        style={{
+                            aspectRatio: 1,
+                            borderRadius: "50%",
+                            background: `hsl(${i * 45} 50% 70%)`,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            color: "white",
+                            fontSize: 10,
+                            fontWeight: 700,
+                            cursor: "pointer",
+                        }}
+                    >
+                        {String.fromCharCode(65 + i)}
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div className="tl-ar">
+            <button>→</button>
+        </div>
+        <div className="tl-col">
+            <div className="hd">Team (3)</div>
+            <div className="body" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 2 }}>
+                {["A", "C", "F"].map((c) => (
+                    <div
+                        key={c}
+                        style={{
+                            aspectRatio: 1,
+                            borderRadius: "50%",
+                            background: "var(--accent)",
+                            color: "white",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            fontSize: 10,
+                            fontWeight: 700,
+                        }}
+                    >
+                        {c}
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+);
+const Tr5 = () => (
+    <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 8 }}>
+        <input
+            placeholder="Filter both columns…"
+            style={{
+                padding: "6px 10px",
+                border: "1px solid var(--border)",
+                borderRadius: 6,
+                fontSize: 11,
+                fontFamily: "inherit",
+            }}
+        />
+        <div className="tl">
+            <div className="tl-col">
+                <div className="hd">
+                    <span>All</span>
+                    <input type="checkbox" style={{ accentColor: "var(--accent)" }} />
+                </div>
+                <div className="body">
+                    {["Alpha", "Beta", "Gamma"].map((n) => (
+                        <div key={n} className="it">
+                            <input type="checkbox" style={{ accentColor: "var(--accent)" }} />
+                            {n}
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="tl-ar">
+                <button>→</button>
+                <button>←</button>
+            </div>
+            <div className="tl-col">
+                <div className="hd">Picked</div>
+                <div className="body">
+                    {["Delta"].map((n) => (
+                        <div key={n} className="it on">
+                            {n}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </div>
+);
+const Tr6 = () => (
+    <div className="tl">
+        <div className="tl-col">
+            <div className="hd">Scopes</div>
+            <div className="body">
+                {["read", "write", "admin"].map((s) => (
+                    <div key={s} className="it" style={{ fontFamily: "JetBrains Mono,monospace", fontSize: 10 }}>
+                        <span style={{ color: "var(--fg-3)" }}>◌</span>
+                        {s}
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div className="tl-ar">
+            <button>→</button>
+        </div>
+        <div className="tl-col" style={{ background: "#0f0f0e", color: "#d4d0c8", borderColor: "#2d2c28" }}>
+            <div className="hd" style={{ background: "#1a1917", color: "#a8a49c", borderColor: "#2d2c28" }}>
+                Granted
+            </div>
+            <div className="body">
+                {["read", "write"].map((s) => (
+                    <div
+                        key={s}
+                        className="it"
+                        style={{ fontFamily: "JetBrains Mono,monospace", fontSize: 10, color: "var(--accent)" }}
+                    >
+                        <span>●</span>
+                        {s}
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+);
+
+/* =============== 06. SPLIT PANE =============== */
+const Sp1 = () => (
+    <div className="sp" style={{ gridTemplateColumns: "1fr 4px 2fr" }}>
+        <div className="pane a" style={{ fontFamily: "JetBrains Mono,monospace", fontSize: 10 }}>
+            ▸ src/
+            <br />
+            &nbsp;&nbsp;App.tsx
+            <br />
+            &nbsp;&nbsp;index.ts
+            <br />▸ styles/
+        </div>
+        <div className="handle" />
+        <div className="pane">
+            <div style={{ fontFamily: "JetBrains Mono,monospace", fontSize: 10 }}>
+                <span style={{ color: "var(--fg-3)" }}>1</span> import Diamond;
+                <br />
+                <span style={{ color: "var(--fg-3)" }}>2</span> <span style={{ color: "var(--accent)" }}>export</span>{" "}
+                App;
+            </div>
+        </div>
+    </div>
+);
+const Sp2 = () => (
+    <div className="sp" style={{ gridTemplateRows: "3fr 4px 1fr", gridTemplateColumns: "1fr" }}>
+        <div className="pane">Main editor area</div>
+        <div className="handle h" />
+        <div className="pane a" style={{ fontFamily: "JetBrains Mono,monospace", fontSize: 10, overflow: "auto" }}>
+            <span style={{ color: "var(--success)" }}>✓</span> build complete
+            <br />
+            <span style={{ color: "var(--success)" }}>✓</span> tests passed
+        </div>
+    </div>
+);
+const Sp3 = () => (
+    <div className="sp" style={{ gridTemplateColumns: "1fr 4px 1fr 4px 1fr" }}>
+        <div className="pane a">One</div>
+        <div className="handle" />
+        <div className="pane">Two</div>
+        <div className="handle" />
+        <div className="pane a">Three</div>
+    </div>
+);
+const Sp4 = () => (
+    <div className="sp" style={{ gridTemplateColumns: "1fr 4px 1fr" }}>
+        <div
+            className="pane"
+            style={{ background: "var(--bg-2)", fontFamily: "JetBrains Mono,monospace", fontSize: 9 }}
+        >
+            # Preview
+            <br />
+            **Bold** _italic_
+        </div>
+        <div className="handle" />
+        <div className="pane">
+            <h3 style={{ margin: "0 0 4px", fontSize: 13 }}>Preview</h3>
+            <div style={{ fontSize: 11 }}>
+                <b>Bold</b> <i>italic</i>
+            </div>
+        </div>
+    </div>
+);
+const Sp5 = () => (
+    <div className="sp" style={{ gridTemplateColumns: "1fr 4px 2fr", height: 180 }}>
+        <div className="pane a" style={{ padding: 6 }}>
+            <div style={{ fontSize: 9, color: "var(--fg-3)", marginBottom: 4, letterSpacing: "0.1em" }}>NAV</div>
+            {["Home", "Docs", "API"].map((l, i) => (
+                <div
+                    key={l}
+                    style={{
+                        padding: "3px 6px",
+                        fontSize: 10,
+                        borderRadius: 3,
+                        background: i === 0 ? "var(--accent)" : "transparent",
+                        color: i === 0 ? "white" : "var(--fg-2)",
+                    }}
+                >
+                    {l}
+                </div>
+            ))}
+        </div>
+        <div className="handle" />
+        <div className="pane">
+            <div style={{ fontFamily: "Fraunces,serif", fontSize: 16, fontStyle: "italic" }}>Content pane</div>
+            <div style={{ fontSize: 10, color: "var(--fg-2)", marginTop: 4 }}>Drag the handle to reshape.</div>
+        </div>
+    </div>
+);
+const Sp6 = () => (
+    <div className="sp" style={{ gridTemplateColumns: "1fr 6px 1fr" }}>
+        <div className="pane" style={{ background: "linear-gradient(135deg, #c4948a, #a9b8c0)" }} />
+        <div className="handle" style={{ background: "var(--accent)" }} />
+        <div className="pane" style={{ background: "linear-gradient(135deg, #8b7355, #c4a57b)" }} />
+    </div>
+);
+
+/* =============== 07. SIGNATURE =============== */
+const sigP1 = "M10,70 Q30,50 50,60 T90,55 Q110,40 130,55 T180,50 Q220,45 240,60";
+const sigP2 = "M10,70 C20,20 40,90 60,40 C80,20 100,80 120,45 C140,25 180,70 220,50";
+const Sg1 = () => (
+    <div className="sig">
+        <svg viewBox="0 0 260 120" preserveAspectRatio="xMidYMid meet">
+            <path d={sigP1} fill="none" stroke="var(--fg)" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+        <div className="sig-foot">
+            <span>Sign here</span>
+            <button>Clear</button>
+        </div>
+    </div>
+);
+const Sg2 = () => (
+    <div className="sig">
+        <svg viewBox="0 0 260 120">
+            <line x1="10" y1="90" x2="250" y2="90" stroke="var(--border-2)" strokeDasharray="3" />
+            <path d={sigP2} fill="none" stroke="var(--fg)" strokeWidth="1.8" strokeLinecap="round" />
+            <text x="10" y="110" fontSize="8" fill="var(--fg-3)">
+                ×_______________
+            </text>
+        </svg>
+        <div className="sig-foot">
+            <span>L. Reyes · Apr 24, 2026</span>
+            <button>Done ✓</button>
+        </div>
+    </div>
+);
+const Sg3 = () => (
+    <div className="sig" style={{ background: "var(--fg)", borderColor: "var(--fg)" }}>
+        <svg viewBox="0 0 260 120" style={{ background: "#0f0f0e" }}>
+            <path d={sigP1} fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+        <div className="sig-foot" style={{ color: "#a8a49c" }}>
+            <span>Electronic signature</span>
+            <button style={{ background: "transparent", color: "#d4d0c8", border: "1px solid #2d2c28" }}>Clear</button>
+        </div>
+    </div>
+);
+const Sg4 = () => (
+    <div className="sig">
+        <svg viewBox="0 0 260 120">
+            <path d={sigP2} fill="none" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" opacity="0.3" />
+            <path d={sigP2} fill="none" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+        <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+            <span style={{ fontSize: 9, color: "var(--fg-3)", letterSpacing: "0.1em" }}>COLOR</span>
+            {["#1a1917", "var(--accent)", "#dc2626"].map((c, i) => (
+                <button
+                    key={i}
+                    style={{
+                        width: 16,
+                        height: 16,
+                        borderRadius: "50%",
+                        background: c,
+                        border: i === 1 ? "2px solid var(--fg)" : "1px solid var(--border)",
+                    }}
+                />
+            ))}
+            <div style={{ marginLeft: "auto" }}>
+                <button>Clear</button>{" "}
+                <button style={{ background: "var(--fg)", color: "var(--bg)", borderColor: "var(--fg)" }}>Save</button>
+            </div>
+        </div>
+    </div>
+);
+const Sg5 = () => (
+    <div className="sig" style={{ border: "2px solid var(--fg)", borderRadius: 0, padding: 14 }}>
+        <div
+            style={{
+                fontFamily: "Fraunces,serif",
+                fontSize: 11,
+                fontStyle: "italic",
+                textAlign: "center",
+                color: "var(--fg-2)",
+                marginBottom: 4,
+            }}
+        >
+            In witness whereof,
+        </div>
+        <svg viewBox="0 0 260 90">
+            <path d={sigP1} fill="none" stroke="var(--fg)" strokeWidth="1.8" strokeLinecap="round" />
+            <line x1="10" y1="82" x2="250" y2="82" stroke="var(--fg)" />
+            <text x="130" y="92" fontSize="7" fill="var(--fg-3)" textAnchor="middle" fontFamily="JetBrains Mono">
+                SIGNATURE
+            </text>
+        </svg>
+    </div>
+);
+const Sg6 = () => (
+    <div className="sig">
+        <svg viewBox="0 0 260 120">
+            <path
+                d={sigP2}
+                fill="none"
+                stroke="var(--fg)"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeDasharray="300"
+                strokeDashoffset="0"
+            />
+            <rect x="220" y="10" width="34" height="18" fill="none" stroke="var(--success)" strokeWidth="1" />
+            <text x="237" y="23" fontSize="8" fill="var(--success)" textAnchor="middle" fontFamily="JetBrains Mono">
+                ✓
+            </text>
+        </svg>
+        <div className="sig-foot">
+            <span style={{ color: "var(--success)" }}>● VERIFIED · CERT-8a21f</span>
+            <button>View</button>
+        </div>
+    </div>
+);
+
+/* =============== 08. PDF VIEWER =============== */
+const PdfPage = ({ n = 1, small }) => (
+    <div className="pdf-page" style={small ? { margin: 0, width: 60, padding: 6 } : {}}>
+        <div className="ph" style={small ? { width: "40%", height: 2, marginBottom: 2 } : {}} />
+        {Array.from({ length: small ? 4 : 7 }).map((_, i) => (
+            <div
+                key={i}
+                className="pl"
+                style={{ width: `${60 + Math.random() * 30}%`, ...(small ? { height: 1, marginBottom: 1 } : {}) }}
+            />
+        ))}
+        <div className="pn">{n}</div>
+    </div>
+);
+const Pd1 = () => (
+    <div className="pdf">
+        <div className="pdf-hd">
+            <span className="title">brief.pdf</span>
+            <span style={{ fontSize: 9, color: "var(--fg-3)" }}>2 / 12</span>
+            <button>‹</button>
+            <button>›</button>
+            <button>⛶</button>
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+            <PdfPage n={2} />
+        </div>
+    </div>
+);
+const Pd2 = () => (
+    <div className="pdf" style={{ display: "grid", gridTemplateColumns: "80px 1fr" }}>
+        <div
+            style={{
+                background: "var(--bg-2)",
+                padding: 8,
+                display: "flex",
+                flexDirection: "column",
+                gap: 4,
+                borderRight: "1px solid var(--border)",
+            }}
+        >
+            {[1, 2, 3].map((n) => (
+                <div
+                    key={n}
+                    style={{ border: n === 2 ? "2px solid var(--accent)" : "1px solid var(--border)", borderRadius: 2 }}
+                >
+                    <PdfPage n={n} small />
+                </div>
+            ))}
+        </div>
+        <div style={{ padding: 8 }}>
+            <PdfPage n={2} />
+        </div>
+    </div>
+);
+const Pd3 = () => (
+    <div className="pdf">
+        <div className="pdf-hd">
+            <span className="title">report.pdf</span>
+            <input
+                placeholder="Search"
+                style={{
+                    padding: "3px 6px",
+                    border: "1px solid var(--border)",
+                    borderRadius: 4,
+                    fontSize: 10,
+                    fontFamily: "inherit",
+                    width: 100,
+                }}
+            />
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+            <div className="pdf-page" style={{ position: "relative" }}>
+                <div className="ph" />
+                <div className="pl" style={{ width: "80%" }} />
+                <div
+                    className="pl"
+                    style={{ width: "60%", background: "color-mix(in oklab, var(--accent) 30%, white)" }}
+                />
+                <div className="pl" style={{ width: "70%" }} />
+                <div className="pl" style={{ width: "50%" }} />
+                <div className="pn">1</div>
+            </div>
+        </div>
+    </div>
+);
+const Pd4 = () => (
+    <div className="pdf">
+        <div className="pdf-hd">
+            <button>−</button>
+            <span style={{ fontSize: 10 }}>125%</span>
+            <button>+</button>
+            <span className="title" style={{ textAlign: "center" }}>
+                Atlas · Q1 Report
+            </span>
+            <button>⬇</button>
+        </div>
+        <div style={{ display: "flex", justifyContent: "center", padding: "6px 0" }}>
+            <div className="pdf-page" style={{ transform: "scale(1.15)", transformOrigin: "top" }}>
+                <div className="ph" />
+                <div className="pl" style={{ width: "70%" }} />
+                <div className="pl" style={{ width: "50%" }} />
+                <div className="pn">1</div>
+            </div>
+        </div>
+    </div>
+);
+const Pd5 = () => (
+    <div className="pdf">
+        <div className="pdf-hd">
+            <span className="title">essay.pdf</span>
+        </div>
+        <div style={{ display: "flex", padding: "10px 12px", gap: 6, justifyContent: "center" }}>
+            {[1, 2].map((n) => (
+                <div key={n} className="pdf-page" style={{ margin: 0, width: "45%" }}>
+                    <div className="ph" />
+                    <div className="pl" style={{ width: "60%" }} />
+                    <div className="pl" style={{ width: "70%" }} />
+                    <div className="pn">{n}</div>
+                </div>
+            ))}
+        </div>
+    </div>
+);
+const Pd6 = () => (
+    <div className="pdf">
+        <div className="pdf-hd">
+            <span className="title">spec.pdf</span>
+            <span style={{ fontSize: 9, color: "var(--accent)", fontFamily: "JetBrains Mono,monospace" }}>
+                ◉ 3 annotations
+            </span>
+        </div>
+        <div style={{ display: "flex", justifyContent: "center", padding: 8, position: "relative" }}>
+            <div className="pdf-page">
+                <div className="ph" />
+                <div className="pl" />
+                <div
+                    className="pl"
+                    style={{ background: "color-mix(in oklab, var(--warning) 40%, white)", width: "80%" }}
+                />
+                <div className="pl" />
+                <div className="pn">2</div>
+            </div>
+            <div
+                style={{
+                    position: "absolute",
+                    right: 20,
+                    top: 40,
+                    padding: "4px 8px",
+                    background: "var(--warning)",
+                    color: "white",
+                    fontSize: 9,
+                    borderRadius: 4,
+                    maxWidth: 100,
+                }}
+            >
+                Revise this section
+            </div>
+        </div>
+    </div>
+);
+
+/* =============== 09. QR =============== */
+const QrMatrix = ({ color = "var(--fg)" }) => {
+    const seed = [
+        [1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1],
+        [1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1],
+        [1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1],
+        [0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0],
+        [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1],
+        [0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0],
+        [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0],
+        [1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1],
+        [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1],
+        [1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1],
+        [1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1],
+        [1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1],
+    ];
+    return (
+        <svg viewBox="0 0 21 21">
+            {seed.flatMap((r, y) =>
+                r.map((c, x) => (c ? <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" fill={color} /> : null)),
+            )}
+        </svg>
+    );
+};
+const Qr1 = () => (
+    <div className="qr">
+        <div className="qr-code">
+            <QrMatrix />
+        </div>
+        <div className="qr-cap">diamond.co/v3</div>
+    </div>
+);
+const Qr2 = () => (
+    <div className="qr">
+        <div className="qr-code" style={{ position: "relative" }}>
+            <QrMatrix color="var(--accent)" />
+            <div
+                style={{
+                    position: "absolute",
+                    inset: "40% 40% 40% 40%",
+                    background: "white",
+                    borderRadius: 4,
+                    border: "2px solid var(--accent)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "var(--accent)",
+                    fontWeight: 700,
+                    fontSize: 14,
+                }}
+            >
+                ◆
+            </div>
+        </div>
+        <div className="qr-cap">Diamond · Scan me</div>
+    </div>
+);
+const Qr3 = () => (
+    <div className="qr">
+        <div className="qr-code" style={{ background: "var(--fg)" }}>
+            <QrMatrix color="white" />
+        </div>
+        <div className="qr-cap" style={{ color: "var(--fg-2)" }}>
+            DARK · INVERTED
+        </div>
+    </div>
+);
+const Qr4 = () => (
+    <div className="qr">
+        <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+            <div className="qr-code" style={{ width: 80, height: 80, padding: 3 }}>
+                <QrMatrix />
+            </div>
+            <div>
+                <div style={{ fontSize: 11, fontWeight: 700 }}>Wi-Fi: Diamond_Guest</div>
+                <div style={{ fontSize: 9, color: "var(--fg-3)" }}>WPA2 · auto-join</div>
+            </div>
+        </div>
+    </div>
+);
+const Qr5 = () => (
+    <div className="qr">
+        <div
+            className="qr-code"
+            style={{
+                padding: 10,
+                background: "linear-gradient(135deg, color-mix(in oklab, var(--accent) 20%, white), white)",
+            }}
+        >
+            <QrMatrix />
+        </div>
+        <div style={{ display: "flex", gap: 6, fontSize: 10 }}>
+            <button
+                style={{
+                    padding: "4px 10px",
+                    border: "1px solid var(--border)",
+                    borderRadius: 4,
+                    background: "var(--surface)",
+                    cursor: "pointer",
+                    fontFamily: "inherit",
+                }}
+            >
+                Download PNG
+            </button>
+            <button
+                style={{
+                    padding: "4px 10px",
+                    border: "1px solid var(--border)",
+                    borderRadius: 4,
+                    background: "var(--surface)",
+                    cursor: "pointer",
+                    fontFamily: "inherit",
+                }}
+            >
+                SVG
+            </button>
+        </div>
+    </div>
+);
+const Qr6 = () => (
+    <div className="qr">
+        <div className="qr-code">
+            <QrMatrix />
+        </div>
+        <div
+            style={{
+                fontFamily: "JetBrains Mono,monospace",
+                fontSize: 9,
+                color: "var(--fg-3)",
+                letterSpacing: "0.1em",
+            }}
+        >
+            ERROR CORRECTION · H · 30%
+        </div>
+    </div>
+);
+
+/* =============== 10. THEME SWITCHER =============== */
+const Th1 = () => (
+    <div className="ts">
+        {[
+            ["☀", "Light", true],
+            ["☾", "Dark"],
+            ["⚙", "System"],
+        ].map(([i, l, on]) => (
+            <button key={l} className={on ? "on" : ""}>
+                {i} {l}
+            </button>
+        ))}
+    </div>
+);
+const Th2 = () => (
+    <div style={{ display: "flex", gap: 4 }}>
+        {[["☀", true], ["☾"], ["◐"]].map(([i, on], k) => (
+            <button
+                key={k}
+                style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: "50%",
+                    border: on ? "2px solid var(--accent)" : "1px solid var(--border)",
+                    background: "var(--surface)",
+                    color: on ? "var(--accent)" : "var(--fg-2)",
+                    fontSize: 14,
+                    cursor: "pointer",
+                }}
+            >
+                {i}
+            </button>
+        ))}
+    </div>
+);
+const Th3 = () => (
+    <div
+        style={{
+            display: "inline-flex",
+            alignItems: "center",
+            padding: 2,
+            background: "var(--fg)",
+            borderRadius: 999,
+            position: "relative",
+            width: 58,
+            height: 28,
+            cursor: "pointer",
+        }}
+    >
+        <div
+            style={{
+                position: "absolute",
+                left: 32,
+                top: 2,
+                width: 24,
+                height: 24,
+                borderRadius: "50%",
+                background: "var(--bg)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 12,
+                boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+            }}
+        >
+            ☾
+        </div>
+        <span style={{ position: "absolute", left: 8, color: "var(--bg)", fontSize: 11, opacity: 0.3 }}>☀</span>
+    </div>
+);
+const Th4 = () => (
+    <div style={{ display: "flex", gap: 4 }}>
+        {[
+            { l: "Light", b: "#ffffff", f: "#1a1917" },
+            { l: "Dim", b: "#2b2a28", f: "#d4d0c8" },
+            { l: "Dark", b: "#0f0f0e", f: "#d4d0c8", on: true },
+        ].map((t, i) => (
+            <div
+                key={t.l}
+                style={{
+                    padding: 6,
+                    width: 80,
+                    borderRadius: 6,
+                    background: t.b,
+                    color: t.f,
+                    border: t.on ? "2px solid var(--accent)" : "1px solid var(--border)",
+                    cursor: "pointer",
+                }}
+            >
+                <div
+                    style={{ height: 4, width: "70%", background: t.f, marginBottom: 3, opacity: 0.5, borderRadius: 1 }}
+                />
+                <div style={{ height: 3, width: "50%", background: t.f, opacity: 0.3, borderRadius: 1 }} />
+                <div style={{ fontSize: 9, marginTop: 6, textAlign: "center" }}>{t.l}</div>
+            </div>
+        ))}
+    </div>
+);
+const Th5 = () => (
+    <div className="lang-menu" style={{ width: 200 }}>
+        <div
+            style={{
+                padding: "6px 10px",
+                fontFamily: "JetBrains Mono,monospace",
+                fontSize: 9,
+                color: "var(--fg-3)",
+                letterSpacing: "0.14em",
+            }}
+        >
+            APPEARANCE
+        </div>
+        {[
+            ["☀", "Light mode"],
+            ["☾", "Dark mode", true],
+            ["⚙", "Match system"],
+            ["𝄞", "High contrast"],
+        ].map(([i, l, on]) => (
+            <div key={l} className={`it ${on ? "on" : ""}`}>
+                <span>{i}</span>
+                {l}
+                {on && <span style={{ marginLeft: "auto" }}>✓</span>}
+            </div>
+        ))}
+    </div>
+);
+const Th6 = () => (
+    <div style={{ display: "flex", gap: 8 }}>
+        {[
+            ["#f5f3ef", "Warm", true],
+            ["#ffffff", "Paper"],
+            ["#0f0f0e", "Noir"],
+            ["#f0f4f8", "Cool"],
+        ].map(([c, n, on], i) => (
+            <button
+                key={n}
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 3,
+                    padding: 4,
+                    border: "none",
+                    background: "transparent",
+                    cursor: "pointer",
+                }}
+            >
+                <span
+                    style={{
+                        width: 32,
+                        height: 32,
+                        borderRadius: "50%",
+                        background: c,
+                        border: on ? "3px solid var(--accent)" : "1px solid var(--border)",
+                    }}
+                />
+                <span style={{ fontSize: 9, color: on ? "var(--accent)" : "var(--fg-2)" }}>{n}</span>
+            </button>
+        ))}
+    </div>
+);
+
+/* =============== 11. LANGUAGE SWITCHER =============== */
+const Lg1 = () => (
+    <div className="lang">
+        🌐 English <span style={{ color: "var(--fg-3)" }}>▾</span>
+    </div>
+);
+const Lg2 = () => (
+    <div className="lang" style={{ padding: "4px 8px" }}>
+        <span style={{ fontSize: 14 }}>🇺🇸</span> EN
+    </div>
+);
+const Lg3 = () => (
+    <div className="lang-menu">
+        <div
+            style={{
+                padding: "6px 10px",
+                fontFamily: "JetBrains Mono,monospace",
+                fontSize: 9,
+                color: "var(--fg-3)",
+                letterSpacing: "0.14em",
+            }}
+        >
+            LANGUAGE
+        </div>
+        {[
+            ["🇬🇧", "English", "en", true],
+            ["🇫🇷", "Français", "fr"],
+            ["🇪🇸", "Español", "es"],
+            ["🇯🇵", "日本語", "ja"],
+        ].map(([f, n, c, on]) => (
+            <div key={c} className={`it ${on ? "on" : ""}`}>
+                <span style={{ fontSize: 14 }}>{f}</span>
+                <span>{n}</span>
+                <span
+                    style={{
+                        marginLeft: "auto",
+                        fontFamily: "JetBrains Mono,monospace",
+                        fontSize: 9,
+                        color: on ? "var(--accent)" : "var(--fg-3)",
+                    }}
+                >
+                    {c.toUpperCase()}
+                </span>
+            </div>
+        ))}
+    </div>
+);
+const Lg4 = () => (
+    <div
+        style={{
+            display: "flex",
+            gap: 4,
+            padding: 3,
+            background: "var(--bg-2)",
+            borderRadius: 6,
+            fontFamily: "JetBrains Mono,monospace",
+        }}
+    >
+        {["EN", "FR", "ES", "JA"].map((c, i) => (
+            <button
+                key={c}
+                style={{
+                    padding: "4px 8px",
+                    border: "none",
+                    background: i === 0 ? "var(--surface)" : "transparent",
+                    borderRadius: 4,
+                    fontSize: 10,
+                    fontWeight: 600,
+                    color: i === 0 ? "var(--fg)" : "var(--fg-3)",
+                    cursor: "pointer",
+                    boxShadow: i === 0 ? "0 1px 2px rgba(0,0,0,0.08)" : "none",
+                }}
+            >
+                {c}
+            </button>
+        ))}
+    </div>
+);
+const Lg5 = () => (
+    <div className="lang-menu">
+        <div style={{ padding: 8 }}>
+            <input
+                placeholder="Search language…"
+                style={{
+                    width: "100%",
+                    padding: "4px 8px",
+                    border: "1px solid var(--border)",
+                    borderRadius: 4,
+                    fontSize: 10,
+                    fontFamily: "inherit",
+                }}
+            />
+        </div>
+        {[
+            ["🇩🇪", "Deutsch", "250M"],
+            ["🇮🇹", "Italiano", "68M"],
+            ["🇵🇹", "Português", "260M"],
+        ].map(([f, n, s]) => (
+            <div key={n} className="it">
+                <span>{f}</span>
+                <span>{n}</span>
+                <span style={{ marginLeft: "auto", fontSize: 9, color: "var(--fg-3)" }}>{s}</span>
+            </div>
+        ))}
+    </div>
+);
+const Lg6 = () => (
+    <div className="lang-menu" style={{ background: "var(--fg)", color: "var(--bg)", borderColor: "var(--fg)" }}>
+        <div
+            style={{
+                padding: "6px 10px",
+                fontFamily: "JetBrains Mono,monospace",
+                fontSize: 9,
+                color: "#a8a49c",
+                letterSpacing: "0.14em",
+                borderBottom: "1px solid #2d2c28",
+            }}
+        >
+            REGION · USA
+        </div>
+        {[["English (US)", true], ["English (UK)"], ["Español (MX)"]].map(([l, on]) => (
+            <div
+                key={l}
+                className="it"
+                style={{
+                    background: on ? "rgba(43,127,255,0.15)" : "transparent",
+                    color: on ? "var(--accent)" : "#d4d0c8",
+                }}
+            >
+                {on ? "●" : "○"} {l}
+            </div>
+        ))}
+        <div
+            style={{
+                padding: "6px 10px",
+                fontSize: 9,
+                color: "var(--accent)",
+                borderTop: "1px solid #2d2c28",
+                cursor: "pointer",
+            }}
+        >
+            ＋ Add language
+        </div>
+    </div>
+);
+
+/* =============== REGISTRY =============== */
+window.CATEGORIES = [
+    {
+        n: "Rich Text Editor",
+        k: "rte",
+        desc: "WYSIWYG formatting",
+        notes: [
+            "Classic toolbar",
+            "Heading selector",
+            "Pull-quote centered",
+            "Floating toolbar",
+            "Markdown terminal",
+            "Collaborative cursors",
+        ],
+        v: [Rte1, Rte2, Rte3, Rte4, Rte5, Rte6],
+    },
+    {
+        n: "Command Palette",
+        k: "cmd",
+        desc: "Global search · ⌘K",
+        notes: [
+            "Project switcher",
+            "Suggested actions",
+            "Terminal prefix",
+            "Jump-to with hotkeys",
+            "People search",
+            "AI ask prompt",
+        ],
+        v: [Cmd1, Cmd2, Cmd3, Cmd4, Cmd5, Cmd6],
+    },
+    {
+        n: "Map Component",
+        k: "mp",
+        desc: "Geo-visualization",
+        notes: [
+            "Single pin w/ label",
+            "Multi-point cluster",
+            "Dark Mapbox style",
+            "Route w/ dashed line",
+            "Heat-density overlay",
+            "Place card overlay",
+        ],
+        v: [Mp1, Mp2, Mp3, Mp4, Mp5, Mp6],
+    },
+    {
+        n: "Charts",
+        k: "ch",
+        desc: "Data visualization",
+        notes: ["Area / line", "Vertical bar", "Donut with legend", "Scatter plot", "Bar vs. target", "Radar polygon"],
+        v: [Ch1, Ch2, Ch3, Ch4, Ch5, Ch6],
+    },
+    {
+        n: "Transfer List",
+        k: "tr",
+        desc: "Dual-list mover",
+        notes: [
+            "Classic paired",
+            "Drag into plan",
+            "Reject / approve",
+            "Avatar pool",
+            "With filter",
+            "Permission scopes dark",
+        ],
+        v: [Tr1, Tr2, Tr3, Tr4, Tr5, Tr6],
+    },
+    {
+        n: "Split Pane",
+        k: "sp",
+        desc: "Resizable divider",
+        notes: [
+            "Sidebar editor",
+            "Horizontal console",
+            "Triple column",
+            "Markdown preview",
+            "Nav + content",
+            "Decorative split",
+        ],
+        v: [Sp1, Sp2, Sp3, Sp4, Sp5, Sp6],
+    },
+    {
+        n: "Signature Pad",
+        k: "sg",
+        desc: "Canvas signature",
+        notes: [
+            "Simple draw",
+            "With signature line",
+            "Dark mode",
+            "Color picker",
+            "Editorial witness",
+            "Certified / verified",
+        ],
+        v: [Sg1, Sg2, Sg3, Sg4, Sg5, Sg6],
+    },
+    {
+        n: "PDF Viewer",
+        k: "pd",
+        desc: "Inline PDF render",
+        notes: [
+            "Single page + nav",
+            "Thumbnail sidebar",
+            "With search",
+            "Zoom toolbar",
+            "Two-page spread",
+            "Annotated",
+        ],
+        v: [Pd1, Pd2, Pd3, Pd4, Pd5, Pd6],
+    },
+    {
+        n: "QR Code",
+        k: "qr",
+        desc: "Scannable code",
+        notes: [
+            "Classic mono",
+            "Branded center",
+            "Inverted dark",
+            "Wi-Fi credential",
+            "Gradient + export",
+            "With error level",
+        ],
+        v: [Qr1, Qr2, Qr3, Qr4, Qr5, Qr6],
+    },
+    {
+        n: "Theme Switcher",
+        k: "th",
+        desc: "Appearance toggle",
+        notes: [
+            "Segmented pill",
+            "Circular icons",
+            "iOS-style toggle",
+            "Visual previews",
+            "Dropdown menu",
+            "Palette swatches",
+        ],
+        v: [Th1, Th2, Th3, Th4, Th5, Th6],
+    },
+    {
+        n: "Language Switcher",
+        k: "lg",
+        desc: "Locale picker",
+        notes: ["Basic dropdown", "Flag + code", "Full menu w/ flags", "Segmented pill", "Searchable", "Dark regional"],
+        v: [Lg1, Lg2, Lg3, Lg4, Lg5, Lg6],
+    },
+];

@@ -1,0 +1,22 @@
+/* Diamond · Ocean theme — cyan on cool white / deep abyss (light + dark). */
+:root {
+  --diamond-accent:        #0891b2;
+  --diamond-on-accent:     #ffffff;
+  --diamond-accent-deep:   #0c4a6e;
+  --diamond-accent-soft:   color-mix(in oklab, var(--diamond-accent) 28%, var(--diamond-surface));
+  --diamond-gradient:      linear-gradient(135deg, #0891b2, #2563eb 60%, #1e1b4b);
+
+  --diamond-surface:       #f0f9ff;
+  --diamond-surface-alt:   #e0f2fe;
+  --diamond-ink:           #0c2532;
+  --diamond-muted:         #4a7a92;
+  --diamond-border:        #b8dde8;
+}
+
+:root.dark {
+  --diamond-surface:       #0c2532;
+  --diamond-surface-alt:   #143948;
+  --diamond-ink:           #f0f9ff;
+  --diamond-muted:         #8ab1c4;
+  --diamond-border:        #2a4a5e;
+}

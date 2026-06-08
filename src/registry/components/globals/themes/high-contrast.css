@@ -1,0 +1,22 @@
+/* Diamond · High-Contrast theme — accessibility-first, pure values (light + dark). */
+:root {
+  --diamond-accent:        #facc00;
+  --diamond-on-accent:     #000000;
+  --diamond-accent-deep:   #a87f00;
+  --diamond-accent-soft:   color-mix(in oklab, var(--diamond-accent) 25%, var(--diamond-surface));
+  --diamond-gradient:      linear-gradient(135deg, #facc00, #ffffff);
+
+  --diamond-surface:       #ffffff;
+  --diamond-surface-alt:   #f0f0f0;
+  --diamond-ink:           #000000;
+  --diamond-muted:         #4a4a4a;
+  --diamond-border:        #000000;
+}
+
+:root.dark {
+  --diamond-surface:       #000000;
+  --diamond-surface-alt:   #1a1a1a;
+  --diamond-ink:           #ffffff;
+  --diamond-muted:         #cccccc;
+  --diamond-border:        #ffffff;
+}

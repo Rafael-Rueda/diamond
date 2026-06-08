@@ -1,0 +1,41 @@
+{
+  "id": "checkbox",
+  "name": "Checkbox",
+  "description": "Single checkbox **or** group — square, round, switch-style, card, x-mark, ASCII single controls; stacked, card grid, pills, select-all, days-of-week and priced-rows group layouts.",
+  "kind": "ui",
+  "files": [
+    { "source": "checkbox.tsx", "target": "checkbox.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "selection"],
+
+  "documentation": {
+    "groups": {
+      "Single":  ["square", "round", "switch", "card", "x-mark", "ascii"],
+      "Group":   ["stacked", "card-grid", "pills", "select-all", "days", "priced-rows"]
+    },
+    "samples": {
+      "default": "Accept terms",
+      "perVariant": {
+        "square":      { "label": "Accept terms" },
+        "round":       { "label": "Stay signed in" },
+        "switch":      { "label": "Enable notifications" },
+        "card":        { "label": "Send weekly digest" },
+        "x-mark":      { "label": "Mark complete" },
+        "ascii":       { "label": "DONE" },
+        "stacked":     { "label": "" },
+        "card-grid":   { "label": "" },
+        "pills":       { "label": "" },
+        "select-all":  { "label": "" },
+        "days":        { "label": "" },
+        "priced-rows": { "label": "" }
+      }
+    }
+  }
+}

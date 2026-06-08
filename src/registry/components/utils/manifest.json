@@ -1,0 +1,19 @@
+{
+  "id": "utils",
+  "name": "Utils",
+  "description": "Shared `cn` class-merging utility used by every Diamond component. Installs as a single file at your `aliases.utils` module path (shadcn convention).",
+  "kind": "util",
+  "files": [
+    {
+      "source": "utils.ts",
+      "target": "",
+      "alias": "utils"
+    }
+  ],
+  "dependencies": [
+    { "name": "clsx",          "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": [],
+  "tags": ["primitive", "utility"]
+}

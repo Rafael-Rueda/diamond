@@ -1,0 +1,25 @@
+{
+  "id": "globals",
+  "name": "Globals",
+  "description": "Global CSS variables (accent, surface, ink, gradient) injected into your `tailwind.css`. Theme-based: pass --theme <name> or a bare flag like --kepler.",
+  "kind": "theme",
+  "files": [],
+  "themes": {
+    "default":       { "source": "themes/default.css" },
+    "kepler":        { "source": "themes/kepler.css" },
+    "high-contrast": { "source": "themes/high-contrast.css" },
+    "mars":          { "source": "themes/mars.css" },
+    "earth":         { "source": "themes/earth.css" },
+    "ocean":         { "source": "themes/ocean.css" },
+    "sakura":        { "source": "themes/sakura.css" },
+    "noir":          { "source": "themes/noir.css" },
+    "matrix":        { "source": "themes/matrix.css" },
+    "vaporwave":     { "source": "themes/vaporwave.css" },
+    "sepia":         { "source": "themes/sepia.css" },
+    "dracula":       { "source": "themes/dracula.css" }
+  },
+  "defaultTheme": "default",
+  "dependencies": [],
+  "registryDependencies": [],
+  "tags": ["theme", "css", "globals", "tokens"]
+}

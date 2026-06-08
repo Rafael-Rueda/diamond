@@ -1,0 +1,61 @@
+---
+import DocsLayout from '@/layouts/DocsLayout.astro';
+import { findManifest, readAllThemes } from '@/lib/registry';
+import { Button } from '@diamond/registry/button/button';
+
+const globals = findManifest('globals');
+if (!globals) throw new Error('globals manifest missing');
+
+const themes = readAllThemes(globals);
+const themeIds = Object.keys(themes);
+---
+
+<DocsLayout title="Themes" active="globals">
+  <header class="mb-10">
+    <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--diamond-muted)] mb-2">
+      {themeIds.length} themes · live preview
+    </p>
+    <h1 class="text-4xl font-semibold tracking-tight mb-3">Themes</h1>
+    <p class="text-lg text-[var(--diamond-muted)] max-w-2xl">
+      Each theme is a single CSS block injected at <code class="font-mono text-base">@diamond:globals:start</code>.
+      Use the picker on the header to swap them globally; the snippets below are static previews.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {themeIds.map((id) => (
+      <article
+        class="rounded-lg border border-[var(--diamond-border)] overflow-hidden"
+        data-theme-card={id}
+      >
+        <div class="px-5 py-3 bg-[var(--diamond-surface-alt)] border-b border-[var(--diamond-border)] flex items-baseline justify-between">
+          <h3 class="font-semibold">{id}</h3>
+          {globals.defaultTheme === id && (
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--diamond-muted)]">default</span>
+          )}
+        </div>
+        <div class="p-8 flex flex-wrap items-center gap-3 d-theme-preview" data-css={themes[id]}>
+          <Button variant="solid">Solid</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="ghost">Ghost</Button>
+          <Button variant="gradient">Gradient</Button>
+          <Button variant="pill">Pill</Button>
+        </div>
+      </article>
+    ))}
+  </div>
+</DocsLayout>
+
+<script>
+  /* For each theme card, scope the theme CSS to that card by inlining it
+     in a <style> with attribute-narrowed selectors. */
+  document.querySelectorAll('[data-theme-card]').forEach((card) => {
+    const id = card.getAttribute('data-theme-card');
+    const inner = card.querySelector('.d-theme-preview');
+    const css = inner?.getAttribute('data-css') ?? '';
+    const scoped = css.replace(/:root\s*\{/g, `[data-theme-card="${id}"] .d-theme-preview {`);
+    const style = document.createElement('style');
+    style.textContent = scoped;
+    document.head.appendChild(style);
+  });
+</script>

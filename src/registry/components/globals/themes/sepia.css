@@ -1,0 +1,22 @@
+/* Diamond · Sepia theme — vintage amber on parchment / candle-lit library (light + dark). */
+:root {
+  --diamond-accent:        #a16207;
+  --diamond-on-accent:     #fef7e0;
+  --diamond-accent-deep:   #5c3a05;
+  --diamond-accent-soft:   color-mix(in oklab, var(--diamond-accent) 22%, var(--diamond-surface));
+  --diamond-gradient:      linear-gradient(135deg, #a16207, #d97706 50%, #5c3a05);
+
+  --diamond-surface:       #fdf6e3;
+  --diamond-surface-alt:   #f4e8c8;
+  --diamond-ink:           #3d2818;
+  --diamond-muted:         #8c6f4e;
+  --diamond-border:        #d4c094;
+}
+
+:root.dark {
+  --diamond-surface:       #1a1208;
+  --diamond-surface-alt:   #2a1f10;
+  --diamond-ink:           #fef7e0;
+  --diamond-muted:         #b89668;
+  --diamond-border:        #3a2a18;
+}

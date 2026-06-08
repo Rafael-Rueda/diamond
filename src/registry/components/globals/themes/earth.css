@@ -1,0 +1,22 @@
+/* Diamond · Earth theme — forest green on warm cream / deep moss (light + dark). */
+:root {
+  --diamond-accent:        #16a34a;
+  --diamond-on-accent:     #ffffff;
+  --diamond-accent-deep:   #14532d;
+  --diamond-accent-soft:   color-mix(in oklab, var(--diamond-accent) 28%, var(--diamond-surface));
+  --diamond-gradient:      linear-gradient(135deg, #16a34a, #65a30d 60%, #ca8a04);
+
+  --diamond-surface:       #fafaf7;
+  --diamond-surface-alt:   #eef0e8;
+  --diamond-ink:           #14271a;
+  --diamond-muted:         #4d6353;
+  --diamond-border:        #c9d3c5;
+}
+
+:root.dark {
+  --diamond-surface:       #14271a;
+  --diamond-surface-alt:   #1f3826;
+  --diamond-ink:           #fafaf7;
+  --diamond-muted:         #8aab90;
+  --diamond-border:        #2a4a32;
+}

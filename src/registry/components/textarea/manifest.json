@@ -1,0 +1,33 @@
+{
+  "id": "textarea",
+  "name": "Textarea",
+  "description": "Multi-line text input — classic, auto-expanding, with counter, with toolbar, markdown mono, ghost underline.",
+  "kind": "ui",
+  "files": [
+    { "source": "textarea.tsx", "target": "textarea.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "input"],
+
+  "documentation": {
+    "groups": {
+      "Textarea": ["classic", "auto", "counter", "toolbar", "markdown", "ghost"]
+    },
+    "samples": {
+      "default": "Write a message…",
+      "perVariant": {
+        "classic":  { "label": "Write a message…" },
+        "auto":     { "label": "Type to grow…" },
+        "counter":  { "label": "What's on your mind?" },
+        "toolbar":  { "label": "Compose…" },
+        "markdown": { "label": "# Heading" },
+        "ghost":    { "label": "Jot down thoughts…" }
+      }
+    }
+  }
+}

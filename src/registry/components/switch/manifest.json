@@ -1,0 +1,33 @@
+{
+  "id": "switch",
+  "name": "Switch",
+  "description": "Boolean toggle wrapping a real <input type=\"checkbox\" role=\"switch\"> — classic, square, with-label, iOS-style, text bi-state, industrial.",
+  "kind": "ui",
+  "files": [
+    { "source": "switch.tsx", "target": "switch.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "selection"],
+
+  "documentation": {
+    "groups": {
+      "Toggle": ["classic", "square", "with-label", "ios", "bi-state", "industrial"]
+    },
+    "samples": {
+      "default": "Toggle",
+      "perVariant": {
+        "classic":    { "label": "" },
+        "square":     { "label": "" },
+        "with-label": { "label": "Notifications" },
+        "ios":        { "label": "" },
+        "bi-state":   { "label": "" },
+        "industrial": { "label": "" }
+      }
+    }
+  }
+}

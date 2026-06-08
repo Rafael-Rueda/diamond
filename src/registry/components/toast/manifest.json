@@ -1,0 +1,35 @@
+{
+  "id": "toast",
+  "name": "Toast",
+  "description": "Temporary notifications built on @radix-ui/react-toast — ToastProvider + useToast() hook for imperative dispatch, plus a static <Toast /> for previews. Six variants: success, undo, progress, error, minimal, action.",
+  "kind": "ui",
+  "files": [
+    { "source": "toast.tsx", "target": "toast.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-toast",    "version": "^1.2.2", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["feedback", "overlay"],
+
+  "documentation": {
+    "groups": {
+      "Toasts": ["success", "undo", "progress", "error", "minimal", "action"]
+    },
+    "samples": {
+      "default": "Saved",
+      "perVariant": {
+        "success":  { "label": "Saved" },
+        "undo":     { "label": "Message sent" },
+        "progress": { "label": "Uploading" },
+        "error":    { "label": "Failed to connect" },
+        "minimal":  { "label": "Copied to clipboard" },
+        "action":   { "label": "Aria mentioned you" }
+      }
+    }
+  }
+}

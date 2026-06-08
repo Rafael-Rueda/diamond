@@ -1,0 +1,35 @@
+{
+  "id": "alert",
+  "name": "Alert",
+  "description": "Static important messages — info, success, warning, danger, brand and editorial notice.",
+  "kind": "ui",
+  "files": [
+    { "source": "alert.tsx", "target": "alert.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-slot",     "version": "^1.1.0", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["feedback", "messaging"],
+
+  "documentation": {
+    "groups": {
+      "Messages": ["info", "success", "warning", "danger", "brand", "notice"]
+    },
+    "samples": {
+      "default": "New update available",
+      "perVariant": {
+        "info":    { "label": "New update available" },
+        "success": { "label": "Payment received" },
+        "warning": { "label": "Storage almost full" },
+        "danger":  { "label": "Action failed" },
+        "brand":   { "label": "Pro tip" },
+        "notice":  { "label": "Scheduled maintenance" }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+/* Diamond · Mars theme — rust orange on dusty cream / dark red-clay (light + dark). */
+:root {
+  --diamond-accent:        #d97347;
+  --diamond-on-accent:     #ffffff;
+  --diamond-accent-deep:   #a64218;
+  --diamond-accent-soft:   color-mix(in oklab, var(--diamond-accent) 28%, var(--diamond-surface));
+  --diamond-gradient:      linear-gradient(135deg, #d97347, #c1440e 60%, #5c1a04);
+
+  --diamond-surface:       #faf3ec;
+  --diamond-surface-alt:   #f0e3d0;
+  --diamond-ink:           #2a1810;
+  --diamond-muted:         #8c5a3c;
+  --diamond-border:        #d9c5a5;
+}
+
+:root.dark {
+  --diamond-surface:       #2a1810;
+  --diamond-surface-alt:   #3d2418;
+  --diamond-ink:           #f5e6d3;
+  --diamond-muted:         #b08a6a;
+  --diamond-border:        #5c3520;
+}

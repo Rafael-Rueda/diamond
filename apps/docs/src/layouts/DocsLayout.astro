@@ -1,0 +1,67 @@
+---
+import '@/styles/globals.css';
+import { Image } from 'astro:assets';
+import Sidebar from '@/components/Sidebar.astro';
+import ThemePicker from '@/components/ThemePicker';
+import DarkModeToggle from '@/components/DarkModeToggle';
+import { loadAllManifests } from '@/lib/registry';
+import diamondLogo from '@/assets/diamond.png';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** When set, that nav item is highlighted. */
+  active?: string;
+}
+
+const { title = 'Diamond', description, active } = Astro.props;
+const manifests = loadAllManifests();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · Diamond</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/png" href={diamondLogo.src} />
+
+    {/* Anti-FOUC: apply persisted dark-mode preference BEFORE first paint. */}
+    <script is:inline>
+      (function () {
+        try {
+          var v = localStorage.getItem('diamond.darkMode');
+          var dark = v === '1' || (v === null && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (_) { /* storage disabled */ }
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen">
+    <header class="border-b border-[var(--diamond-border)] bg-[var(--diamond-surface)]/90 backdrop-blur sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between gap-6">
+        <a href="/" class="flex items-center gap-2 font-semibold tracking-tight text-lg">
+          <Image src={diamondLogo} alt="Diamond" height={32} width={32} densities={[1, 2]} />
+          <span>Diamond</span>
+        </a>
+        <nav class="flex items-center gap-6 text-sm text-[var(--diamond-muted)]">
+          <a href="/components" class="hover:text-[var(--diamond-ink)]">Components</a>
+          <a href="/themes" class="hover:text-[var(--diamond-ink)]">Themes</a>
+          <a href="https://github.com" class="hover:text-[var(--diamond-ink)]">GitHub</a>
+          <ThemePicker client:load manifests={manifests} />
+          <DarkModeToggle client:load />
+        </nav>
+      </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-[220px_1fr] gap-10 py-10">
+      <aside>
+        <Sidebar manifests={manifests} active={active} />
+      </aside>
+      <main class="min-w-0">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

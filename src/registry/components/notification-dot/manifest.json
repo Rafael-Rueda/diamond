@@ -1,0 +1,34 @@
+{
+  "id": "notification-dot",
+  "name": "Notification Dot",
+  "description": "Unread indicator — dot, counted badge, pulsing live signal, status ring, overflow pill, or presence legend.",
+  "kind": "ui",
+  "files": [
+    { "source": "notification-dot.tsx", "target": "notification-dot.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@radix-ui/react-slot",     "version": "^1.1.0", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["feedback", "indicator"],
+
+  "documentation": {
+    "groups": {
+      "Indicators": ["dot", "count", "pulse", "status", "overflow", "legend"]
+    },
+    "samples": {
+      "default": "Inbox",
+      "perVariant": {
+        "dot":      { "label": "Alerts" },
+        "count":    { "label": "Messages" },
+        "pulse":    { "label": "Live" },
+        "status":   { "label": "Aria" },
+        "overflow": { "label": "Inbox" },
+        "legend":   { "label": "Online" }
+      }
+    }
+  }
+}

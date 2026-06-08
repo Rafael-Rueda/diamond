@@ -1,0 +1,27 @@
+{
+  "id": "image",
+  "name": "Image",
+  "description": "Image wrapper with caption, badge, ratio control, and placeholder fallback.",
+  "kind": "ui",
+  "files": [
+    { "source": "image.tsx", "target": "image.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["display", "media"],
+
+  "documentation": {
+    "groups": {
+      "Display": ["basic", "caption", "pair", "circular", "overlay", "framed"]
+    },
+    "samples": {
+      "default": "",
+      "perVariant": {}
+    }
+  }
+}

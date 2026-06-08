@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Navigation Gallery — 90 Variants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="navigation/styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-source="navigation/variants.jsx">
+/* Navigation Gallery — Variants */
+const { useState, useEffect } = React;
+
+/* =============== 01. NAVBAR =============== */
+const Nv1 = () => <div className="nav"><span className="brand">◆ Diamond</span><div className="links"><a className="on">Home</a><a>Docs</a><a>Pricing</a></div><div className="spacer"/><button className="pill">Sign in</button></div>;
+const Nv2 = () => <div className="nav" style={{background:'var(--bg-2)', borderColor:'var(--border-2)'}}><span className="brand">ACME</span><div className="links"><a className="on">Product</a><a>Team</a><a>Blog</a></div><div className="spacer"/><button className="pill" style={{background:'var(--accent)'}}>Try free</button></div>;
+const Nv3 = () => <div className="nav"><span className="brand">Logoipsum</span><div className="search">⌕ &nbsp;Search docs…</div><div className="avatar"/></div>;
+const Nv4 = () => <div className="nav" style={{flexDirection:'column', alignItems:'stretch', gap:0, padding:0}}><div style={{display:'flex', alignItems:'center', padding:'6px 14px', fontSize:10, color:'var(--fg-3)', borderBottom:'1px solid var(--border)', fontFamily:'JetBrains Mono,monospace', letterSpacing:'0.1em'}}>V. 3.2 · BUILD 241 <span style={{marginLeft:'auto'}}>EN · USD</span></div><div style={{display:'flex', alignItems:'center', gap:12, padding:'8px 14px'}}><span className="brand">◆ Diamond</span><a style={{color:'var(--fg)', fontSize:11, fontWeight:600}}>Shop</a><a style={{color:'var(--fg-2)', fontSize:11}}>Journal</a><div className="spacer"/><span style={{fontSize:11}}>Bag (0)</span></div></div>;
+const Nv5 = () => <div className="nav" style={{borderRadius:'999px', padding:'6px 8px 6px 14px', background:'color-mix(in oklab, var(--accent) 8%, white)', borderColor:'color-mix(in oklab, var(--accent) 25%, var(--border))'}}><span className="brand" style={{fontFamily:'Inter', fontSize:13}}>★ Halo</span><div className="links"><a className="on">Overview</a><a>API</a><a>Changelog</a></div><div className="spacer"/><button className="pill" style={{background:'var(--accent)'}}>Launch →</button></div>;
+const Nv6 = () => <div className="nav" style={{fontFamily:'JetBrains Mono, monospace'}}><span style={{fontSize:12, color:'var(--accent)'}}>~/diamond</span><div className="links"><a className="on" style={{fontSize:10}}>[home]</a><a style={{fontSize:10}}>[docs]</a><a style={{fontSize:10}}>[cli]</a></div><div className="spacer"/><span style={{fontSize:10, color:'var(--fg-3)'}}>v1.0.0 ● ready</span></div>;
+
+/* =============== 02. SIDEBAR =============== */
+const Sb1 = () => <div className="sb"><div className="head">◆ Diamond</div><a className="on accent"><span className="dot"/>Dashboard</a><a><span className="dot"/>Projects</a><a><span className="dot"/>Team</a><div className="group">Account</div><a><span className="dot"/>Settings</a><a><span className="dot"/>Billing</a></div>;
+const Sb2 = () => <div className="sb" style={{background:'color-mix(in oklab, var(--accent) 6%, var(--surface))', borderColor:'color-mix(in oklab, var(--accent) 20%, var(--border))'}}><div className="head" style={{color:'color-mix(in oklab, var(--accent) 70%, black)'}}>✦ Social</div>{[['Feed',true],['Explore',false],['Saved',false],['Profile',false]].map(([l,on])=><a key={l} className={on?'on accent':''}>{l}</a>)}</div>;
+const Sb3 = () => <div className="sb" style={{maxWidth:60, alignItems:'center', padding:8}}>{['◆','⌂','☰','⚙','?'].map((i,k)=><a key={k} className={k===1?'on':''} style={{width:36, height:36, justifyContent:'center', fontSize:14, padding:0}}>{i}</a>)}</div>;
+const Sb4 = () => <div className="sb"><div className="head" style={{fontFamily:'JetBrains Mono,monospace', fontSize:11, letterSpacing:'0.1em', textTransform:'uppercase'}}>WORKSPACE</div><div className="group">Main</div><a className="on"><span>📊</span>Overview</a><a><span>📁</span>Files</a><div className="group">Tools</div><a><span>⚡</span>Automations</a><a><span>🔗</span>Integrations</a></div>;
+const Sb5 = () => <div className="sb" style={{borderRight:'3px solid var(--accent)', maxWidth:200}}><div className="head" style={{fontFamily:'Fraunces,serif', fontStyle:'italic'}}>Journal</div>{[['Today',true],['Yesterday',false],['This week',false],['Archive',false]].map(([l,on])=><a key={l} className={on?'on':''} style={{paddingLeft:on?14:8, borderLeft: on?'2px solid var(--accent)':'2px solid transparent', borderRadius:0}}>{l}</a>)}</div>;
+const Sb6 = () => <div className="sb" style={{padding:4, gap:0}}>{[['⌂ Inbox','12'],['★ Starred',''],['◎ Snoozed','3'],['✓ Done','']].map(([l,c],i)=><a key={l} className={i===0?'on':''} style={{justifyContent:'space-between'}}><span>{l}</span>{c && <span style={{fontSize:9, padding:'1px 5px', background:'var(--accent)', color:'white', borderRadius:999}}>{c}</span>}</a>)}</div>;
+
+/* =============== 03. BOTTOM NAV =============== */
+const Bn1 = () => <div className="bn">{[['⌂','Home',true],['⌕','Search',false],['✉','Inbox',false],['○','Me',false]].map(([i,l,on])=><a key={l} className={on?'on':''}><span className="ic">{i}</span><span>{l}</span></a>)}</div>;
+const Bn2 = () => <div className="bn" style={{background:'var(--bg-2)'}}>{[['⌂','',true],['⌕','',false],['⊕','',false],['♡','',false],['○','',false]].map(([i,l,on],k)=><a key={k} style={{color: on?'var(--accent)':'var(--fg-3)'}}><span className="ic" style={{fontSize:18}}>{i}</span></a>)}</div>;
+const Bn3 = () => <div className="bn" style={{position:'relative', paddingTop:10}}>{[['⌂','Home',false],['☰','Menu',false],null,['♡','Saved',false],['○','Me',true]].map((e,k)=>e?<a key={k} className={e[2]?'on':''}><span className="ic">{e[0]}</span><span>{e[1]}</span></a>:<div key="+" style={{width:44, height:44, borderRadius:'50%', background:'var(--accent)', color:'white', display:'flex', alignItems:'center', justifyContent:'center', fontSize:20, marginTop:-24, boxShadow:'0 4px 10px rgba(0,0,0,0.15)'}}>＋</div>)}</div>;
+const Bn4 = () => <div className="bn" style={{borderRadius:999}}>{[['⌂','Home',true],['⌕','Find',false],['☰','More',false]].map(([i,l,on])=><a key={l} className={on?'on':''} style={{flexDirection:'row', gap:6, padding: on?'6px 14px':'6px 10px', background: on?'color-mix(in oklab, var(--accent) 12%, white)':'transparent', borderRadius:999}}><span style={{fontSize:14}}>{i}</span>{on && <span style={{fontSize:11, fontWeight:600}}>{l}</span>}</a>)}</div>;
+const Bn5 = () => <div className="bn" style={{padding:0, borderRadius:0, borderLeft:'none', borderRight:'none'}}>{[['⌂','',true],['⌕','',false],['＋','',false],['♡','',false],['○','',false]].map(([i],k)=><a key={k} className={k===0?'on':''} style={{padding:'10px 0', position:'relative', borderRadius:0}}><span className="ic" style={{fontSize:16}}>{i}</span>{k===0 && <span style={{position:'absolute', top:0, left:'50%', transform:'translateX(-50%)', width:28, height:3, background:'var(--accent)', borderRadius:'0 0 3px 3px'}}/>}</a>)}</div>;
+const Bn6 = () => <div className="bn" style={{padding:6}}>{[['⌂','Home',true],['⊞','Apps',false],['⌕','Find',false],['○','You',false]].map(([i,l,on])=><a key={l} className={on?'on':''} style={{background: on?'var(--fg)':'transparent', color: on?'var(--bg)':'var(--fg-3)', borderRadius:8, padding:'6px 10px', flexDirection:'row', gap:4}}><span>{i}</span>{on && <span style={{fontSize:10, fontWeight:600}}>{l}</span>}</a>)}</div>;
+
+/* =============== 04. BREADCRUMBS =============== */
+const Bc1 = () => <nav className="bc"><a>Home</a><span className="sep">/</span><a>Projects</a><span className="sep">/</span><a>Diamond</a><span className="sep">/</span><span className="cur">Settings</span></nav>;
+const Bc2 = () => <nav className="bc"><a>⌂</a><span className="sep">›</span><a>Docs</a><span className="sep">›</span><a>API</a><span className="sep">›</span><span className="cur">Reference</span></nav>;
+const Bc3 = () => <nav className="bc" style={{gap:0}}>{['Shop','Men','Outerwear','Jacket'].map((l,i,a)=><React.Fragment key={l}><span style={{padding:'3px 10px', background: i===a.length-1?'var(--fg)':'var(--bg-2)', color: i===a.length-1?'var(--bg)':'var(--fg-2)', clipPath:'polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%, 8px 50%)', marginLeft: i===0?0:-4}}>{l}</span></React.Fragment>)}</nav>;
+const Bc4 = () => <nav className="bc" style={{fontFamily:'JetBrains Mono,monospace', fontSize:10}}>~<span className="sep">/</span><a>work</a><span className="sep">/</span><a>diamond</a><span className="sep">/</span><span className="cur">README.md</span></nav>;
+const Bc5 = () => <nav className="bc"><a>⋯</a><span className="sep">/</span><a>Design</a><span className="sep">/</span><span className="cur">Gallery v4</span></nav>;
+const Bc6 = () => <nav className="bc" style={{flexDirection:'column', alignItems:'flex-start', gap:2}}><div style={{fontSize:9, color:'var(--fg-3)', letterSpacing:'0.14em', textTransform:'uppercase'}}>SETTINGS › ACCOUNT</div><div style={{fontFamily:'Fraunces,serif', fontSize:18, color:'var(--fg)', fontWeight:500}}>Profile & Notifications</div></nav>;
+
+/* =============== 05. PAGINATION =============== */
+const Pg1 = () => <div className="pg"><button>‹</button><button>1</button><button className="on">2</button><button>3</button><button>4</button><span className="ell">…</span><button>12</button><button>›</button></div>;
+const Pg2 = () => <div className="pg"><button>← Prev</button><span style={{padding:'0 10px', fontSize:11, color:'var(--fg-2)'}}>Page 3 of 12</span><button>Next →</button></div>;
+const Pg3 = () => <div className="pg">{[1,2,3,4,5].map(i=><button key={i} className={i===3?'on accent':''} style={{borderRadius:'50%', width:28, height:28}}>{i}</button>)}</div>;
+const Pg4 = () => <div className="pg" style={{flexDirection:'column', gap:6, alignItems:'stretch', width:220}}><div style={{display:'flex', justifyContent:'space-between', fontSize:10, color:'var(--fg-2)', fontFamily:'JetBrains Mono,monospace'}}><span>21–30 / 248</span><span>Page 3 / 25</span></div><div style={{display:'flex', gap:4}}><button style={{flex:1, padding:'6px', background:'var(--surface)', border:'1px solid var(--border)', borderRadius:5, fontSize:11}}>‹ Prev</button><button style={{flex:1, padding:'6px', background:'var(--fg)', color:'var(--bg)', border:'none', borderRadius:5, fontSize:11}}>Next ›</button></div></div>;
+const Pg5 = () => <div className="pg"><button>‹</button><input type="text" defaultValue="3" style={{width:40, textAlign:'center', height:26, border:'1px solid var(--border)', borderRadius:5, fontSize:11, fontFamily:'inherit'}}/><span style={{fontSize:11, color:'var(--fg-2)', padding:'0 6px'}}>of 12</span><button>›</button></div>;
+const Pg6 = () => <div className="pg" style={{gap:0}}><button style={{borderRadius:'6px 0 0 6px', borderRight:'none'}}>«</button><button style={{borderRadius:0, borderRight:'none'}}>‹</button><span style={{padding:'0 12px', fontSize:11, border:'1px solid var(--border)', height:26, display:'flex', alignItems:'center', background:'var(--bg-2)'}}>3 / 12</span><button style={{borderRadius:0, borderLeft:'none'}}>›</button><button style={{borderRadius:'0 6px 6px 0', borderLeft:'none'}}>»</button></div>;
+
+/* =============== 06. TABS =============== */
+const Tb1 = () => <div className="tabs"><div className="tabs-nav"><a className="on">Overview</a><a>Activity</a><a>Settings</a></div><div className="tabs-body">Dashboard overview with key metrics.</div></div>;
+const Tb2 = () => <div className="tabs"><div className="tabs-nav" style={{border:'none', background:'var(--bg-2)', padding:3, borderRadius:8, gap:0}}>{['Day','Week','Month','Year'].map((l,i)=><a key={l} className={i===1?'on':''} style={{flex:1, textAlign:'center', padding:'5px 10px', margin:0, border:'none', background: i===1?'var(--surface)':'transparent', borderRadius:6, boxShadow: i===1?'0 1px 3px rgba(0,0,0,0.08)':'none'}}>{l}</a>)}</div><div className="tabs-body">Weekly trends chart.</div></div>;
+const Tb3 = () => <div className="tabs"><div className="tabs-nav" style={{flexDirection:'column', border:'none', borderRight:'1px solid var(--border)', width:110, float:'left', gap:0}}>{['Profile','Security','Billing','API'].map((l,i)=><a key={l} className={i===1?'on':''} style={{margin:0, borderBottom:'none', borderRight: i===1?'2px solid var(--accent)':'2px solid transparent', marginRight:-1, textAlign:'left'}}>{l}</a>)}</div><div className="tabs-body" style={{marginLeft:120}}>Password & 2FA.</div></div>;
+const Tb4 = () => <div className="tabs"><div className="tabs-nav" style={{gap:2}}>{['Code','Preview','Docs'].map((l,i)=><a key={l} className={i===0?'on':''} style={{padding:'6px 12px', background: i===0?'var(--surface)':'var(--bg-2)', border:'1px solid var(--border)', borderBottom: i===0?'1px solid var(--surface)':'1px solid var(--border)', borderRadius:'6px 6px 0 0', margin:0, marginBottom:-1}}>{l}</a>)}</div><div className="tabs-body" style={{border:'1px solid var(--border)', borderTop:'none', padding:10, fontFamily:'JetBrains Mono,monospace', fontSize:10}}>export default App;</div></div>;
+const Tb5 = () => <div className="tabs"><div className="tabs-nav" style={{border:'none', gap:6}}>{['All','Active 3','Archived','Spam'].map((l,i)=><a key={l} className={i===1?'on':''} style={{padding:'4px 10px', background: i===1?'var(--fg)':'transparent', color: i===1?'var(--bg)':'var(--fg-2)', borderRadius:999, border:'none'}}>{l}</a>)}</div><div className="tabs-body">3 active items.</div></div>;
+const Tb6 = () => <div className="tabs"><div className="tabs-nav" style={{borderBottom:'2px solid var(--border)'}}>{['01 / Intro','02 / Body','03 / End'].map((l,i)=><a key={l} className={i===0?'on':''} style={{fontFamily:'JetBrains Mono,monospace', fontSize:10, letterSpacing:'0.1em', padding:'8px 14px', borderBottomWidth:3}}>{l}</a>)}</div><div className="tabs-body" style={{fontFamily:'Fraunces,serif', fontStyle:'italic', fontSize:13}}>The opening passage.</div></div>;
+
+/* =============== 07. STEPPER =============== */
+const St1 = () => <div className="stp"><div className="step done"><div className="dot">✓</div><span className="lbl">Account</span></div><div className="line done"/><div className="step cur"><div className="dot">2</div><span className="lbl">Details</span></div><div className="line"/><div className="step"><div className="dot">3</div><span className="lbl">Review</span></div></div>;
+const St2 = () => <div className="stp" style={{flexDirection:'column', alignItems:'stretch', gap:0, width:'auto'}}>{[['Set up',true,false],['Upload',true,false],['Configure',false,true],['Publish',false,false]].map(([l,done,cur],i)=><div key={l} style={{display:'flex', gap:10, alignItems:'center', padding:'6px 0'}}><div className={`dot ${done?'':cur?'':''}`} style={{width:22, height:22, borderRadius:'50%', background: done?'var(--accent)':cur?'var(--surface)':'var(--bg-2)', color: done?'white':cur?'var(--accent)':'var(--fg-3)', border: cur?'2px solid var(--accent)':'1px solid var(--border)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:10, fontWeight:700}}>{done?'✓':i+1}</div><span style={{fontSize:11, color: done||cur?'var(--fg)':'var(--fg-3)', fontWeight: cur?600:400}}>{l}</span></div>)}</div>;
+const St3 = () => <div style={{width:'100%'}}><div style={{display:'flex', justifyContent:'space-between', fontSize:9, color:'var(--fg-3)', fontFamily:'JetBrains Mono,monospace', letterSpacing:'0.14em', marginBottom:4}}><span>STEP 2 / 4</span><span>50%</span></div><div style={{height:4, background:'var(--bg-2)', borderRadius:2, overflow:'hidden'}}><div style={{width:'50%', height:'100%', background:'var(--accent)'}}/></div><div style={{marginTop:10, fontSize:12, fontWeight:600}}>Upload files</div><div style={{fontSize:10, color:'var(--fg-2)'}}>Drop documents to begin.</div></div>;
+const St4 = () => <div className="stp" style={{gap:0}}>{['01','02','03','04','05'].map((n,i)=><React.Fragment key={n}><div className="step" style={{flexDirection:'row', gap:4}}><div className="dot" style={{width:28, height:20, borderRadius:4, background: i<2?'var(--accent)':i===2?'var(--surface)':'var(--bg-2)', color: i<2?'white':i===2?'var(--accent)':'var(--fg-3)', border: i===2?'2px solid var(--accent)':'none'}}>{n}</div></div>{i<4 && <div style={{flex:1, height:2, background: i<2?'var(--accent)':'var(--border)'}}/>}</React.Fragment>)}</div>;
+const St5 = () => <div style={{width:'100%', display:'flex', flexDirection:'column', gap:6}}><div style={{display:'flex', gap:4}}>{[1,2,3,4,5,6].map(i=><div key={i} style={{flex:1, height:6, background: i<=3?'var(--accent)':'var(--bg-2)', borderRadius:2}}/>)}</div><div style={{display:'flex', justifyContent:'space-between', fontSize:10, color:'var(--fg-2)'}}><span>Onboarding</span><span style={{color:'var(--accent)', fontWeight:600}}>3 / 6</span></div></div>;
+const St6 = () => <div className="stp"><div className="step cur"><div className="dot" style={{width:32, height:32, fontSize:12, borderWidth:3}}>2</div><span className="lbl" style={{fontFamily:'Fraunces,serif', fontSize:11, fontStyle:'italic', letterSpacing:0, textTransform:'none', color:'var(--fg)'}}>Details</span></div><div className="line"/><div className="step"><div className="dot" style={{width:22, height:22}}>3</div><span className="lbl">Review</span></div><div className="line"/><div className="step"><div className="dot" style={{width:22, height:22}}>4</div><span className="lbl">Done</span></div></div>;
+
+/* =============== 08. LINK =============== */
+const Ln1 = () => <div className="lnk-stack"><a style={{color:'var(--accent)'}}>Default link</a><a style={{color:'var(--accent)', textDecoration:'underline', textUnderlineOffset:3}}>Underlined link</a><a style={{color:'var(--fg)', fontWeight:600}}>Neutral link</a></div>;
+const Ln2 = () => <div className="lnk-stack"><a style={{color:'var(--accent)'}}>Open docs <span style={{fontSize:10}}>↗</span></a><a style={{color:'var(--accent)'}}>Download PDF <span style={{fontSize:10}}>↓</span></a><a style={{color:'var(--accent)'}}>Next page <span style={{fontSize:10}}>→</span></a></div>;
+const Ln3 = () => <div className="lnk-stack"><a style={{background:'linear-gradient(var(--accent), var(--accent)) 0 100%/0% 2px no-repeat', paddingBottom:2, color:'var(--fg)', transition:'background-size 0.3s', backgroundSize:'100% 2px'}}>Animated underline</a><a style={{color:'var(--fg)', borderBottom:'1px dashed var(--accent)', paddingBottom:1}}>Dashed under</a><a style={{color:'var(--fg)', backgroundImage:'linear-gradient(color-mix(in oklab, var(--accent) 25%, transparent), color-mix(in oklab, var(--accent) 25%, transparent))', backgroundSize:'100% 8px', backgroundRepeat:'no-repeat', backgroundPosition:'0 85%'}}>Highlighted</a></div>;
+const Ln4 = () => <div className="lnk-stack" style={{fontFamily:'JetBrains Mono,monospace', fontSize:11}}><a style={{color:'var(--accent)'}}>[01] → specification</a><a style={{color:'var(--accent)'}}>[02] → appendix</a><a style={{color:'var(--fg-3)'}}>[03] → glossary</a></div>;
+const Ln5 = () => <div className="lnk-stack"><a style={{color:'var(--fg)', display:'inline-flex', gap:8, padding:'6px 10px', background:'var(--bg-2)', borderRadius:6, fontSize:11, width:'fit-content'}}><span>📄</span>Read the paper</a><a style={{color:'var(--danger)'}}>Danger link</a><a style={{color:'var(--fg-3)'}} title="disabled">Disabled link</a></div>;
+const Ln6 = () => <div className="lnk-stack"><a style={{color:'var(--fg)', fontFamily:'Fraunces,serif', fontStyle:'italic', fontSize:16, textDecoration:'underline', textUnderlineOffset:4, textDecorationColor:'var(--accent)'}}>Editorial link</a><div style={{fontSize:11, color:'var(--fg-2)'}}>Read <a style={{color:'var(--accent)', fontWeight:600}}>the full essay</a> — 8 min.</div></div>;
+
+/* =============== 09. MENU =============== */
+const Mn1 = () => <div className="menu"><div className="item"><span className="ic">📁</span>New folder<span className="kbd">⌘N</span></div><div className="item"><span className="ic">↗</span>Share<span className="kbd">⌘S</span></div><div className="sep"/><div className="item"><span className="ic">✎</span>Rename</div><div className="item danger"><span className="ic">🗑</span>Delete<span className="kbd">⌫</span></div></div>;
+const Mn2 = () => <div className="menu" style={{width:200}}><div className="group-title">Quick actions</div><div className="item on"><span className="ic">⌕</span>Find in page<span className="kbd">⌘F</span></div><div className="item"><span className="ic">↻</span>Reload<span className="kbd">⌘R</span></div><div className="group-title">View</div><div className="item"><span className="ic">⊞</span>Grid</div><div className="item"><span className="ic">☰</span>List</div></div>;
+const Mn3 = () => <div className="menu" style={{borderLeft:'3px solid var(--accent)', borderRadius:'0 8px 8px 0'}}>{['Copy','Paste','Duplicate','Move','Archive'].map((l,i)=><div key={l} className="item" style={{fontSize:12}}><span className="ic">{['⎘','⎗','⊕','↗','◫'][i]}</span>{l}</div>)}</div>;
+const Mn4 = () => <div className="menu" style={{width:200}}><div className="item"><span className="ic">○</span>Status<span className="kbd">Active</span></div><div className="item"><span className="ic">☉</span>Theme<span className="kbd">Auto</span></div><div className="sep"/><div className="item"><input type="checkbox" defaultChecked style={{accentColor:'var(--accent)'}}/>Show sidebar</div><div className="item"><input type="checkbox" style={{accentColor:'var(--accent)'}}/>Compact mode</div></div>;
+const Mn5 = () => <div className="menu" style={{width:200, fontFamily:'JetBrains Mono,monospace'}}>{[['$ build','⌘B'],['$ test','⌘T'],['$ lint','⌘L'],['$ deploy','⇧⌘D']].map(([l,k])=><div key={l} className="item" style={{fontSize:10}}><span>{l}</span><span className="kbd">{k}</span></div>)}</div>;
+const Mn6 = () => <div className="menu" style={{width:210}}><div style={{padding:8, display:'flex', gap:8, alignItems:'center', borderBottom:'1px solid var(--border)', marginBottom:4}}><div style={{width:26, height:26, borderRadius:'50%', background:'linear-gradient(135deg, var(--accent), #8b5cf6)'}}/><div><div style={{fontSize:11, fontWeight:600}}>Aria Chen</div><div style={{fontSize:9, color:'var(--fg-3)'}}>aria@diamond.co</div></div></div><div className="item"><span className="ic">⚙</span>Settings</div><div className="item"><span className="ic">?</span>Help</div><div className="sep"/><div className="item danger"><span className="ic">⇤</span>Sign out</div></div>;
+
+/* =============== 10. DROPDOWN =============== */
+const Dd1 = () => <div className="dd-host" style={{paddingTop:80}}><div className="dd-panel"><div className="menu-items" style={{padding:0}}><div style={{padding:6}}><div className="item" style={{padding:'6px 8px', borderRadius:5, cursor:'pointer', fontSize:11, color:'var(--fg)'}}>Newest</div><div style={{padding:'6px 8px', borderRadius:5, background:'color-mix(in oklab, var(--accent) 12%, white)', color:'color-mix(in oklab, var(--accent) 70%, black)', fontSize:11}}>Oldest</div><div style={{padding:'6px 8px', borderRadius:5, fontSize:11}}>Rating</div><div style={{padding:'6px 8px', borderRadius:5, fontSize:11}}>Price</div></div></div></div><button className="dd-trigger">Sort: Oldest <span style={{fontSize:9}}>▾</span></button></div>;
+const Dd2 = () => <div className="dd-host" style={{paddingTop:100}}><div className="dd-panel" style={{borderRadius:2, boxShadow:'4px 4px 0 var(--fg)'}}><div style={{padding:6}}>{['Small','Medium','Large'].map((l,i)=><div key={l} style={{padding:'6px 8px', borderRadius:3, fontSize:11, color: i===1?'var(--accent)':'var(--fg)', fontWeight: i===1?600:400}}>{i===1?'● ':'○ '}{l}</div>)}</div></div><button className="dd-trigger" style={{borderRadius:2, boxShadow:'3px 3px 0 var(--fg)'}}>Size: Medium ▾</button></div>;
+const Dd3 = () => <div className="dd-host" style={{paddingTop:100}}><div className="dd-panel" style={{width:210}}><div style={{padding:8, borderBottom:'1px solid var(--border)'}}><input type="text" placeholder="Search…" style={{width:'100%', padding:'4px 8px', border:'1px solid var(--border)', borderRadius:4, fontSize:11, fontFamily:'inherit'}}/></div><div style={{padding:4, maxHeight:80, overflow:'hidden'}}>{['Alpha','Beta','Gamma','Delta'].map(l=><div key={l} style={{padding:'4px 8px', fontSize:11, color:'var(--fg-2)'}}>{l}</div>)}</div></div><button className="dd-trigger">Filter ▾</button></div>;
+const Dd4 = () => <div className="dd-host" style={{paddingTop:80}}><div className="dd-panel" style={{borderRadius:12}}><div style={{padding:4}}>{[['Profile','aria'],['Settings','⌘,'],['Help','?']].map(([l,k])=><div key={l} style={{display:'flex',justifyContent:'space-between',padding:'6px 8px', fontSize:11}}><span>{l}</span><span style={{fontSize:9, color:'var(--fg-3)', fontFamily:'JetBrains Mono,monospace'}}>{k}</span></div>)}</div></div><button className="dd-trigger" style={{borderRadius:999, padding:'6px 14px'}}>⋯ More</button></div>;
+const Dd5 = () => <div className="dd-host" style={{paddingTop:80}}><div className="dd-panel" style={{width:220, padding:10}}><div style={{fontSize:10, color:'var(--fg-3)', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:6}}>Bulk actions · 3 selected</div>{['Archive','Move to…','Export CSV','Delete'].map((l,i)=><div key={l} style={{padding:'5px 0', fontSize:11, color: i===3?'var(--danger)':'var(--fg)'}}>{l}</div>)}</div><button className="dd-trigger">3 selected ▾</button></div>;
+const Dd6 = () => <div className="dd-host" style={{paddingTop:96}}><div className="dd-panel" style={{right:0, left:'auto', fontFamily:'JetBrains Mono,monospace'}}><div style={{padding:6}}>{['$ run','$ watch','$ stop','$ restart'].map(l=><div key={l} style={{padding:'5px 8px', fontSize:10, color:'var(--fg)'}}>{l}</div>)}</div></div><button className="dd-trigger" style={{fontFamily:'JetBrains Mono,monospace'}}>$ commands ▾</button></div>;
+
+/* =============== 11. CONTEXT MENU =============== */
+const Cm = (pos, items) => () => <div className="cm-frame"><div className="hint">RIGHT-CLICK</div><div className="menu" style={{position:'absolute', ...pos}}>{items}</div></div>;
+const Cm1 = Cm({top:30, left:80}, <>{[['⎘','Copy','⌘C'],['⎗','Paste','⌘V'],['⊕','Duplicate',''],null,['✎','Edit',''],['🗑','Delete','⌫']].map((e,i)=>e?<div key={i} className="item"><span className="ic">{e[0]}</span>{e[1]}{e[2] && <span className="kbd">{e[2]}</span>}</div>:<div key={i} className="sep"/>)}</>);
+const Cm2 = Cm({top:20, left:60}, <>{['Open','Open in new tab','Reveal in folder'].map(l=><div key={l} className="item" style={{fontSize:11}}>{l}</div>)}<div className="sep"/>{['Copy link','Copy path'].map(l=><div key={l} className="item" style={{fontSize:11}}>{l}</div>)}</>);
+const Cm3 = Cm({top:40, left:100, background:'var(--bg-2)', borderColor:'var(--border-2)'}, <>{[['Cut','⌘X'],['Copy','⌘C'],['Paste','⌘V'],['Select all','⌘A']].map(([l,k])=><div key={l} className="item" style={{fontSize:11}}><span>{l}</span><span className="kbd">{k}</span></div>)}</>);
+const Cm4 = Cm({top:30, right:80, width:160}, <>{[['⚑','Flag'],['★','Star'],['📌','Pin']].map(([i,l])=><div key={l} className="item"><span className="ic">{i}</span>{l}</div>)}</>);
+const Cm5 = Cm({top:20, left:40, width:200}, <><div className="group-title">Share with</div>{['Aria Chen','Leo Reyes','Team Diamond'].map(l=><div key={l} className="item" style={{fontSize:11}}><span className="ic" style={{width:18, height:18, borderRadius:'50%', background:'var(--bg-2)'}}/>{l}</div>)}</>);
+const Cm6 = Cm({top:50, left:80, fontFamily:'JetBrains Mono,monospace'}, <>{[['git add','⌘⇧A'],['git commit','⌘K'],['git push','⌘⇧P']].map(([l,k])=><div key={l} className="item" style={{fontSize:10}}>{l}<span className="kbd">{k}</span></div>)}</>);
+
+/* =============== 12. MEGA MENU =============== */
+const mmCol = (t, items) => <div className="col"><div className="t">{t}</div>{items.map(([l,d],i)=><a key={i}>{l}{d && <div className="d">{d}</div>}</a>)}</div>;
+const Mm1 = () => <div style={{width:'100%'}}><div className="mm-nav"><a>Home</a><a className="on">Products</a><a>Resources</a><a>Pricing</a></div><div className="mm">{mmCol('COMPUTE', [['Instances','Virtual machines'],['Serverless','On-demand functions'],['Kubernetes','Managed clusters']])}{mmCol('STORAGE', [['Blob','Object storage'],['Disks','Block storage'],['Archive','Cold backup']])}{mmCol('NETWORK', [['VPC','Private networks'],['DNS','Managed DNS'],['CDN','Edge delivery']])}</div></div>;
+const Mm2 = () => <div style={{width:'100%'}}><div className="mm-nav"><a className="on">Shop</a><a>New</a><a>Sale</a></div><div className="mm" style={{gridTemplateColumns:'1fr 1fr 140px'}}>{mmCol('MEN', [['Outerwear'],['Knitwear'],['Trousers']])}{mmCol('WOMEN', [['Dresses'],['Tops'],['Accessories']])}<div className="col"><div className="t">FEATURED</div><div style={{aspectRatio:'3/4', background:'linear-gradient(135deg,#c4948a,#a9b8c0)', borderRadius:6, marginBottom:6}}/><a style={{fontWeight:700}}>Autumn '26 →</a></div></div></div>;
+const Mm3 = () => <div style={{width:'100%'}}><div className="mm-nav"><a>Docs</a><a className="on">Learn</a><a>API</a></div><div className="mm">{mmCol('GUIDES', [['Quickstart','5 min'],['Tutorial','30 min'],['Deep dive','Advanced']])}{mmCol('RECIPES', [['Auth'],['Payments'],['Email']])}{mmCol('COMMUNITY', [['Discord'],['GitHub'],['Blog']])}</div></div>;
+const Mm4 = () => <div style={{width:'100%'}}><div className="mm-nav"><a className="on">Solutions</a><a>Products</a><a>Industries</a></div><div className="mm" style={{gridTemplateColumns:'1fr 1fr'}}><div className="col"><div className="t">BY ROLE</div>{[['Developers','SDKs, APIs'],['Designers','Tokens, kits'],['Managers','Planning']].map(([l,d])=><a key={l} style={{display:'flex',gap:8,padding:'4px 0'}}><span style={{width:28,height:28,borderRadius:6,background:'color-mix(in oklab, var(--accent) 12%, white)', display:'inline-block',flexShrink:0}}/><span>{l}<div className="d">{d}</div></span></a>)}</div>{mmCol('USE CASES', [['Analytics'],['Automation'],['Customer support']])}</div></div>;
+const Mm5 = () => <div style={{width:'100%'}}><div className="mm-nav" style={{background:'var(--bg-2)', fontFamily:'Fraunces, serif', fontStyle:'italic', fontSize:13}}><a>Home</a><a className="on">Menu</a></div><div className="mm" style={{background:'var(--bg-2)', borderTop:'none'}}>{['DINNER','DRINKS','DESSERT'].map(t=><div key={t} className="col"><div className="t" style={{fontFamily:'Fraunces,serif', fontStyle:'italic', letterSpacing:0, textTransform:'none', fontSize:12, color:'var(--accent)'}}>{t}</div>{['Item 01','Item 02','Item 03'].map(l=><a key={l}>{l}</a>)}</div>)}</div></div>;
+const Mm6 = () => <div style={{width:'100%'}}><div className="mm-nav"><a className="on">All</a><a>New</a></div><div className="mm" style={{gridTemplateColumns:'repeat(6, 1fr)', gap:6}}>{['⚡','📊','🔒','🎨','🧭','💬'].map((i,k)=><div key={k} className="col" style={{textAlign:'center'}}><div style={{fontSize:20, marginBottom:4}}>{i}</div><a style={{fontSize:10}}>{['Fast','Charts','Secure','Design','Navigate','Chat'][k]}</a></div>)}</div></div>;
+
+/* =============== 13. TREE VIEW =============== */
+const Tv1 = () => <div className="tr"><div className="node"><span className="ch">▾</span>📁 src</div><div className="node" style={{paddingLeft:16}}><span className="ch">▾</span>📁 components</div><div className="node sel" style={{marginLeft:32}}><span className="ch"> </span>📄 Modal.tsx</div><div className="node" style={{paddingLeft:32}}><span className="ch"> </span>📄 Drawer.tsx</div><div className="node" style={{paddingLeft:16}}><span className="ch">▸</span>📁 hooks</div><div className="node"><span className="ch">▸</span>📁 public</div></div>;
+const Tv2 = () => <div className="tr" style={{fontFamily:'Inter'}}>{[[0,'▾','🗂','Workspaces', false],[1,'▾','📁','Diamond', false],[2,'','📄','Brief.md', true],[2,'','📄','Moodboard.fig', false],[1,'▸','📁','Halo', false],[0,'▸','👥','Team', false]].map(([lvl,ch,ic,l,sel],i)=><div key={i} className={`node ${sel?'sel':''}`} style={{paddingLeft:lvl*16}}><span className="ch">{ch}</span>{ic} {l}</div>)}</div>;
+const Tv3 = () => <div className="tr" style={{background:'var(--bg-2)'}}>{[[0,'▾','src', false],[1,'▾','App.tsx', true],[2,'','  return', false],[2,'','  export', false],[1,'','index.css', false]].map(([lvl,ch,l,sel],i)=><div key={i} className="node" style={{paddingLeft:lvl*14, color: sel?'var(--accent)':'var(--fg-2)', fontWeight: sel?600:400}}><span className="ch">{ch}</span>{l}</div>)}</div>;
+const Tv4 = () => <div className="tr"><div className="node">▾ 📚 Categories</div>{[['Fiction',3],['Non-fiction',5],['Poetry',2]].map(([l,c])=><div key={l} className="node" style={{paddingLeft:16, justifyContent:'space-between'}}><span><span className="ch">▸</span>{l}</span><span style={{fontSize:9, color:'var(--fg-3)'}}>({c})</span></div>)}</div>;
+const Tv5 = () => <div className="tr" style={{fontFamily:'Inter'}}>{[[0,'Engineering', 32, 'A'],[1,'Frontend', 8, 'B'],[1,'Backend', 12, 'C'],[0,'Design', 6, 'D']].map(([lvl,l,c,av],i)=><div key={i} className="node" style={{paddingLeft:lvl*16, alignItems:'center'}}><span className="ch">{lvl===0?'▾':'▸'}</span><span style={{width:16, height:16, borderRadius:'50%', background:'color-mix(in oklab, var(--accent) 15%, white)', color:'color-mix(in oklab, var(--accent) 70%, black)', fontSize:9, display:'inline-flex',alignItems:'center',justifyContent:'center', marginRight:4}}>{av}</span>{l}<span style={{marginLeft:'auto', fontSize:9, color:'var(--fg-3)'}}>{c}</span></div>)}</div>;
+const Tv6 = () => <div className="tr">{[[0,'▾','Q1 2026', false],[1,'▾','Research', false],[2,'','Discovery', true],[2,'','User interviews', false],[1,'▸','Design', false],[1,'▸','Build', false]].map(([lvl,ch,l,sel],i)=><div key={i} className={`node ${sel?'sel':''}`} style={{paddingLeft:lvl*14}}><span className="ch">{ch}</span>{sel?'● ':''}{l}</div>)}</div>;
+
+/* =============== 14. SCROLLSPY =============== */
+const Ss1 = () => <div className="ss"><div className="ss-nav"><a>Intro</a><a className="on">Getting started</a><a>API</a><a>Examples</a></div><div className="ss-body"><div className="sec"><h4 style={{color:'var(--fg-3)'}}>Intro</h4>Short description here.</div><div className="sec hi"><h4>Getting started</h4>Install the CLI and run init.</div><div className="sec" style={{opacity:0.4}}><h4>API</h4></div></div></div>;
+const Ss2 = () => <div className="ss"><div className="ss-nav" style={{borderLeft:'none', paddingLeft:0, gap:0}}>{['Overview','Install','Usage','Recipes'].map((l,i)=><a key={l} className={i===1?'on':''} style={{padding:'5px 8px', background: i===1?'color-mix(in oklab, var(--accent) 12%, white)':'transparent', borderRadius:4, fontWeight: i===1?600:400}}>{l}</a>)}</div><div className="ss-body"><div className="sec"><h4 style={{color:'var(--fg-3)'}}>Overview</h4></div><div className="sec hi"><h4>Install</h4>npm i @diamond/ui</div></div></div>;
+const Ss3 = () => <div className="ss" style={{gridTemplateColumns:'1fr 20px', gridTemplateAreas:'"body nav"'}}><div className="ss-body" style={{gridArea:'body'}}><div className="sec"><h4 style={{color:'var(--fg-3)'}}>§1</h4></div><div className="sec hi"><h4>§2 Here</h4>You are reading this section.</div><div className="sec" style={{opacity:0.4}}><h4>§3</h4></div></div><div style={{gridArea:'nav', display:'flex', flexDirection:'column', gap:4, alignItems:'center', padding:'4px 0'}}>{[0,1,2,3,4].map(i=><span key={i} style={{width:6, height:6, borderRadius:'50%', background: i===1?'var(--accent)':'var(--border-2)'}}/>)}</div></div>;
+const Ss4 = () => <div className="ss"><div className="ss-nav" style={{fontFamily:'JetBrains Mono,monospace', fontSize:9}}>{['01 intro','02 body','03 end'].map((l,i)=><a key={l} className={i===1?'on':''} style={{letterSpacing:'0.1em', textTransform:'uppercase'}}>{l}</a>)}</div><div className="ss-body" style={{fontFamily:'Fraunces,serif'}}><div className="sec hi"><h4 style={{fontStyle:'italic'}}>02 · Body</h4><div style={{fontSize:11}}>The central argument unfolds.</div></div></div></div>;
+const Ss5 = () => <div className="ss" style={{gridTemplateColumns:'110px 1fr'}}><div className="ss-nav">{['Features','Pricing','FAQ','Contact'].map((l,i)=><a key={l} className={i===2?'on':''} style={{display:'flex', justifyContent:'space-between', paddingRight:4}}>{l}{i===2 && <span style={{width:5, height:5, borderRadius:'50%', background:'var(--accent)'}}/>}</a>)}</div><div className="ss-body"><div className="sec hi"><h4>FAQ</h4>Common questions and their answers.</div></div></div>;
+const Ss6 = () => <div className="ss"><div className="ss-nav" style={{position:'relative'}}>{['Top','Mid','Bot'].map((l,i)=><a key={l} className={i===1?'on':''}>{l}</a>)}<div style={{position:'absolute', left:-2, top:'33%', height:'33%', width:3, background:'var(--accent)', borderRadius:2, transition:'top 0.3s'}}/></div><div className="ss-body"><div className="sec hi"><h4>Middle</h4>Animated indicator tracks scroll.</div></div></div>;
+
+/* =============== 15. SKIP LINK =============== */
+const Sl1 = () => <div className="sl-frame"><a className="sl-link shown">Skip to main content →</a><div className="main">Main content area begins here.</div></div>;
+const Sl2 = () => <div className="sl-frame"><a className="sl-link accent shown" style={{left:'50%', transform:'translateX(-50%)'}}>↓ Jump to content</a><div className="main">Primary page content.</div></div>;
+const Sl3 = () => <div className="sl-frame" style={{padding:6}}><a className="sl-link shown" style={{position:'static', display:'block', textAlign:'center', borderRadius:0, marginBottom:6}}>Bypass nav · tab to reveal</a><div className="main" style={{marginTop:0}}>Article body text.</div></div>;
+const Sl4 = () => <div className="sl-frame"><a className="sl-link shown" style={{fontFamily:'Inter', background:'var(--surface)', color:'var(--fg)', border:'2px solid var(--accent)', fontWeight:700}}>[Tab] Skip to content</a><div className="main">Main.</div></div>;
+const Sl5 = () => <div className="sl-frame"><div style={{position:'absolute', top:8, left:10, display:'flex', gap:6, zIndex:2}}><a className="sl-link shown" style={{position:'static'}}>Content</a><a className="sl-link shown" style={{position:'static', background:'var(--surface)', color:'var(--fg)', border:'1px solid var(--border)'}}>Navigation</a><a className="sl-link shown" style={{position:'static', background:'var(--surface)', color:'var(--fg)', border:'1px solid var(--border)'}}>Footer</a></div><div className="main">Multiple skip targets.</div></div>;
+const Sl6 = () => <div className="sl-frame" style={{paddingTop:0}}><div style={{padding:6, background:'var(--fg)', color:'var(--bg)', fontSize:9, fontFamily:'JetBrains Mono,monospace', letterSpacing:'0.1em', textAlign:'center'}}>SCREEN READER ONLY · hidden until focused</div><a className="sl-link shown" style={{top:32}}>Skip ›</a><div className="main" style={{marginTop:16}}>Body text.</div></div>;
+
+/* =============== REGISTRY =============== */
+window.CATEGORIES = [
+  { n:'Navbar / App Bar', k:'nv', desc:'Top navigation header', notes:['Classic + pill','Subtle tinted bar','With search + avatar','Two-tier commerce','Pill-shaped accent','Terminal mono'], v:[Nv1,Nv2,Nv3,Nv4,Nv5,Nv6] },
+  { n:'Sidebar / Drawer', k:'sb', desc:'Side navigation menu', notes:['Grouped w/ accent','Accent-tinted','Icon rail','Mono section titles','Journal editorial','Count pills'], v:[Sb1,Sb2,Sb3,Sb4,Sb5,Sb6] },
+  { n:'Bottom Navigation', k:'bn', desc:'Mobile tab bar', notes:['Icon + label','Subtle 5-tab','FAB center','Active pill','Top indicator','Active chip'], v:[Bn1,Bn2,Bn3,Bn4,Bn5,Bn6] },
+  { n:'Breadcrumbs', k:'bc', desc:'Hierarchical trail', notes:['Slash classic','Chevron compact','Slab pills','Filesystem mono','Truncated ellipsis','Editorial eyebrow'], v:[Bc1,Bc2,Bc3,Bc4,Bc5,Bc6] },
+  { n:'Pagination', k:'pg', desc:'Page navigation', notes:['Numbered w/ ellipsis','Prev/Next w/ count','Circular pills','Compact status','Jump-to input','Grouped nav'], v:[Pg1,Pg2,Pg3,Pg4,Pg5,Pg6] },
+  { n:'Tabs', k:'tb', desc:'Switch views in-context', notes:['Underline classic','Segmented pill','Vertical rail','Browser-style','Pill chips','Mono editorial'], v:[Tb1,Tb2,Tb3,Tb4,Tb5,Tb6] },
+  { n:'Stepper / Wizard', k:'st', desc:'Multi-step process', notes:['Horizontal numbered','Vertical checklist','Minimal progress','Large numbers','Segmented bar','Editorial active'], v:[St1,St2,St3,St4,St5,St6] },
+  { n:'Link', k:'ln', desc:'Anchor tag variants', notes:['Solid + underline','With directional icon','Decorative styles','Numbered mono','Pill + state','Editorial serif'], v:[Ln1,Ln2,Ln3,Ln4,Ln5,Ln6] },
+  { n:'Menu', k:'mn', desc:'List of actions', notes:['Icons + shortcuts','Grouped actions','Accent-bar edit','Toggles + status','Terminal commands','User header'], v:[Mn1,Mn2,Mn3,Mn4,Mn5,Mn6] },
+  { n:'Dropdown Menu', k:'dd', desc:'Button-triggered list', notes:['Sort selector','Hard-shadow retro','Searchable','Pill trigger','Bulk actions','Terminal'], v:[Dd1,Dd2,Dd3,Dd4,Dd5,Dd6] },
+  { n:'Context Menu', k:'cm', desc:'Right-click triggered', notes:['Standard edit','File actions','Tinted edit','Compact actions','Share picker','Git mono'], v:[Cm1,Cm2,Cm3,Cm4,Cm5,Cm6] },
+  { n:'Mega Menu', k:'mm', desc:'Multi-column dropdown', notes:['SaaS products','Commerce + promo','Docs + learn','Solution w/ icons','Editorial menu','Icon grid'], v:[Mm1,Mm2,Mm3,Mm4,Mm5,Mm6] },
+  { n:'Tree View', k:'tv', desc:'Hierarchical list', notes:['File tree','Workspace nesting','Code highlight','With counts','Team orgs','Project phases'], v:[Tv1,Tv2,Tv3,Tv4,Tv5,Tv6] },
+  { n:'Scrollspy', k:'ss', desc:'Scroll-tied navigation', notes:['Side rail line','Highlight pill','Right-edge dots','Editorial mono','Badge marker','Sliding indicator'], v:[Ss1,Ss2,Ss3,Ss4,Ss5,Ss6] },
+  { n:'Skip Link', k:'sl', desc:'Accessibility shortcut', notes:['Top-left standard','Centered accent','Full-width banner','Outlined focus','Multiple targets','SR annotation'], v:[Sl1,Sl2,Sl3,Sl4,Sl5,Sl6] },
+];
+
+</script>
+<script type="text/babel" data-source="navigation/app.jsx">
+/* Navigation Gallery — App */
+const TWEAKS = /*EDITMODE-BEGIN*/{"accent":"#2b7fff","radius":10,"font":"Inter","bg":"warm"}/*EDITMODE-END*/;
+const SWATCHES = ['#2b7fff','#e11d48','#10b981','#f59e0b','#8b5cf6','#ec4899','#14b8a6','#f97316','#06b6d4','#84cc16','#6366f1','#d97757','#0ea5e9','#f43f5e','#22c55e','#1a1917'];
+const FONTS = ['Inter','Space Grotesk','Fraunces','JetBrains Mono'];
+const BGS = {
+  warm:  { bg:'#f5f3ef', bg2:'#ebe8e1', surface:'#ffffff', border:'#d9d5cc', border2:'#c4bfb3', fg:'#1a1917', fg2:'#6b6862', fg3:'#9a968e' },
+  paper: { bg:'#ffffff', bg2:'#f5f5f4', surface:'#ffffff', border:'#e5e5e4', border2:'#d4d4d2', fg:'#0a0a0a', fg2:'#525252', fg3:'#a3a3a3' },
+  cool:  { bg:'#f0f4f8', bg2:'#e3eaf2', surface:'#ffffff', border:'#cfd9e4', border2:'#b8c4d2', fg:'#0f172a', fg2:'#475569', fg3:'#94a3b8' },
+  sand:  { bg:'#faf7f2', bg2:'#f0eadf', surface:'#ffffff', border:'#e6dfd0', border2:'#cdc4b3', fg:'#2b2418', fg2:'#6e6553', fg3:'#a29783' },
+};
+function applyTweaks(t) {
+  const r = document.documentElement;
+  r.style.setProperty('--accent', t.accent);
+  r.style.setProperty('--radius', t.radius + 'px');
+  r.style.setProperty('--font', `'${t.font}'`);
+  const bg = BGS[t.bg] || BGS.warm;
+  const map = { bg:'--bg', bg2:'--bg-2', surface:'--surface', border:'--border', border2:'--border-2', fg:'--fg', fg2:'--fg-2', fg3:'--fg-3' };
+  Object.entries(bg).forEach(([k,v])=>r.style.setProperty(map[k],v));
+}
+function Tweaks({ t, setT, onClose }) {
+  const up = (k, v) => { const n={...t,[k]:v}; setT(n); applyTweaks(n); window.parent.postMessage({type:'__edit_mode_set_keys', edits:{[k]:v}}, '*'); };
+  return (
+    <div className="tweaks">
+      <div className="tweaks-header"><span className="title">◆ Tweaks</span><button className="close" onClick={onClose}>×</button></div>
+      <div className="tweaks-body">
+        <div className="tweaks-row"><label>Accent <span className="val">{t.accent}</span></label><div className="swatches">{SWATCHES.map(c=><div key={c} className={`swatch ${t.accent===c?'active':''}`} style={{background:c}} onClick={()=>up('accent',c)}/>)}</div></div>
+        <div className="tweaks-row"><label>Radius <span className="val">{t.radius}px</span></label><input type="range" min="0" max="24" value={t.radius} onChange={e=>up('radius', +e.target.value)}/></div>
+        <div className="tweaks-row"><label>Font <span className="val">{t.font}</span></label><div className="font-picker">{FONTS.map(f=><button key={f} className={`font-btn ${t.font===f?'active':''}`} style={{fontFamily:f}} onClick={()=>up('font',f)}>{f}</button>)}</div></div>
+        <div className="tweaks-row"><label>Palette <span className="val">{t.bg}</span></label><div className="font-picker" style={{gridTemplateColumns:'repeat(4,1fr)'}}>{Object.keys(BGS).map(b=><button key={b} className={`font-btn ${t.bg===b?'active':''}`} onClick={()=>up('bg',b)}>{b}</button>)}</div></div>
+      </div>
+    </div>
+  );
+}
+function App() {
+  const { useState, useEffect } = React;
+  const [t, setT] = useState(TWEAKS);
+  const [tweaksOpen, setTweaksOpen] = useState(false);
+  const [editMode, setEditMode] = useState(false);
+  useEffect(() => {
+    applyTweaks(t);
+    const onMsg = (e) => {
+      if (e.data?.type === '__activate_edit_mode') { setEditMode(true); setTweaksOpen(true); }
+      if (e.data?.type === '__deactivate_edit_mode') { setEditMode(false); setTweaksOpen(false); }
+    };
+    window.addEventListener('message', onMsg);
+    window.parent.postMessage({type:'__edit_mode_available'}, '*');
+    return () => window.removeEventListener('message', onMsg);
+  }, []);
+  const cats = window.CATEGORIES;
+  const total = cats.reduce((n,c)=>n+c.v.length, 0);
+  const groups = [
+    { title: 'I. Primary Surfaces', idx: [0,1,2] },
+    { title: 'II. Wayfinding', idx: [3,4,5,6] },
+    { title: 'III. Anchors & Actions', idx: [7,8,9,10,11] },
+    { title: 'IV. Structural', idx: [12,13,14] },
+  ];
+  return (
+    <div className="page">
+      <div className="header">
+        <h1>Navigation<br/><em>& wayfinding.</em></h1>
+        <div className="sub">A systematic catalogue of {total} navigation patterns across {cats.length} families — the surfaces, trails, and menus that help people find their way.</div>
+      </div>
+      <div className="meta-row">
+        <span><span className="dot"/>{cats.length} Categories</span>
+        <span><span className="dot"/>{total} Variants</span>
+        <span><span className="dot"/>{groups.length} Thematic Groups</span>
+        <span><span className="dot"/>Live tweakable</span>
+        <span style={{marginLeft:'auto'}}>Vol. 06 · Diamond · 2026</span>
+      </div>
+      <div className="toc">
+        {cats.map((c,i)=>(<a key={c.k} href={`#sec-${c.k}`}><span>{c.n}</span><span className="n">{String(i+1).padStart(2,'0')} / 6</span></a>))}
+      </div>
+      {groups.map((g, gi) => (
+        <div key={g.title}>
+          <div style={{margin:'100px 0 0', paddingBottom:14, borderBottom:'2px solid var(--fg)', display:'flex', alignItems:'baseline', gap:20, flexWrap:'wrap'}}>
+            <span style={{fontFamily:'JetBrains Mono, monospace', fontSize:11, letterSpacing:'0.2em', color:'var(--accent)'}}>GROUP {String(gi+1).padStart(2,'0')}</span>
+            <span style={{fontFamily:'Fraunces, serif', fontSize:28, fontStyle:'italic', fontWeight:500, letterSpacing:'-0.02em'}}>{g.title}</span>
+            <span style={{marginLeft:'auto', fontFamily:'JetBrains Mono, monospace', fontSize:10, color:'var(--fg-3)', letterSpacing:'0.14em', textTransform:'uppercase'}}>{g.idx.map(i=>cats[i].n).join(' · ')}</span>
+          </div>
+          {g.idx.map(ci => {
+            const c = cats[ci];
+            return (
+              <section key={c.k} id={`sec-${c.k}`} className="section" data-screen-label={`${String(ci+1).padStart(2,'0')} ${c.n}`}>
+                <div className="section-head"><span className="num">§{String(ci+1).padStart(2,'0')}</span><h2>{c.n}</h2><span className="desc">{c.desc} · {c.v.length} variations</span></div>
+                <div className="grid">
+                  {c.v.map((V, i) => (
+                    <div key={i} className="cell">
+                      <span className="label">{c.k}-{String(i+1).padStart(2,'0')}</span>
+                      <span className="idx">{String(ci+1).padStart(2,'0')}·{i+1}</span>
+                      <div className="stage"><V/></div>
+                      <div className="footnote">{c.notes[i]}</div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      ))}
+      <div style={{marginTop:100, paddingTop:32, borderTop:'1px solid var(--border)', display:'flex', justifyContent:'space-between', fontFamily:'JetBrains Mono, monospace', fontSize:11, textTransform:'uppercase', letterSpacing:'0.14em', color:'var(--fg-2)'}}>
+        <span>— Fin —</span>
+        <span>{total} nav patterns · {cats.length} sections</span>
+        <span>Toggle Tweaks to customize</span>
+      </div>
+      {editMode && tweaksOpen && <Tweaks t={t} setT={setT} onClose={()=>setTweaksOpen(false)}/>}
+      {editMode && !tweaksOpen && <button className="fab" onClick={()=>setTweaksOpen(true)}>◆</button>}
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+
+</script>
+</body>
+</html>

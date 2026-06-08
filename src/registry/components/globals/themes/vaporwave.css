@@ -1,0 +1,26 @@
+/* Diamond · Vaporwave theme — synth magenta, pastel pink / deep purple (light + dark). */
+:root {
+  --diamond-accent:        #db2777;
+  --diamond-on-accent:     #ffffff;
+  --diamond-accent-deep:   #831843;
+  --diamond-accent-soft:   color-mix(in oklab, var(--diamond-accent) 26%, var(--diamond-surface));
+  --diamond-gradient:      linear-gradient(135deg, #ff6ad5, #8338ec 40%, #06b6d4);
+
+  --diamond-surface:       #fdf2f8;
+  --diamond-surface-alt:   #fae5f0;
+  --diamond-ink:           #2a0e3d;
+  --diamond-muted:         #7d4d8c;
+  --diamond-border:        #f0c4dd;
+}
+
+:root.dark {
+  --diamond-accent:        #ff6ad5;
+  --diamond-on-accent:     #1a0a2e;
+  --diamond-accent-deep:   #c026d3;
+
+  --diamond-surface:       #1a0a2e;
+  --diamond-surface-alt:   #2d1259;
+  --diamond-ink:           #fce7f3;
+  --diamond-muted:         #b09bcf;
+  --diamond-border:        #3d1f6b;
+}

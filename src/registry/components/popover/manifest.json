@@ -1,0 +1,34 @@
+{
+  "id": "popover",
+  "name": "Popover",
+  "description": "Click-triggered floating panel built on @radix-ui/react-popover — six layouts for profile cards, filter pickers, share links, color/menu pickers and mentions feeds.",
+  "kind": "ui",
+  "files": [
+    { "source": "popover.tsx", "target": "popover.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@radix-ui/react-popover",  "version": "^1.1.2", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["feedback", "overlay"],
+
+  "documentation": {
+    "groups": {
+      "Layouts": ["panel", "filter", "share", "picker", "menu", "mentions"]
+    },
+    "samples": {
+      "default": "Open",
+      "perVariant": {
+        "panel":    { "label": "Profile ▾" },
+        "filter":   { "label": "Filters ▾" },
+        "share":    { "label": "Share ↗" },
+        "picker":   { "label": "🎨" },
+        "menu":     { "label": "⋯" },
+        "mentions": { "label": "@mentions" }
+      }
+    }
+  }
+}

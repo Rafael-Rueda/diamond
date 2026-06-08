@@ -1,0 +1,18 @@
+---
+interface Props {
+  /** Title above the install/code box. */
+  title?: string;
+  /** Optional install command shown in monospace. */
+  install?: string;
+}
+
+const { title, install } = Astro.props;
+---
+
+<section class="rounded-lg border border-[var(--diamond-border)] bg-[var(--diamond-surface-alt)] p-5 my-6">
+  {title && <h3 class="font-semibold mb-2">{title}</h3>}
+  {install && (
+    <pre class="font-mono text-sm bg-[var(--diamond-ink)] text-[var(--diamond-surface)] rounded-md px-4 py-3 overflow-x-auto"><code>{install}</code></pre>
+  )}
+  <slot />
+</section>

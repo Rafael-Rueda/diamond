@@ -1,0 +1,31 @@
+{
+  "id": "avatar",
+  "name": "Avatar",
+  "description": "User identity primitive — initials, image, status, ring. 6 visual variants × 5 sizes.",
+  "kind": "ui",
+  "files": [
+    { "source": "avatar.tsx", "target": "avatar.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@radix-ui/react-slot",     "version": "^1.1.0", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["display", "identity"],
+
+  "documentation": {
+    "groups": {
+      "Display": ["solid", "colored", "square", "status", "ring", "image"]
+    },
+    "samples": {
+      "default": "AR",
+      "perVariant": {
+        "image":   { "label": "AR", "props": { "src": "https://i.pravatar.cc/120?img=12" } },
+        "status":  { "label": "AR", "props": { "status": "online" } },
+        "colored": { "label": "AC", "props": { "bg": "#c4948a" } }
+      }
+    }
+  }
+}

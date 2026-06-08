@@ -1,0 +1,63 @@
+---
+import DocsLayout from '@/layouts/DocsLayout.astro';
+import Showcase from '@/components/Showcase.astro';
+import VariantGallery from '@/components/VariantGallery';
+import UsageGuide from '@/components/UsageGuide';
+import { loadAllManifests, findManifest } from '@/lib/registry';
+
+export function getStaticPaths() {
+  return loadAllManifests().map((m) => ({ params: { id: m.id } }));
+}
+
+const { id } = Astro.params;
+const manifest = findManifest(id!);
+if (!manifest) {
+  return Astro.redirect('/components');
+}
+
+const totalVariants = manifest.documentation
+  ? Object.values(manifest.documentation.groups).reduce((n, v) => n + v.length, 0)
+  : 0;
+const groupCount = manifest.documentation ? Object.keys(manifest.documentation.groups).length : 0;
+---
+
+<DocsLayout title={manifest.name} description={manifest.description} active={manifest.id}>
+  <header class="mb-10">
+    <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--diamond-muted)] mb-2">
+      {manifest.kind}
+      {totalVariants > 0 && <span> · {totalVariants} variants · {groupCount} categories</span>}
+    </p>
+    <h1 class="text-4xl font-semibold tracking-tight mb-3">{manifest.name}</h1>
+    <p class="text-lg text-[var(--diamond-muted)] max-w-2xl">{manifest.description}</p>
+  </header>
+
+  <Showcase install={`npx "@rueda.dev/gems-diamond" add ${manifest.id}`} />
+
+  {manifest.kind === 'theme' && manifest.themes && (
+    <section class="mb-10">
+      <h2 class="text-lg font-semibold tracking-tight mb-3">Available themes</h2>
+      <p class="text-sm text-[var(--diamond-muted)] mb-4">
+        Pass <code class="font-mono text-xs bg-[var(--diamond-surface-alt)] px-1.5 py-0.5 rounded">--theme &lt;name&gt;</code>
+        or the bare flag <code class="font-mono text-xs bg-[var(--diamond-surface-alt)] px-1.5 py-0.5 rounded">--&lt;name&gt;</code>
+        when running <code class="font-mono">add</code>.
+      </p>
+      <ul class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        {Object.keys(manifest.themes).map((t) => (
+          <li class="rounded-md border border-[var(--diamond-border)] bg-[var(--diamond-surface-alt)] px-3 py-2 font-mono text-sm">
+            {t}{manifest.defaultTheme === t && <span class="text-[var(--diamond-muted)] text-xs ml-2">(default)</span>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {manifest.documentation && (
+    <VariantGallery
+      client:load
+      componentId={manifest.id}
+      documentation={manifest.documentation}
+    />
+  )}
+
+  <UsageGuide componentId={manifest.id} />
+</DocsLayout>

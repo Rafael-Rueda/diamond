@@ -1,0 +1,3269 @@
+/* Display Gallery — Variants */
+const { useState } = React;
+
+const IMG = (a, b) => ({ background: `linear-gradient(135deg, ${a}, ${b})` });
+const GRADS = [
+    ["#c4948a", "#a9b8c0"],
+    ["#8b7355", "#c4a57b"],
+    ["#5a7d8c", "#2d4a5c"],
+    ["#d4a574", "#8b5a3c"],
+    ["#6b7a8f", "#3d4f66"],
+    ["#a8906d", "#6b5338"],
+];
+
+/* =============== 01. CARD =============== */
+const Cd1 = () => (
+    <div className="cd">
+        <div className="img" style={IMG(...GRADS[0])} />
+        <div className="body">
+            <div className="title">Atlas Journal</div>
+            <div className="meta">ISSUE 04 · SPRING</div>
+            <div style={{ marginTop: 6, color: "var(--fg-2)", fontSize: 11 }}>
+                Seasonal reflections on craft and culture.
+            </div>
+        </div>
+    </div>
+);
+const Cd2 = () => (
+    <div className="cd" style={{ display: "flex" }}>
+        <div className="img" style={{ ...IMG(...GRADS[1]), width: 80, aspectRatio: "unset", flexShrink: 0 }} />
+        <div className="body" style={{ flex: 1 }}>
+            <div className="title">Horizon Mug</div>
+            <div className="meta">$ 28.00 · CERAMIC</div>
+            <div style={{ marginTop: 4, fontSize: 10, color: "var(--fg-3)" }}>⋆⋆⋆⋆⋆ 124 reviews</div>
+        </div>
+    </div>
+);
+const Cd3 = () => (
+    <div className="cd" style={{ border: "none", background: "var(--bg-2)", borderRadius: 16, padding: 12 }}>
+        <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8 }}>
+            <div className="av sm">AR</div>
+            <div style={{ fontSize: 11 }}>
+                <div style={{ fontWeight: 600 }}>Aria Chen</div>
+                <div style={{ color: "var(--fg-3)", fontSize: 9 }}>2h ago</div>
+            </div>
+        </div>
+        <div style={{ fontSize: 12, lineHeight: 1.45 }}>
+            Just shipped a new release — <b>v3.2</b> with faster builds and smaller bundles.
+        </div>
+        <div style={{ display: "flex", gap: 12, marginTop: 8, fontSize: 10, color: "var(--fg-3)" }}>
+            <span>♡ 42</span>
+            <span>↺ 8</span>
+            <span>💬 12</span>
+        </div>
+    </div>
+);
+const Cd4 = () => (
+    <div className="cd" style={{ padding: 14, display: "flex", flexDirection: "column", gap: 4 }}>
+        <div
+            style={{
+                fontFamily: "JetBrains Mono,monospace",
+                fontSize: 9,
+                color: "var(--fg-3)",
+                letterSpacing: "0.14em",
+            }}
+        >
+            REPORT / 01
+        </div>
+        <div
+            style={{
+                fontFamily: "Fraunces,serif",
+                fontSize: 20,
+                fontWeight: 500,
+                fontStyle: "italic",
+                lineHeight: 1.1,
+                letterSpacing: "-0.02em",
+            }}
+        >
+            On the quiet discipline of shipping.
+        </div>
+        <div style={{ fontSize: 11, color: "var(--fg-2)", marginTop: 4 }}>
+            An essay on cadence, craft, and care — building reliable systems.
+        </div>
+        <div
+            style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginTop: 10,
+                fontSize: 10,
+                color: "var(--fg-3)",
+            }}
+        >
+            <span>8 MIN READ</span>
+            <span>L. REYES</span>
+        </div>
+    </div>
+);
+const Cd5 = () => (
+    <div className="cd" style={{ background: "var(--fg)", color: "var(--bg)", borderColor: "var(--fg)" }}>
+        <div className="body">
+            <div className="meta" style={{ color: "var(--accent)" }}>
+                NEW FEATURE
+            </div>
+            <div className="title" style={{ fontSize: 16, marginTop: 4 }}>
+                Realtime collaboration
+            </div>
+            <div style={{ fontSize: 11, color: "#a8a49c", marginTop: 4 }}>
+                See cursors, edits, and comments instantly — no refresh.
+            </div>
+            <button
+                style={{
+                    marginTop: 10,
+                    padding: "5px 12px",
+                    background: "var(--accent)",
+                    color: "white",
+                    border: "none",
+                    borderRadius: 5,
+                    fontSize: 11,
+                    cursor: "pointer",
+                }}
+            >
+                Learn more →
+            </button>
+        </div>
+    </div>
+);
+const Cd6 = () => (
+    <div className="cd" style={{ padding: 12 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+            <div>
+                <div style={{ fontSize: 10, color: "var(--fg-3)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                    Revenue
+                </div>
+                <div style={{ fontFamily: "Fraunces,serif", fontSize: 28, fontWeight: 500, letterSpacing: "-0.02em" }}>
+                    $48.2k
+                </div>
+            </div>
+            <div style={{ fontSize: 10, color: "var(--success)", fontFamily: "JetBrains Mono,monospace" }}>▲ 12.4%</div>
+        </div>
+        <svg viewBox="0 0 100 20" style={{ width: "100%", marginTop: 8 }}>
+            <polyline
+                fill="none"
+                stroke="var(--accent)"
+                strokeWidth="1.5"
+                points="0,15 15,13 30,14 45,8 60,10 75,5 90,7 100,3"
+            />
+        </svg>
+    </div>
+);
+
+/* =============== 02. TABLE =============== */
+const TR = (cells, key) => (
+    <tr key={key}>
+        {cells.map((c, i) => (
+            <td key={i}>{c}</td>
+        ))}
+    </tr>
+);
+const Tb1 = () => (
+    <table className="tb">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {[
+                ["Aria Chen", "Design", "Active"],
+                ["Leo Reyes", "Eng", "Active"],
+                ["Mei Tan", "Ops", "Away"],
+            ].map((r, i) => TR(r, i))}
+        </tbody>
+    </table>
+);
+const Tb2 = () => (
+    <table className="tb" style={{ borderCollapse: "separate", borderSpacing: 0 }}>
+        <thead>
+            <tr style={{ background: "var(--bg-2)" }}>
+                <th style={{ borderRadius: "4px 0 0 4px" }}>Item</th>
+                <th style={{ textAlign: "right" }}>Qty</th>
+                <th style={{ textAlign: "right", borderRadius: "0 4px 4px 0" }}>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {[
+                ["Mug", 2, "$56"],
+                ["Towel", 1, "$42"],
+                ["Candle", 3, "$84"],
+            ].map((r, i) => (
+                <tr key={i}>
+                    <td>{r[0]}</td>
+                    <td style={{ textAlign: "right" }}>{r[1]}</td>
+                    <td style={{ textAlign: "right", fontFamily: "JetBrains Mono,monospace" }}>{r[2]}</td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
+);
+const Tb3 = () => (
+    <table className="tb">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Task</th>
+                <th>Owner</th>
+            </tr>
+        </thead>
+        <tbody>
+            {[
+                [1, "Audit design", "AR"],
+                [2, "Prepare review", "LR"],
+                [3, "Ship v2", "MT"],
+            ].map((r, i) => (
+                <tr key={i} style={{ background: i % 2 ? "var(--bg-2)" : "transparent" }}>
+                    {r.map((c, j) => (
+                        <td key={j}>{c}</td>
+                    ))}
+                </tr>
+            ))}
+        </tbody>
+    </table>
+);
+const Tb4 = () => (
+    <table className="tb" style={{ fontFamily: "JetBrains Mono,monospace" }}>
+        <thead>
+            <tr>
+                <th>TS</th>
+                <th>EVENT</th>
+                <th>LVL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {[
+                ["14:02", "deploy started", "info"],
+                ["14:05", "tests passed", "ok"],
+                ["14:07", "live", "ok"],
+            ].map((r, i) => (
+                <tr key={i}>
+                    <td style={{ fontSize: 10 }}>{r[0]}</td>
+                    <td>{r[1]}</td>
+                    <td>
+                        <span
+                            style={{
+                                padding: "1px 5px",
+                                background:
+                                    r[2] === "ok" ? "color-mix(in oklab, var(--success) 20%, white)" : "var(--bg-2)",
+                                color: r[2] === "ok" ? "var(--success)" : "var(--fg-2)",
+                                borderRadius: 3,
+                                fontSize: 9,
+                            }}
+                        >
+                            {r[2]}
+                        </span>
+                    </td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
+);
+const Tb5 = () => (
+    <table className="tb">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Plan</th>
+                <th>Users</th>
+                <th style={{ textAlign: "right" }}>MRR</th>
+            </tr>
+        </thead>
+        <tbody>
+            {[
+                ["●", "Starter", 12, "$360"],
+                ["●", "Pro", 34, "$2.4k"],
+                ["●", "Team", 7, "$1.2k"],
+            ].map((r, i) => (
+                <tr key={i}>
+                    <td style={{ color: ["var(--fg-3)", "var(--accent)", "var(--success)"][i] }}>{r[0]}</td>
+                    <td>{r[1]}</td>
+                    <td>{r[2]}</td>
+                    <td style={{ textAlign: "right", fontWeight: 600 }}>{r[3]}</td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
+);
+const Tb6 = () => (
+    <div style={{ width: "100%", overflow: "hidden" }}>
+        <table className="tb" style={{ border: "1px solid var(--border)", borderRadius: 6 }}>
+            <thead>
+                <tr>
+                    <th style={{ background: "var(--fg)", color: "var(--bg)", letterSpacing: "0.14em" }}>FIELD</th>
+                    <th style={{ background: "var(--fg)", color: "var(--bg)" }}>VALUE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {[
+                    ["Name", "Diamond"],
+                    ["Version", "3.2.1"],
+                    ["License", "MIT"],
+                ].map((r, i) => (
+                    <tr key={i}>
+                        <td style={{ fontWeight: 600, color: "var(--fg-2)" }}>{r[0]}</td>
+                        <td style={{ fontFamily: "JetBrains Mono,monospace" }}>{r[1]}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    </div>
+);
+
+/* =============== 03. DATA GRID =============== */
+const Dg1 = () => (
+    <div className="dg">
+        <div className="dg-tb">
+            <input placeholder="Search orders…" />
+            <span className="chip">All 48</span>
+            <span className="chip">+ Filter</span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Order <span className="ar">↓</span>
+                    </th>
+                    <th>Customer</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {[
+                    ["#1042", "A. Chen", "$184"],
+                    ["#1041", "M. Tan", "$96"],
+                    ["#1040", "L. Reyes", "$312"],
+                ].map((r, i) => TR(r, i))}
+            </tbody>
+        </table>
+        <div className="pg">
+            <span>1–3 of 48</span>
+            <span>‹ 1 2 3 ›</span>
+        </div>
+    </div>
+);
+const Dg2 = () => (
+    <div className="dg">
+        <div className="dg-tb" style={{ gap: 4 }}>
+            {["Active", "Archived", "All"].map((l, i) => (
+                <span
+                    key={l}
+                    className="chip"
+                    style={{
+                        background: i === 0 ? "var(--accent)" : "var(--bg-2)",
+                        color: i === 0 ? "white" : "var(--fg-2)",
+                    }}
+                >
+                    {l}
+                </span>
+            ))}
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" style={{ accentColor: "var(--accent)" }} />
+                    </th>
+                    <th>Project</th>
+                    <th>
+                        Due <span className="ar">↑</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {[
+                    ["☐", "Diamond v4", "Apr 28"],
+                    ["☑", "Halo launch", "May 02"],
+                    ["☐", "Brief", "May 12"],
+                ].map((r, i) => (
+                    <tr
+                        key={i}
+                        style={{
+                            background: r[0] === "☑" ? "color-mix(in oklab, var(--accent) 8%, white)" : "transparent",
+                        }}
+                    >
+                        <td>
+                            <input
+                                type="checkbox"
+                                defaultChecked={r[0] === "☑"}
+                                style={{ accentColor: "var(--accent)" }}
+                            />
+                        </td>
+                        <td>{r[1]}</td>
+                        <td>{r[2]}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    </div>
+);
+const Dg3 = () => (
+    <div className="dg" style={{ fontFamily: "JetBrains Mono,monospace" }}>
+        <div className="dg-tb" style={{ fontSize: 9 }}>
+            $ grep --filter status=ok <span style={{ marginLeft: "auto", color: "var(--fg-3)" }}>248 rows</span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TS</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {[
+                    ["0x42", "14:02", "ok"],
+                    ["0x43", "14:05", "ok"],
+                    ["0x44", "14:07", "err"],
+                ].map((r, i) => (
+                    <tr key={i}>
+                        <td style={{ fontSize: 9 }}>{r[0]}</td>
+                        <td style={{ fontSize: 9 }}>{r[1]}</td>
+                        <td style={{ color: r[2] === "ok" ? "var(--success)" : "var(--danger)", fontSize: 9 }}>
+                            {r[2]}
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    </div>
+);
+const Dg4 = () => (
+    <div className="dg">
+        <div className="dg-tb" style={{ background: "var(--bg-2)" }}>
+            <strong style={{ fontSize: 10 }}>3 selected</strong>
+            <span style={{ color: "var(--accent)", marginLeft: 6, cursor: "pointer" }}>Archive</span>
+            <span style={{ color: "var(--accent)", marginLeft: 6, cursor: "pointer" }}>Delete</span>
+            <span className="chip" style={{ marginLeft: "auto" }}>
+                Clear
+            </span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>File</th>
+                    <th>Size</th>
+                    <th>Modified</th>
+                </tr>
+            </thead>
+            <tbody>
+                {[
+                    ["brief.md", "12 KB", "2d"],
+                    ["atlas.fig", "4.2 MB", "3d"],
+                    ["notes.txt", "3 KB", "5d"],
+                ].map((r, i) => (
+                    <tr key={i} style={{ background: "color-mix(in oklab, var(--accent) 8%, white)" }}>
+                        {r.map((c, j) => (
+                            <td key={j}>{c}</td>
+                        ))}
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    </div>
+);
+const Dg5 = () => (
+    <div className="dg">
+        <div className="dg-tb">
+            Group by:{" "}
+            <span
+                className="chip"
+                style={{ background: "color-mix(in oklab, var(--accent) 15%, white)", color: "var(--accent)" }}
+            >
+                Category
+            </span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th colSpan="3" style={{ background: "var(--surface)", color: "var(--fg-3)", fontSize: 9 }}>
+                        ▾ MUGS (2)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {[
+                    ["Horizon", "$28"],
+                    ["Atlas", "$32"],
+                ].map((r, i) => (
+                    <tr key={i}>
+                        <td style={{ paddingLeft: 20 }}>{r[0]}</td>
+                        <td>{r[1]}</td>
+                        <td>●</td>
+                    </tr>
+                ))}
+                <tr>
+                    <th colSpan="3" style={{ background: "var(--surface)", color: "var(--fg-3)", fontSize: 9 }}>
+                        ▸ TOWELS (3)
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+);
+const Dg6 = () => (
+    <div className="dg">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                    <th>Trend</th>
+                </tr>
+            </thead>
+            <tbody>
+                {[
+                    ["Alpha", 94, "▲"],
+                    ["Beta", 78, "▼"],
+                    ["Gamma", 88, "▲"],
+                ].map((r, i) => (
+                    <tr key={i}>
+                        <td>{r[0]}</td>
+                        <td style={{ position: "relative" }}>
+                            <div
+                                style={{
+                                    position: "absolute",
+                                    left: 8,
+                                    top: "50%",
+                                    transform: "translateY(-50%)",
+                                    height: 12,
+                                    width: `${r[1] * 0.4}px`,
+                                    background: "color-mix(in oklab, var(--accent) 20%, white)",
+                                    borderRadius: 2,
+                                }}
+                            />
+                            <span style={{ position: "relative", fontWeight: 600 }}>{r[1]}</span>
+                        </td>
+                        <td style={{ color: r[2] === "▲" ? "var(--success)" : "var(--danger)" }}>{r[2]}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    </div>
+);
+
+/* =============== 04. LIST =============== */
+const Ls1 = () => (
+    <div className="ls">
+        {["Inbox", "Starred", "Sent", "Drafts", "Archive"].map((l, i) => (
+            <div key={l} className="ls-item">
+                <span>{["📥", "★", "✉", "📝", "📦"][i]}</span>
+                <span style={{ flex: 1 }}>{l}</span>
+                <span style={{ fontSize: 10, color: "var(--fg-3)" }}>{["12", "3", "", "5", ""][i]}</span>
+            </div>
+        ))}
+    </div>
+);
+const Ls2 = () => (
+    <div className="ls" style={{ border: "none", background: "transparent" }}>
+        {["Discover", "Connect", "Build", "Ship"].map((l, i) => (
+            <div key={l} className="ls-item" style={{ border: "none", padding: "6px 0" }}>
+                <span
+                    style={{ fontFamily: "JetBrains Mono,monospace", fontSize: 10, color: "var(--accent)", width: 24 }}
+                >
+                    0{i + 1}
+                </span>
+                <span>{l}</span>
+            </div>
+        ))}
+    </div>
+);
+const Ls3 = () => (
+    <div className="ls">
+        {["Design tokens", "Components", "Patterns"].map((l, i) => (
+            <div key={l} className="ls-item">
+                <div className="av sm" style={{ background: ["#f59e0b", "#10b981", "#8b5cf6"][i] }}>
+                    {l[0]}
+                </div>
+                <div style={{ flex: 1 }}>
+                    <div style={{ fontWeight: 600, fontSize: 11 }}>{l}</div>
+                    <div style={{ fontSize: 9, color: "var(--fg-3)" }}>
+                        {["42 tokens", "86 components", "24 patterns"][i]}
+                    </div>
+                </div>
+                <span style={{ color: "var(--fg-3)", fontSize: 11 }}>›</span>
+            </div>
+        ))}
+    </div>
+);
+const Ls4 = () => (
+    <div
+        className="ls"
+        style={{
+            fontFamily: "JetBrains Mono,monospace",
+            background: "#0f0f0e",
+            color: "#d4d0c8",
+            borderColor: "#2d2c28",
+        }}
+    >
+        {["init", "bootstrap", "run", "deploy"].map((l, i) => (
+            <div key={l} className="ls-item" style={{ borderColor: "#2d2c28", fontSize: 10 }}>
+                <span style={{ color: "#6b6862" }}>$</span>
+                <span>{l}</span>
+                <span style={{ marginLeft: "auto", color: "#059669" }}>✓</span>
+            </div>
+        ))}
+    </div>
+);
+const Ls5 = () => (
+    <div className="ls" style={{ border: "none" }}>
+        {["Essay I", "Essay II", "Essay III"].map((l, i) => (
+            <div
+                key={l}
+                className="ls-item"
+                style={{
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    borderBottom: "1px solid var(--border)",
+                    padding: "10px 0",
+                    gap: 2,
+                }}
+            >
+                <div style={{ fontFamily: "Fraunces,serif", fontSize: 15, fontStyle: "italic" }}>{l}</div>
+                <div style={{ fontSize: 9, color: "var(--fg-3)" }}>MAR · APR · MAY 2026</div>
+            </div>
+        ))}
+    </div>
+);
+const Ls6 = () => (
+    <div className="ls">
+        {["Music", "Photos", "Videos"].map((l, i) => (
+            <div key={l} className="ls-item" style={{ justifyContent: "space-between" }}>
+                <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                    <div
+                        style={{
+                            width: 26,
+                            height: 26,
+                            borderRadius: 6,
+                            background: "color-mix(in oklab, var(--accent) 15%, white)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            fontSize: 12,
+                        }}
+                    >
+                        {["♪", "📷", "▶"][i]}
+                    </div>
+                    <div>
+                        <div style={{ fontSize: 11, fontWeight: 600 }}>{l}</div>
+                        <div style={{ fontSize: 9, color: "var(--fg-3)" }}>{[842, 1250, 48][i]} items</div>
+                    </div>
+                </div>
+                <input type="checkbox" defaultChecked={i < 2} style={{ accentColor: "var(--accent)" }} />
+            </div>
+        ))}
+    </div>
+);
+
+/* =============== 05. LIST ITEM =============== */
+const Li1 = () => (
+    <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 4 }}>
+        {[
+            { t: "Basic", s: "Simple row with label" },
+            { t: "With badge", s: "Trailing count" },
+            { t: "Selected", s: "Highlighted state" },
+        ].map((it, i) => (
+            <div
+                key={i}
+                className="ls-item"
+                style={{
+                    border: "1px solid var(--border)",
+                    borderRadius: 6,
+                    background: i === 2 ? "color-mix(in oklab, var(--accent) 10%, white)" : "var(--surface)",
+                }}
+            >
+                <span style={{ flex: 1, fontWeight: i === 2 ? 600 : 400 }}>{it.t}</span>
+                {i === 1 && (
+                    <span className="bd" style={{ background: "var(--fg)" }}>
+                        8
+                    </span>
+                )}
+                {i === 2 && <span style={{ color: "var(--accent)" }}>✓</span>}
+            </div>
+        ))}
+    </div>
+);
+const Li2 = () => (
+    <div className="ls-item" style={{ width: "100%", border: "1px solid var(--border)", borderRadius: 8, padding: 10 }}>
+        <div className="av sm">JM</div>
+        <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 11, fontWeight: 600 }}>James M.</div>
+            <div style={{ fontSize: 10, color: "var(--fg-3)" }}>Product designer · SF</div>
+        </div>
+        <button
+            style={{
+                padding: "3px 10px",
+                border: "1px solid var(--border)",
+                background: "var(--surface)",
+                borderRadius: 999,
+                fontSize: 10,
+                fontFamily: "inherit",
+            }}
+        >
+            Follow
+        </button>
+    </div>
+);
+const Li3 = () => (
+    <div className="ls-item" style={{ width: "100%", border: "1px solid var(--border)", borderRadius: 6, gap: 12 }}>
+        <div style={{ width: 40, height: 40, borderRadius: 6, ...IMG(...GRADS[2]) }} />
+        <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 11, fontWeight: 600 }}>Autumn jacket</div>
+            <div style={{ fontSize: 10, color: "var(--fg-3)" }}>Size M · Earth</div>
+        </div>
+        <div style={{ fontFamily: "JetBrains Mono,monospace", fontSize: 11 }}>$148</div>
+    </div>
+);
+const Li4 = () => (
+    <div className="ls-item" style={{ width: "100%", border: "1px solid var(--border)", borderRadius: 6 }}>
+        <span
+            style={{
+                width: 18,
+                height: 18,
+                borderRadius: 4,
+                background: "color-mix(in oklab, var(--accent) 15%, white)",
+                color: "var(--accent)",
+                fontSize: 10,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+            }}
+        >
+            ✓
+        </span>
+        <span style={{ flex: 1, textDecoration: "line-through", color: "var(--fg-3)" }}>Prepare brief</span>
+        <span style={{ fontSize: 9, color: "var(--fg-3)" }}>Apr 22</span>
+    </div>
+);
+const Li5 = () => (
+    <div
+        className="ls-item"
+        style={{
+            width: "100%",
+            borderLeft: "3px solid var(--accent)",
+            background: "var(--bg-2)",
+            borderRadius: "0 6px 6px 0",
+            alignItems: "flex-start",
+            flexDirection: "column",
+            gap: 2,
+        }}
+    >
+        <div style={{ display: "flex", width: "100%", alignItems: "center", gap: 8 }}>
+            <span
+                style={{
+                    fontSize: 9,
+                    fontFamily: "JetBrains Mono,monospace",
+                    color: "var(--fg-3)",
+                    letterSpacing: "0.1em",
+                }}
+            >
+                APR 24
+            </span>
+            <span style={{ flex: 1, fontWeight: 600, fontSize: 11 }}>Design review</span>
+            <span style={{ fontSize: 9, color: "var(--accent)" }}>● Live</span>
+        </div>
+        <div style={{ fontSize: 10, color: "var(--fg-2)" }}>2:00 — 3:00 PM · Room 4B</div>
+    </div>
+);
+const Li6 = () => (
+    <div className="ls-item" style={{ width: "100%", border: "1px solid var(--border)", borderRadius: 6 }}>
+        <span style={{ cursor: "grab", color: "var(--fg-3)" }}>⋮⋮</span>
+        <span style={{ flex: 1 }}>Drag to reorder</span>
+        <span style={{ fontSize: 9, color: "var(--fg-3)", fontFamily: "JetBrains Mono,monospace" }}>01 / 08</span>
+    </div>
+);
+
+/* =============== 06. ACCORDION =============== */
+const Ac = (items) => () => {
+    const [o, sO] = useState(items[0][2] ? 0 : -1);
+    return (
+        <div className="ac">
+            {items.map((it, i) => (
+                <div key={i} className={`ac-item ${o === i ? "open" : ""}`}>
+                    <div className="ac-head" onClick={() => sO(o === i ? -1 : i)}>
+                        {it[0]}
+                        <span className="chev">›</span>
+                    </div>
+                    {o === i && <div className="ac-body">{it[1]}</div>}
+                </div>
+            ))}
+        </div>
+    );
+};
+const Ac1 = Ac([
+    ["What is Diamond?", "A systematic design toolkit for makers.", true],
+    ["How does it work?", "Install, import, customize."],
+    ["Is it free?", "Free for personal, paid for teams."],
+]);
+const Ac2 = () => {
+    const [o, sO] = useState(0);
+    return (
+        <div className="ac" style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            {["Shipping", "Returns", "Warranty"].map((l, i) => (
+                <div
+                    key={l}
+                    style={{
+                        border: "1px solid var(--border)",
+                        borderRadius: 8,
+                        overflow: "hidden",
+                        borderColor: o === i ? "var(--accent)" : "var(--border)",
+                    }}
+                >
+                    <div className="ac-head" onClick={() => sO(o === i ? -1 : i)}>
+                        <span style={{ fontWeight: 600 }}>{l}</span>
+                        <span
+                            className="chev"
+                            style={{
+                                transform: o === i ? "rotate(90deg)" : "none",
+                                color: o === i ? "var(--accent)" : "var(--fg-3)",
+                            }}
+                        >
+                            ›
+                        </span>
+                    </div>
+                    {o === i && <div className="ac-body">Delivered in 3–5 business days.</div>}
+                </div>
+            ))}
+        </div>
+    );
+};
+const Ac3 = () => (
+    <div className="ac" style={{ fontFamily: "JetBrains Mono,monospace" }}>
+        {[
+            ["[01] Installation", "npm i @diamond/ui", true],
+            ["[02] Usage", ""],
+            ["[03] API reference", ""],
+        ].map(([t, c, open], i) => (
+            <div key={i} className="ac-item">
+                <div className="ac-head" style={{ fontSize: 10, letterSpacing: "0.05em" }}>
+                    {t}
+                    <span style={{ color: "var(--fg-3)", fontSize: 10 }}>{open ? "[−]" : "[+]"}</span>
+                </div>
+                {open && (
+                    <div
+                        className="ac-body"
+                        style={{
+                            fontFamily: "JetBrains Mono,monospace",
+                            background: "#0f0f0e",
+                            color: "#d4d0c8",
+                            padding: 10,
+                            margin: "0 10px 10px",
+                            borderRadius: 4,
+                            fontSize: 10,
+                        }}
+                    >
+                        $ {c}
+                    </div>
+                )}
+            </div>
+        ))}
+    </div>
+);
+const Ac4 = () => (
+    <div className="ac">
+        {[
+            ["I. Prelude", "A measured beginning.", true],
+            ["II. Theme", ""],
+            ["III. Coda", ""],
+        ].map(([t, c, open], i) => (
+            <div key={i} className="ac-item">
+                <div
+                    className="ac-head"
+                    style={{ padding: "10px 0", fontFamily: "Fraunces,serif", fontSize: 14, fontStyle: "italic" }}
+                >
+                    {t}
+                    <span
+                        className="chev"
+                        style={{
+                            transform: open ? "rotate(90deg)" : "none",
+                            color: open ? "var(--accent)" : "var(--fg-3)",
+                        }}
+                    >
+                        ›
+                    </span>
+                </div>
+                {open && (
+                    <div className="ac-body" style={{ padding: "4px 0 10px", fontStyle: "italic" }}>
+                        {c}
+                    </div>
+                )}
+            </div>
+        ))}
+    </div>
+);
+const Ac5 = () => (
+    <div className="ac">
+        {[
+            ["Design", 8, true],
+            ["Engineering", 12],
+            ["Operations", 3],
+        ].map(([t, c, open], i) => (
+            <div key={i} className="ac-item">
+                <div className="ac-head">
+                    <span style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                        <span
+                            style={{
+                                width: 8,
+                                height: 8,
+                                borderRadius: "50%",
+                                background: ["#8b5cf6", "#2b7fff", "#f59e0b"][i],
+                            }}
+                        />
+                        {t}
+                    </span>
+                    <span style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                        <span style={{ fontSize: 9, padding: "1px 6px", background: "var(--bg-2)", borderRadius: 10 }}>
+                            {c}
+                        </span>
+                        <span className="chev" style={{ transform: open ? "rotate(90deg)" : "none" }}>
+                            ›
+                        </span>
+                    </span>
+                </div>
+                {open && <div className="ac-body">Aria Chen, Leo Reyes, + 6 more.</div>}
+            </div>
+        ))}
+    </div>
+);
+const Ac6 = () => (
+    <div className="ac" style={{ background: "var(--bg-2)", borderRadius: 8, padding: 4 }}>
+        {[["Billing", true], ["Notifications"], ["Team"]].map(([t, open], i) => (
+            <div
+                key={i}
+                className="ac-item"
+                style={{
+                    borderBottom: i < 2 ? "1px solid var(--border)" : "none",
+                    background: open ? "var(--surface)" : "transparent",
+                    borderRadius: open ? 6 : 0,
+                    border: "none",
+                    marginBottom: 2,
+                }}
+            >
+                <div className="ac-head" style={{ padding: "8px 10px" }}>
+                    {t}
+                    <span className="chev" style={{ transform: open ? "rotate(90deg)" : "none" }}>
+                        ›
+                    </span>
+                </div>
+                {open && <div className="ac-body">Manage invoices and payment.</div>}
+            </div>
+        ))}
+    </div>
+);
+
+/* =============== 07. AVATAR =============== */
+const Av1 = () => (
+    <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+        <div className="av sm">AR</div>
+        <div className="av">AR</div>
+        <div className="av lg">AR</div>
+    </div>
+);
+const Av2 = () => (
+    <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+        {[
+            ["#c4948a", "AC"],
+            ["#8b7355", "LR"],
+            ["#5a7d8c", "MT"],
+        ].map(([c, l], i) => (
+            <div key={i} className="av" style={{ background: c }}>
+                {l}
+            </div>
+        ))}
+    </div>
+);
+const Av3 = () => (
+    <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+        <div className="av sq">A</div>
+        <div className="av sq lg" style={{ borderRadius: 10 }}>
+            B
+        </div>
+        <div className="av sq" style={{ background: "var(--fg)", color: "var(--bg)" }}>
+            C
+        </div>
+    </div>
+);
+const Av4 = () => (
+    <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
+        <div className="av">
+            <span className="status" />
+            ON
+        </div>
+        <div className="av">
+            <span className="status" style={{ background: "var(--warning)" }} />
+            AW
+        </div>
+        <div className="av">
+            <span className="status" style={{ background: "var(--border-2)" }} />
+            OF
+        </div>
+    </div>
+);
+const Av5 = () => (
+    <div style={{ display: "flex", gap: 10 }}>
+        <div
+            className="av"
+            style={{ border: "2px solid var(--accent)", padding: 2, background: "var(--surface)", color: "var(--fg)" }}
+        >
+            AR
+        </div>
+        <div
+            className="av lg"
+            style={{ outline: "3px solid color-mix(in oklab, var(--accent) 30%, transparent)", outlineOffset: 2 }}
+        >
+            ★
+        </div>
+    </div>
+);
+const Av6 = () => (
+    <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+        <div className="av" style={{ background: "var(--bg-2)", color: "var(--fg-3)", fontSize: 16 }}>
+            ?
+        </div>
+        <div className="av" style={IMG(...GRADS[0])}></div>
+        <div
+            className="av"
+            style={{
+                fontFamily: "Fraunces,serif",
+                fontStyle: "italic",
+                fontSize: 18,
+                background: "var(--bg-2)",
+                color: "var(--fg)",
+            }}
+        >
+            A
+        </div>
+    </div>
+);
+
+/* =============== 08. AVATAR GROUP =============== */
+const Ag1 = () => (
+    <div className="ag">
+        {["A", "B", "C", "D"].map((l, i) => (
+            <div key={i} className="av" style={{ background: ["#c4948a", "#8b7355", "#5a7d8c", "#d4a574"][i] }}>
+                {l}
+            </div>
+        ))}
+        <div className="ag-more">+4</div>
+    </div>
+);
+const Ag2 = () => (
+    <div className="ag">
+        {["X", "Y", "Z"].map((l, i) => (
+            <div
+                key={i}
+                className="av sm"
+                style={{ background: ["#8b5cf6", "#2b7fff", "#10b981"][i], marginLeft: i ? -6 : 0 }}
+            >
+                {l}
+            </div>
+        ))}
+    </div>
+);
+const Ag3 = () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "flex-start" }}>
+        <div className="ag">
+            {["A", "B", "C"].map((l, i) => (
+                <div key={i} className="av lg" style={{ background: GRADS[i][0] }}>
+                    {l}
+                </div>
+            ))}
+        </div>
+        <div style={{ fontSize: 10, color: "var(--fg-2)" }}>Aria, Beatriz, Cam + 4 others</div>
+    </div>
+);
+const Ag4 = () => (
+    <div className="ag" style={{ flexDirection: "column" }}>
+        {["A", "B", "C"].map((l, i) => (
+            <div
+                key={i}
+                className="av"
+                style={{ background: ["#c4948a", "#8b7355", "#5a7d8c"][i], marginLeft: 0, marginTop: i ? -8 : 0 }}
+            >
+                {l}
+            </div>
+        ))}
+        <div className="ag-more" style={{ marginLeft: 0, marginTop: -8 }}>
+            +9
+        </div>
+    </div>
+);
+const Ag5 = () => (
+    <div className="ag">
+        {["A", "B", "C", "D", "E"].map((l, i) => (
+            <div
+                key={i}
+                className="av sm sq"
+                style={{ background: GRADS[i % GRADS.length][1], borderRadius: 4, marginLeft: i ? -4 : 0 }}
+            >
+                {l}
+            </div>
+        ))}
+    </div>
+);
+const Ag6 = () => (
+    <div
+        style={{
+            padding: "6px 12px",
+            background: "var(--bg-2)",
+            borderRadius: 999,
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+        }}
+    >
+        <div className="ag">
+            {["A", "B", "C"].map((l, i) => (
+                <div key={i} className="av sm">
+                    {l}
+                </div>
+            ))}
+        </div>
+        <span style={{ fontSize: 11 }}>+24 joined</span>
+    </div>
+);
+
+/* =============== 09. BADGE =============== */
+const Bd1 = () => (
+    <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
+        <div style={{ position: "relative" }}>
+            <span style={{ fontSize: 24 }}>📥</span>
+            <span className="bd" style={{ position: "absolute", top: -4, right: -8 }}>
+                8
+            </span>
+        </div>
+        <div style={{ position: "relative" }}>
+            <span style={{ fontSize: 24 }}>🔔</span>
+            <span className="bd dot" style={{ position: "absolute", top: 0, right: -2 }} />
+        </div>
+    </div>
+);
+const Bd2 = () => (
+    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        {[
+            ["NEW", "var(--success)"],
+            ["HOT", "var(--danger)"],
+            ["BETA", "var(--warning)"],
+            ["PRO", "var(--accent)"],
+        ].map(([l, c], i) => (
+            <span
+                key={l}
+                className="bd"
+                style={{ background: c, padding: "2px 8px", letterSpacing: "0.08em", fontSize: 9 }}
+            >
+                {l}
+            </span>
+        ))}
+    </div>
+);
+const Bd3 = () => (
+    <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
+        <button
+            style={{
+                padding: "6px 14px",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                borderRadius: 6,
+                position: "relative",
+            }}
+        >
+            Messages
+            <span
+                className="bd"
+                style={{ position: "absolute", top: -6, right: -6, minWidth: 20, height: 20, padding: 0, fontSize: 10 }}
+            >
+                99+
+            </span>
+        </button>
+    </div>
+);
+const Bd4 = () => (
+    <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        {["online", "idle", "dnd", "offline"].map((s, i) => (
+            <div key={s} style={{ display: "flex", gap: 6, alignItems: "center", fontSize: 10 }}>
+                <span
+                    className="bd dot"
+                    style={{ background: ["var(--success)", "var(--warning)", "var(--danger)", "var(--border-2)"][i] }}
+                />
+                {s}
+            </div>
+        ))}
+    </div>
+);
+const Bd5 = () => (
+    <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+        {["⚡", "★", "❤"].map((i, k) => (
+            <div
+                key={k}
+                style={{
+                    position: "relative",
+                    width: 40,
+                    height: 40,
+                    background: "var(--bg-2)",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 16,
+                }}
+            >
+                {i}
+                <span
+                    className="bd"
+                    style={{
+                        position: "absolute",
+                        bottom: -2,
+                        right: -2,
+                        background: "var(--accent)",
+                        border: "2px solid var(--surface)",
+                    }}
+                >
+                    {[3, 5, 12][k]}
+                </span>
+            </div>
+        ))}
+    </div>
+);
+const Bd6 = () => (
+    <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+        <span
+            className="bd"
+            style={{ background: "var(--surface)", color: "var(--fg)", border: "1px solid var(--fg)", fontWeight: 700 }}
+        >
+            v3.2
+        </span>
+        <span
+            className="bd"
+            style={{ background: "transparent", color: "var(--accent)", border: "1px dashed var(--accent)" }}
+        >
+            draft
+        </span>
+        <span className="bd" style={{ background: "var(--fg)", color: "var(--bg)" }}>
+            2026
+        </span>
+    </div>
+);
+
+/* =============== 10. CHIP =============== */
+const Ch1 = () => (
+    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        {["Design", "Research", "Brand", "Strategy"].map((l) => (
+            <span key={l} className="ch">
+                {l}
+            </span>
+        ))}
+    </div>
+);
+const Ch2 = () => (
+    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        {["Figma ×", "Framer ×", "React ×"].map((l) => (
+            <span
+                key={l}
+                className="ch"
+                style={{
+                    background: "color-mix(in oklab, var(--accent) 12%, white)",
+                    color: "color-mix(in oklab, var(--accent) 70%, black)",
+                }}
+            >
+                <span>{l.split(" ")[0]}</span>
+                <span className="x">×</span>
+            </span>
+        ))}
+    </div>
+);
+const Ch3 = () => (
+    <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+        {[
+            ["All", true],
+            ["Active", false],
+            ["Done", false],
+            ["Archived", false],
+        ].map(([l, on]) => (
+            <span
+                key={l}
+                className="ch"
+                style={{
+                    background: on ? "var(--fg)" : "transparent",
+                    color: on ? "var(--bg)" : "var(--fg-2)",
+                    border: on ? "none" : "1px solid var(--border)",
+                }}
+            >
+                {l}
+            </span>
+        ))}
+    </div>
+);
+const Ch4 = () => (
+    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        {[
+            ["design", "#c4948a"],
+            ["research", "#5a7d8c"],
+            ["brand", "#d4a574"],
+        ].map(([l, c]) => (
+            <span key={l} className="ch">
+                <span style={{ width: 6, height: 6, borderRadius: "50%", background: c, display: "inline-block" }} />
+                {l}
+            </span>
+        ))}
+    </div>
+);
+const Ch5 = () => (
+    <div style={{ display: "flex", gap: 6 }}>
+        {["🎨 Design", "🔍 Research", "⚡ Ship"].map((l) => (
+            <span key={l} className="ch" style={{ borderRadius: 6, padding: "4px 10px" }}>
+                {l}
+            </span>
+        ))}
+    </div>
+);
+const Ch6 = () => (
+    <div style={{ display: "flex", gap: 6 }}>
+        <span
+            className="ch"
+            style={{ background: "var(--surface)", border: "1px solid var(--accent)", color: "var(--accent)" }}
+        >
+            + Add tag
+        </span>
+        {["draft", "review"].map((l) => (
+            <span key={l} className="ch" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
+                {l}
+            </span>
+        ))}
+    </div>
+);
+
+/* =============== 11. TAG =============== */
+const Tg1 = () => (
+    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        {["design", "systems", "research"].map((l) => (
+            <span key={l} className="tg">
+                #{l}
+            </span>
+        ))}
+    </div>
+);
+const Tg2 = () => (
+    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        {[
+            ["Urgent", "var(--danger)"],
+            ["Review", "var(--warning)"],
+            ["Done", "var(--success)"],
+        ].map(([l, c]) => (
+            <span
+                key={l}
+                className="tg"
+                style={{
+                    background: `color-mix(in oklab, ${c} 15%, white)`,
+                    color: c,
+                    border: `1px solid color-mix(in oklab, ${c} 30%, white)`,
+                }}
+            >
+                {l}
+            </span>
+        ))}
+    </div>
+);
+const Tg3 = () => (
+    <div style={{ display: "flex", gap: 4 }}>
+        {["v3.2", "2026", "MIT"].map((l) => (
+            <span
+                key={l}
+                className="tg"
+                style={{
+                    background: "transparent",
+                    border: "1px solid var(--border-2)",
+                    color: "var(--fg-2)",
+                    fontFamily: "JetBrains Mono,monospace",
+                    fontSize: 9,
+                }}
+            >
+                {l}
+            </span>
+        ))}
+    </div>
+);
+const Tg4 = () => (
+    <div style={{ display: "flex", gap: 6 }}>
+        {["BEST SELLER", "NEW", "LIMITED"].map((l, i) => (
+            <span
+                key={l}
+                className="tg"
+                style={{
+                    background: "var(--fg)",
+                    color: "var(--bg)",
+                    borderRadius: 2,
+                    padding: "3px 8px",
+                    fontSize: 9,
+                    letterSpacing: "0.12em",
+                    fontWeight: 700,
+                }}
+            >
+                {l}
+            </span>
+        ))}
+    </div>
+);
+const Tg5 = () => (
+    <div style={{ display: "flex", gap: 6, flexDirection: "column", alignItems: "flex-start" }}>
+        <span
+            className="tg"
+            style={{ fontFamily: "Fraunces,serif", fontStyle: "italic", fontSize: 12, padding: "3px 10px" }}
+        >
+            Editorial
+        </span>
+        <span
+            className="tg"
+            style={{
+                fontFamily: "Fraunces,serif",
+                fontStyle: "italic",
+                fontSize: 12,
+                padding: "3px 10px",
+                background: "var(--bg-2)",
+                color: "var(--fg)",
+            }}
+        >
+            Long-form
+        </span>
+    </div>
+);
+const Tg6 = () => (
+    <div style={{ display: "flex", gap: 6 }}>
+        {[
+            ["ALPHA", "#8b5cf6"],
+            ["BETA", "#2b7fff"],
+            ["GA", "#10b981"],
+        ].map(([l, c]) => (
+            <span
+                key={l}
+                className="tg"
+                style={{
+                    clipPath: "polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%)",
+                    paddingRight: 14,
+                    background: `color-mix(in oklab, ${c} 15%, white)`,
+                    color: c,
+                    fontWeight: 700,
+                    fontSize: 9,
+                    letterSpacing: "0.14em",
+                }}
+            >
+                {l}
+            </span>
+        ))}
+    </div>
+);
+
+/* =============== 12. CAROUSEL =============== */
+const Cr1 = () => (
+    <div style={{ width: "100%" }}>
+        <div className="cr-track">
+            {GRADS.map((g, i) => (
+                <div key={i} className="cr-slide" style={{ width: 120, height: 80, ...IMG(...g), borderRadius: 6 }} />
+            ))}
+        </div>
+        <div className="cr-dots">
+            {[0, 1, 2, 3, 4, 5].map((i) => (
+                <span key={i} className={`dot ${i === 1 ? "on" : ""}`} />
+            ))}
+        </div>
+    </div>
+);
+const Cr2 = () => (
+    <div style={{ position: "relative", width: "100%" }}>
+        <div className="cr-track">
+            {GRADS.slice(0, 3).map((g, i) => (
+                <div key={i} className="cr-slide" style={{ width: 220, height: 110, ...IMG(...g), borderRadius: 8 }} />
+            ))}
+        </div>
+        <button
+            style={{
+                position: "absolute",
+                top: "50%",
+                left: -10,
+                transform: "translateY(-50%)",
+                width: 28,
+                height: 28,
+                borderRadius: "50%",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.08)",
+                fontSize: 12,
+                cursor: "pointer",
+            }}
+        >
+            ‹
+        </button>
+        <button
+            style={{
+                position: "absolute",
+                top: "50%",
+                right: -10,
+                transform: "translateY(-50%)",
+                width: 28,
+                height: 28,
+                borderRadius: "50%",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.08)",
+                fontSize: 12,
+                cursor: "pointer",
+            }}
+        >
+            ›
+        </button>
+    </div>
+);
+const Cr3 = () => (
+    <div style={{ width: "100%" }}>
+        <div style={{ position: "relative", aspectRatio: "16/9", ...IMG(...GRADS[2]), borderRadius: 8 }} />
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 4, marginTop: 6 }}>
+            {GRADS.slice(0, 4).map((g, i) => (
+                <div
+                    key={i}
+                    style={{
+                        aspectRatio: "1",
+                        ...IMG(...g),
+                        borderRadius: 4,
+                        border: i === 0 ? "2px solid var(--accent)" : "none",
+                    }}
+                />
+            ))}
+        </div>
+    </div>
+);
+const Cr4 = () => (
+    <div style={{ width: "100%" }}>
+        <div className="cr-track">
+            {["“It shipped the way we hoped.”", "“A calm, considered toolkit.”", "“Finally, something that fits.”"].map(
+                (q, i) => (
+                    <div
+                        key={i}
+                        className="cr-slide"
+                        style={{
+                            width: 220,
+                            padding: 14,
+                            background: "var(--bg-2)",
+                            borderRadius: 8,
+                            fontFamily: "Fraunces,serif",
+                            fontStyle: "italic",
+                            fontSize: 13,
+                            color: "var(--fg)",
+                        }}
+                    >
+                        {q}
+                        <div
+                            style={{
+                                fontSize: 9,
+                                color: "var(--fg-3)",
+                                fontFamily: "Inter",
+                                fontStyle: "normal",
+                                marginTop: 6,
+                                letterSpacing: "0.1em",
+                            }}
+                        >
+                            — CLIENT 0{i + 1}
+                        </div>
+                    </div>
+                ),
+            )}
+        </div>
+    </div>
+);
+const Cr5 = () => (
+    <div style={{ width: "100%" }}>
+        <div className="cr-track">
+            {GRADS.slice(0, 5).map((g, i) => (
+                <div
+                    key={i}
+                    className="cr-slide"
+                    style={{
+                        width: 80,
+                        height: 80,
+                        ...IMG(...g),
+                        borderRadius: "50%",
+                        border: i === 2 ? "3px solid var(--accent)" : "none",
+                        opacity: i === 2 ? 1 : 0.6,
+                    }}
+                />
+            ))}
+        </div>
+        <div
+            style={{
+                textAlign: "center",
+                marginTop: 6,
+                fontFamily: "Fraunces,serif",
+                fontStyle: "italic",
+                fontSize: 14,
+            }}
+        >
+            Shade 03 — Umber
+        </div>
+    </div>
+);
+const Cr6 = () => (
+    <div style={{ width: "100%" }}>
+        <div
+            style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: 4,
+                fontSize: 9,
+                fontFamily: "JetBrains Mono,monospace",
+                color: "var(--fg-3)",
+                letterSpacing: "0.1em",
+            }}
+        >
+            <span>02 / 06</span>
+            <span>AUTOPLAY 04s</span>
+        </div>
+        <div style={{ aspectRatio: "16/9", ...IMG(...GRADS[4]), borderRadius: 6, position: "relative" }}>
+            <div
+                style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: 2,
+                    background: "rgba(255,255,255,0.3)",
+                }}
+            >
+                <div style={{ height: "100%", width: "35%", background: "var(--accent)" }} />
+            </div>
+        </div>
+    </div>
+);
+
+/* =============== 13. TIMELINE =============== */
+const Tl1 = () => (
+    <div className="tl">
+        {[
+            ["9:00", "Kickoff", "Team sync"],
+            ["11:00", "Design review", "Round 2"],
+            ["14:00", "Ship", "v3.2 live"],
+        ].map(([t, h, d], i) => (
+            <div key={i} className="tl-item">
+                <div className="tl-dot" />
+                <div className="tl-content">
+                    <div className="tl-time">{t}</div>
+                    <div className="tl-title">{h}</div>
+                    <div style={{ fontSize: 10, color: "var(--fg-2)" }}>{d}</div>
+                </div>
+            </div>
+        ))}
+    </div>
+);
+const Tl2 = () => (
+    <div className="tl">
+        {[
+            ["Apr", "Discovery", true],
+            ["May", "Design", true],
+            ["Jun", "Build", false],
+            ["Jul", "Ship", false],
+        ].map(([m, t, done], i) => (
+            <div key={i} className="tl-item">
+                <div
+                    className="tl-dot"
+                    style={{
+                        background: done ? "var(--accent)" : "var(--bg-2)",
+                        border: done ? "none" : "2px solid var(--border-2)",
+                        width: 12,
+                        height: 12,
+                    }}
+                />
+                <div className="tl-content">
+                    <div style={{ display: "flex", gap: 6, alignItems: "baseline" }}>
+                        <span
+                            style={{
+                                fontFamily: "Fraunces,serif",
+                                fontSize: 16,
+                                fontStyle: "italic",
+                                color: done ? "var(--fg)" : "var(--fg-3)",
+                            }}
+                        >
+                            {m}
+                        </span>
+                        <span style={{ fontSize: 11, color: done ? "var(--fg-2)" : "var(--fg-3)" }}>{t}</span>
+                    </div>
+                </div>
+            </div>
+        ))}
+    </div>
+);
+const Tl3 = () => (
+    <div className="tl" style={{ paddingLeft: 60 }}>
+        {[
+            ["14:02", "deploy started"],
+            ["14:05", "tests passed"],
+            ["14:07", "live"],
+        ].map(([t, e], i) => (
+            <div key={i} className="tl-item">
+                <div
+                    style={{
+                        position: "absolute",
+                        left: -56,
+                        fontFamily: "JetBrains Mono,monospace",
+                        fontSize: 10,
+                        color: "var(--fg-3)",
+                        width: 48,
+                        textAlign: "right",
+                    }}
+                >
+                    {t}
+                </div>
+                <div className="tl-dot" style={{ background: "var(--success)" }} />
+                <div className="tl-content" style={{ fontFamily: "JetBrains Mono,monospace", fontSize: 10 }}>
+                    {e}
+                </div>
+            </div>
+        ))}
+    </div>
+);
+const Tl4 = () => (
+    <div style={{ display: "flex", width: "100%", justifyContent: "space-between", position: "relative" }}>
+        <div style={{ position: "absolute", left: "5%", right: "5%", top: 6, height: 2, background: "var(--border)" }}>
+            <div style={{ width: "55%", height: "100%", background: "var(--accent)" }} />
+        </div>
+        {["Q1", "Q2", "Q3", "Q4"].map((q, i) => (
+            <div key={q} style={{ display: "flex", flexDirection: "column", alignItems: "center", zIndex: 1 }}>
+                <span
+                    style={{
+                        width: 14,
+                        height: 14,
+                        borderRadius: "50%",
+                        background: i < 2 ? "var(--accent)" : "var(--surface)",
+                        border: i < 2 ? "none" : "2px solid var(--border-2)",
+                    }}
+                />
+                <span
+                    style={{
+                        fontSize: 10,
+                        marginTop: 6,
+                        color: i < 2 ? "var(--fg)" : "var(--fg-3)",
+                        fontWeight: i < 2 ? 600 : 400,
+                    }}
+                >
+                    {q}
+                </span>
+            </div>
+        ))}
+    </div>
+);
+const Tl5 = () => (
+    <div className="tl">
+        {[
+            ["1847", "Founded", "Atlas Co. est."],
+            ["1920", "Expansion", "Opens 3 branches"],
+            ["2026", "Today", "Diamond debut"],
+        ].map(([y, h, d], i) => (
+            <div key={i} className="tl-item">
+                <div
+                    className="tl-dot"
+                    style={{
+                        width: 14,
+                        height: 14,
+                        border: "3px solid var(--bg)",
+                        boxShadow: "0 0 0 1px var(--border)",
+                        background: "var(--surface)",
+                        color: "var(--accent)",
+                    }}
+                />
+                <div className="tl-content">
+                    <div
+                        style={{
+                            fontFamily: "Fraunces,serif",
+                            fontSize: 20,
+                            fontWeight: 500,
+                            fontStyle: "italic",
+                            letterSpacing: "-0.02em",
+                        }}
+                    >
+                        {y}
+                    </div>
+                    <div style={{ fontSize: 11, fontWeight: 600 }}>{h}</div>
+                    <div style={{ fontSize: 10, color: "var(--fg-2)" }}>{d}</div>
+                </div>
+            </div>
+        ))}
+    </div>
+);
+const Tl6 = () => (
+    <div className="tl">
+        {[
+            ["A. Chen", "commented", "2h ago"],
+            ["L. Reyes", "merged PR", "4h ago"],
+            ["M. Tan", "assigned task", "6h ago"],
+        ].map(([u, a, t], i) => (
+            <div key={i} className="tl-item">
+                <div className="av sm" style={{ marginTop: 0 }}>
+                    {u.split(" ")[0][0]}
+                    {u.split(" ")[1][0]}
+                </div>
+                <div className="tl-content" style={{ paddingLeft: 4 }}>
+                    <div style={{ fontSize: 11 }}>
+                        <b>{u}</b> {a}
+                    </div>
+                    <div className="tl-time">{t}</div>
+                </div>
+            </div>
+        ))}
+    </div>
+);
+
+/* =============== 14. CALENDAR =============== */
+const makeDays = (events = []) =>
+    Array.from({ length: 35 }, (_, i) => {
+        const d = i - 3;
+        const mute = d < 1 || d > 30;
+        return { n: mute ? (d < 1 ? 28 + d : d - 30) : d, mute, today: d === 15, ev: events.includes(d) };
+    });
+const Ca1 = () => (
+    <div className="cal">
+        <div className="head">
+            <button>‹</button>
+            <div className="m">April 2026</div>
+            <button>›</button>
+        </div>
+        <div className="dow">
+            {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
+                <div key={i}>{d}</div>
+            ))}
+        </div>
+        <div className="days">
+            {makeDays([8, 15, 22]).map((d, i) => (
+                <div key={i} className={`day ${d.mute ? "mute" : ""} ${d.today ? "today" : ""} ${d.ev ? "ev" : ""}`}>
+                    {d.n}
+                </div>
+            ))}
+        </div>
+    </div>
+);
+const Ca2 = () => (
+    <div className="cal">
+        <div className="head">
+            <div className="m" style={{ fontFamily: "Fraunces,serif", fontStyle: "italic", fontSize: 16 }}>
+                April
+            </div>
+            <span style={{ fontSize: 10, color: "var(--fg-3)" }}>2026</span>
+        </div>
+        <div className="dow" style={{ fontFamily: "JetBrains Mono,monospace", letterSpacing: "0.1em" }}>
+            {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
+                <div key={i}>{d}</div>
+            ))}
+        </div>
+        <div className="days">
+            {makeDays([5, 12, 19, 26]).map((d, i) => (
+                <div
+                    key={i}
+                    className="day"
+                    style={{
+                        background: d.today
+                            ? "var(--fg)"
+                            : d.ev
+                              ? "color-mix(in oklab, var(--accent) 20%, white)"
+                              : "transparent",
+                        color: d.today ? "var(--bg)" : d.mute ? "var(--fg-3)" : d.ev ? "var(--accent)" : "var(--fg)",
+                        fontWeight: d.ev || d.today ? 600 : 400,
+                    }}
+                >
+                    {d.n}
+                </div>
+            ))}
+        </div>
+    </div>
+);
+const Ca3 = () => (
+    <div className="cal" style={{ padding: 6 }}>
+        <div
+            style={{
+                display: "flex",
+                gap: 2,
+                justifyContent: "space-between",
+                fontSize: 9,
+                color: "var(--fg-3)",
+                padding: "0 4px 6px",
+            }}
+        >
+            <span>Week 17</span>
+            <span>APR 20 – 26</span>
+        </div>
+        {["Mon", "Tue", "Wed", "Thu", "Fri"].map((d, i) => (
+            <div key={d} style={{ display: "flex", gap: 4, padding: "2px 4px", alignItems: "center", fontSize: 10 }}>
+                <span style={{ width: 36, color: "var(--fg-3)" }}>
+                    {d} {20 + i}
+                </span>
+                <div style={{ flex: 1, height: 14, background: "var(--bg-2)", borderRadius: 2, position: "relative" }}>
+                    {i < 3 && (
+                        <div
+                            style={{
+                                position: "absolute",
+                                top: 0,
+                                left: `${i * 15 + 10}%`,
+                                width: "30%",
+                                height: "100%",
+                                background: "var(--accent)",
+                                borderRadius: 2,
+                            }}
+                        />
+                    )}
+                </div>
+            </div>
+        ))}
+    </div>
+);
+const Ca4 = () => (
+    <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 8 }}>
+        {[
+            ["APR", "Sun 15", "Design review", "2:00 PM"],
+            ["APR", "Wed 18", "Ship v3.2", "All day"],
+            ["APR", "Fri 20", "Team dinner", "7:00 PM"],
+        ].map(([m, d, t, h], i) => (
+            <div key={i} style={{ display: "flex", gap: 10, padding: 8, background: "var(--bg-2)", borderRadius: 6 }}>
+                <div style={{ textAlign: "center", width: 40 }}>
+                    <div style={{ fontSize: 8, color: "var(--accent)", fontWeight: 700, letterSpacing: "0.12em" }}>
+                        {m}
+                    </div>
+                    <div style={{ fontFamily: "Fraunces,serif", fontSize: 16, fontWeight: 500 }}>{d.split(" ")[1]}</div>
+                </div>
+                <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 11, fontWeight: 600 }}>{t}</div>
+                    <div style={{ fontSize: 9, color: "var(--fg-3)" }}>{h}</div>
+                </div>
+            </div>
+        ))}
+    </div>
+);
+const Ca5 = () => (
+    <div className="cal" style={{ padding: 4 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 3 }}>
+            {["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].map((m, i) => (
+                <div
+                    key={m}
+                    style={{
+                        padding: 8,
+                        textAlign: "center",
+                        fontSize: 10,
+                        background: i === 3 ? "var(--accent)" : "var(--bg-2)",
+                        color: i === 3 ? "white" : "var(--fg)",
+                        borderRadius: 4,
+                        fontWeight: i === 3 ? 600 : 400,
+                    }}
+                >
+                    {m}
+                    <div
+                        style={{ fontSize: 8, color: i === 3 ? "rgba(255,255,255,0.7)" : "var(--fg-3)", marginTop: 2 }}
+                    >
+                        {i === 3 ? "●●●" : i < 3 ? "●" : "○"}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+);
+const Ca6 = () => (
+    <div className="cal">
+        <div className="head">
+            <div className="m">Apr</div>
+        </div>
+        <div className="dow">
+            {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
+                <div key={i}>{d}</div>
+            ))}
+        </div>
+        <div className="days">
+            {makeDays([10, 11, 12, 13]).map((d, i) => (
+                <div
+                    key={i}
+                    className={`day ${d.mute ? "mute" : ""}`}
+                    style={{
+                        background: d.ev ? "color-mix(in oklab, var(--accent) 25%, white)" : "transparent",
+                        color: d.ev ? "var(--accent)" : d.mute ? "var(--fg-3)" : "var(--fg)",
+                        fontWeight: d.ev ? 700 : 400,
+                        borderRadius: d.ev ? (i % 7 === 3 ? "4px 0 0 4px" : i % 7 === 6 ? "0 4px 4px 0" : 0) : 4,
+                    }}
+                >
+                    {d.n}
+                </div>
+            ))}
+        </div>
+        <div style={{ fontSize: 9, color: "var(--accent)", marginTop: 4, fontWeight: 600, textAlign: "center" }}>
+            ● 4 nights selected
+        </div>
+    </div>
+);
+
+/* =============== 15. STATISTIC =============== */
+const St1 = () => (
+    <div className="st">
+        <div className="lbl">Total Revenue</div>
+        <div className="val">$48.2k</div>
+        <div className="delta">▲ 12.4% vs. last month</div>
+    </div>
+);
+const St2 = () => (
+    <div className="st" style={{ display: "flex", gap: 16 }}>
+        <div>
+            <div className="lbl">Users</div>
+            <div className="val" style={{ fontSize: 32 }}>
+                2,480
+            </div>
+        </div>
+        <div>
+            <div className="lbl">Sessions</div>
+            <div className="val" style={{ fontSize: 32 }}>
+                18.4k
+            </div>
+        </div>
+    </div>
+);
+const St3 = () => (
+    <div className="st" style={{ padding: 12, background: "var(--fg)", color: "var(--bg)", borderRadius: 8 }}>
+        <div className="lbl" style={{ color: "var(--accent)" }}>
+            Active Now
+        </div>
+        <div className="val" style={{ color: "var(--bg)" }}>
+            142
+        </div>
+        <svg viewBox="0 0 100 20" style={{ width: "100%" }}>
+            <polyline
+                fill="none"
+                stroke="var(--accent)"
+                strokeWidth="1.5"
+                points="0,15 15,10 30,12 45,6 60,9 75,3 90,5 100,2"
+            />
+        </svg>
+    </div>
+);
+const St4 = () => (
+    <div className="st" style={{ textAlign: "center", padding: 10 }}>
+        <div className="val" style={{ fontSize: 64 }}>
+            99.8<span style={{ fontSize: 28, color: "var(--fg-2)" }}>%</span>
+        </div>
+        <div
+            className="lbl"
+            style={{
+                fontFamily: "Fraunces,serif",
+                fontStyle: "italic",
+                fontSize: 12,
+                letterSpacing: 0,
+                textTransform: "none",
+            }}
+        >
+            uptime, this month
+        </div>
+    </div>
+);
+const St5 = () => (
+    <div className="st">
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+            <div className="lbl">Conversion</div>
+            <span
+                style={{
+                    padding: "2px 6px",
+                    background: "color-mix(in oklab, var(--success) 15%, white)",
+                    color: "var(--success)",
+                    borderRadius: 4,
+                    fontSize: 9,
+                    fontWeight: 700,
+                }}
+            >
+                ON TRACK
+            </span>
+        </div>
+        <div className="val">4.8%</div>
+        <div style={{ height: 4, background: "var(--bg-2)", borderRadius: 2, marginTop: 4, overflow: "hidden" }}>
+            <div style={{ width: "68%", height: "100%", background: "var(--accent)" }} />
+        </div>
+        <div style={{ fontSize: 9, color: "var(--fg-3)", marginTop: 2 }}>68% to goal of 7%</div>
+    </div>
+);
+const St6 = () => (
+    <div className="st" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10, textAlign: "center" }}>
+        {[
+            ["12", "Projects"],
+            ["248", "Tasks"],
+            ["14", "Team"],
+        ].map(([v, l]) => (
+            <div key={l} style={{ padding: 8, background: "var(--bg-2)", borderRadius: 6 }}>
+                <div className="val" style={{ fontSize: 24 }}>
+                    {v}
+                </div>
+                <div className="lbl" style={{ fontSize: 9 }}>
+                    {l}
+                </div>
+            </div>
+        ))}
+    </div>
+);
+
+/* =============== 16. IMAGE =============== */
+const Im1 = () => (
+    <div className="im">
+        <div className="fill">◆</div>
+    </div>
+);
+const Im2 = () => (
+    <div style={{ position: "relative", width: 160, aspectRatio: "4/3" }}>
+        <div className="im" style={{ ...IMG(...GRADS[0]), width: "100%" }}>
+            <div className="fill" style={IMG(...GRADS[0])} />
+        </div>
+        <div
+            style={{
+                position: "absolute",
+                bottom: 6,
+                left: 6,
+                right: 6,
+                background: "rgba(0,0,0,0.5)",
+                color: "white",
+                padding: "3px 6px",
+                fontSize: 10,
+                borderRadius: 3,
+            }}
+        >
+            Atlas Mug
+        </div>
+    </div>
+);
+const Im3 = () => (
+    <div style={{ display: "flex", gap: 4 }}>
+        <div className="im" style={{ width: 80 }}>
+            <div className="ph">IMG</div>
+        </div>
+        <div className="im" style={{ width: 80 }}>
+            <div className="fill" style={IMG(...GRADS[1])} />
+        </div>
+    </div>
+);
+const Im4 = () => (
+    <div className="im" style={{ borderRadius: "50%", aspectRatio: "1", width: 120 }}>
+        <div className="fill" style={{ ...IMG(...GRADS[2]), borderRadius: "50%" }}>
+            A
+        </div>
+    </div>
+);
+const Im5 = () => (
+    <div style={{ position: "relative", width: 160 }}>
+        <div className="im" style={{ width: "100%" }}>
+            <div className="fill" style={IMG(...GRADS[3])} />
+        </div>
+        <div
+            style={{
+                position: "absolute",
+                top: 4,
+                right: 4,
+                background: "rgba(255,255,255,0.9)",
+                padding: "2px 6px",
+                borderRadius: 3,
+                fontSize: 9,
+                fontWeight: 700,
+            }}
+        >
+            HD
+        </div>
+    </div>
+);
+const Im6 = () => (
+    <div
+        className="im"
+        style={{ width: 160, filter: "grayscale(1) contrast(1.1)", border: "4px solid var(--fg)", borderRadius: 0 }}
+    >
+        <div className="fill" style={IMG(...GRADS[4])} />
+    </div>
+);
+
+/* =============== 17. VIDEO =============== */
+const Vp1 = () => (
+    <div className="vp">
+        <div className="poster" style={IMG(...GRADS[2])} />
+        <div className="play">▶</div>
+        <div className="ctrl">
+            <span>02:14</span>
+            <div className="bar">
+                <div className="fill" />
+            </div>
+            <span>05:48</span>
+            <span>⛶</span>
+        </div>
+    </div>
+);
+const Vp2 = () => (
+    <div className="vp">
+        <div className="poster" style={IMG(...GRADS[0])} />
+        <div
+            style={{
+                position: "absolute",
+                top: 8,
+                left: 8,
+                padding: "2px 8px",
+                background: "var(--danger)",
+                color: "white",
+                borderRadius: 3,
+                fontSize: 9,
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+            }}
+        >
+            ● LIVE
+        </div>
+        <div
+            style={{
+                position: "absolute",
+                top: 8,
+                right: 8,
+                padding: "2px 8px",
+                background: "rgba(0,0,0,0.5)",
+                color: "white",
+                borderRadius: 3,
+                fontSize: 9,
+            }}
+        >
+            2.4k watching
+        </div>
+    </div>
+);
+const Vp3 = () => (
+    <div className="vp" style={{ aspectRatio: "9/16", width: 110 }}>
+        <div className="poster" style={IMG(...GRADS[3])} />
+        <div
+            style={{
+                position: "absolute",
+                right: 6,
+                bottom: 40,
+                display: "flex",
+                flexDirection: "column",
+                gap: 8,
+                alignItems: "center",
+            }}
+        >
+            {["♡", "💬", "↗"].map((i, k) => (
+                <div
+                    key={k}
+                    style={{
+                        width: 28,
+                        height: 28,
+                        borderRadius: "50%",
+                        background: "rgba(255,255,255,0.2)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                    }}
+                >
+                    {i}
+                </div>
+            ))}
+        </div>
+    </div>
+);
+const Vp4 = () => (
+    <div className="vp" style={{ borderRadius: 2, border: "1px solid var(--fg)" }}>
+        <div
+            className="poster"
+            style={{ background: "repeating-linear-gradient(45deg, #1a1a18, #1a1a18 4px, #2d2c28 4px, #2d2c28 8px)" }}
+        />
+        <div
+            style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                padding: 6,
+                background: "rgba(0,0,0,0.6)",
+                display: "flex",
+                gap: 8,
+                fontSize: 9,
+                color: "#d4d0c8",
+                fontFamily: "JetBrains Mono,monospace",
+            }}
+        >
+            <span>◉ REC</span>
+            <span>00:02:14</span>
+            <span style={{ marginLeft: "auto" }}>4K · 60FPS</span>
+        </div>
+    </div>
+);
+const Vp5 = () => (
+    <div className="vp">
+        <div className="poster" style={IMG(...GRADS[5])} />
+        <div
+            style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent 50%)",
+            }}
+        />
+        <div style={{ position: "absolute", bottom: 8, left: 8, right: 8, color: "white" }}>
+            <div style={{ fontSize: 10, opacity: 0.7, letterSpacing: "0.1em" }}>EP 03 · 12 MIN</div>
+            <div style={{ fontFamily: "Fraunces,serif", fontSize: 14, fontStyle: "italic" }}>
+                The quiet discipline of shipping
+            </div>
+        </div>
+    </div>
+);
+const Vp6 = () => (
+    <div className="vp">
+        <div className="poster" style={IMG(...GRADS[1])} />
+        <div
+            className="play"
+            style={{ background: "var(--accent)", color: "white", width: 50, height: 50, fontSize: 18 }}
+        >
+            ▶
+        </div>
+        <div
+            style={{
+                position: "absolute",
+                bottom: 6,
+                left: 6,
+                right: 6,
+                display: "flex",
+                gap: 6,
+                alignItems: "center",
+                fontSize: 9,
+                color: "white",
+            }}
+        >
+            {["0.5×", "1×", "2×"].map((s) => (
+                <span
+                    key={s}
+                    style={{
+                        padding: "2px 6px",
+                        background: s === "1×" ? "var(--accent)" : "rgba(255,255,255,0.2)",
+                        borderRadius: 3,
+                    }}
+                >
+                    {s}
+                </span>
+            ))}
+            <span style={{ marginLeft: "auto" }}>HD · CC</span>
+        </div>
+    </div>
+);
+
+/* =============== 18. AUDIO =============== */
+const Ap1 = () => (
+    <div className="ap">
+        <div className="btn">▶</div>
+        <div style={{ flex: 1 }}>
+            <div className="bar">
+                <div className="fill" />
+            </div>
+        </div>
+        <span className="t">1:24 / 3:48</span>
+    </div>
+);
+const Ap2 = () => (
+    <div className="ap" style={{ flexDirection: "column", alignItems: "stretch", gap: 8 }}>
+        <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+            <div style={{ width: 36, height: 36, borderRadius: 6, ...IMG(...GRADS[1]) }} />
+            <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 11, fontWeight: 600 }}>On the discipline of shipping</div>
+                <div style={{ fontSize: 9, color: "var(--fg-3)" }}>EP 03 · 12 MIN</div>
+            </div>
+        </div>
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <span style={{ color: "var(--fg-3)" }}>↶15</span>
+            <div className="btn" style={{ width: 32, height: 32 }}>
+                ▶
+            </div>
+            <span style={{ color: "var(--fg-3)" }}>30↷</span>
+            <div className="bar" style={{ flex: 1 }}>
+                <div className="fill" />
+            </div>
+        </div>
+    </div>
+);
+const Ap3 = () => (
+    <div className="ap" style={{ padding: 14 }}>
+        <div className="btn" style={{ width: 38, height: 38, background: "var(--accent)", color: "white" }}>
+            ▶
+        </div>
+        <div style={{ flex: 1, display: "flex", gap: 2, alignItems: "center", height: 24 }}>
+            {Array.from({ length: 28 }).map((_, i) => (
+                <div
+                    key={i}
+                    style={{
+                        flex: 1,
+                        height: Math.abs(Math.sin(i * 0.5)) * 20 + 4,
+                        background: i < 11 ? "var(--accent)" : "var(--border-2)",
+                        borderRadius: 1,
+                    }}
+                />
+            ))}
+        </div>
+        <span className="t">0:48</span>
+    </div>
+);
+const Ap4 = () => (
+    <div className="ap" style={{ background: "var(--fg)", color: "var(--bg)", borderColor: "var(--fg)" }}>
+        <div className="btn" style={{ background: "var(--accent)", color: "white" }}>
+            ❚❚
+        </div>
+        <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 11, color: "var(--bg)", fontWeight: 600 }}>Now playing</div>
+            <div style={{ fontSize: 9, color: "#a8a49c" }}>Diamond FM · Radio</div>
+        </div>
+        <span className="t" style={{ color: "#a8a49c" }}>
+            LIVE
+        </span>
+    </div>
+);
+const Ap5 = () => (
+    <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 3 }}>
+        {["Track 1", "Track 2", "Track 3"].map((t, i) => (
+            <div
+                key={t}
+                className="ap"
+                style={{
+                    padding: "6px 10px",
+                    border: "none",
+                    borderRadius: 4,
+                    background: i === 1 ? "color-mix(in oklab, var(--accent) 8%, white)" : "var(--bg-2)",
+                }}
+            >
+                <span style={{ fontSize: 9, color: "var(--fg-3)", fontFamily: "JetBrains Mono,monospace", width: 16 }}>
+                    {String(i + 1).padStart(2, "0")}
+                </span>
+                <span
+                    style={{
+                        flex: 1,
+                        fontSize: 11,
+                        color: i === 1 ? "var(--accent)" : "var(--fg)",
+                        fontWeight: i === 1 ? 600 : 400,
+                    }}
+                >
+                    {t}
+                </span>
+                <span className="t">3:2{i}</span>
+            </div>
+        ))}
+    </div>
+);
+const Ap6 = () => (
+    <div className="ap" style={{ borderRadius: 999, padding: "4px 12px" }}>
+        <div className="btn" style={{ width: 24, height: 24, fontSize: 8 }}>
+            ▶
+        </div>
+        <div className="bar" style={{ flex: 1, height: 2 }}>
+            <div className="fill" />
+        </div>
+        <span className="t" style={{ fontSize: 8 }}>
+            0:48
+        </span>
+    </div>
+);
+
+/* =============== 19. CODE BLOCK =============== */
+const Cb1 = () => (
+    <div className="cb">
+        <div className="h">
+            <span>app.tsx</span>
+            <span>⎘ COPY</span>
+        </div>
+        <div className="body">
+            <span className="c">// Diamond app</span>
+            {"\n"}
+            <span className="k">import</span> {"{ "}Button{" } "}
+            <span className="k">from</span> <span className="s">'@diamond/ui'</span>;{"\n\n"}
+            <span className="k">export default</span> <span className="f">App</span>(){" {"}
+            {"\n  "}
+            <span className="k">return</span> {"<"}
+            <span className="f">Button</span>
+            {">Click</Button>;\n}"}
+        </div>
+    </div>
+);
+const Cb2 = () => (
+    <div
+        className="cb"
+        style={{
+            background: "#f5f3ef",
+            color: "#1a1917",
+            borderColor: "var(--border)",
+            border: "1px solid var(--border)",
+        }}
+    >
+        <div className="h" style={{ background: "var(--bg-2)", color: "var(--fg-2)", borderColor: "var(--border)" }}>
+            <span>terminal</span>
+            <span>bash</span>
+        </div>
+        <div className="body">
+            <span style={{ color: "var(--accent)" }}>$</span> npm i @diamond/ui{"\n"}
+            <span style={{ color: "var(--success)" }}>✓</span> installed 42 packages{"\n"}
+            <span style={{ color: "var(--accent)" }}>$</span> diamond init
+        </div>
+    </div>
+);
+const Cb3 = () => (
+    <div className="cb">
+        <div className="body" style={{ padding: 10 }}>
+            {[1, 2, 3, 4, 5].map((n) => (
+                <div key={n} style={{ display: "block" }}>
+                    <span className="n">{String(n).padStart(2, "0")}</span>
+                    {n === 1 && (
+                        <>
+                            <span className="k">const</span> <span className="f">app</span> = {"{"}
+                        </>
+                    )}
+                    {n === 2 && (
+                        <>
+                            {" "}
+                            name: <span className="s">'diamond'</span>,
+                        </>
+                    )}
+                    {n === 3 && (
+                        <>
+                            {" "}
+                            version: <span className="s">'3.2.1'</span>,
+                        </>
+                    )}
+                    {n === 4 && <>{"}"}</>}
+                </div>
+            ))}
+        </div>
+    </div>
+);
+const Cb4 = () => (
+    <div className="cb" style={{ background: "#0f0f0e" }}>
+        <div className="h">diff · atlas.ts</div>
+        <div className="body">
+            <div style={{ background: "rgba(220,38,38,0.15)", margin: "0 -10px", padding: "0 10px" }}>
+                <span style={{ color: "var(--danger)" }}>-</span> version: <span className="s">'3.1.0'</span>
+            </div>
+            <div style={{ background: "rgba(5,150,105,0.15)", margin: "0 -10px", padding: "0 10px" }}>
+                <span style={{ color: "var(--success)" }}>+</span> version: <span className="s">'3.2.0'</span>
+            </div>
+        </div>
+    </div>
+);
+const Cb5 = () => (
+    <div className="cb">
+        <div className="h">
+            <span>◉ Output</span>
+            <span>2.3 KB · GZIP</span>
+        </div>
+        <div className="body" style={{ color: "#c084fc" }}>
+            ◆ Diamond build complete{"\n"}
+            <span style={{ color: "#d4d0c8" }}>
+                {" "}
+                → dist/bundle.js {"("}
+                <span style={{ color: "#10b981" }}>2.3 KB</span>
+                {")"}
+            </span>
+            {"\n"}
+            <span style={{ color: "#d4d0c8" }}>
+                {" "}
+                → dist/styles.css {"("}
+                <span style={{ color: "#10b981" }}>1.1 KB</span>
+                {")"}
+            </span>
+            {"\n\n"}
+            <span style={{ color: "#fbbf24" }}>⚡ ready in</span> 428ms
+        </div>
+    </div>
+);
+const Cb6 = () => (
+    <div className="cb" style={{ background: "var(--surface)", color: "var(--fg)", border: "1px solid var(--border)" }}>
+        <div
+            className="body"
+            style={{ fontFamily: "Fraunces,serif", fontStyle: "italic", fontSize: 12, padding: 14, lineHeight: 1.6 }}
+        >
+            “Perfection is achieved, not when there is{"\n"}nothing more to add, but when there is{"\n"}nothing left to
+            take away.”
+            <div
+                style={{
+                    fontFamily: "Inter",
+                    fontStyle: "normal",
+                    fontSize: 9,
+                    color: "var(--fg-3)",
+                    letterSpacing: "0.12em",
+                    marginTop: 6,
+                }}
+            >
+                — SAINT-EXUPÉRY
+            </div>
+        </div>
+    </div>
+);
+
+/* =============== 20. KBD =============== */
+const Kb1 = () => (
+    <div style={{ display: "flex", gap: 4, alignItems: "center", fontSize: 11, color: "var(--fg-2)" }}>
+        <span>Press</span>
+        <kbd className="kbd">⌘</kbd>
+        <span>+</span>
+        <kbd className="kbd">K</kbd>
+        <span>to search</span>
+    </div>
+);
+const Kb2 = () => (
+    <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+        {[
+            ["Esc", 28],
+            ["Tab", 32],
+            ["Space", 60],
+            ["↵ Return", 52],
+        ].map(([l, w]) => (
+            <kbd key={l} className="kbd" style={{ width: w, height: 26, fontSize: 10 }}>
+                {l}
+            </kbd>
+        ))}
+    </div>
+);
+const Kb3 = () => (
+    <div style={{ display: "flex", gap: 4 }}>
+        {["⌃", "⌥", "⇧", "⌘"].map((k) => (
+            <kbd
+                key={k}
+                className="kbd"
+                style={{
+                    background: "var(--fg)",
+                    color: "var(--bg)",
+                    border: "1px solid var(--fg)",
+                    borderBottomColor: "var(--fg-2)",
+                }}
+            >
+                {k}
+            </kbd>
+        ))}
+    </div>
+);
+const Kb4 = () => (
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 6, width: 120 }}>
+        {["Q", "W", "E", "A", "S", "D"].map((k) => (
+            <kbd key={k} className="kbd" style={{ aspectRatio: 1, height: "auto", fontSize: 11, fontWeight: 700 }}>
+                {k}
+            </kbd>
+        ))}
+    </div>
+);
+const Kb5 = () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: 11, alignItems: "flex-start" }}>
+        {[
+            ["Search", "⌘ K"],
+            ["Save", "⌘ S"],
+            ["Undo", "⌘ Z"],
+        ].map(([a, k]) => (
+            <div key={a} style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                <span style={{ color: "var(--fg-2)", minWidth: 60 }}>{a}</span>
+                {k.split(" ").map((c, i) => (
+                    <kbd key={i} className="kbd" style={{ fontSize: 10 }}>
+                        {c}
+                    </kbd>
+                ))}
+            </div>
+        ))}
+    </div>
+);
+const Kb6 = () => (
+    <kbd
+        className="kbd"
+        style={{
+            padding: "6px 12px",
+            fontSize: 12,
+            borderRadius: 6,
+            fontFamily: "Fraunces,serif",
+            fontStyle: "italic",
+            background: "var(--surface)",
+            border: "2px solid var(--accent)",
+            color: "var(--accent)",
+        }}
+    >
+        Return
+    </kbd>
+);
+
+/* =============== 21. CHAT BUBBLE =============== */
+const Bb1 = () => (
+    <div className="cb-wrap">
+        <div className="bubble">Morning! Have you seen v3.2?</div>
+        <div className="bubble me">Just about to deploy.</div>
+        <div className="bubble">Let me know when it's live.</div>
+    </div>
+);
+const Bb2 = () => (
+    <div className="cb-wrap">
+        <div style={{ display: "flex", gap: 6, alignItems: "flex-end" }}>
+            <div className="av sm">AR</div>
+            <div>
+                <div className="sender">Aria · 10:42</div>
+                <div className="bubble">Can you review the spec?</div>
+            </div>
+        </div>
+        <div className="bubble me" style={{ borderRadius: "12px 12px 4px 12px" }}>
+            Sure, starting now.
+        </div>
+    </div>
+);
+const Bb3 = () => (
+    <div className="cb-wrap">
+        <div className="bubble" style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            <span
+                style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    background: "var(--fg-3)",
+                    animation: "pulse 1.5s infinite",
+                }}
+            />
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--fg-3)" }} />
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--fg-3)" }} />
+        </div>
+        <div style={{ fontSize: 9, color: "var(--fg-3)" }}>Leo is typing…</div>
+    </div>
+);
+const Bb4 = () => (
+    <div className="cb-wrap">
+        <div className="bubble" style={{ padding: 0, overflow: "hidden", maxWidth: 180 }}>
+            <div style={{ aspectRatio: "4/3", ...IMG(...GRADS[0]) }} />
+            <div style={{ padding: 6, fontSize: 10, color: "var(--fg-2)" }}>atlas-moodboard.jpg</div>
+        </div>
+        <div className="bubble me">Love the tones.</div>
+    </div>
+);
+const Bb5 = () => (
+    <div className="cb-wrap">
+        <div className="bubble" style={{ background: "var(--fg)", color: "var(--bg)", borderRadius: 16 }}>
+            SMS-style neutral.
+        </div>
+        <div className="bubble me" style={{ background: "#34c759", borderRadius: 16 }}>
+            iMessage green 😉
+        </div>
+    </div>
+);
+const Bb6 = () => (
+    <div className="cb-wrap" style={{ fontFamily: "JetBrains Mono,monospace" }}>
+        <div className="bubble" style={{ background: "#0f0f0e", color: "#d4d0c8", borderRadius: 4, fontSize: 10 }}>
+            <span style={{ color: "var(--accent)" }}>aria:</span> → build pass
+        </div>
+        <div
+            className="bubble me"
+            style={{ background: "var(--success)", color: "white", borderRadius: 4, fontSize: 10 }}
+        >
+            &lt;leo:&gt; lgtm, merged
+        </div>
+    </div>
+);
+
+/* =============== 22. KANBAN =============== */
+const Kn1 = () => (
+    <div className="kb">
+        {[
+            ["To Do", 3],
+            ["In Progress", 2],
+            ["Done", 4],
+        ].map(([t, c], i) => (
+            <div key={t} className="kb-col">
+                <div className="t">
+                    {t}
+                    <span>{c}</span>
+                </div>
+                {Array.from({ length: c }).map((_, j) => (
+                    <div key={j} className="kb-card">
+                        <div
+                            className="lbl"
+                            style={{ background: ["var(--accent)", "var(--warning)", "var(--success)"][i] }}
+                        />
+                        Task {i}.{j + 1}
+                    </div>
+                ))}
+            </div>
+        ))}
+    </div>
+);
+const Kn2 = () => (
+    <div className="kb">
+        {[
+            ["Backlog", "▸"],
+            ["Active", "●"],
+            ["Shipped", "✓"],
+        ].map(([t, ic], i) => (
+            <div
+                key={t}
+                className="kb-col"
+                style={{
+                    background: i === 1 ? "color-mix(in oklab, var(--accent) 8%, white)" : "var(--bg-2)",
+                    border: i === 1 ? "1px dashed var(--accent)" : "none",
+                }}
+            >
+                <div className="t">
+                    {ic} {t}
+                </div>
+                <div className="kb-card">
+                    <div style={{ fontWeight: 600 }}>Design review</div>
+                    <div style={{ display: "flex", gap: 4, marginTop: 3 }}>
+                        <span style={{ fontSize: 8, padding: "1px 4px", background: "var(--bg-2)", borderRadius: 2 }}>
+                            L · 8h
+                        </span>
+                    </div>
+                </div>
+            </div>
+        ))}
+    </div>
+);
+const Kn3 = () => (
+    <div className="kb" style={{ gridTemplateColumns: "1fr 1fr" }}>
+        {["MINE", "TEAM"].map((t, i) => (
+            <div key={t} className="kb-col">
+                <div className="t">{t}</div>
+                {["Review v3.2", "Prep deck"].map((c, j) => (
+                    <div key={j} className="kb-card">
+                        <div
+                            style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                marginBottom: 3,
+                            }}
+                        >
+                            <div className="av sm" style={{ width: 16, height: 16, fontSize: 7 }}>
+                                {["AR", "LR"][j]}
+                            </div>
+                            <span style={{ fontSize: 8, color: "var(--fg-3)" }}>apr {22 + j}</span>
+                        </div>
+                        {c}
+                    </div>
+                ))}
+            </div>
+        ))}
+    </div>
+);
+const Kn4 = () => (
+    <div className="kb">
+        {["Idea", "Build", "Ship"].map((t, i) => (
+            <div key={t} className="kb-col">
+                <div className="t">{t}</div>
+                {[1, 2].map((j) => (
+                    <div key={j} className="kb-card" style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                        <input type="checkbox" defaultChecked={i === 2} style={{ accentColor: "var(--accent)" }} />
+                        <span
+                            style={{
+                                textDecoration: i === 2 ? "line-through" : "none",
+                                color: i === 2 ? "var(--fg-3)" : "var(--fg)",
+                            }}
+                        >
+                            Task {j}
+                        </span>
+                    </div>
+                ))}
+            </div>
+        ))}
+    </div>
+);
+const Kn5 = () => (
+    <div className="kb" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
+        {["INBOX", "DOING", "REVIEW", "DONE"].map((t, i) => (
+            <div key={t} className="kb-col" style={{ padding: 4, minHeight: 120 }}>
+                <div className="t" style={{ fontSize: 8 }}>
+                    {t}
+                </div>
+                <div className="kb-card" style={{ fontSize: 9, padding: 4 }}>
+                    Item A
+                </div>
+                {i < 3 && (
+                    <div className="kb-card" style={{ fontSize: 9, padding: 4 }}>
+                        Item B
+                    </div>
+                )}
+            </div>
+        ))}
+    </div>
+);
+const Kn6 = () => (
+    <div className="kb">
+        {["Inbox", "Today", "Later"].map((t, i) => (
+            <div key={t} className="kb-col">
+                <div className="t">{t}</div>
+                {i === 1 ? (
+                    <>
+                        <div className="kb-card" style={{ borderLeft: "3px solid var(--danger)" }}>
+                            <div style={{ fontWeight: 600 }}>Ship review</div>
+                            <div style={{ color: "var(--danger)", fontSize: 8, marginTop: 2 }}>DUE IN 2H</div>
+                        </div>
+                        <div className="kb-card">
+                            <div style={{ fontWeight: 600 }}>Call partner</div>
+                        </div>
+                    </>
+                ) : (
+                    <div className="kb-card" style={{ opacity: 0.6 }}>
+                        — empty —
+                    </div>
+                )}
+            </div>
+        ))}
+    </div>
+);
+
+/* =============== 23. PRICING =============== */
+const Pr1 = () => (
+    <div className="pr">
+        <div className="t">Starter</div>
+        <div style={{ fontSize: 10, color: "var(--fg-3)" }}>For solo makers</div>
+        <div className="p">
+            $9<span>/mo</span>
+        </div>
+        <ul>
+            <li>Up to 3 projects</li>
+            <li>Basic support</li>
+        </ul>
+        <button>Choose Starter</button>
+    </div>
+);
+const Pr2 = () => (
+    <div className="pr featured">
+        <div className="t">Pro</div>
+        <div style={{ fontSize: 10, color: "var(--fg-3)" }}>For growing teams</div>
+        <div className="p">
+            $28<span>/mo</span>
+        </div>
+        <ul>
+            <li>Unlimited projects</li>
+            <li>Priority support</li>
+            <li>Analytics</li>
+        </ul>
+        <button style={{ background: "var(--accent)" }}>Choose Pro →</button>
+    </div>
+);
+const Pr3 = () => (
+    <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 4 }}>
+        {[
+            ["Free", "$0", "1 user"],
+            ["Pro", "$28", "5 users"],
+            ["Team", "$96", "Unlimited"],
+        ].map(([t, p, u], i) => (
+            <div
+                key={t}
+                className="pr"
+                style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    padding: 8,
+                    gap: 12,
+                    background: i === 1 ? "color-mix(in oklab, var(--accent) 8%, white)" : "var(--surface)",
+                    border: i === 1 ? "1px solid var(--accent)" : "1px solid var(--border)",
+                }}
+            >
+                <div style={{ flex: 1 }}>
+                    <div style={{ fontWeight: 600, fontSize: 12 }}>{t}</div>
+                    <div style={{ fontSize: 9, color: "var(--fg-3)" }}>{u}</div>
+                </div>
+                <div style={{ fontFamily: "Fraunces,serif", fontSize: 18, fontWeight: 500 }}>{p}</div>
+            </div>
+        ))}
+    </div>
+);
+const Pr4 = () => (
+    <div
+        className="pr"
+        style={{
+            textAlign: "center",
+            padding: 16,
+            background: "var(--fg)",
+            color: "var(--bg)",
+            borderColor: "var(--fg)",
+        }}
+    >
+        <div style={{ fontSize: 9, color: "var(--accent)", letterSpacing: "0.14em", marginBottom: 4 }}>ENTERPRISE</div>
+        <div style={{ fontFamily: "Fraunces,serif", fontSize: 24, fontStyle: "italic", marginBottom: 6 }}>
+            Let's talk
+        </div>
+        <div style={{ fontSize: 10, color: "#a8a49c", marginBottom: 10 }}>
+            Custom SLAs, dedicated support, and on-premise deployment.
+        </div>
+        <button style={{ background: "var(--accent)", color: "white", padding: "7px 18px" }}>Contact sales</button>
+    </div>
+);
+const Pr5 = () => (
+    <div className="pr">
+        <div
+            style={{
+                display: "flex",
+                gap: 4,
+                background: "var(--bg-2)",
+                padding: 2,
+                borderRadius: 6,
+                fontSize: 10,
+                marginBottom: 6,
+            }}
+        >
+            <span
+                style={{
+                    flex: 1,
+                    padding: "3px 6px",
+                    textAlign: "center",
+                    background: "var(--surface)",
+                    borderRadius: 4,
+                    fontWeight: 600,
+                }}
+            >
+                Monthly
+            </span>
+            <span style={{ flex: 1, padding: "3px 6px", textAlign: "center", color: "var(--fg-3)" }}>Yearly −20%</span>
+        </div>
+        <div className="t">Pro</div>
+        <div className="p">
+            $28<span>/mo</span>
+        </div>
+        <ul>
+            <li>Everything in Starter</li>
+            <li>Unlimited projects</li>
+        </ul>
+        <button>Start free trial</button>
+    </div>
+);
+const Pr6 = () => (
+    <div className="pr" style={{ padding: 10 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
+            <div className="t" style={{ fontSize: 14 }}>
+                Pro
+            </div>
+            <span
+                style={{
+                    fontSize: 9,
+                    padding: "1px 6px",
+                    background: "var(--success)",
+                    color: "white",
+                    borderRadius: 3,
+                    fontFamily: "JetBrains Mono,monospace",
+                    letterSpacing: "0.08em",
+                }}
+            >
+                −20%
+            </span>
+        </div>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+            <div className="p" style={{ fontSize: 24 }}>
+                $224
+            </div>
+            <span style={{ textDecoration: "line-through", color: "var(--fg-3)", fontSize: 11 }}>$280</span>
+        </div>
+        <div style={{ fontSize: 9, color: "var(--fg-3)" }}>per year · billed once</div>
+        <button style={{ marginTop: 8 }}>Save 20%</button>
+    </div>
+);
+
+/* =============== REGISTRY =============== */
+window.CATEGORIES = [
+    {
+        n: "Card",
+        k: "cd",
+        desc: "Entity summary container",
+        notes: [
+            "Cover + meta",
+            "Horizontal product",
+            "Social post",
+            "Editorial report",
+            "Dark feature card",
+            "Stat card w/ sparkline",
+        ],
+        v: [Cd1, Cd2, Cd3, Cd4, Cd5, Cd6],
+    },
+    {
+        n: "Table",
+        k: "tb",
+        desc: "Tabular data",
+        notes: ["Basic", "Rounded invoice", "Zebra rows", "Log mono", "Status dots", "Bicolor header"],
+        v: [Tb1, Tb2, Tb3, Tb4, Tb5, Tb6],
+    },
+    {
+        n: "Data Grid",
+        k: "dg",
+        desc: "Sortable, filterable table",
+        notes: [
+            "Search + sort + page",
+            "Filter chips + checkbox",
+            "Terminal filter",
+            "Bulk action bar",
+            "Grouped rows",
+            "Inline bar chart",
+        ],
+        v: [Dg1, Dg2, Dg3, Dg4, Dg5, Dg6],
+    },
+    {
+        n: "List",
+        k: "ls",
+        desc: "Vertical grouping",
+        notes: ["Icon + count", "Numbered steps", "Avatars + counts", "Terminal log", "Editorial", "Media toggles"],
+        v: [Ls1, Ls2, Ls3, Ls4, Ls5, Ls6],
+    },
+    {
+        n: "List Item",
+        k: "li",
+        desc: "Individual row",
+        notes: ["Three states", "Person row", "Product row", "Checklist done", "Event bar", "Drag handle"],
+        v: [Li1, Li2, Li3, Li4, Li5, Li6],
+    },
+    {
+        n: "Accordion",
+        k: "ac",
+        desc: "Collapsible stack",
+        notes: [
+            "FAQ classic",
+            "Separated cards",
+            "Terminal blocks",
+            "Editorial roman",
+            "Team groups",
+            "Settings inset",
+        ],
+        v: [Ac1, Ac2, Ac3, Ac4, Ac5, Ac6],
+    },
+    {
+        n: "Avatar",
+        k: "av",
+        desc: "User representation",
+        notes: ["Size scale", "Color variants", "Square tile", "With status dot", "Framed / ring", "Empty + image"],
+        v: [Av1, Av2, Av3, Av4, Av5, Av6],
+    },
+    {
+        n: "Avatar Group",
+        k: "ag",
+        desc: "Stacked avatars",
+        notes: ["Classic + overflow", "Small mono", "Named group", "Vertical stack", "Square tiles", "Pill context"],
+        v: [Ag1, Ag2, Ag3, Ag4, Ag5, Ag6],
+    },
+    {
+        n: "Badge",
+        k: "bd",
+        desc: "Label attachment",
+        notes: ["Count + dot", "Status chips", "99+ overflow", "Presence dots", "Icon badges", "Version labels"],
+        v: [Bd1, Bd2, Bd3, Bd4, Bd5, Bd6],
+    },
+    {
+        n: "Chip / Pill",
+        k: "ch",
+        desc: "Interactive label",
+        notes: ["Basic tags", "Dismissible", "Filter chips", "Colored dot", "Emoji prefix", "Add + tag"],
+        v: [Ch1, Ch2, Ch3, Ch4, Ch5, Ch6],
+    },
+    {
+        n: "Tag",
+        k: "tg",
+        desc: "Categorization label",
+        notes: ["Hashtags", "Semantic color", "Mono version", "Sale slab", "Editorial italic", "Angled cut"],
+        v: [Tg1, Tg2, Tg3, Tg4, Tg5, Tg6],
+    },
+    {
+        n: "Carousel",
+        k: "cr",
+        desc: "Horizontal scroller",
+        notes: [
+            "Image + dots",
+            "With arrows",
+            "Hero + thumbs",
+            "Testimonials",
+            "Circular swatches",
+            "Progress + autoplay",
+        ],
+        v: [Cr1, Cr2, Cr3, Cr4, Cr5, Cr6],
+    },
+    {
+        n: "Timeline",
+        k: "tl",
+        desc: "Chronological events",
+        notes: ["Agenda", "Milestone italic", "Log w/ timestamps", "Horizontal steps", "Historical", "Activity feed"],
+        v: [Tl1, Tl2, Tl3, Tl4, Tl5, Tl6],
+    },
+    {
+        n: "Calendar",
+        k: "ca",
+        desc: "Month / week view",
+        notes: [
+            "Month w/ events",
+            "Monospace italic",
+            "Week schedule",
+            "Event list",
+            "Year heatmap",
+            "Range selection",
+        ],
+        v: [Ca1, Ca2, Ca3, Ca4, Ca5, Ca6],
+    },
+    {
+        n: "Statistic",
+        k: "st",
+        desc: "Key metric display",
+        notes: ["KPI + delta", "Paired metrics", "Dark w/ sparkline", "Large editorial", "Goal progress", "Mini grid"],
+        v: [St1, St2, St3, St4, St5, St6],
+    },
+    {
+        n: "Image",
+        k: "im",
+        desc: "Image wrapper",
+        notes: ["Aspect ratio", "With caption", "Pair", "Circular", "Badge overlay", "Framed print"],
+        v: [Im1, Im2, Im3, Im4, Im5, Im6],
+    },
+    {
+        n: "Video Player",
+        k: "vp",
+        desc: "Video wrapper",
+        notes: [
+            "Standard controls",
+            "Live stream",
+            "Vertical portrait",
+            "Rec overlay",
+            "Editorial poster",
+            "Speed + accent",
+        ],
+        v: [Vp1, Vp2, Vp3, Vp4, Vp5, Vp6],
+    },
+    {
+        n: "Audio Player",
+        k: "ap",
+        desc: "Audio wrapper",
+        notes: ["Minimal", "Podcast row", "Waveform", "Live radio", "Playlist", "Pill compact"],
+        v: [Ap1, Ap2, Ap3, Ap4, Ap5, Ap6],
+    },
+    {
+        n: "Code Block",
+        k: "cb",
+        desc: "Formatted code",
+        notes: ["Dark w/ filename", "Light terminal", "Line numbers", "Diff view", "Build output", "Editorial quote"],
+        v: [Cb1, Cb2, Cb3, Cb4, Cb5, Cb6],
+    },
+    {
+        n: "Kbd",
+        k: "kb",
+        desc: "Keyboard key",
+        notes: ["Inline hint", "Special widths", "Dark modifiers", "Key cluster", "Shortcut list", "Large accent"],
+        v: [Kb1, Kb2, Kb3, Kb4, Kb5, Kb6],
+    },
+    {
+        n: "Chat Bubble",
+        k: "bb",
+        desc: "Message container",
+        notes: [
+            "Basic exchange",
+            "With avatar + time",
+            "Typing indicator",
+            "Media attachment",
+            "iMessage style",
+            "Terminal chat",
+        ],
+        v: [Bb1, Bb2, Bb3, Bb4, Bb5, Bb6],
+    },
+    {
+        n: "Kanban",
+        k: "kn",
+        desc: "Column board",
+        notes: [
+            "Classic three",
+            "Active column hilite",
+            "Two-column mine/team",
+            "Checkbox tasks",
+            "4-col compact",
+            "Priority inbox",
+        ],
+        v: [Kn1, Kn2, Kn3, Kn4, Kn5, Kn6],
+    },
+    {
+        n: "Pricing Table",
+        k: "pr",
+        desc: "Tier comparison",
+        notes: [
+            "Starter card",
+            "Pro featured",
+            "Stacked rows",
+            "Enterprise dark",
+            "Toggle billing",
+            "Discount callout",
+        ],
+        v: [Pr1, Pr2, Pr3, Pr4, Pr5, Pr6],
+    },
+];

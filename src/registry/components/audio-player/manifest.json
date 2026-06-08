@@ -1,0 +1,27 @@
+{
+  "id": "audio-player",
+  "name": "Audio Player",
+  "description": "Audio player wrapper — minimal, podcast row, waveform, live radio, playlist, pill.",
+  "kind": "ui",
+  "files": [
+    { "source": "audio-player.tsx", "target": "audio-player.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["display", "media"],
+
+  "documentation": {
+    "groups": {
+      "Display": ["minimal", "podcast", "waveform", "radio", "playlist", "pill"]
+    },
+    "samples": {
+      "default": "",
+      "perVariant": {}
+    }
+  }
+}

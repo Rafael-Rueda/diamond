@@ -1,0 +1,33 @@
+{
+  "id": "tag",
+  "name": "Tag",
+  "description": "Categorization labels — hash, semantic, mono, slab, editorial italic, angled cut.",
+  "kind": "ui",
+  "files": [
+    { "source": "tag.tsx", "target": "tag.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@radix-ui/react-slot",     "version": "^1.1.0", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["display"],
+
+  "documentation": {
+    "groups": {
+      "Display": ["hash", "semantic", "mono", "slab", "editorial", "angled"]
+    },
+    "samples": {
+      "default": "design",
+      "perVariant": {
+        "semantic": { "label": "Urgent", "props": { "tone": "danger" } },
+        "mono":     { "label": "v3.2" },
+        "slab":     { "label": "BEST SELLER" },
+        "editorial":{ "label": "Editorial" },
+        "angled":   { "label": "ALPHA" }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+/* Diamond · Matrix theme — neon green on mint white / terminal black (light + dark). */
+:root {
+  --diamond-accent:        #00cc66;
+  --diamond-on-accent:     #ffffff;
+  --diamond-accent-deep:   #006633;
+  --diamond-accent-soft:   color-mix(in oklab, var(--diamond-accent) 26%, var(--diamond-surface));
+  --diamond-gradient:      linear-gradient(135deg, #00ff88, #00b3ff 60%, #00ff88);
+
+  --diamond-surface:       #f0fff5;
+  --diamond-surface-alt:   #d8f7e0;
+  --diamond-ink:           #003015;
+  --diamond-muted:         #4d8268;
+  --diamond-border:        #b0e0c0;
+}
+
+:root.dark {
+  /* In dark mode, the iconic neon-green-on-black; brighter accent. */
+  --diamond-accent:        #00ff88;
+  --diamond-on-accent:     #001a0a;
+  --diamond-accent-deep:   #00cc66;
+
+  --diamond-surface:       #030a05;
+  --diamond-surface-alt:   #0a1a0e;
+  --diamond-ink:           #a0ffd0;
+  --diamond-muted:         #4d7d62;
+  --diamond-border:        #1a3a25;
+}

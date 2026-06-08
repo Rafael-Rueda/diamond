@@ -1,0 +1,67 @@
+---
+import DocsLayout from '@/layouts/DocsLayout.astro';
+import Showcase from '@/components/Showcase.astro';
+import { Image } from 'astro:assets';
+import diamondLogo from '@/assets/diamond.png';
+import { loadAllManifests } from '@/lib/registry';
+
+const manifests = loadAllManifests();
+const visual = manifests.filter((m) => m.kind === 'ui');
+---
+
+<DocsLayout title="Diamond" description="59 button variants, theme system, shadcn-style CLI.">
+  <section class="mb-16">
+    <Image
+      src={diamondLogo}
+      alt=""
+      width={140}
+      height={140}
+      densities={[1, 2]}
+      class="mb-6 -ml-2 drop-shadow-[0_8px_24px_color-mix(in_oklab,var(--diamond-accent)_30%,transparent)]"
+    />
+    <h1 class="text-5xl font-semibold tracking-tight leading-[1.05] mb-4">
+      The skin of the <em class="text-[var(--diamond-accent)] not-italic">Rueda.Dev</em> ecosystem.
+    </h1>
+    <p class="text-lg text-[var(--diamond-muted)] max-w-2xl mb-6">
+      Copy-into-your-project components built on Radix UI + Tailwind. One
+      file per component, fully editable, theme-swappable in runtime.
+    </p>
+    <div class="flex gap-3 items-center">
+      <code class="font-mono text-sm bg-[var(--diamond-ink)] text-[var(--diamond-surface)] rounded-md px-4 py-2.5">
+        npx "@rueda.dev/gems-diamond" init
+      </code>
+      <a href="/components" class="text-sm font-medium text-[var(--diamond-accent)] hover:underline">
+        Browse components →
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--diamond-muted)] mb-4">
+      Components ({visual.length})
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {visual.map((m) => (
+        <a
+          href={`/components/${m.id}`}
+          class="block rounded-lg border border-[var(--diamond-border)] bg-[var(--diamond-surface-alt)] p-5 hover:border-[var(--diamond-accent)] transition-colors"
+        >
+          <h3 class="font-semibold tracking-tight mb-1">{m.name}</h3>
+          <p class="text-sm text-[var(--diamond-muted)] line-clamp-2">{m.description}</p>
+          {m.documentation && (
+            <p class="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--diamond-muted)] mt-3">
+              {Object.values(m.documentation.groups).reduce((n, v) => n + v.length, 0)} variants ·
+              {' '}{Object.keys(m.documentation.groups).length} categories
+            </p>
+          )}
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <Showcase title="Quick start" install={'npx "@rueda.dev/gems-diamond" add button'}>
+    <p class="text-sm text-[var(--diamond-muted)] mt-3">
+      Or scaffold first with <code class="font-mono">init</code>, then add components à la carte.
+    </p>
+  </Showcase>
+</DocsLayout>

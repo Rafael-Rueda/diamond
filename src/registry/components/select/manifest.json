@@ -1,0 +1,35 @@
+{
+  "id": "select",
+  "name": "Select",
+  "description": "Single-choice dropdown — native <select> or custom Radix Popover-driven variants for avatars, flags, flat underline and terminal.",
+  "kind": "ui",
+  "files": [
+    { "source": "select.tsx", "target": "select.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-popover",  "version": "^1.1.2", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "selection"],
+
+  "documentation": {
+    "groups": {
+      "Select": ["native", "custom", "avatars", "flat", "terminal", "flags"]
+    },
+    "samples": {
+      "default": "Choose…",
+      "perVariant": {
+        "native":   { "label": "Choose option" },
+        "custom":   { "label": "Choose option" },
+        "avatars":  { "label": "Assign to" },
+        "flat":     { "label": "Category" },
+        "terminal": { "label": "Choose env" },
+        "flags":    { "label": "Country" }
+      }
+    }
+  }
+}

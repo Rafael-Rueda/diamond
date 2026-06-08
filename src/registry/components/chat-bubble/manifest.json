@@ -1,0 +1,29 @@
+{
+  "id": "chat-bubble",
+  "name": "Chat Bubble",
+  "description": "Message containers for conversational UIs — supports avatars, typing, media, and side alignment.",
+  "kind": "ui",
+  "files": [
+    { "source": "chat-bubble.tsx", "target": "chat-bubble.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["display", "messaging"],
+
+  "documentation": {
+    "groups": {
+      "Display": ["basic", "avatar", "typing", "media", "imessage", "terminal"]
+    },
+    "samples": {
+      "default": "Hi there",
+      "perVariant": {
+        "typing":  { "label": "" },
+        "media":   { "label": "Love it" }
+      }
+    }
+  }
+}

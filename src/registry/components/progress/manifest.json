@@ -1,0 +1,33 @@
+{
+  "id": "progress",
+  "name": "Progress",
+  "description": "Linear progress with %, stepped, striped, indeterminate and terminal ASCII styles.",
+  "kind": "ui",
+  "files": [
+    { "source": "progress.tsx", "target": "progress.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["feedback", "progress"],
+
+  "documentation": {
+    "groups": {
+      "Progress": ["default", "thick", "stepped", "striped", "indeterminate", "terminal"]
+    },
+    "samples": {
+      "default": "Uploading",
+      "perVariant": {
+        "default":       { "label": "Uploading" },
+        "thick":         { "label": "Step 2 of 5" },
+        "stepped":       { "label": "Setup" },
+        "striped":       { "label": "Installing" },
+        "indeterminate": { "label": "Syncing…" },
+        "terminal":      { "label": "build" }
+      }
+    }
+  }
+}

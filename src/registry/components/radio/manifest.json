@@ -1,0 +1,40 @@
+{
+  "id": "radio",
+  "name": "Radio",
+  "description": "Single radio button **or** group — dot, square, bullseye, card, segmented, size-pill single controls; vertical, plan-cards, segmented-bar, icon-grid, scale and stacked-list group layouts.",
+  "kind": "ui",
+  "files": [
+    { "source": "radio.tsx", "target": "radio.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "selection"],
+
+  "documentation": {
+    "groups": {
+      "Single": ["dot", "square", "bullseye", "card", "segmented", "size-pill"],
+      "Group":  ["vertical", "plan-cards", "segmented-bar", "icon-grid", "scale", "stacked-list"]
+    },
+    "samples": {
+      "default": "Option",
+      "perVariant": {
+        "dot":            { "label": "Monthly" },
+        "square":         { "label": "Square pick" },
+        "bullseye":       { "label": "Bullseye" },
+        "card":           { "label": "Starter" },
+        "segmented":      { "label": "Grid" },
+        "size-pill":      { "label": "Medium" },
+        "vertical":       { "label": "" },
+        "plan-cards":     { "label": "" },
+        "segmented-bar":  { "label": "" },
+        "icon-grid":      { "label": "" },
+        "scale":          { "label": "" },
+        "stacked-list":   { "label": "" }
+      }
+    }
+  }
+}

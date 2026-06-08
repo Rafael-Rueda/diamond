@@ -1,0 +1,27 @@
+{
+  "id": "kanban",
+  "name": "Kanban",
+  "description": "Drag-and-drop column board with hover-active focus, WIP limits, animated checkboxes, quick-move buttons, and inline add / edit / remove.",
+  "kind": "ui",
+  "files": [
+    { "source": "kanban.tsx", "target": "kanban.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["display", "data"],
+
+  "documentation": {
+    "groups": {
+      "Display": ["classic", "active", "two-col", "tasks", "compact", "priority"]
+    },
+    "samples": {
+      "default": "",
+      "perVariant": {}
+    }
+  }
+}

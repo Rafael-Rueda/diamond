@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "lib": ["ES2023", "DOM", "DOM.Iterable"],
+        "jsx": "preserve",
+        "strict": true,
+        "noUncheckedIndexedAccess": true,
+        "noImplicitOverride": true,
+        "exactOptionalPropertyTypes": false,
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "allowJs": false,
+        "baseUrl": ".",
+        "paths": {
+            "@diamond/domain/*": ["src/domain/*"],
+            "@diamond/application/*": ["src/application/*"],
+            "@diamond/infrastructure/*": ["src/infrastructure/*"],
+            "@diamond/cli/*": ["src/cli/*"],
+            "@diamond/registry/*": ["src/registry/*"],
+
+            // Registry components are TEMPLATES copied into consumer projects. In
+            // the Diamond monorepo these mappings let the IDE type-check the source
+            // as if it were already installed (the CLI rewrites these paths to the
+            // consumer's aliases at copy time).
+            "@/lib/utils": ["src/registry/components/utils/utils.ts"],
+            "@/lib/*": ["src/registry/components/*"],
+            "@/components/ui/*": ["src/registry/components/*"],
+            "@/components/*": ["src/registry/components/*"]
+        }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+}

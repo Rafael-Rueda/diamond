@@ -1,0 +1,35 @@
+{
+  "id": "multi-select",
+  "name": "Multi-Select",
+  "description": "Multi-choice control — tag pills (free typing), chip dark, checklist, filter chips, segmented bar, dropdown with checks.",
+  "kind": "ui",
+  "files": [
+    { "source": "multi-select.tsx", "target": "multi-select.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-popover",  "version": "^1.1.2", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "selection"],
+
+  "documentation": {
+    "groups": {
+      "Multi-Select": ["tag-pills", "chip-dark", "checklist", "filter-chips", "segmented", "dropdown"]
+    },
+    "samples": {
+      "default": "Select…",
+      "perVariant": {
+        "tag-pills":    { "label": "Skills" },
+        "chip-dark":    { "label": "Topics" },
+        "checklist":    { "label": "Roles" },
+        "filter-chips": { "label": "Filters" },
+        "segmented":    { "label": "Views" },
+        "dropdown":     { "label": "Pick options" }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "kbd",
+  "name": "Kbd",
+  "description": "Keyboard key indicator with chord helper. 6 visual variants.",
+  "kind": "ui",
+  "files": [
+    { "source": "kbd.tsx", "target": "kbd.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["display"],
+
+  "documentation": {
+    "groups": {
+      "Display": ["inline", "wide", "dark", "cluster", "shortcut", "accent"]
+    },
+    "samples": {
+      "default": "K",
+      "perVariant": {
+        "wide":    { "label": "Return" },
+        "shortcut":{ "label": "⌘ K" },
+        "accent":  { "label": "Enter" },
+        "cluster": { "label": "W" },
+        "dark":    { "label": "⌘" }
+      }
+    }
+  }
+}

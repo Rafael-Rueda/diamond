@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* Tailwind v4 auto-detects sources only inside the project. The Diamond
+   registry lives outside `apps/docs/`, so we explicitly point the scanner
+   at it - otherwise none of the button variants' Tailwind classes get
+   compiled into the final CSS. Path is relative to THIS css file. */
+@source "../../../../src/registry/components/**/*.{ts,tsx,astro,html}";
+
+/* Tailwind v4 dark mode — activated by `class="dark"` on <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Default theme baseline — replaced at runtime by ThemePicker for any
+   other theme. Kept in sync with src/registry/components/globals/themes/default.css. */
+:root {
+  --diamond-accent:        #2b7fff;
+  --diamond-on-accent:     #ffffff;
+  --diamond-accent-deep:   color-mix(in oklab, var(--diamond-accent) 80%, black);
+  --diamond-accent-soft:   color-mix(in oklab, var(--diamond-accent) 28%, var(--diamond-surface));
+  --diamond-gradient:      linear-gradient(135deg, var(--diamond-accent), var(--diamond-accent-deep));
+
+  --diamond-surface:       #f5f3ef;
+  --diamond-surface-alt:   #ebe8e1;
+  --diamond-ink:           #1a1917;
+  --diamond-muted:         #6b6862;
+  --diamond-border:        #d9d5cc;
+}
+
+:root.dark {
+  --diamond-surface:       #14130f;
+  --diamond-surface-alt:   #25231e;
+  --diamond-ink:           #f5f3ef;
+  --diamond-muted:         #9b9892;
+  --diamond-border:        #34322b;
+}
+
+html, body {
+  background: var(--diamond-surface);
+  color: var(--diamond-ink);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Mono for code blocks. */
+code, pre {
+  font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
+}

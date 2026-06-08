@@ -1,0 +1,29 @@
+/* Diamond · Noir theme — pure monochrome, accent flips with mode (light + dark). */
+:root {
+  /* Light mode: black accent on white surface */
+  --diamond-accent:        #0a0a0a;
+  --diamond-on-accent:     #f5f5f5;
+  --diamond-accent-deep:   #2a2a2a;
+  --diamond-accent-soft:   color-mix(in oklab, var(--diamond-accent) 18%, var(--diamond-surface));
+  --diamond-gradient:      linear-gradient(135deg, #0a0a0a, #4a4a4a 50%, #888888);
+
+  --diamond-surface:       #f5f5f5;
+  --diamond-surface-alt:   #e8e8e8;
+  --diamond-ink:           #0a0a0a;
+  --diamond-muted:         #6a6a6a;
+  --diamond-border:        #c0c0c0;
+}
+
+:root.dark {
+  /* Dark mode: white accent on black surface — accent INVERTS */
+  --diamond-accent:        #f5f5f5;
+  --diamond-on-accent:     #0a0a0a;
+  --diamond-accent-deep:   #c0c0c0;
+  --diamond-gradient:      linear-gradient(135deg, #f5f5f5, #888888 50%, #2a2a2a);
+
+  --diamond-surface:       #0a0a0a;
+  --diamond-surface-alt:   #1a1a1a;
+  --diamond-ink:           #f5f5f5;
+  --diamond-muted:         #888888;
+  --diamond-border:        #2a2a2a;
+}

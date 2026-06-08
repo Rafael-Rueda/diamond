@@ -1,0 +1,273 @@
+/* ============================================================
+   DISPLAY GALLERY — STYLES
+   ============================================================ */
+:root {
+  --accent: #2b7fff;
+  --radius: 10px;
+  --font: 'Inter';
+  --bg: #f5f3ef;
+  --bg-2: #ebe8e1;
+  --surface: #ffffff;
+  --border: #d9d5cc;
+  --border-2: #c4bfb3;
+  --fg: #1a1917;
+  --fg-2: #6b6862;
+  --fg-3: #9a968e;
+  --danger: #dc2626;
+  --success: #059669;
+  --warning: #f59e0b;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: var(--font), -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+
+.page { max-width: 1400px; margin: 0 auto; padding: 60px 48px 120px; }
+.header { margin-bottom: 32px; }
+.header h1 { font-family: 'Fraunces', serif; font-size: 84px; line-height: 0.92; letter-spacing: -0.03em; font-weight: 500; margin: 0 0 20px; }
+.header h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+.header .sub { max-width: 620px; color: var(--fg-2); font-size: 17px; line-height: 1.55; }
+
+.meta-row { display: flex; gap: 24px; flex-wrap: wrap; padding: 16px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); }
+.meta-row .dot { width:5px; height:5px; background:var(--accent); border-radius:50%; display:inline-block; margin-right:8px; vertical-align:middle; }
+
+.toc { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); margin: 40px 0 60px; border-top: 1px solid var(--border); }
+.toc a { display: flex; justify-content: space-between; align-items: center; padding: 14px 2px; border-bottom: 1px solid var(--border); border-right: 1px dashed var(--border); color: var(--fg); text-decoration: none; font-size: 13px; transition: background 0.2s, padding 0.2s; }
+.toc a:hover { background: var(--bg-2); padding-left: 10px; padding-right: 10px; }
+.toc a .n { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--fg-3); letter-spacing: 0.1em; }
+
+.section { margin: 80px 0 48px; scroll-margin-top: 20px; }
+.section-head { display: flex; align-items: baseline; gap: 20px; padding-bottom: 18px; margin-bottom: 32px; border-bottom: 1px solid var(--fg); }
+.section-head .num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); letter-spacing: 0.1em; }
+.section-head h2 { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 500; margin: 0; letter-spacing: -0.02em; }
+.section-head .desc { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--fg-2); letter-spacing: 0.1em; text-transform: uppercase; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.cell { background: var(--surface); padding: 20px; position: relative; min-height: 300px; display: flex; flex-direction: column; gap: 14px; }
+.cell .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--fg-3); text-transform: uppercase; }
+.cell .idx { position: absolute; top: 16px; right: 16px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--fg-3); }
+.cell .stage { flex: 1; display: flex; align-items: center; justify-content: center; padding: 10px 0; min-height: 180px; width: 100%; overflow: hidden; }
+.cell .stage > * { max-width: 100%; }
+.cell .footnote { font-size: 11px; color: var(--fg-2); font-style: italic; padding-top: 10px; border-top: 1px dashed var(--border); }
+
+/* ============================================================
+   CARD
+   ============================================================ */
+.cd { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.cd .body { padding: 12px 14px; font-size: 12px; }
+.cd .title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+.cd .meta { font-size: 10px; color: var(--fg-3); letter-spacing: 0.06em; }
+.cd .img { aspect-ratio: 16/9; background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 30%, white), color-mix(in oklab, var(--accent) 60%, #8b5cf6)); }
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+.tb { width: 100%; border-collapse: collapse; font-size: 11px; }
+.tb th { text-align: left; padding: 6px 8px; font-weight: 600; color: var(--fg-2); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+.tb td { padding: 6px 8px; border-bottom: 1px solid var(--border); }
+.tb tr:last-child td { border-bottom: none; }
+
+/* ============================================================
+   DATA GRID
+   ============================================================ */
+.dg { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; font-size: 11px; }
+.dg-tb { display: flex; gap: 6px; align-items: center; padding: 6px 8px; border-bottom: 1px solid var(--border); font-size: 10px; }
+.dg-tb input { flex: 1; padding: 3px 6px; border: 1px solid var(--border); border-radius: 4px; font-size: 10px; font-family: inherit; }
+.dg-tb .chip { padding: 2px 6px; background: var(--bg-2); border-radius: 10px; font-size: 9px; }
+.dg table { width: 100%; border-collapse: collapse; }
+.dg th { text-align: left; padding: 5px 8px; font-weight: 600; color: var(--fg-2); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--border); background: var(--bg-2); cursor: pointer; }
+.dg th .ar { color: var(--accent); margin-left: 4px; }
+.dg td { padding: 4px 8px; border-bottom: 1px solid var(--border); }
+.dg .pg { padding: 4px 8px; display: flex; justify-content: space-between; font-size: 9px; color: var(--fg-3); background: var(--bg-2); }
+
+/* ============================================================
+   LIST
+   ============================================================ */
+.ls { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; font-size: 12px; }
+.ls-item { padding: 8px 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+.ls-item:last-child { border-bottom: none; }
+
+/* ============================================================
+   ACCORDION
+   ============================================================ */
+.ac { width: 100%; font-size: 12px; }
+.ac-item { border-bottom: 1px solid var(--border); }
+.ac-head { display: flex; justify-content: space-between; padding: 8px 10px; cursor: pointer; align-items: center; }
+.ac-head:hover { background: var(--bg-2); }
+.ac-body { padding: 4px 10px 10px; font-size: 11px; color: var(--fg-2); }
+.ac-body.hidden { display: none; }
+.ac .chev { font-size: 10px; color: var(--fg-3); transition: transform 0.2s; }
+.ac-item.open .chev { transform: rotate(90deg); color: var(--accent); }
+
+/* ============================================================
+   AVATAR
+   ============================================================ */
+.av { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #8b5cf6); color: white; display: inline-flex; align-items: center; justify-content: center; font-weight: 600; font-size: 12px; flex-shrink: 0; overflow: hidden; position: relative; }
+.av.sm { width: 24px; height: 24px; font-size: 9px; }
+.av.lg { width: 56px; height: 56px; font-size: 18px; }
+.av.sq { border-radius: 6px; }
+.av .status { position: absolute; bottom: 0; right: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--success); border: 2px solid var(--surface); }
+
+/* ============================================================
+   AVATAR GROUP
+   ============================================================ */
+.ag { display: inline-flex; }
+.ag .av { border: 2px solid var(--surface); margin-left: -8px; }
+.ag .av:first-child { margin-left: 0; }
+.ag-more { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--bg-2); color: var(--fg-2); font-size: 11px; font-weight: 600; border: 2px solid var(--surface); margin-left: -8px; }
+
+/* ============================================================
+   BADGE
+   ============================================================ */
+.bd { display: inline-flex; align-items: center; justify-content: center; padding: 1px 6px; background: var(--danger); color: white; border-radius: 999px; font-size: 9px; font-weight: 600; line-height: 1.3; min-width: 16px; }
+.bd.dot { width: 8px; height: 8px; padding: 0; min-width: 0; border-radius: 50%; }
+
+/* ============================================================
+   CHIP / PILL
+   ============================================================ */
+.ch { display: inline-flex; gap: 5px; align-items: center; padding: 4px 10px; background: var(--bg-2); border-radius: 999px; font-size: 11px; color: var(--fg); border: 1px solid transparent; }
+.ch .x { cursor: pointer; color: var(--fg-3); font-size: 13px; }
+
+/* ============================================================
+   TAG
+   ============================================================ */
+.tg { display: inline-flex; align-items: center; padding: 2px 8px; background: color-mix(in oklab, var(--accent) 12%, white); color: color-mix(in oklab, var(--accent) 70%, black); border-radius: 4px; font-size: 10px; font-weight: 500; letter-spacing: 0.04em; }
+
+/* ============================================================
+   CAROUSEL
+   ============================================================ */
+.cr { width: 100%; position: relative; overflow: hidden; border-radius: 8px; }
+.cr-track { display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.cr-track::-webkit-scrollbar { display: none; }
+.cr-slide { flex: 0 0 auto; scroll-snap-align: start; }
+.cr-dots { display: flex; gap: 4px; justify-content: center; margin-top: 8px; }
+.cr-dots .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-2); }
+.cr-dots .dot.on { background: var(--accent); width: 16px; border-radius: 3px; }
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+.tl { width: 100%; font-size: 11px; position: relative; }
+.tl-item { display: flex; gap: 10px; padding-bottom: 14px; position: relative; }
+.tl-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-top: 4px; flex-shrink: 0; z-index: 1; }
+.tl-item:not(:last-child)::before { content: ''; position: absolute; left: 4px; top: 14px; bottom: 0; width: 2px; background: var(--border); }
+.tl-content { flex: 1; }
+.tl-time { font-size: 9px; color: var(--fg-3); font-family: 'JetBrains Mono', monospace; letterSpacing: 0.08em; }
+.tl-title { font-weight: 600; font-size: 11px; margin: 2px 0; }
+
+/* ============================================================
+   CALENDAR
+   ============================================================ */
+.cal { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 8px; font-size: 10px; }
+.cal .head { display: flex; justify-content: space-between; align-items: center; padding: 4px 2px 8px; }
+.cal .head .m { font-weight: 700; font-size: 12px; }
+.cal .head button { background: transparent; border: none; color: var(--fg-2); cursor: pointer; font-size: 12px; }
+.cal .dow { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; color: var(--fg-3); font-size: 9px; padding-bottom: 4px; }
+.cal .days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; }
+.cal .day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--fg); border-radius: 4px; cursor: pointer; }
+.cal .day.mute { color: var(--fg-3); }
+.cal .day.today { background: var(--accent); color: white; font-weight: 700; }
+.cal .day.ev { position: relative; background: color-mix(in oklab, var(--accent) 12%, white); color: color-mix(in oklab, var(--accent) 70%, black); }
+
+/* ============================================================
+   STATISTIC
+   ============================================================ */
+.st { width: 100%; font-size: 11px; }
+.st .lbl { color: var(--fg-2); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
+.st .val { font-family: 'Fraunces', serif; font-size: 42px; font-weight: 500; letter-spacing: -0.03em; line-height: 1; color: var(--fg); margin: 4px 0; }
+.st .delta { font-size: 10px; color: var(--success); font-family: 'JetBrains Mono', monospace; }
+.st .delta.down { color: var(--danger); }
+
+/* ============================================================
+   IMAGE
+   ============================================================ */
+.im { display: inline-block; aspect-ratio: 4/3; background: var(--bg-2); overflow: hidden; position: relative; border-radius: 6px; width: 160px; }
+.im .fill { width: 100%; height: 100%; background: linear-gradient(135deg, var(--accent), #8b5cf6); display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; }
+.im .ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--fg-3); font-size: 20px; font-family: 'JetBrains Mono', monospace; background: repeating-linear-gradient(45deg, var(--bg-2), var(--bg-2) 6px, var(--surface) 6px, var(--surface) 12px); }
+
+/* ============================================================
+   VIDEO PLAYER
+   ============================================================ */
+.vp { width: 100%; aspect-ratio: 16/9; background: #0a0a08; border-radius: 8px; position: relative; overflow: hidden; color: white; }
+.vp .poster { position: absolute; inset: 0; background: linear-gradient(135deg, #3d3c38, #0a0a08); }
+.vp .ctrl { position: absolute; bottom: 6px; left: 6px; right: 6px; display: flex; gap: 8px; align-items: center; font-size: 10px; }
+.vp .bar { flex: 1; height: 3px; background: rgba(255,255,255,0.25); border-radius: 2px; overflow: hidden; }
+.vp .fill { height: 100%; width: 35%; background: var(--accent); }
+.vp .play { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.9); color: #0a0a08; display: flex; align-items: center; justify-content: center; font-size: 14px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+/* ============================================================
+   AUDIO PLAYER
+   ============================================================ */
+.ap { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; font-size: 11px; }
+.ap .btn { width: 30px; height: 30px; border-radius: 50%; background: var(--fg); color: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+.ap .bar { flex: 1; height: 3px; background: var(--bg-2); border-radius: 2px; overflow: hidden; }
+.ap .fill { height: 100%; width: 40%; background: var(--accent); }
+.ap .t { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--fg-3); }
+
+/* ============================================================
+   CODE BLOCK
+   ============================================================ */
+.cb { width: 100%; background: #0f0f0e; color: #d4d0c8; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; overflow: hidden; }
+.cb .h { padding: 6px 10px; background: #1a1a18; color: #a8a49c; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; display: flex; justify-content: space-between; border-bottom: 1px solid #2d2c28; }
+.cb .body { padding: 8px 10px; line-height: 1.55; white-space: pre; overflow-x: auto; }
+.cb .k { color: #c084fc; }
+.cb .s { color: #fbbf24; }
+.cb .c { color: #64748b; font-style: italic; }
+.cb .f { color: #38bdf8; }
+.cb .n { color: #6b6862; padding-right: 10px; display: inline-block; user-select: none; }
+
+/* ============================================================
+   KBD
+   ============================================================ */
+.kbd { display: inline-flex; align-items: center; justify-content: center; padding: 2px 6px; min-width: 22px; height: 22px; background: var(--bg-2); border: 1px solid var(--border-2); border-bottom-width: 2px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--fg); font-weight: 500; }
+
+/* ============================================================
+   CHAT BUBBLE
+   ============================================================ */
+.cb-wrap { width: 100%; display: flex; flex-direction: column; gap: 4px; font-size: 11px; }
+.bubble { display: inline-block; max-width: 75%; padding: 6px 10px; border-radius: 12px; background: var(--bg-2); color: var(--fg); line-height: 1.35; }
+.bubble.me { align-self: flex-end; background: var(--accent); color: white; }
+.bubble.sender { font-size: 9px; color: var(--fg-3); padding: 0 4px; }
+
+/* ============================================================
+   KANBAN
+   ============================================================ */
+.kb { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; width: 100%; font-size: 10px; }
+.kb-col { background: var(--bg-2); border-radius: 6px; padding: 6px; display: flex; flex-direction: column; gap: 4px; min-height: 180px; }
+.kb-col .t { font-size: 9px; color: var(--fg-2); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; padding: 2px 4px; display: flex; justify-content: space-between; }
+.kb-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 5px 6px; font-size: 10px; }
+.kb-card .lbl { height: 2px; width: 20px; background: var(--accent); margin-bottom: 3px; border-radius: 1px; }
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.pr { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 12px; display: flex; flex-direction: column; gap: 6px; font-size: 11px; }
+.pr .t { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500; }
+.pr .p { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 500; letter-spacing: -0.02em; }
+.pr .p span { font-size: 11px; color: var(--fg-3); font-family: 'Inter'; font-weight: 400; }
+.pr ul { list-style: none; padding: 0; margin: 6px 0; font-size: 11px; color: var(--fg-2); }
+.pr ul li { padding: 2px 0; display: flex; gap: 6px; align-items: center; }
+.pr ul li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+.pr button { padding: 6px 10px; background: var(--fg); color: var(--bg); border: none; border-radius: 5px; font-family: inherit; font-size: 11px; cursor: pointer; }
+.pr.featured { border-color: var(--accent); border-width: 2px; position: relative; }
+.pr.featured::after { content: 'POPULAR'; position: absolute; top: -10px; right: 10px; background: var(--accent); color: white; padding: 2px 8px; border-radius: 10px; font-size: 9px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.12em; }
+
+/* ============================================================
+   TWEAKS
+   ============================================================ */
+.tweaks { position: fixed; bottom: 24px; right: 24px; width: 280px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 16px 40px -8px rgba(0,0,0,0.15); font-size: 12px; z-index: 100; font-family: var(--font); }
+.tweaks-header { display:flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+.tweaks-header .title { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); }
+.tweaks-header .close { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--fg-2); padding: 0; line-height: 1; }
+.tweaks-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 16px; }
+.tweaks-row label { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 8px; }
+.tweaks-row label .val { color: var(--accent); text-transform: none; letter-spacing: 0; }
+.swatches { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; }
+.swatch { aspect-ratio: 1; border-radius: 4px; cursor: pointer; border: 2px solid transparent; transition: transform 0.1s; }
+.swatch:hover { transform: scale(1.15); }
+.swatch.active { border-color: var(--fg); transform: scale(1.15); }
+.tweaks-row input[type="range"] { width: 100%; accent-color: var(--accent); }
+.font-picker { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; }
+.font-btn { padding: 8px; border: 1px solid var(--border); background: var(--surface); border-radius: 6px; cursor: pointer; font-size: 11px; color: var(--fg-2); }
+.font-btn:hover { border-color: var(--fg-2); }
+.font-btn.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.fab { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; border-radius: 50%; background: var(--fg); color: var(--bg); border: none; cursor: pointer; font-size: 16px; box-shadow: 0 8px 20px -4px rgba(0,0,0,0.2); z-index: 100; }

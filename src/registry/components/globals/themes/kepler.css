@@ -1,0 +1,22 @@
+/* Diamond · Kepler theme — cosmic lavender, white / deep navy (light + dark). */
+:root {
+  --diamond-accent:        #a78bfa;
+  --diamond-on-accent:     #0f0a1f;
+  --diamond-accent-deep:   #6d4ce8;
+  --diamond-accent-soft:   color-mix(in oklab, var(--diamond-accent) 28%, var(--diamond-surface));
+  --diamond-gradient:      linear-gradient(135deg, #a78bfa, #ec4899 60%, #f59e0b);
+
+  --diamond-surface:       #f6f3ff;
+  --diamond-surface-alt:   #ede5fa;
+  --diamond-ink:           #1a0f3d;
+  --diamond-muted:         #5d4d8a;
+  --diamond-border:        #d4c4ed;
+}
+
+:root.dark {
+  --diamond-surface:       #0f0a1f;
+  --diamond-surface-alt:   #1f1545;
+  --diamond-ink:           #f4f1ff;
+  --diamond-muted:         #8b80b8;
+  --diamond-border:        #2d1f4a;
+}
