@@ -1,0 +1,33 @@
+{
+  "id": "time-picker",
+  "name": "Time Picker",
+  "description": "Time-of-day picker — HH:MM + AM/PM, big readout, split selects, time slots, analog clock face, real native <input type=\"time\">.",
+  "kind": "ui",
+  "files": [
+    { "source": "time-picker.tsx", "target": "time-picker.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "date"],
+
+  "documentation": {
+    "groups": {
+      "Time": ["hhmm-ampm", "big-readout", "split-selects", "slots", "analog", "native"]
+    },
+    "samples": {
+      "default": "Time",
+      "perVariant": {
+        "hhmm-ampm":     { "label": "" },
+        "big-readout":   { "label": "" },
+        "split-selects": { "label": "" },
+        "slots":         { "label": "" },
+        "analog":        { "label": "" },
+        "native":        { "label": "" }
+      }
+    }
+  }
+}

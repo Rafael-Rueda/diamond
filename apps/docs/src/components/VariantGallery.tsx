@@ -1,6 +1,7 @@
 import { Accordion } from "@diamond/registry/accordion/accordion";
 import { Alert } from "@diamond/registry/alert/alert";
 import { AudioPlayer } from "@diamond/registry/audio-player/audio-player";
+import { Autocomplete } from "@diamond/registry/autocomplete/autocomplete";
 import { Avatar } from "@diamond/registry/avatar/avatar";
 import { AvatarGroup } from "@diamond/registry/avatar-group/avatar-group";
 import { Badge } from "@diamond/registry/badge/badge";
@@ -9,28 +10,52 @@ import { Calendar } from "@diamond/registry/calendar/calendar";
 import { Card as DiamondCard } from "@diamond/registry/card/card";
 import { Carousel } from "@diamond/registry/carousel/carousel";
 import { ChatBubble, ChatBubbleGroup } from "@diamond/registry/chat-bubble/chat-bubble";
+import { Checkbox } from "@diamond/registry/checkbox/checkbox";
 import { Chip } from "@diamond/registry/chip/chip";
 import { CodeBlock } from "@diamond/registry/code-block/code-block";
+import { ColorPicker } from "@diamond/registry/color-picker/color-picker";
 import { DataGrid } from "@diamond/registry/data-grid/data-grid";
+import { DatePicker } from "@diamond/registry/date-picker/date-picker";
+import { DateRangePicker } from "@diamond/registry/date-range-picker/date-range-picker";
+import { Dropzone } from "@diamond/registry/dropzone/dropzone";
 import { EmptyState } from "@diamond/registry/empty-state/empty-state";
 import { ErrorState } from "@diamond/registry/error-state/error-state";
+import { Fieldset } from "@diamond/registry/fieldset/fieldset";
+import { FileInput } from "@diamond/registry/file-input/file-input";
+import { Form } from "@diamond/registry/form/form";
+import {
+    FormError,
+    FormField,
+    FormHelper,
+    FormLabel,
+} from "@diamond/registry/form-field/form-field";
 import { Image } from "@diamond/registry/image/image";
+import { Input } from "@diamond/registry/input/input";
 import { Kanban } from "@diamond/registry/kanban/kanban";
 import { Kbd } from "@diamond/registry/kbd/kbd";
 import { List } from "@diamond/registry/list/list";
 import { ListItem } from "@diamond/registry/list-item/list-item";
+import { MultiSelect } from "@diamond/registry/multi-select/multi-select";
 import { NotificationCenter } from "@diamond/registry/notification-center/notification-center";
 import { NotificationDot } from "@diamond/registry/notification-dot/notification-dot";
 import { OfflineIndicator } from "@diamond/registry/offline-indicator/offline-indicator";
+import { OTPInput } from "@diamond/registry/otp-input/otp-input";
 import { Popover } from "@diamond/registry/popover/popover";
 import { Pricing } from "@diamond/registry/pricing/pricing";
 import { Progress } from "@diamond/registry/progress/progress";
+import { Radio } from "@diamond/registry/radio/radio";
+import { Rating } from "@diamond/registry/rating/rating";
+import { Select } from "@diamond/registry/select/select";
 import { Skeleton } from "@diamond/registry/skeleton/skeleton";
+import { Slider } from "@diamond/registry/slider/slider";
 import { Spinner } from "@diamond/registry/spinner/spinner";
 import { Statistic } from "@diamond/registry/statistic/statistic";
+import { Switch } from "@diamond/registry/switch/switch";
 import { Table } from "@diamond/registry/table/table";
 import { Tag } from "@diamond/registry/tag/tag";
+import { Textarea } from "@diamond/registry/textarea/textarea";
 import { Timeline } from "@diamond/registry/timeline/timeline";
+import { TimePicker } from "@diamond/registry/time-picker/time-picker";
 import { Toast, ToastProvider, useToast } from "@diamond/registry/toast/toast";
 import { Tooltip, TooltipProvider } from "@diamond/registry/tooltip/tooltip";
 import { VideoPlayer } from "@diamond/registry/video-player/video-player";
@@ -2020,6 +2045,334 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                 | "minimal"
                 | "action";
             return <ToastDemo variant={v} label={label} />;
+        }
+
+        case "input": {
+            const v = variant as never;
+            if (variant === "mask") {
+                return <Input variant={v} mask="(###) ###-####" defaultValue="555 123 4567" />;
+            }
+            return <Input variant={v} placeholder={label || "Type here…"} defaultValue={variant === "currency" ? "29.00" : variant === "terminal-number" ? "42" : variant === "digits" || variant === "pick-one-to-nine" ? "" : ""} />;
+        }
+
+        case "textarea": {
+            const v = variant as "classic" | "auto" | "counter" | "toolbar" | "markdown" | "ghost";
+            return <Textarea variant={v} placeholder={label || "Write something…"} defaultValue={v === "markdown" ? "# Heading\n\nMarkdown" : v === "counter" ? "Hello world" : undefined} />;
+        }
+
+        case "checkbox": {
+            const v = variant as never;
+            const groupVariants = ["stacked", "card-grid", "pills", "select-all", "days", "priced-rows"];
+            if (groupVariants.includes(variant)) {
+                const items = variant === "days"
+                    ? ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((d) => ({ id: d, label: d }))
+                    : variant === "priced-rows"
+                      ? [
+                            { id: "a", label: "Essentials", trailing: "Free" },
+                            { id: "b", label: "Pro tools", trailing: "$9" },
+                            { id: "c", label: "Team seats", trailing: "$24" },
+                        ]
+                      : [
+                            { id: "a", label: "Design" },
+                            { id: "b", label: "Code" },
+                            { id: "c", label: "Write" },
+                            { id: "d", label: "Ship" },
+                        ];
+                return <Checkbox variant={v} items={items} defaultValue={variant === "priced-rows" ? ["a", "b"] : variant === "days" ? ["Mo", "We", "Fr"] : ["a"]} />;
+            }
+            return <Checkbox variant={v} defaultChecked={variant !== "x-mark"} label={label || "Accept terms"} />;
+        }
+
+        case "radio": {
+            const v = variant as never;
+            const groupVariants = ["vertical", "plan-cards", "segmented-bar", "icon-grid", "scale", "stacked-list"];
+            if (groupVariants.includes(variant)) {
+                const items = variant === "plan-cards"
+                    ? [
+                          { id: "a", label: "Starter", description: "For hobby", trailing: "$0" },
+                          { id: "b", label: "Team", description: "For pros", trailing: "$49" },
+                      ]
+                    : variant === "icon-grid"
+                      ? [
+                            { id: "a", label: "Sun", icon: "☀" },
+                            { id: "b", label: "Half", icon: "◐" },
+                            { id: "c", label: "Moon", icon: "☾" },
+                        ]
+                      : variant === "scale"
+                        ? [1, 2, 3, 4, 5].map((n) => ({ id: String(n), label: String(n) }))
+                        : variant === "segmented-bar"
+                          ? ["Grid", "List", "Kanban"].map((k) => ({ id: k, label: k }))
+                          : variant === "stacked-list"
+                            ? ["Email", "SMS", "Push", "None"].map((k) => ({ id: k, label: k }))
+                            : [
+                                  { id: "m", label: "Monthly" },
+                                  { id: "q", label: "Quarterly" },
+                                  { id: "y", label: "Yearly" },
+                              ];
+                return <Radio variant={v} items={items} defaultValue={variant === "scale" ? "2" : variant === "icon-grid" ? "a" : variant === "stacked-list" ? "SMS" : variant === "segmented-bar" ? "List" : variant === "plan-cards" ? "a" : "m"} />;
+            }
+            return <Radio variant={v} defaultChecked label={label || "Option"} />;
+        }
+
+        case "switch": {
+            const v = variant as "classic" | "square" | "with-label" | "ios" | "bi-state" | "industrial";
+            return <Switch variant={v} defaultChecked label={v === "with-label" ? (label || "Notifications") : undefined} />;
+        }
+
+        case "select": {
+            const v = variant as "native" | "custom" | "avatars" | "flat" | "terminal" | "flags";
+            const baseOptions = [
+                { value: "design", label: "Design" },
+                { value: "eng", label: "Engineering" },
+                { value: "ops", label: "Operations" },
+            ];
+            const opts = v === "avatars"
+                ? [
+                      { value: "ac", label: "Aria Chen", leading: "A" },
+                      { value: "lr", label: "Leo Reyes", leading: "L", leadingColor: "color-mix(in oklab, #8b7355 30%, white)" },
+                      { value: "mt", label: "Mei Tan", leading: "M", leadingColor: "color-mix(in oklab, #10b981 30%, white)" },
+                  ]
+                : v === "flags"
+                  ? [
+                        { value: "br", label: "Brazil", flag: "🇧🇷" },
+                        { value: "us", label: "United States", flag: "🇺🇸" },
+                        { value: "jp", label: "Japan", flag: "🇯🇵" },
+                    ]
+                  : v === "terminal"
+                    ? [
+                          { value: "prod", label: "production" },
+                          { value: "stage", label: "staging" },
+                          { value: "dev", label: "dev" },
+                      ]
+                    : baseOptions;
+            return <Select variant={v} options={opts} defaultValue={opts[0].value} placeholder={label || "Choose…"} />;
+        }
+
+        case "multi-select": {
+            const v = variant as "tag-pills" | "chip-dark" | "checklist" | "filter-chips" | "segmented" | "dropdown";
+            const opts = [
+                { value: "design", label: "Design" },
+                { value: "code", label: "Code" },
+                { value: "write", label: "Write" },
+                { value: "ship", label: "Ship" },
+            ];
+            return <MultiSelect variant={v} options={opts} defaultValue={["design", "code"]} placeholder={label || "Add…"} />;
+        }
+
+        case "autocomplete": {
+            const v = variant as "basic" | "hints" | "recents" | "mentions" | "slash" | "ghost";
+            const items = v === "slash"
+                ? [
+                      { value: "image", label: "Insert image", description: "Add a photo", hint: "/img" },
+                      { value: "table", label: "Insert table", description: "Add rows × cols", hint: "/tbl" },
+                      { value: "code", label: "Code block", description: "Add a snippet", hint: "/code" },
+                  ]
+                : v === "mentions"
+                  ? [
+                        { value: "aria", label: "Aria Chen", description: "Design" },
+                        { value: "leo", label: "Leo Reyes", description: "Engineering" },
+                        { value: "mei", label: "Mei Tan", description: "Ops" },
+                    ]
+                  : ["Apple", "Apricot", "Banana", "Blackberry", "Cherry", "Coconut"].map((n) => ({
+                        value: n,
+                        label: n,
+                        description: v === "hints" ? "fruit" : undefined,
+                        hint: v === "basic" ? "↵" : undefined,
+                    }));
+            const recents = ["Cherry", "Banana"].map((n) => ({ value: n, label: n }));
+            return <Autocomplete variant={v} items={items} recents={recents} placeholder={label || "Type to search…"} />;
+        }
+
+        case "slider": {
+            const v = variant as never;
+            const rangeVariants = ["range", "range-thick", "range-bubbles", "range-fields", "range-histogram", "range-mono"];
+            if (rangeVariants.includes(variant)) {
+                return <Slider variant={v} defaultValue={[25, 75]} min={0} max={100} />;
+            }
+            return <Slider variant={v} defaultValue={variant === "gradient" ? 60 : 50} min={0} max={100} steps={variant === "stepped" ? 6 : undefined} />;
+        }
+
+        case "file-input": {
+            const v = variant as "classic" | "segmented" | "image-preview" | "attach" | "terminal" | "fab";
+            return <FileInput variant={v} label={label || undefined} />;
+        }
+
+        case "dropzone": {
+            const v = variant as "classic" | "compact-row" | "grid-slots" | "with-progress" | "hatched" | "circular";
+            if (v === "with-progress") {
+                return <Dropzone variant={v} title={label || "Uploading…"} description="atlas.zip" progress={45} progressFile="atlas.zip" />;
+            }
+            return <Dropzone variant={v} title={label || "Drop files here"} description={v === "compact-row" ? "or click" : v === "circular" ? undefined : "or click to browse"} />;
+        }
+
+        case "date-picker": {
+            const v = variant as "calendar" | "native" | "inline-pill" | "big-date" | "terminal" | "presets";
+            return <DatePicker variant={v} defaultValue="2026-04-18" placeholder={label || "Pick a date"} />;
+        }
+
+        case "time-picker": {
+            const v = variant as "hhmm-ampm" | "big-readout" | "split-selects" | "slots" | "analog" | "native";
+            return <TimePicker variant={v} defaultValue="14:30" />;
+        }
+
+        case "date-range-picker": {
+            const v = variant as "pill-span" | "calendar-range" | "presets" | "twin-native" | "stacked-cards" | "duration-bar";
+            return <DateRangePicker variant={v} defaultValue={{ start: "2026-04-08", end: "2026-04-22" }} />;
+        }
+
+        case "color-picker": {
+            const v = variant as "swatches" | "hex" | "wheel" | "hsl" | "strip" | "shades";
+            return <ColorPicker variant={v} defaultValue="#2b7fff" />;
+        }
+
+        case "rating": {
+            const v = variant as "stars" | "big-stars" | "hearts" | "scale-10" | "emoji" | "gradient";
+            return <Rating variant={v} defaultValue={v === "scale-10" ? 7 : v === "gradient" ? 3 : v === "emoji" ? 4 : 3.5} allowHalf={v === "stars" || v === "big-stars"} />;
+        }
+
+        case "otp-input": {
+            const v = variant as "classic" | "underlined" | "big-xl" | "dashed" | "terminal" | "readonly";
+            return <OTPInput variant={v} length={6} splitAfter={v === "dashed" ? 3 : undefined} defaultValue={v === "readonly" ? "284619" : "284"} />;
+        }
+
+        case "form-field": {
+            const v = variant as string;
+            const labelVars = ["classic", "required", "mono", "badge", "tags", "accent"];
+            const helperVars = ["subtle", "info", "comment", "counter", "box", "tip"];
+            const errorVars = ["icon", "x-mark", "banner", "badge", "ticked", "code"];
+            if (labelVars.includes(v)) {
+                return (
+                    <div className="flex w-full max-w-[260px] flex-col gap-1.5">
+                        <FormLabel variant={v as never} required={v === "required"} badge={v === "badge" ? "PRO" : undefined} tags={v === "tags" ? ["v3", "beta"] : undefined}>
+                            {label || "Email"}
+                        </FormLabel>
+                        <Input variant="classic" placeholder="you@team.co" />
+                    </div>
+                );
+            }
+            if (helperVars.includes(v)) {
+                return (
+                    <div className="flex w-full max-w-[260px] flex-col gap-1.5">
+                        <FormLabel>Email</FormLabel>
+                        <Input variant="classic" placeholder="you@team.co" />
+                        <FormHelper variant={v as never} counter={v === "counter" ? { current: 24, max: 280 } : undefined}>
+                            {label}
+                        </FormHelper>
+                    </div>
+                );
+            }
+            if (errorVars.includes(v)) {
+                return (
+                    <div className="flex w-full max-w-[260px] flex-col gap-1.5">
+                        <FormLabel>Email</FormLabel>
+                        <Input variant="classic" invalid placeholder="you@team.co" defaultValue="not-an-email" />
+                        <FormError variant={v as never} code={v === "code" ? "ERR_SCHEMA" : undefined} detail={v === "ticked" ? "Try again later." : undefined}>
+                            {label}
+                        </FormError>
+                    </div>
+                );
+            }
+            return (
+                <FormField title={label || "Email"} helperText="We never share your email.">
+                    <Input variant="classic" placeholder="you@team.co" />
+                </FormField>
+            );
+        }
+
+        case "fieldset": {
+            const v = variant as "classic" | "card-accent" | "rule" | "section" | "numbered" | "editorial";
+            return (
+                <div className="w-[280px]">
+                    <Fieldset
+                        variant={v}
+                        legend={label || "Personal info"}
+                        step={v === "numbered" ? "1" : undefined}
+                        description={v === "classic" || v === "card-accent" ? "Tell us about yourself." : undefined}
+                    >
+                        <Input variant="classic" placeholder="Name" />
+                        <Input variant="classic" placeholder="Email" />
+                    </Fieldset>
+                </div>
+            );
+        }
+
+        case "form": {
+            const v = variant as "login-card" | "minimal-stack" | "stepped" | "terminal" | "subscribe-cta" | "profile";
+            if (v === "subscribe-cta") {
+                return (
+                    <Form variant={v}>
+                        <Input variant="classic" placeholder="you@team.co" className="flex-1" />
+                        <Button variant="solid" size="sm">
+                            Subscribe
+                        </Button>
+                    </Form>
+                );
+            }
+            if (v === "terminal") {
+                return (
+                    <Form variant={v} title="login --user">
+                        <Input variant="terminal" placeholder="~/$ username" />
+                        <Input variant="terminal-password" placeholder="••••••" />
+                        <Button variant="solid" size="sm">
+                            $ submit
+                        </Button>
+                    </Form>
+                );
+            }
+            if (v === "stepped") {
+                return (
+                    <Form variant={v} step={2} steps={3} title={label || "Onboarding"} description="Tell us about your team.">
+                        <FormField title="Team name">
+                            <Input variant="classic" placeholder="Atlas Co." />
+                        </FormField>
+                        <FormField title="Size" helperText="Approximate is fine.">
+                            <Input variant="classic" placeholder="1–10" />
+                        </FormField>
+                        <Button variant="solid" size="sm">
+                            Continue →
+                        </Button>
+                    </Form>
+                );
+            }
+            if (v === "minimal-stack") {
+                return (
+                    <Form variant={v}>
+                        <Input variant="underline" placeholder="Name" />
+                        <Input variant="underline" placeholder="Email" />
+                        <Button variant="solid" size="sm">
+                            Send
+                        </Button>
+                    </Form>
+                );
+            }
+            if (v === "profile") {
+                return (
+                    <Form variant={v} title={label || "Edit profile"}>
+                        <FormField title="Display name">
+                            <Input variant="classic" defaultValue="Aria Chen" />
+                        </FormField>
+                        <FormField title="Bio">
+                            <Textarea variant="classic" defaultValue="Designer at Atlas Co." />
+                        </FormField>
+                        <Button variant="solid" size="sm">
+                            Save
+                        </Button>
+                    </Form>
+                );
+            }
+            return (
+                <Form variant={v} title={label || "Sign in"} description="Welcome back." footer={<><span>New here?</span><span className="text-[var(--diamond-accent)] underline">Create account</span></>}>
+                    <FormField title="Email">
+                        <Input variant="classic" placeholder="you@team.co" />
+                    </FormField>
+                    <FormField title="Password">
+                        <Input variant="reveal" placeholder="••••••••" />
+                    </FormField>
+                    <Button variant="solid" size="sm">
+                        Sign in →
+                    </Button>
+                </Form>
+            );
         }
     }
     return <span className="text-[var(--diamond-muted)] italic">No preview yet for {componentId}</span>;

@@ -1,0 +1,34 @@
+{
+  "id": "rating",
+  "name": "Rating",
+  "description": "Rate something — stars, big stars, hearts, numeric 0-10 scale, emoji reactions, gradient slider.",
+  "kind": "ui",
+  "files": [
+    { "source": "rating.tsx", "target": "rating.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "input"],
+
+  "documentation": {
+    "groups": {
+      "Rating": ["stars", "big-stars", "hearts", "scale-10", "emoji", "gradient"]
+    },
+    "samples": {
+      "default": "Rate",
+      "perVariant": {
+        "stars":     { "label": "" },
+        "big-stars": { "label": "" },
+        "hearts":    { "label": "" },
+        "scale-10":  { "label": "" },
+        "emoji":     { "label": "" },
+        "gradient":  { "label": "" }
+      }
+    }
+  }
+}

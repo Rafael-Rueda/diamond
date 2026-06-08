@@ -1,0 +1,33 @@
+{
+  "id": "fieldset",
+  "name": "Fieldset",
+  "description": "Semantic grouping of related controls wrapping <fieldset>/<legend> — classic, card with accent bar, horizontal rule, section header, numbered step, editorial italic.",
+  "kind": "ui",
+  "files": [
+    { "source": "fieldset.tsx", "target": "fieldset.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "structure"],
+
+  "documentation": {
+    "groups": {
+      "Fieldset": ["classic", "card-accent", "rule", "section", "numbered", "editorial"]
+    },
+    "samples": {
+      "default": "Personal info",
+      "perVariant": {
+        "classic":     { "label": "Account" },
+        "card-accent": { "label": "Profile" },
+        "rule":        { "label": "SECTION" },
+        "section":     { "label": "Billing" },
+        "numbered":    { "label": "Address" },
+        "editorial":   { "label": "Preferences" }
+      }
+    }
+  }
+}

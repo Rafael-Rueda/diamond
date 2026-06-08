@@ -1,0 +1,33 @@
+{
+  "id": "otp-input",
+  "name": "OTP Input",
+  "description": "One-time-passcode field — classic boxes, underlined, big XL, dashed split, terminal, read-only display.",
+  "kind": "ui",
+  "files": [
+    { "source": "otp-input.tsx", "target": "otp-input.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "input"],
+
+  "documentation": {
+    "groups": {
+      "OTP": ["classic", "underlined", "big-xl", "dashed", "terminal", "readonly"]
+    },
+    "samples": {
+      "default": "OTP",
+      "perVariant": {
+        "classic":    { "label": "" },
+        "underlined": { "label": "" },
+        "big-xl":     { "label": "" },
+        "dashed":     { "label": "" },
+        "terminal":   { "label": "" },
+        "readonly":   { "label": "" }
+      }
+    }
+  }
+}

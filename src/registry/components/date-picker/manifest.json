@@ -1,0 +1,35 @@
+{
+  "id": "date-picker",
+  "name": "Date Picker",
+  "description": "Single-date picker — calendar grid (Radix Popover), real native <input type=\"date\">, inline pill, big-date card, terminal, quick presets.",
+  "kind": "ui",
+  "files": [
+    { "source": "date-picker.tsx", "target": "date-picker.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-popover",  "version": "^1.1.2", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "date"],
+
+  "documentation": {
+    "groups": {
+      "Date": ["calendar", "native", "inline-pill", "big-date", "terminal", "presets"]
+    },
+    "samples": {
+      "default": "Pick a date",
+      "perVariant": {
+        "calendar":    { "label": "Pick a date" },
+        "native":      { "label": "Date" },
+        "inline-pill": { "label": "Apr 18" },
+        "big-date":    { "label": "" },
+        "terminal":    { "label": "yyyy-mm-dd" },
+        "presets":     { "label": "Pick a date" }
+      }
+    }
+  }
+}

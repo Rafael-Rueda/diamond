@@ -1,0 +1,35 @@
+{
+  "id": "date-range-picker",
+  "name": "Date Range Picker",
+  "description": "Pick a start and end ISO date — pill span, calendar range, presets, twin native, stacked cards, duration bar.",
+  "kind": "ui",
+  "files": [
+    { "source": "date-range-picker.tsx", "target": "date-range-picker.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-popover",  "version": "^1.1.2", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "date"],
+
+  "documentation": {
+    "groups": {
+      "Range": ["pill-span", "calendar-range", "presets", "twin-native", "stacked-cards", "duration-bar"]
+    },
+    "samples": {
+      "default": "Pick range",
+      "perVariant": {
+        "pill-span":      { "label": "Pick range" },
+        "calendar-range": { "label": "Pick range" },
+        "presets":        { "label": "Pick range" },
+        "twin-native":    { "label": "" },
+        "stacked-cards":  { "label": "" },
+        "duration-bar":   { "label": "" }
+      }
+    }
+  }
+}

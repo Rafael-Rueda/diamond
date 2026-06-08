@@ -1,0 +1,33 @@
+{
+  "id": "form",
+  "name": "Form",
+  "description": "Opinionated <form> shell with title, description and footer slots — login card, minimal stack, stepped progress, terminal login, subscribe CTA, compact profile.",
+  "kind": "ui",
+  "files": [
+    { "source": "form.tsx", "target": "form.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "structure"],
+
+  "documentation": {
+    "groups": {
+      "Form": ["login-card", "minimal-stack", "stepped", "terminal", "subscribe-cta", "profile"]
+    },
+    "samples": {
+      "default": "Sign in",
+      "perVariant": {
+        "login-card":    { "label": "Sign in" },
+        "minimal-stack": { "label": "Quick form" },
+        "stepped":       { "label": "Onboarding" },
+        "terminal":      { "label": "login --user" },
+        "subscribe-cta": { "label": "Stay in the loop" },
+        "profile":       { "label": "Edit profile" }
+      }
+    }
+  }
+}

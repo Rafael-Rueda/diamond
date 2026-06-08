@@ -1,0 +1,48 @@
+{
+  "id": "form-field",
+  "name": "Form Field",
+  "description": "Composed wrapper around any control with FormLabel + FormHelper + FormError slots. Replaces standalone form-label, helper-text and error-message — six variants for each slot.",
+  "kind": "ui",
+  "files": [
+    { "source": "form-field.tsx", "target": "form-field.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "structure"],
+
+  "documentation": {
+    "groups": {
+      "Label":  ["classic", "required", "mono", "badge", "tags", "accent"],
+      "Helper": ["subtle", "info", "comment", "counter", "box", "tip"],
+      "Error":  ["icon", "x-mark", "banner", "badge", "ticked", "code"]
+    },
+    "samples": {
+      "default": "Email",
+      "perVariant": {
+        "classic":  { "label": "Email" },
+        "required": { "label": "Email" },
+        "mono":     { "label": "USER_ID" },
+        "badge":    { "label": "Workspace" },
+        "tags":     { "label": "API key" },
+        "accent":   { "label": "Important" },
+        "subtle":   { "label": "We never share your email." },
+        "info":     { "label": "Tip: paste from clipboard." },
+        "comment":  { "label": "Internal handle only" },
+        "counter":  { "label": "Characters" },
+        "box":      { "label": "Use lowercase only." },
+        "tip":      { "label": "Press Tab to jump fields." },
+        "icon":     { "label": "Email is required." },
+        "x-mark":   { "label": "Invalid format." },
+        "banner":   { "label": "Could not save changes." },
+        "badge":    { "label": "INVALID" },
+        "ticked":   { "label": "Try again later." },
+        "code":     { "label": "Schema mismatch." }
+      }
+    }
+  }
+}

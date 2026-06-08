@@ -201,6 +201,7 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(func
     /* fab */
     return (
         <label
+            htmlFor={inputId}
             className={cn(
                 "inline-flex size-12 cursor-pointer items-center justify-center rounded-full bg-(--diamond-accent,#2b7fff) text-(--diamond-on-accent,#fff) shadow-[0_8px_24px_-8px_color-mix(in_oklab,var(--diamond-accent,#2b7fff)_60%,transparent)] transition-transform hover:scale-105",
                 disabled && "pointer-events-none opacity-50",
