@@ -1,0 +1,32 @@
+{
+  "id": "split-pane",
+  "name": "Split Pane",
+  "description": "Resizable-style pane compositions for editors, consoles, previews, navigation and decorative splits.",
+  "kind": "ui",
+  "files": [
+    { "source": "split-pane.tsx", "target": "split-pane.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["layout", "editor", "panes"],
+  "documentation": {
+    "groups": {
+      "Split Pane": ["sidebar", "console", "triple", "preview", "nav-content", "decorative"]
+    },
+    "samples": {
+      "default": "Pane",
+      "perVariant": {
+        "sidebar": { "label": "Sidebar editor" },
+        "console": { "label": "Horizontal console" },
+        "triple": { "label": "Triple column" },
+        "preview": { "label": "Markdown preview" },
+        "nav-content": { "label": "Nav and content" },
+        "decorative": { "label": "Decorative split" }
+      }
+    }
+  }
+}

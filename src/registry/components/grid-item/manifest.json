@@ -1,0 +1,25 @@
+{
+  "id": "grid-item",
+  "name": "Grid Item",
+  "description": "Grid child helpers for column spans, row spans, bento tiles, explicit placement, named areas, and featured cells.",
+  "kind": "ui",
+  "files": [
+    { "source": "grid-item.tsx", "target": "grid-item.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["layout", "grid", "primitive"],
+  "documentation": {
+    "groups": {
+      "Grid Item": ["column-span", "row-span", "bento", "explicit", "area", "featured"]
+    },
+    "samples": {
+      "default": "Grid item",
+      "perVariant": {}
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "alert-dialog",
+  "name": "Alert Dialog",
+  "description": "Urgent interruption built on @radix-ui/react-alert-dialog — destructive delete, unsaved-changes warn, left-rail danger, dark critical, mono error code, floating danger icon.",
+  "kind": "ui",
+  "files": [
+    { "source": "alert-dialog.tsx", "target": "alert-dialog.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",        "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-alert-dialog", "version": "^1.1.2", "kind": "runtime" },
+    { "name": "class-variance-authority",     "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                         "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",               "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["overlay", "dialog", "danger"],
+
+  "documentation": {
+    "groups": {
+      "Alert": ["destructive", "unsaved", "left-rail", "dark-critical", "mono-error", "floating-icon"]
+    },
+    "samples": {
+      "default": "Delete workspace?",
+      "perVariant": {
+        "destructive":   { "label": "Delete this workspace?" },
+        "unsaved":       { "label": "Unsaved changes" },
+        "left-rail":     { "label": "Critical error" },
+        "dark-critical": { "label": "Account suspended" },
+        "mono-error":    { "label": "Merge conflict detected" },
+        "floating-icon": { "label": "Permanent deletion" }
+      }
+    }
+  }
+}

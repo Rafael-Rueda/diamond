@@ -1,0 +1,32 @@
+{
+  "id": "map",
+  "name": "Map",
+  "description": "Lightweight map visualization shell for pins, clusters, dark maps, routes, heatmaps and place cards.",
+  "kind": "ui",
+  "files": [
+    { "source": "map.tsx", "target": "map.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["map", "data", "visualization"],
+  "documentation": {
+    "groups": {
+      "Map": ["pin", "clusters", "dark", "route", "heatmap", "place-card"]
+    },
+    "samples": {
+      "default": "Map",
+      "perVariant": {
+        "pin": { "label": "Single pin" },
+        "clusters": { "label": "Clusters" },
+        "dark": { "label": "Dark style" },
+        "route": { "label": "Route" },
+        "heatmap": { "label": "Heatmap" },
+        "place-card": { "label": "Place card" }
+      }
+    }
+  }
+}

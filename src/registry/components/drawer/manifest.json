@@ -1,0 +1,35 @@
+{
+  "id": "drawer",
+  "name": "Drawer",
+  "description": "Panel sliding from any edge built on @radix-ui/react-dialog — right nav menu, left sidebar, top notifications, right edit panel, right cart dark, left file tree mono.",
+  "kind": "ui",
+  "files": [
+    { "source": "drawer.tsx", "target": "drawer.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-dialog",   "version": "^1.1.2", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["overlay", "panel"],
+
+  "documentation": {
+    "groups": {
+      "Drawer": ["right-nav", "left-sidebar", "top-notifications", "right-edit", "right-cart-dark", "left-file-tree"]
+    },
+    "samples": {
+      "default": "Open drawer",
+      "perVariant": {
+        "right-nav":         { "label": "Menu" },
+        "left-sidebar":      { "label": "Browse" },
+        "top-notifications": { "label": "Notifications" },
+        "right-edit":        { "label": "Edit item" },
+        "right-cart-dark":   { "label": "Cart" },
+        "left-file-tree":    { "label": "tree" }
+      }
+    }
+  }
+}

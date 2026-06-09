@@ -1,0 +1,25 @@
+{
+  "id": "dropdown-menu",
+  "name": "Dropdown Menu",
+  "description": "Button-triggered menus with sort, retro, searchable, pill trigger, bulk action, and terminal variants.",
+  "kind": "ui",
+  "files": [
+    { "source": "dropdown-menu.tsx", "target": "dropdown-menu.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["navigation", "menu", "dropdown"],
+  "documentation": {
+    "groups": {
+      "Dropdown Menu": ["sort", "retro", "searchable", "pill", "bulk", "terminal"]
+    },
+    "samples": {
+      "default": "Dropdown menu",
+      "perVariant": {}
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "mega-menu",
+  "name": "Mega Menu",
+  "description": "Multi-column dropdown navigation for SaaS, commerce, docs, solutions, editorial, and icon-grid menus.",
+  "kind": "ui",
+  "files": [
+    { "source": "mega-menu.tsx", "target": "mega-menu.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["navigation", "menu", "mega-menu"],
+  "documentation": {
+    "groups": {
+      "Mega Menu": ["saas", "commerce", "docs", "solutions", "editorial", "icons"]
+    },
+    "samples": {
+      "default": "Mega menu",
+      "perVariant": {}
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "navbar",
+  "name": "Navbar",
+  "description": "Top navigation header patterns for classic, tinted, searchable, commerce, pill-shaped, and terminal app bars.",
+  "kind": "ui",
+  "files": [
+    { "source": "navbar.tsx", "target": "navbar.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["navigation", "header", "app-bar"],
+  "documentation": {
+    "groups": {
+      "Navbar / App Bar": ["classic", "tinted", "search", "commerce", "pill", "terminal"]
+    },
+    "samples": {
+      "default": "Navbar",
+      "perVariant": {}
+    }
+  }
+}

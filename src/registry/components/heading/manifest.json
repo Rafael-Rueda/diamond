@@ -1,0 +1,25 @@
+{
+  "id": "heading",
+  "name": "Heading",
+  "description": "Semantic h1 through h6 heading styles with consistent rhythm and accessible element control.",
+  "kind": "ui",
+  "files": [
+    { "source": "heading.tsx", "target": "heading.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["typography", "heading", "primitive"],
+  "documentation": {
+    "groups": {
+      "Heading": ["h1", "h2", "h3", "h4", "h5", "h6"]
+    },
+    "samples": {
+      "default": "Heading",
+      "perVariant": {}
+    }
+  }
+}

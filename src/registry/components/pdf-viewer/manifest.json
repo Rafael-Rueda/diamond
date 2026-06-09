@@ -1,0 +1,32 @@
+{
+  "id": "pdf-viewer",
+  "name": "PDF Viewer",
+  "description": "Document viewer shell with navigation, thumbnails, search, zoom, spread and annotation variants.",
+  "kind": "ui",
+  "files": [
+    { "source": "pdf-viewer.tsx", "target": "pdf-viewer.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["document", "viewer", "pdf"],
+  "documentation": {
+    "groups": {
+      "PDF Viewer": ["single", "thumbnails", "search", "zoom", "spread", "annotated"]
+    },
+    "samples": {
+      "default": "PDF",
+      "perVariant": {
+        "single": { "label": "Single page" },
+        "thumbnails": { "label": "Thumbnails" },
+        "search": { "label": "Search" },
+        "zoom": { "label": "Zoom" },
+        "spread": { "label": "Two-page spread" },
+        "annotated": { "label": "Annotated" }
+      }
+    }
+  }
+}

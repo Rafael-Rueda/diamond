@@ -1,0 +1,25 @@
+{
+  "id": "breadcrumbs",
+  "name": "Breadcrumbs",
+  "description": "Hierarchical trails for slash, chevron, slab, filesystem, ellipsis, and editorial breadcrumb patterns.",
+  "kind": "ui",
+  "files": [
+    { "source": "breadcrumbs.tsx", "target": "breadcrumbs.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["navigation", "breadcrumbs", "wayfinding"],
+  "documentation": {
+    "groups": {
+      "Breadcrumbs": ["slash", "chevron", "slab", "filesystem", "ellipsis", "editorial"]
+    },
+    "samples": {
+      "default": "Breadcrumbs",
+      "perVariant": {}
+    }
+  }
+}

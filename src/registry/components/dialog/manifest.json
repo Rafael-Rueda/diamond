@@ -1,0 +1,35 @@
+{
+  "id": "dialog",
+  "name": "Dialog",
+  "description": "Modal window built on @radix-ui/react-dialog with focus trap, ESC dismiss and scroll lock — standard, success, dark cinematic, header+footer, editorial left-rail, brutalist hard-shadow.",
+  "kind": "ui",
+  "files": [
+    { "source": "dialog.tsx", "target": "dialog.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-dialog",   "version": "^1.1.2", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["overlay", "dialog"],
+
+  "documentation": {
+    "groups": {
+      "Dialog": ["standard", "success", "dark", "header-footer", "editorial", "brutalist"]
+    },
+    "samples": {
+      "default": "Open dialog",
+      "perVariant": {
+        "standard":      { "label": "Invite teammates" },
+        "success":       { "label": "Payment confirmed" },
+        "dark":          { "label": "Dark variant" },
+        "header-footer": { "label": "Settings" },
+        "editorial":     { "label": "Editorial style" },
+        "brutalist":     { "label": "Brutalist" }
+      }
+    }
+  }
+}

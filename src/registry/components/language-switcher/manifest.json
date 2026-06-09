@@ -1,0 +1,32 @@
+{
+  "id": "language-switcher",
+  "name": "Language Switcher",
+  "description": "Locale picker with dropdown, code chip, full menu, segmented, searchable and regional dark variants.",
+  "kind": "ui",
+  "files": [
+    { "source": "language-switcher.tsx", "target": "language-switcher.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["i18n", "locale", "settings"],
+  "documentation": {
+    "groups": {
+      "Language Switcher": ["dropdown", "code", "menu", "segmented", "searchable", "regional-dark"]
+    },
+    "samples": {
+      "default": "Language",
+      "perVariant": {
+        "dropdown": { "label": "Basic dropdown" },
+        "code": { "label": "Region code" },
+        "menu": { "label": "Full menu" },
+        "segmented": { "label": "Segmented" },
+        "searchable": { "label": "Searchable" },
+        "regional-dark": { "label": "Regional dark" }
+      }
+    }
+  }
+}

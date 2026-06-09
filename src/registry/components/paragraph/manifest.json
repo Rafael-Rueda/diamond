@@ -1,0 +1,25 @@
+{
+  "id": "paragraph",
+  "name": "Paragraph",
+  "description": "Body text blocks for default prose, editorial copy, captions, drop caps, monospace docs, and pull quotes.",
+  "kind": "ui",
+  "files": [
+    { "source": "paragraph.tsx", "target": "paragraph.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["typography", "paragraph", "primitive"],
+  "documentation": {
+    "groups": {
+      "Paragraph": ["default", "editorial", "caption", "drop-cap", "mono", "pull-quote"]
+    },
+    "samples": {
+      "default": "Paragraph",
+      "perVariant": {}
+    }
+  }
+}

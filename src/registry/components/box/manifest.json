@@ -1,0 +1,25 @@
+{
+  "id": "box",
+  "name": "Box",
+  "description": "Generic layout container primitives for cards, callouts, elevated surfaces, terminal panels, and hard-shadow blocks.",
+  "kind": "ui",
+  "files": [
+    { "source": "box.tsx", "target": "box.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["layout", "container", "primitive"],
+  "documentation": {
+    "groups": {
+      "Box": ["card", "inverted", "accent-rail", "elevated", "terminal", "brutalist"]
+    },
+    "samples": {
+      "default": "Box",
+      "perVariant": {}
+    }
+  }
+}

@@ -1,65 +1,109 @@
 import { Accordion } from "@diamond/registry/accordion/accordion";
 import { Alert } from "@diamond/registry/alert/alert";
+import { AlertDialog } from "@diamond/registry/alert-dialog/alert-dialog";
+import { AspectRatio } from "@diamond/registry/aspect-ratio/aspect-ratio";
 import { AudioPlayer } from "@diamond/registry/audio-player/audio-player";
 import { Autocomplete } from "@diamond/registry/autocomplete/autocomplete";
 import { Avatar } from "@diamond/registry/avatar/avatar";
 import { AvatarGroup } from "@diamond/registry/avatar-group/avatar-group";
 import { Badge } from "@diamond/registry/badge/badge";
+import { BottomNavigation } from "@diamond/registry/bottom-navigation/bottom-navigation";
+import { BottomSheet } from "@diamond/registry/bottom-sheet/bottom-sheet";
+import { Box } from "@diamond/registry/box/box";
+import { Breadcrumbs } from "@diamond/registry/breadcrumbs/breadcrumbs";
 import { Button } from "@diamond/registry/button/button";
 import { Calendar } from "@diamond/registry/calendar/calendar";
 import { Card as DiamondCard } from "@diamond/registry/card/card";
 import { Carousel } from "@diamond/registry/carousel/carousel";
+import { Center } from "@diamond/registry/center/center";
 import { ChatBubble, ChatBubbleGroup } from "@diamond/registry/chat-bubble/chat-bubble";
+import { Chart } from "@diamond/registry/chart/chart";
 import { Checkbox } from "@diamond/registry/checkbox/checkbox";
 import { Chip } from "@diamond/registry/chip/chip";
 import { CodeBlock } from "@diamond/registry/code-block/code-block";
 import { ColorPicker } from "@diamond/registry/color-picker/color-picker";
+import { CommandPalette } from "@diamond/registry/command-palette/command-palette";
+import { ConfirmDialog } from "@diamond/registry/confirm-dialog/confirm-dialog";
+import { Container } from "@diamond/registry/container/container";
+import { ContextMenu } from "@diamond/registry/context-menu/context-menu";
+import { CookieBanner } from "@diamond/registry/cookie-banner/cookie-banner";
 import { DataGrid } from "@diamond/registry/data-grid/data-grid";
 import { DatePicker } from "@diamond/registry/date-picker/date-picker";
 import { DateRangePicker } from "@diamond/registry/date-range-picker/date-range-picker";
+import { Dialog } from "@diamond/registry/dialog/dialog";
+import { Divider } from "@diamond/registry/divider/divider";
+import { Drawer } from "@diamond/registry/drawer/drawer";
+import { DropdownMenu } from "@diamond/registry/dropdown-menu/dropdown-menu";
 import { Dropzone } from "@diamond/registry/dropzone/dropzone";
 import { EmptyState } from "@diamond/registry/empty-state/empty-state";
 import { ErrorState } from "@diamond/registry/error-state/error-state";
 import { Fieldset } from "@diamond/registry/fieldset/fieldset";
 import { FileInput } from "@diamond/registry/file-input/file-input";
+import { Flex } from "@diamond/registry/flex/flex";
 import { Form } from "@diamond/registry/form/form";
-import {
-    FormError,
-    FormField,
-    FormHelper,
-    FormLabel,
-} from "@diamond/registry/form-field/form-field";
+import { FormError, FormField, FormHelper, FormLabel } from "@diamond/registry/form-field/form-field";
+import { Grid } from "@diamond/registry/grid/grid";
+import { GridItem } from "@diamond/registry/grid-item/grid-item";
+import { Heading } from "@diamond/registry/heading/heading";
 import { Image } from "@diamond/registry/image/image";
 import { Input } from "@diamond/registry/input/input";
 import { Kanban } from "@diamond/registry/kanban/kanban";
 import { Kbd } from "@diamond/registry/kbd/kbd";
+import { LanguageSwitcher } from "@diamond/registry/language-switcher/language-switcher";
+import { Lightbox } from "@diamond/registry/lightbox/lightbox";
+import { Link as DiamondLink } from "@diamond/registry/link/link";
 import { List } from "@diamond/registry/list/list";
 import { ListItem } from "@diamond/registry/list-item/list-item";
+import { Map as DiamondMap } from "@diamond/registry/map/map";
+import { MegaMenu } from "@diamond/registry/mega-menu/mega-menu";
+import { Menu as DiamondMenu } from "@diamond/registry/menu/menu";
 import { MultiSelect } from "@diamond/registry/multi-select/multi-select";
+import { Navbar } from "@diamond/registry/navbar/navbar";
 import { NotificationCenter } from "@diamond/registry/notification-center/notification-center";
 import { NotificationDot } from "@diamond/registry/notification-dot/notification-dot";
 import { OfflineIndicator } from "@diamond/registry/offline-indicator/offline-indicator";
 import { OTPInput } from "@diamond/registry/otp-input/otp-input";
+import { Pagination } from "@diamond/registry/pagination/pagination";
+import { Paragraph } from "@diamond/registry/paragraph/paragraph";
+import { PDFViewer } from "@diamond/registry/pdf-viewer/pdf-viewer";
+import { Popconfirm } from "@diamond/registry/popconfirm/popconfirm";
 import { Popover } from "@diamond/registry/popover/popover";
 import { Pricing } from "@diamond/registry/pricing/pricing";
 import { Progress } from "@diamond/registry/progress/progress";
+import { QRCode } from "@diamond/registry/qr-code/qr-code";
 import { Radio } from "@diamond/registry/radio/radio";
 import { Rating } from "@diamond/registry/rating/rating";
+import { RichTextEditor } from "@diamond/registry/rich-text-editor/rich-text-editor";
+import { Scrollspy } from "@diamond/registry/scrollspy/scrollspy";
 import { Select } from "@diamond/registry/select/select";
+import { SignaturePad } from "@diamond/registry/signature-pad/signature-pad";
+import { Sidebar } from "@diamond/registry/sidebar/sidebar";
 import { Skeleton } from "@diamond/registry/skeleton/skeleton";
+import { SkipLink } from "@diamond/registry/skip-link/skip-link";
 import { Slider } from "@diamond/registry/slider/slider";
+import { Spacer } from "@diamond/registry/spacer/spacer";
+import { SplitPane } from "@diamond/registry/split-pane/split-pane";
 import { Spinner } from "@diamond/registry/spinner/spinner";
+import { Stack } from "@diamond/registry/stack/stack";
 import { Statistic } from "@diamond/registry/statistic/statistic";
+import { Stepper } from "@diamond/registry/stepper/stepper";
 import { Switch } from "@diamond/registry/switch/switch";
 import { Table } from "@diamond/registry/table/table";
+import { Tabs } from "@diamond/registry/tabs/tabs";
 import { Tag } from "@diamond/registry/tag/tag";
 import { Textarea } from "@diamond/registry/textarea/textarea";
-import { Timeline } from "@diamond/registry/timeline/timeline";
+import { ThemeSwitcher } from "@diamond/registry/theme-switcher/theme-switcher";
 import { TimePicker } from "@diamond/registry/time-picker/time-picker";
+import { Timeline } from "@diamond/registry/timeline/timeline";
 import { Toast, ToastProvider, useToast } from "@diamond/registry/toast/toast";
 import { Tooltip, TooltipProvider } from "@diamond/registry/tooltip/tooltip";
+import { Tour, TourCard } from "@diamond/registry/tour/tour";
+import { TransferList } from "@diamond/registry/transfer-list/transfer-list";
+import { TreeView } from "@diamond/registry/tree-view/tree-view";
+import { Typography } from "@diamond/registry/typography/typography";
 import { VideoPlayer } from "@diamond/registry/video-player/video-player";
-import type * as React from "react";
+import { VisuallyHidden } from "@diamond/registry/visually-hidden/visually-hidden";
+import * as React from "react";
 
 import type { ComponentDocs, VariantSample } from "@/lib/registry";
 
@@ -77,35 +121,35 @@ export default function VariantGallery({ componentId, documentation }: Props) {
             <TooltipProvider delayDuration={150}>
                 <div className="space-y-12">
                     {groupNames.map((group, gi) => {
-                const variants = groups[group];
-                if (!variants || variants.length === 0) return null;
+                        const variants = groups[group];
+                        if (!variants || variants.length === 0) return null;
 
-                return (
-                    <section key={group}>
-                        <header className="mb-5 flex items-baseline gap-3 border-[var(--diamond-border)] border-b border-dashed pb-3">
-                            <span className="font-mono text-[10px] text-[var(--diamond-muted)] uppercase tracking-[0.16em]">
-                                §{String(gi + 1).padStart(2, "0")}
-                            </span>
-                            <h2 className="font-semibold text-lg tracking-tight">{group}</h2>
-                            <span className="ml-auto font-mono text-[10px] text-[var(--diamond-muted)] uppercase tracking-[0.12em]">
-                                {variants.length} variant{variants.length === 1 ? "" : "s"}
-                            </span>
-                        </header>
+                        return (
+                            <section key={group}>
+                                <header className="mb-5 flex items-baseline gap-3 border-[var(--diamond-border)] border-b border-dashed pb-3">
+                                    <span className="font-mono text-[10px] text-[var(--diamond-muted)] uppercase tracking-[0.16em]">
+                                        §{String(gi + 1).padStart(2, "0")}
+                                    </span>
+                                    <h2 className="font-semibold text-lg tracking-tight">{group}</h2>
+                                    <span className="ml-auto font-mono text-[10px] text-[var(--diamond-muted)] uppercase tracking-[0.12em]">
+                                        {variants.length} variant{variants.length === 1 ? "" : "s"}
+                                    </span>
+                                </header>
 
-                        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-[var(--diamond-border)] bg-[var(--diamond-border)] sm:grid-cols-2 lg:grid-cols-3">
-                            {variants.map((variant) => (
-                                <Card
-                                    key={variant}
-                                    componentId={componentId}
-                                    variant={variant}
-                                    defaultLabel={samples.default}
-                                    sample={samples.perVariant[variant]}
-                                />
-                            ))}
-                        </div>
-                    </section>
-                );
-            })}
+                                <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-[var(--diamond-border)] bg-[var(--diamond-border)] sm:grid-cols-2 lg:grid-cols-3">
+                                    {variants.map((variant) => (
+                                        <Card
+                                            key={variant}
+                                            componentId={componentId}
+                                            variant={variant}
+                                            defaultLabel={samples.default}
+                                            sample={samples.perVariant[variant]}
+                                        />
+                                    ))}
+                                </div>
+                            </section>
+                        );
+                    })}
                 </div>
             </TooltipProvider>
         </ToastProvider>
@@ -159,6 +203,54 @@ const Grad = ({ i = 0 }: { i?: number }) => (
     />
 );
 
+function LayoutCell({
+    children,
+    className,
+    muted = false,
+}: {
+    children?: React.ReactNode;
+    className?: string;
+    muted?: boolean;
+}) {
+    return (
+        <div
+            className={`flex min-h-8 items-center justify-center rounded border border-[var(--diamond-border)] px-2 py-1 font-mono text-[11px] ${
+                muted
+                    ? "bg-[var(--diamond-surface)] text-[var(--diamond-muted)]"
+                    : "bg-[color-mix(in_oklab,var(--diamond-accent)_14%,var(--diamond-surface))] text-[color-mix(in_oklab,var(--diamond-accent)_70%,var(--diamond-ink))]"
+            } ${className ?? ""}`}
+        >
+            {children}
+        </div>
+    );
+}
+
+function LayoutLabel({ children }: { children: React.ReactNode }) {
+    return (
+        <span className="font-mono text-[10px] text-[var(--diamond-muted)] uppercase tracking-[0.12em]">
+            {children}
+        </span>
+    );
+}
+
+const sampleParagraphs: Record<string, string> = {
+    default: "Default body paragraph with comfortable leading and a quiet neutral tone.",
+    editorial: "Editorial prose uses a warmer serif texture and a wider rhythm.",
+    caption: "Secondary caption text for helper copy, timestamps, and metadata.",
+    "drop-cap": "A drop-cap opens the paragraph with a deliberate editorial flourish.",
+    mono: "docs.paragraph() returns a compact monotype block for technical notes.",
+    "pull-quote": "A pull-quote paragraph draws the eye to a single thought.",
+};
+
+const headingText: Record<string, string> = {
+    h1: "Display",
+    h2: "Section title",
+    h3: "Subsection",
+    h4: "Small heading",
+    h5: "Minor title",
+    h6: "Overline",
+};
+
 function Live({ componentId, variant, label, extraProps }: LiveProps) {
     switch (componentId) {
         case "button":
@@ -167,6 +259,643 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                     {label}
                 </Button>
             );
+
+        case "navbar": {
+            const v = variant as "classic" | "tinted" | "search" | "commerce" | "pill" | "terminal";
+            return (
+                <div className="w-[320px]">
+                    <Navbar
+                        variant={v}
+                        brand={v === "terminal" ? "~/diamond" : v === "pill" ? "Halo" : "Diamond"}
+                        action={v === "commerce" ? "Bag (0)" : v === "pill" ? "Launch" : "Sign in"}
+                        items={[
+                            { label: v === "commerce" ? "Shop" : "Home", href: "/components", active: true },
+                            { label: v === "commerce" ? "Journal" : "Docs", href: "/components" },
+                            { label: "Pricing", href: "/components" },
+                        ]}
+                    />
+                </div>
+            );
+        }
+
+        case "sidebar": {
+            const v = variant as "grouped" | "tinted" | "rail" | "workspace" | "editorial" | "counts";
+            return (
+                <Sidebar
+                    variant={v}
+                    brand={v === "workspace" ? "Workspace" : v === "editorial" ? "Journal" : "Diamond"}
+                    items={[
+                        {
+                            label: v === "counts" ? "Inbox" : "Dashboard",
+                            href: "/components",
+                            active: true,
+                            count: v === "counts" ? 12 : undefined,
+                        },
+                        { label: v === "counts" ? "Starred" : "Projects", href: "/components" },
+                        {
+                            label: v === "counts" ? "Snoozed" : "Team",
+                            href: "/components",
+                            count: v === "counts" ? 3 : undefined,
+                        },
+                        {
+                            label: v === "editorial" ? "Archive" : "Settings",
+                            href: "/components",
+                            group: v === "grouped" || v === "workspace" ? "Account" : undefined,
+                        },
+                    ]}
+                />
+            );
+        }
+
+        case "bottom-navigation": {
+            const v = variant as "labeled" | "icons" | "fab" | "active-pill" | "top-indicator" | "active-chip";
+            return (
+                <BottomNavigation
+                    variant={v}
+                    items={[
+                        { label: "Home", icon: "H", href: "/components", active: v !== "fab" },
+                        { label: "Search", icon: "S", href: "/components" },
+                        { label: "Inbox", icon: "I", href: "/components" },
+                        { label: "Me", icon: "M", href: "/components", active: v === "fab" },
+                    ]}
+                />
+            );
+        }
+
+        case "breadcrumbs": {
+            const v = variant as "slash" | "chevron" | "slab" | "filesystem" | "ellipsis" | "editorial";
+            return (
+                <div className="w-[280px]">
+                    <Breadcrumbs
+                        variant={v}
+                        items={[
+                            { label: "Home", href: "/components" },
+                            { label: v === "filesystem" ? "work" : "Projects", href: "/components" },
+                            { label: "Diamond", href: "/components" },
+                            { label: v === "editorial" ? "Profile and Notifications" : "Settings" },
+                        ]}
+                    />
+                </div>
+            );
+        }
+
+        case "pagination": {
+            const v = variant as "numbered" | "simple" | "circular" | "compact" | "jump" | "grouped";
+            return <Pagination variant={v} page={3} totalPages={12} />;
+        }
+
+        case "tabs": {
+            const v = variant as "underline" | "segmented" | "vertical" | "browser" | "pills" | "mono";
+            return (
+                <Tabs
+                    variant={v}
+                    defaultValue={v === "segmented" ? "week" : "overview"}
+                    items={[
+                        {
+                            id: "overview",
+                            label: v === "mono" ? "01 / Intro" : "Overview",
+                            content: "Dashboard overview with key metrics.",
+                        },
+                        {
+                            id: "week",
+                            label: v === "segmented" ? "Week" : "Activity",
+                            content: "Weekly trends and recent activity.",
+                        },
+                        {
+                            id: "settings",
+                            label: v === "browser" ? "Code" : "Settings",
+                            content: "Preference controls.",
+                        },
+                    ]}
+                />
+            );
+        }
+
+        case "stepper": {
+            const v = variant as "horizontal" | "vertical" | "progress" | "numbered" | "segmented" | "editorial";
+            return (
+                <Stepper
+                    variant={v}
+                    currentStep={v === "horizontal" ? 1 : 2}
+                    steps={[
+                        { label: "Account" },
+                        { label: "Details", description: "Add profile details." },
+                        { label: "Review", description: "Confirm choices." },
+                        { label: "Done" },
+                    ]}
+                />
+            );
+        }
+
+        case "link": {
+            const v = variant as "default" | "icon" | "decorative" | "numbered" | "pill" | "editorial";
+            return (
+                <div className="flex flex-col gap-3">
+                    <DiamondLink variant={v} href="/components" data-index="04 ">
+                        {v === "editorial" ? "Read the passage" : label || "Open docs"}
+                    </DiamondLink>
+                    {v === "default" && (
+                        <DiamondLink variant="default" href="/components">
+                            Underlined link
+                        </DiamondLink>
+                    )}
+                </div>
+            );
+        }
+
+        case "menu": {
+            const v = variant as "shortcut" | "grouped" | "accent" | "toggles" | "terminal" | "user";
+            const menuItems =
+                v === "toggles"
+                    ? [
+                          { label: "Notifications", checked: true },
+                          { label: "Sounds", checked: false },
+                          { label: "Auto-save", checked: true },
+                      ]
+                    : [
+                          { label: "Open", icon: "O", shortcut: "Enter", group: v === "grouped" ? "File" : undefined },
+                          { label: "Rename", icon: "R", shortcut: "F2" },
+                          {
+                              label: "Duplicate",
+                              icon: "D",
+                              shortcut: "Ctrl D",
+                              group: v === "grouped" ? "Edit" : undefined,
+                          },
+                          { label: "Delete", icon: "X", danger: true },
+                      ];
+            return <DiamondMenu variant={v} header={v === "user" ? "Aria Chen" : undefined} items={menuItems} />;
+        }
+
+        case "dropdown-menu": {
+            const v = variant as "sort" | "retro" | "searchable" | "pill" | "bulk" | "terminal";
+            return (
+                <div className="min-h-[170px]">
+                    <DropdownMenu
+                        variant={v}
+                        defaultOpen
+                        label={v === "bulk" ? "Bulk actions" : v === "terminal" ? "command" : "Sort"}
+                        items={[{ label: "Newest", active: true }, { label: "Popular" }, { label: "A-Z" }]}
+                    />
+                </div>
+            );
+        }
+
+        case "context-menu": {
+            const v = variant as "standard" | "file" | "tinted" | "compact" | "share" | "git";
+            return (
+                <ContextMenu
+                    variant={v}
+                    defaultOpen
+                    items={[
+                        { label: v === "git" ? "git add" : "Copy", shortcut: "Ctrl C" },
+                        { label: v === "share" ? "Share link" : "Rename" },
+                        { label: v === "file" ? "Move file" : "Duplicate" },
+                        { label: "Delete", danger: true },
+                    ]}
+                />
+            );
+        }
+
+        case "mega-menu": {
+            const v = variant as "saas" | "commerce" | "docs" | "solutions" | "editorial" | "icons";
+            return (
+                <MegaMenu
+                    variant={v}
+                    columns={[
+                        {
+                            title: v === "commerce" ? "Shop" : "Products",
+                            items: [
+                                { label: "Analytics", description: "Dashboards" },
+                                { label: "Automation", description: "Workflows" },
+                            ],
+                        },
+                        {
+                            title: v === "docs" ? "Learn" : "Resources",
+                            items: [{ label: "Docs" }, { label: "API" }, { label: "Guides" }],
+                        },
+                        { title: "Company", items: [{ label: "About" }, { label: "Pricing" }, { label: "Contact" }] },
+                    ]}
+                />
+            );
+        }
+
+        case "tree-view": {
+            const v = variant as "files" | "workspace" | "code" | "counts" | "org" | "phases";
+            const nodes =
+                v === "org"
+                    ? [
+                          { id: "engineering", label: "Engineering", expanded: true, count: 32 },
+                          { id: "frontend", label: "Frontend", depth: 1, count: 8 },
+                          { id: "backend", label: "Backend", depth: 1, count: 12 },
+                          { id: "design", label: "Design", expanded: true, count: 6 },
+                      ]
+                    : v === "phases"
+                      ? [
+                            { id: "q1", label: "Q1 2026", expanded: true },
+                            { id: "research", label: "Research", depth: 1, expanded: true },
+                            { id: "discovery", label: "Discovery", depth: 2, selected: true },
+                            { id: "build", label: "Build", depth: 1 },
+                        ]
+                      : [
+                            { id: "src", label: "src", expanded: true },
+                            { id: "components", label: "components", depth: 1, expanded: true },
+                            {
+                                id: "modal",
+                                label: "Modal.tsx",
+                                depth: 2,
+                                selected: true,
+                                count: v === "counts" ? 3 : undefined,
+                            },
+                            { id: "drawer", label: "Drawer.tsx", depth: 2 },
+                            { id: "hooks", label: "hooks", depth: 1 },
+                        ];
+            return <TreeView variant={v} nodes={nodes} />;
+        }
+
+        case "scrollspy": {
+            const v = variant as "rail" | "pills" | "dots" | "mono" | "badge" | "sliding";
+            return (
+                <Scrollspy
+                    variant={v}
+                    activeId={v === "badge" ? "faq" : "install"}
+                    sections={[
+                        {
+                            id: "overview",
+                            label: v === "mono" ? "01 intro" : "Overview",
+                            content: "Short description here.",
+                        },
+                        { id: "install", label: v === "mono" ? "02 body" : "Install", content: "npm i @diamond/ui" },
+                        { id: "faq", label: "FAQ", content: "Common questions and answers." },
+                    ]}
+                />
+            );
+        }
+
+        case "skip-link": {
+            const v = variant as "standard" | "centered" | "banner" | "outlined" | "multiple" | "annotation";
+            return (
+                <div className="relative min-h-[150px] w-[280px] overflow-hidden rounded-md bg-[var(--diamond-surface-alt)] p-4">
+                    {v === "annotation" && (
+                        <div className="bg-[var(--diamond-ink)] p-1.5 text-center font-mono text-[9px] text-[var(--diamond-surface)] uppercase tracking-[0.1em]">
+                            Hidden until focused
+                        </div>
+                    )}
+                    <SkipLink
+                        variant={v}
+                        href="#main"
+                        targets={
+                            v === "multiple"
+                                ? [
+                                      { label: "Content", href: "#main" },
+                                      { label: "Navigation", href: "#nav" },
+                                      { label: "Footer", href: "#footer" },
+                                  ]
+                                : undefined
+                        }
+                    >
+                        {v === "centered" ? "Jump to content" : "Skip to main content"}
+                    </SkipLink>
+                    <div
+                        id="main"
+                        className="mt-12 rounded border border-[var(--diamond-border)] bg-[var(--diamond-surface)] p-3 text-[11px] text-[var(--diamond-muted)]"
+                    >
+                        Main content area begins here.
+                    </div>
+                </div>
+            );
+        }
+
+        case "box": {
+            const v = variant as "card" | "inverted" | "accent-rail" | "elevated" | "terminal" | "brutalist";
+            if (v === "terminal") {
+                return (
+                    <Box variant={v}>
+                        <div className="text-[var(--diamond-accent)]">$ ls layout/</div>
+                        <div>drwxr-xr-x box</div>
+                        <div>-rw-r--r-- 1.2k</div>
+                    </Box>
+                );
+            }
+            return (
+                <Box variant={v}>
+                    <div className="font-semibold text-[13px]">{label || v}</div>
+                    <div className="mt-1 text-[11px] text-[var(--diamond-muted)]">A reusable layout surface.</div>
+                </Box>
+            );
+        }
+
+        case "container": {
+            const v = variant as "small" | "medium" | "fluid" | "stepped" | "prose" | "ruled";
+            return (
+                <div className="w-[240px] rounded-md border border-[var(--diamond-border)] border-dashed py-3">
+                    <Container variant={v}>
+                        <div className="rounded bg-[var(--diamond-ink)] px-3 py-2 text-center font-mono text-[11px] text-[var(--diamond-surface)]">
+                            {v === "prose" ? "65ch prose" : v === "fluid" ? "100% fluid" : `${v} width`}
+                        </div>
+                    </Container>
+                    <div className="mt-2 text-center">
+                        <LayoutLabel>{v}</LayoutLabel>
+                    </div>
+                </div>
+            );
+        }
+
+        case "grid": {
+            const v = variant as "three-col" | "four-col" | "fractional" | "auto-fit" | "twelve-col" | "masonry";
+            const gridLabels =
+                v === "four-col"
+                    ? ["01", "02", "03", "04", "05", "06", "07", "08"]
+                    : v === "twelve-col"
+                      ? ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+                      : ["1", "2", "3", "4", "5", "6"];
+            return (
+                <div className="w-[240px]">
+                    <Grid variant={v} className={v === "masonry" ? "auto-rows-[22px]" : ""}>
+                        {gridLabels.map((item) => (
+                            <LayoutCell
+                                key={`${v}-${item}`}
+                                className={
+                                    v === "masonry" && (item === "1" || item === "5") ? "row-span-2 min-h-14" : ""
+                                }
+                            >
+                                {v === "auto-fit" ? "auto" : item}
+                            </LayoutCell>
+                        ))}
+                    </Grid>
+                </div>
+            );
+        }
+
+        case "grid-item": {
+            const v = variant as "column-span" | "row-span" | "bento" | "explicit" | "area" | "featured";
+            if (v === "area") {
+                return (
+                    <div
+                        className="grid w-[240px] grid-cols-4 grid-rows-[repeat(3,28px)] gap-1"
+                        style={{ gridTemplateAreas: '"h h h h" "s m m a" "s f f a"' }}
+                    >
+                        <GridItem area="h" variant="featured">
+                            header
+                        </GridItem>
+                        <GridItem area="s">side</GridItem>
+                        <GridItem area="m">main</GridItem>
+                        <GridItem area="a">aside</GridItem>
+                        <GridItem area="f" variant="featured">
+                            footer
+                        </GridItem>
+                    </div>
+                );
+            }
+            return (
+                <div className="grid w-[240px] auto-rows-[32px] grid-cols-4 gap-1">
+                    <GridItem variant={v}>
+                        {v === "explicit" ? "2 / 4" : v === "featured" ? "featured" : "span"}
+                    </GridItem>
+                    {["1", "2", "3", "4", "5", "6", "7"].map((item) => (
+                        <LayoutCell key={`grid-item-${item}`} muted>
+                            {item}
+                        </LayoutCell>
+                    ))}
+                </div>
+            );
+        }
+
+        case "flex": {
+            const v = variant as "row" | "space-between" | "column" | "wrap" | "center" | "baseline";
+            const items = v === "wrap" ? ["React", "Vue", "Svelte", "Solid", "Astro"] : ["A", "B", "C"];
+            return (
+                <div className="w-[240px]">
+                    <Flex variant={v}>
+                        {items.map((item, i) => (
+                            <LayoutCell key={item} className={v === "baseline" ? ["h-8", "h-14", "h-10"][i] : ""}>
+                                {v === "space-between" && i === 0
+                                    ? "Logo"
+                                    : v === "space-between" && i === 1
+                                      ? "Menu"
+                                      : item}
+                            </LayoutCell>
+                        ))}
+                    </Flex>
+                </div>
+            );
+        }
+
+        case "stack": {
+            const v = variant as "tight" | "loose" | "horizontal" | "divided" | "indented" | "separated";
+            return (
+                <div className="w-[240px]">
+                    <Stack variant={v}>
+                        {["Title", "Subtitle", "Body text", "Meta"].map((item, i) => (
+                            <LayoutCell key={item} muted={v === "divided" || v === "separated"}>
+                                {v === "indented" ? `step ${i + 1}` : item}
+                            </LayoutCell>
+                        ))}
+                    </Stack>
+                </div>
+            );
+        }
+
+        case "center": {
+            const v = variant as "flex" | "crosshair" | "column" | "grid" | "absolute" | "margin";
+            return (
+                <div className="w-[220px]">
+                    <Center variant={v}>
+                        {v === "column" ? (
+                            <>
+                                <LayoutCell>A</LayoutCell>
+                                <LayoutCell>B</LayoutCell>
+                            </>
+                        ) : (
+                            <LayoutCell>{v}</LayoutCell>
+                        )}
+                    </Center>
+                </div>
+            );
+        }
+
+        case "divider": {
+            const v = variant as "soft" | "strong" | "dashed" | "labeled" | "ornament" | "vertical";
+            if (v === "vertical") {
+                return (
+                    <div className="flex h-20 items-stretch gap-3 text-[12px]">
+                        <span>left</span>
+                        <Divider variant={v} />
+                        <span>mid</span>
+                        <Divider variant={v} />
+                        <span>right</span>
+                    </div>
+                );
+            }
+            return (
+                <div className="w-[220px] space-y-3 text-[12px]">
+                    <div className="text-[var(--diamond-muted)]">above</div>
+                    <Divider variant={v} label={label || "OR"} />
+                    <div className="text-[var(--diamond-muted)]">below</div>
+                </div>
+            );
+        }
+
+        case "spacer": {
+            const v = variant as "fill" | "push-end" | "vertical-fill" | "scale" | "nav" | "between";
+            if (v === "vertical-fill") {
+                return (
+                    <div className="flex h-28 w-[180px] flex-col rounded-md border border-[var(--diamond-border)] p-2">
+                        <LayoutCell>top</LayoutCell>
+                        <Spacer variant={v} />
+                        <LayoutCell>bottom</LayoutCell>
+                    </div>
+                );
+            }
+            if (v === "scale") {
+                return (
+                    <div className="flex w-[180px] flex-col gap-2">
+                        {[4, 16, 32].map((size) => (
+                            <div key={size} className="flex items-center gap-2">
+                                <LayoutLabel>{size}px</LayoutLabel>
+                                <Spacer variant="scale" size={size} className="rounded bg-[var(--diamond-accent)]" />
+                            </div>
+                        ))}
+                    </div>
+                );
+            }
+            return (
+                <div className="flex w-[240px] items-center rounded-md border border-[var(--diamond-border)] p-2">
+                    <LayoutCell>A</LayoutCell>
+                    <Spacer variant={v} className={v === "nav" ? "mx-2 min-h-8" : ""} />
+                    <LayoutCell>{v === "push-end" ? "B" : "C"}</LayoutCell>
+                </div>
+            );
+        }
+
+        case "aspect-ratio": {
+            const v = variant as "video" | "square" | "portrait" | "cinematic" | "photo" | "social";
+            return (
+                <div className="w-[220px]">
+                    <AspectRatio variant={v} className="border border-[var(--diamond-border)]">
+                        <div className="flex size-full items-center justify-center bg-[var(--diamond-ink)] text-[var(--diamond-surface)]">
+                            <div className="text-center">
+                                <div className="font-mono text-lg">
+                                    {v === "video"
+                                        ? "16:9"
+                                        : v === "square"
+                                          ? "1:1"
+                                          : v === "portrait"
+                                            ? "3:4"
+                                            : v === "cinematic"
+                                              ? "21:9"
+                                              : v === "photo"
+                                                ? "3:2"
+                                                : "4:5"}
+                                </div>
+                                <LayoutLabel>{v}</LayoutLabel>
+                            </div>
+                        </div>
+                    </AspectRatio>
+                </div>
+            );
+        }
+
+        case "typography": {
+            const v = variant as "scale" | "code" | "weights" | "decorations" | "quote" | "eyebrow";
+            return <Typography variant={v} />;
+        }
+
+        case "heading": {
+            const v = variant as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+            return (
+                <div className="w-[240px]">
+                    <LayoutLabel>{`<${v}>`}</LayoutLabel>
+                    <Heading variant={v} className="mt-1">
+                        {headingText[v]}
+                    </Heading>
+                </div>
+            );
+        }
+
+        case "paragraph": {
+            const v = variant as "default" | "editorial" | "caption" | "drop-cap" | "mono" | "pull-quote";
+            return (
+                <div className="w-[240px]">
+                    <Paragraph variant={v}>{sampleParagraphs[v]}</Paragraph>
+                </div>
+            );
+        }
+
+        case "visually-hidden": {
+            const v = variant as "icon-label" | "field-label" | "skip-link" | "status" | "list-bound" | "live-status";
+            if (v === "field-label") {
+                return (
+                    <div className="space-y-2">
+                        <VisuallyHidden as="label" htmlFor="layout-gallery-hidden-search" variant={v}>
+                            Search the site
+                        </VisuallyHidden>
+                        <input
+                            id="layout-gallery-hidden-search"
+                            className="h-9 rounded-md border border-[var(--diamond-border)] bg-[var(--diamond-surface)] px-3 text-sm"
+                            placeholder="Search"
+                            type="search"
+                        />
+                        <LayoutLabel>visual-less label</LayoutLabel>
+                    </div>
+                );
+            }
+            if (v === "skip-link") {
+                return (
+                    <div className="space-y-2 text-center">
+                        <VisuallyHidden as="a" href="#main" variant={v}>
+                            Skip to content
+                        </VisuallyHidden>
+                        <LayoutCell>focus reveals skip link</LayoutCell>
+                    </div>
+                );
+            }
+            if (v === "status") {
+                return (
+                    <div className="flex items-center gap-2">
+                        <span className="size-2 rounded-full bg-emerald-500" aria-hidden="true" />
+                        <span className="text-sm">Online</span>
+                        <VisuallyHidden variant={v}>Status: online</VisuallyHidden>
+                    </div>
+                );
+            }
+            if (v === "list-bound") {
+                return (
+                    <div className="text-sm">
+                        <h3 className="mb-1 font-semibold">Top posts</h3>
+                        <ol className="list-decimal pl-5 text-[var(--diamond-muted)]">
+                            <li>Article one</li>
+                            <li>Article two</li>
+                        </ol>
+                        <VisuallyHidden variant={v}>End of list</VisuallyHidden>
+                    </div>
+                );
+            }
+            if (v === "live-status") {
+                return (
+                    <div className="space-y-2" role="status" aria-live="polite">
+                        <div className="font-mono text-[12px] text-[var(--diamond-muted)]">
+                            <VisuallyHidden variant={v}>Loading status: </VisuallyHidden>
+                            42% complete
+                        </div>
+                        <div className="h-1.5 w-32 overflow-hidden rounded-full bg-[var(--diamond-surface-alt)]">
+                            <div className="h-full w-[42%] bg-[var(--diamond-accent)]" />
+                        </div>
+                    </div>
+                );
+            }
+            return (
+                <div className="space-y-2 text-center">
+                    <button
+                        type="button"
+                        className="inline-flex size-10 items-center justify-center rounded-full bg-[var(--diamond-accent)] font-semibold text-white"
+                    >
+                        <span aria-hidden="true">x</span>
+                        <VisuallyHidden variant={v}>Close dialog</VisuallyHidden>
+                    </button>
+                    <LayoutLabel>screen reader label</LayoutLabel>
+                </div>
+            );
+        }
 
         case "avatar": {
             const v = variant as "solid" | "colored" | "square" | "status" | "ring" | "image";
@@ -1563,9 +2292,7 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
             return (
                 <div className="flex flex-col items-center gap-2">
                     <Spinner variant={v} size="lg" value={65} />
-                    {v === "ring" ? (
-                        <span className="text-[var(--diamond-muted)] text-[11px]">Loading…</span>
-                    ) : null}
+                    {v === "ring" ? <span className="text-[11px] text-[var(--diamond-muted)]">Loading…</span> : null}
                 </div>
             );
         }
@@ -1580,13 +2307,7 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
         }
 
         case "empty-state": {
-            const v = variant as
-                | "inbox"
-                | "cta"
-                | "no-results"
-                | "dropzone"
-                | "editorial"
-                | "caught-up";
+            const v = variant as "inbox" | "cta" | "no-results" | "dropzone" | "editorial" | "caught-up";
             const COPY: Record<typeof v, { title: string; desc: string; cta?: string }> = {
                 inbox: {
                     title: "No messages yet",
@@ -1625,13 +2346,7 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
         }
 
         case "error-state": {
-            const v = variant as
-                | "not-found"
-                | "server"
-                | "broken"
-                | "connection"
-                | "terminal"
-                | "friendly";
+            const v = variant as "not-found" | "server" | "broken" | "connection" | "terminal" | "friendly";
             const COPY: Record<typeof v, { title: string; desc: string }> = {
                 "not-found": { title: "Page not found", desc: "The page you're looking for doesn't exist." },
                 server: { title: "Server error", desc: "Something went wrong. Our team has been notified." },
@@ -1660,23 +2375,13 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                         <div className="h-1.5 w-4/5 rounded-full bg-[var(--diamond-border)]" />
                         <div className="h-1.5 w-2/5 rounded-full bg-[var(--diamond-border)]" />
                     </div>
-                    <OfflineIndicator
-                        variant={v}
-                        visible
-                        className="absolute"
-                    />
+                    <OfflineIndicator variant={v} visible className="absolute" />
                 </div>
             );
         }
 
         case "notification-center": {
-            const v = variant as
-                | "classic"
-                | "tabbed"
-                | "grouped"
-                | "dark"
-                | "calendar"
-                | "banner";
+            const v = variant as "classic" | "tabbed" | "grouped" | "dark" | "calendar" | "banner";
             const baseItems = [
                 {
                     id: "n1",
@@ -1738,8 +2443,7 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                                 description: "Production · v2.4.0",
                                 time: "10m ago",
                                 avatar: "✓",
-                                avatarBg:
-                                    "color-mix(in oklab, #10b981 20%, white)",
+                                avatarBg: "color-mix(in oklab, #10b981 20%, white)",
                                 avatarColor: "#10b981",
                             },
                             {
@@ -1748,8 +2452,7 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                                 description: "Invoice due in 3 days",
                                 time: "1h ago",
                                 avatar: "!",
-                                avatarBg:
-                                    "color-mix(in oklab, #f59e0b 20%, white)",
+                                avatarBg: "color-mix(in oklab, #f59e0b 20%, white)",
                                 avatarColor: "#f59e0b",
                             },
                         ]}
@@ -1839,13 +2542,7 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
         }
 
         case "tooltip": {
-            const v = variant as
-                | "label"
-                | "shortcut"
-                | "rich"
-                | "accent"
-                | "light"
-                | "status";
+            const v = variant as "label" | "shortcut" | "rich" | "accent" | "light" | "status";
             const triggers: Record<typeof v, React.ReactNode> = {
                 label: "Hover me",
                 shortcut: "⌘",
@@ -1884,13 +2581,7 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
         }
 
         case "popover": {
-            const v = variant as
-                | "panel"
-                | "filter"
-                | "share"
-                | "picker"
-                | "menu"
-                | "mentions";
+            const v = variant as "panel" | "filter" | "share" | "picker" | "menu" | "mentions";
             const triggers: Record<typeof v, string> = {
                 panel: "Profile ▾",
                 filter: "Filters ▾",
@@ -1905,7 +2596,7 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                     <>
                         <h5 className="font-semibold text-[12px]">Aria Chen</h5>
                         <p className="mb-2 text-[11px] text-[var(--diamond-muted)]">aria@team.co · Admin</p>
-                        <div className="flex gap-1.5 border-t border-[var(--diamond-border)] pt-2">
+                        <div className="flex gap-1.5 border-[var(--diamond-border)] border-t pt-2">
                             <button
                                 type="button"
                                 className="flex-1 rounded bg-[var(--diamond-surface-alt)] py-1 text-[11px]"
@@ -1965,7 +2656,16 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                     <>
                         <h5 className="mb-1.5 font-semibold text-[12px]">Color</h5>
                         <div className="grid grid-cols-4 gap-1">
-                            {["#2b7fff", "#e11d48", "#10b981", "#f59e0b", "#8b5cf6", "#ec4899", "#14b8a6", "#1a1917"].map((c) => (
+                            {[
+                                "#2b7fff",
+                                "#e11d48",
+                                "#10b981",
+                                "#f59e0b",
+                                "#8b5cf6",
+                                "#ec4899",
+                                "#14b8a6",
+                                "#1a1917",
+                            ].map((c) => (
                                 <button
                                     key={c}
                                     type="button"
@@ -1980,18 +2680,27 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
             } else if (v === "menu") {
                 body = (
                     <>
-                        <button type="button" className="block w-full rounded px-2 py-1.5 text-left text-[11px] hover:bg-[var(--diamond-surface-alt)]">
+                        <button
+                            type="button"
+                            className="block w-full rounded px-2 py-1.5 text-left text-[11px] hover:bg-[var(--diamond-surface-alt)]"
+                        >
                             ✏ Edit
                         </button>
-                        <button type="button" className="block w-full rounded px-2 py-1.5 text-left text-[11px] hover:bg-[var(--diamond-surface-alt)]">
+                        <button
+                            type="button"
+                            className="block w-full rounded px-2 py-1.5 text-left text-[11px] hover:bg-[var(--diamond-surface-alt)]"
+                        >
                             ⎘ Duplicate
                         </button>
-                        <button type="button" className="block w-full rounded px-2 py-1.5 text-left text-[11px] hover:bg-[var(--diamond-surface-alt)]">
+                        <button
+                            type="button"
+                            className="block w-full rounded px-2 py-1.5 text-left text-[11px] hover:bg-[var(--diamond-surface-alt)]"
+                        >
                             📎 Archive
                         </button>
                         <button
                             type="button"
-                            className="mt-1 block w-full rounded border-t border-[var(--diamond-border)] px-2 py-1.5 text-left text-[11px] text-rose-600 hover:bg-[var(--diamond-surface-alt)]"
+                            className="mt-1 block w-full rounded border-[var(--diamond-border)] border-t px-2 py-1.5 text-left text-[11px] text-rose-600 hover:bg-[var(--diamond-surface-alt)]"
                         >
                             🗑 Delete
                         </button>
@@ -2002,14 +2711,18 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                     <>
                         <h5 className="mb-1.5 font-semibold text-[12px]">Mentioned you</h5>
                         <div className="flex gap-1.5 py-1.5 text-[11px]">
-                            <div className="flex size-5 items-center justify-center rounded-full bg-[var(--diamond-surface-alt)] text-[10px]">J</div>
+                            <div className="flex size-5 items-center justify-center rounded-full bg-[var(--diamond-surface-alt)] text-[10px]">
+                                J
+                            </div>
                             <div>
                                 <b>Jay</b> · 2h
                                 <div className="text-[10px] text-[var(--diamond-muted)]">"check this out"</div>
                             </div>
                         </div>
-                        <div className="flex gap-1.5 border-t border-[var(--diamond-border)] py-1.5 text-[11px]">
-                            <div className="flex size-5 items-center justify-center rounded-full bg-[var(--diamond-surface-alt)] text-[10px]">L</div>
+                        <div className="flex gap-1.5 border-[var(--diamond-border)] border-t py-1.5 text-[11px]">
+                            <div className="flex size-5 items-center justify-center rounded-full bg-[var(--diamond-surface-alt)] text-[10px]">
+                                L
+                            </div>
                             <div>
                                 <b>Leo</b> · 1d
                                 <div className="text-[10px] text-[var(--diamond-muted)]">"ship it?"</div>
@@ -2037,13 +2750,7 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
         }
 
         case "toast": {
-            const v = variant as
-                | "success"
-                | "undo"
-                | "progress"
-                | "error"
-                | "minimal"
-                | "action";
+            const v = variant as "success" | "undo" | "progress" | "error" | "minimal" | "action";
             return <ToastDemo variant={v} label={label} />;
         }
 
@@ -2052,33 +2759,64 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
             if (variant === "mask") {
                 return <Input variant={v} mask="(###) ###-####" defaultValue="555 123 4567" />;
             }
-            return <Input variant={v} placeholder={label || "Type here…"} defaultValue={variant === "currency" ? "29.00" : variant === "terminal-number" ? "42" : variant === "digits" || variant === "pick-one-to-nine" ? "" : ""} />;
+            return (
+                <Input
+                    variant={v}
+                    placeholder={label || "Type here…"}
+                    defaultValue={
+                        variant === "currency"
+                            ? "29.00"
+                            : variant === "terminal-number"
+                              ? "42"
+                              : variant === "digits" || variant === "pick-one-to-nine"
+                                ? ""
+                                : ""
+                    }
+                />
+            );
         }
 
         case "textarea": {
             const v = variant as "classic" | "auto" | "counter" | "toolbar" | "markdown" | "ghost";
-            return <Textarea variant={v} placeholder={label || "Write something…"} defaultValue={v === "markdown" ? "# Heading\n\nMarkdown" : v === "counter" ? "Hello world" : undefined} />;
+            return (
+                <Textarea
+                    variant={v}
+                    placeholder={label || "Write something…"}
+                    defaultValue={
+                        v === "markdown" ? "# Heading\n\nMarkdown" : v === "counter" ? "Hello world" : undefined
+                    }
+                />
+            );
         }
 
         case "checkbox": {
             const v = variant as never;
             const groupVariants = ["stacked", "card-grid", "pills", "select-all", "days", "priced-rows"];
             if (groupVariants.includes(variant)) {
-                const items = variant === "days"
-                    ? ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((d) => ({ id: d, label: d }))
-                    : variant === "priced-rows"
-                      ? [
-                            { id: "a", label: "Essentials", trailing: "Free" },
-                            { id: "b", label: "Pro tools", trailing: "$9" },
-                            { id: "c", label: "Team seats", trailing: "$24" },
-                        ]
-                      : [
-                            { id: "a", label: "Design" },
-                            { id: "b", label: "Code" },
-                            { id: "c", label: "Write" },
-                            { id: "d", label: "Ship" },
-                        ];
-                return <Checkbox variant={v} items={items} defaultValue={variant === "priced-rows" ? ["a", "b"] : variant === "days" ? ["Mo", "We", "Fr"] : ["a"]} />;
+                const items =
+                    variant === "days"
+                        ? ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((d) => ({ id: d, label: d }))
+                        : variant === "priced-rows"
+                          ? [
+                                { id: "a", label: "Essentials", trailing: "Free" },
+                                { id: "b", label: "Pro tools", trailing: "$9" },
+                                { id: "c", label: "Team seats", trailing: "$24" },
+                            ]
+                          : [
+                                { id: "a", label: "Design" },
+                                { id: "b", label: "Code" },
+                                { id: "c", label: "Write" },
+                                { id: "d", label: "Ship" },
+                            ];
+                return (
+                    <Checkbox
+                        variant={v}
+                        items={items}
+                        defaultValue={
+                            variant === "priced-rows" ? ["a", "b"] : variant === "days" ? ["Mo", "We", "Fr"] : ["a"]
+                        }
+                    />
+                );
             }
             return <Checkbox variant={v} defaultChecked={variant !== "x-mark"} label={label || "Accept terms"} />;
         }
@@ -2087,36 +2825,57 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
             const v = variant as never;
             const groupVariants = ["vertical", "plan-cards", "segmented-bar", "icon-grid", "scale", "stacked-list"];
             if (groupVariants.includes(variant)) {
-                const items = variant === "plan-cards"
-                    ? [
-                          { id: "a", label: "Starter", description: "For hobby", trailing: "$0" },
-                          { id: "b", label: "Team", description: "For pros", trailing: "$49" },
-                      ]
-                    : variant === "icon-grid"
-                      ? [
-                            { id: "a", label: "Sun", icon: "☀" },
-                            { id: "b", label: "Half", icon: "◐" },
-                            { id: "c", label: "Moon", icon: "☾" },
-                        ]
-                      : variant === "scale"
-                        ? [1, 2, 3, 4, 5].map((n) => ({ id: String(n), label: String(n) }))
-                        : variant === "segmented-bar"
-                          ? ["Grid", "List", "Kanban"].map((k) => ({ id: k, label: k }))
-                          : variant === "stacked-list"
-                            ? ["Email", "SMS", "Push", "None"].map((k) => ({ id: k, label: k }))
-                            : [
-                                  { id: "m", label: "Monthly" },
-                                  { id: "q", label: "Quarterly" },
-                                  { id: "y", label: "Yearly" },
-                              ];
-                return <Radio variant={v} items={items} defaultValue={variant === "scale" ? "2" : variant === "icon-grid" ? "a" : variant === "stacked-list" ? "SMS" : variant === "segmented-bar" ? "List" : variant === "plan-cards" ? "a" : "m"} />;
+                const items =
+                    variant === "plan-cards"
+                        ? [
+                              { id: "a", label: "Starter", description: "For hobby", trailing: "$0" },
+                              { id: "b", label: "Team", description: "For pros", trailing: "$49" },
+                          ]
+                        : variant === "icon-grid"
+                          ? [
+                                { id: "a", label: "Sun", icon: "☀" },
+                                { id: "b", label: "Half", icon: "◐" },
+                                { id: "c", label: "Moon", icon: "☾" },
+                            ]
+                          : variant === "scale"
+                            ? [1, 2, 3, 4, 5].map((n) => ({ id: String(n), label: String(n) }))
+                            : variant === "segmented-bar"
+                              ? ["Grid", "List", "Kanban"].map((k) => ({ id: k, label: k }))
+                              : variant === "stacked-list"
+                                ? ["Email", "SMS", "Push", "None"].map((k) => ({ id: k, label: k }))
+                                : [
+                                      { id: "m", label: "Monthly" },
+                                      { id: "q", label: "Quarterly" },
+                                      { id: "y", label: "Yearly" },
+                                  ];
+                return (
+                    <Radio
+                        variant={v}
+                        items={items}
+                        defaultValue={
+                            variant === "scale"
+                                ? "2"
+                                : variant === "icon-grid"
+                                  ? "a"
+                                  : variant === "stacked-list"
+                                    ? "SMS"
+                                    : variant === "segmented-bar"
+                                      ? "List"
+                                      : variant === "plan-cards"
+                                        ? "a"
+                                        : "m"
+                        }
+                    />
+                );
             }
             return <Radio variant={v} defaultChecked label={label || "Option"} />;
         }
 
         case "switch": {
             const v = variant as "classic" | "square" | "with-label" | "ios" | "bi-state" | "industrial";
-            return <Switch variant={v} defaultChecked label={v === "with-label" ? (label || "Notifications") : undefined} />;
+            return (
+                <Switch variant={v} defaultChecked label={v === "with-label" ? label || "Notifications" : undefined} />
+            );
         }
 
         case "select": {
@@ -2126,25 +2885,36 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                 { value: "eng", label: "Engineering" },
                 { value: "ops", label: "Operations" },
             ];
-            const opts = v === "avatars"
-                ? [
-                      { value: "ac", label: "Aria Chen", leading: "A" },
-                      { value: "lr", label: "Leo Reyes", leading: "L", leadingColor: "color-mix(in oklab, #8b7355 30%, white)" },
-                      { value: "mt", label: "Mei Tan", leading: "M", leadingColor: "color-mix(in oklab, #10b981 30%, white)" },
-                  ]
-                : v === "flags"
-                  ? [
-                        { value: "br", label: "Brazil", flag: "🇧🇷" },
-                        { value: "us", label: "United States", flag: "🇺🇸" },
-                        { value: "jp", label: "Japan", flag: "🇯🇵" },
-                    ]
-                  : v === "terminal"
+            const opts =
+                v === "avatars"
                     ? [
-                          { value: "prod", label: "production" },
-                          { value: "stage", label: "staging" },
-                          { value: "dev", label: "dev" },
+                          { value: "ac", label: "Aria Chen", leading: "A" },
+                          {
+                              value: "lr",
+                              label: "Leo Reyes",
+                              leading: "L",
+                              leadingColor: "color-mix(in oklab, #8b7355 30%, white)",
+                          },
+                          {
+                              value: "mt",
+                              label: "Mei Tan",
+                              leading: "M",
+                              leadingColor: "color-mix(in oklab, #10b981 30%, white)",
+                          },
                       ]
-                    : baseOptions;
+                    : v === "flags"
+                      ? [
+                            { value: "br", label: "Brazil", flag: "🇧🇷" },
+                            { value: "us", label: "United States", flag: "🇺🇸" },
+                            { value: "jp", label: "Japan", flag: "🇯🇵" },
+                        ]
+                      : v === "terminal"
+                        ? [
+                              { value: "prod", label: "production" },
+                              { value: "stage", label: "staging" },
+                              { value: "dev", label: "dev" },
+                          ]
+                        : baseOptions;
             return <Select variant={v} options={opts} defaultValue={opts[0].value} placeholder={label || "Choose…"} />;
         }
 
@@ -2156,40 +2926,65 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                 { value: "write", label: "Write" },
                 { value: "ship", label: "Ship" },
             ];
-            return <MultiSelect variant={v} options={opts} defaultValue={["design", "code"]} placeholder={label || "Add…"} />;
+            return (
+                <MultiSelect
+                    variant={v}
+                    options={opts}
+                    defaultValue={["design", "code"]}
+                    placeholder={label || "Add…"}
+                />
+            );
         }
 
         case "autocomplete": {
             const v = variant as "basic" | "hints" | "recents" | "mentions" | "slash" | "ghost";
-            const items = v === "slash"
-                ? [
-                      { value: "image", label: "Insert image", description: "Add a photo", hint: "/img" },
-                      { value: "table", label: "Insert table", description: "Add rows × cols", hint: "/tbl" },
-                      { value: "code", label: "Code block", description: "Add a snippet", hint: "/code" },
-                  ]
-                : v === "mentions"
-                  ? [
-                        { value: "aria", label: "Aria Chen", description: "Design" },
-                        { value: "leo", label: "Leo Reyes", description: "Engineering" },
-                        { value: "mei", label: "Mei Tan", description: "Ops" },
-                    ]
-                  : ["Apple", "Apricot", "Banana", "Blackberry", "Cherry", "Coconut"].map((n) => ({
-                        value: n,
-                        label: n,
-                        description: v === "hints" ? "fruit" : undefined,
-                        hint: v === "basic" ? "↵" : undefined,
-                    }));
+            const items =
+                v === "slash"
+                    ? [
+                          { value: "image", label: "Insert image", description: "Add a photo", hint: "/img" },
+                          { value: "table", label: "Insert table", description: "Add rows × cols", hint: "/tbl" },
+                          { value: "code", label: "Code block", description: "Add a snippet", hint: "/code" },
+                      ]
+                    : v === "mentions"
+                      ? [
+                            { value: "aria", label: "Aria Chen", description: "Design" },
+                            { value: "leo", label: "Leo Reyes", description: "Engineering" },
+                            { value: "mei", label: "Mei Tan", description: "Ops" },
+                        ]
+                      : ["Apple", "Apricot", "Banana", "Blackberry", "Cherry", "Coconut"].map((n) => ({
+                            value: n,
+                            label: n,
+                            description: v === "hints" ? "fruit" : undefined,
+                            hint: v === "basic" ? "↵" : undefined,
+                        }));
             const recents = ["Cherry", "Banana"].map((n) => ({ value: n, label: n }));
-            return <Autocomplete variant={v} items={items} recents={recents} placeholder={label || "Type to search…"} />;
+            return (
+                <Autocomplete variant={v} items={items} recents={recents} placeholder={label || "Type to search…"} />
+            );
         }
 
         case "slider": {
             const v = variant as never;
-            const rangeVariants = ["range", "range-thick", "range-bubbles", "range-fields", "range-histogram", "range-mono"];
+            const rangeVariants = [
+                "range",
+                "range-thick",
+                "range-bubbles",
+                "range-fields",
+                "range-histogram",
+                "range-mono",
+            ];
             if (rangeVariants.includes(variant)) {
                 return <Slider variant={v} defaultValue={[25, 75]} min={0} max={100} />;
             }
-            return <Slider variant={v} defaultValue={variant === "gradient" ? 60 : 50} min={0} max={100} steps={variant === "stepped" ? 6 : undefined} />;
+            return (
+                <Slider
+                    variant={v}
+                    defaultValue={variant === "gradient" ? 60 : 50}
+                    min={0}
+                    max={100}
+                    steps={variant === "stepped" ? 6 : undefined}
+                />
+            );
         }
 
         case "file-input": {
@@ -2200,9 +2995,23 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
         case "dropzone": {
             const v = variant as "classic" | "compact-row" | "grid-slots" | "with-progress" | "hatched" | "circular";
             if (v === "with-progress") {
-                return <Dropzone variant={v} title={label || "Uploading…"} description="atlas.zip" progress={45} progressFile="atlas.zip" />;
+                return (
+                    <Dropzone
+                        variant={v}
+                        title={label || "Uploading…"}
+                        description="atlas.zip"
+                        progress={45}
+                        progressFile="atlas.zip"
+                    />
+                );
             }
-            return <Dropzone variant={v} title={label || "Drop files here"} description={v === "compact-row" ? "or click" : v === "circular" ? undefined : "or click to browse"} />;
+            return (
+                <Dropzone
+                    variant={v}
+                    title={label || "Drop files here"}
+                    description={v === "compact-row" ? "or click" : v === "circular" ? undefined : "or click to browse"}
+                />
+            );
         }
 
         case "date-picker": {
@@ -2216,7 +3025,13 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
         }
 
         case "date-range-picker": {
-            const v = variant as "pill-span" | "calendar-range" | "presets" | "twin-native" | "stacked-cards" | "duration-bar";
+            const v = variant as
+                | "pill-span"
+                | "calendar-range"
+                | "presets"
+                | "twin-native"
+                | "stacked-cards"
+                | "duration-bar";
             return <DateRangePicker variant={v} defaultValue={{ start: "2026-04-08", end: "2026-04-22" }} />;
         }
 
@@ -2227,12 +3042,25 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
 
         case "rating": {
             const v = variant as "stars" | "big-stars" | "hearts" | "scale-10" | "emoji" | "gradient";
-            return <Rating variant={v} defaultValue={v === "scale-10" ? 7 : v === "gradient" ? 3 : v === "emoji" ? 4 : 3.5} allowHalf={v === "stars" || v === "big-stars"} />;
+            return (
+                <Rating
+                    variant={v}
+                    defaultValue={v === "scale-10" ? 7 : v === "gradient" ? 3 : v === "emoji" ? 4 : 3.5}
+                    allowHalf={v === "stars" || v === "big-stars"}
+                />
+            );
         }
 
         case "otp-input": {
             const v = variant as "classic" | "underlined" | "big-xl" | "dashed" | "terminal" | "readonly";
-            return <OTPInput variant={v} length={6} splitAfter={v === "dashed" ? 3 : undefined} defaultValue={v === "readonly" ? "284619" : "284"} />;
+            return (
+                <OTPInput
+                    variant={v}
+                    length={6}
+                    splitAfter={v === "dashed" ? 3 : undefined}
+                    defaultValue={v === "readonly" ? "284619" : "284"}
+                />
+            );
         }
 
         case "form-field": {
@@ -2243,7 +3071,12 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
             if (labelVars.includes(v)) {
                 return (
                     <div className="flex w-full max-w-[260px] flex-col gap-1.5">
-                        <FormLabel variant={v as never} required={v === "required"} badge={v === "badge" ? "PRO" : undefined} tags={v === "tags" ? ["v3", "beta"] : undefined}>
+                        <FormLabel
+                            variant={v as never}
+                            required={v === "required"}
+                            badge={v === "badge" ? "PRO" : undefined}
+                            tags={v === "tags" ? ["v3", "beta"] : undefined}
+                        >
                             {label || "Email"}
                         </FormLabel>
                         <Input variant="classic" placeholder="you@team.co" />
@@ -2255,7 +3088,10 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                     <div className="flex w-full max-w-[260px] flex-col gap-1.5">
                         <FormLabel>Email</FormLabel>
                         <Input variant="classic" placeholder="you@team.co" />
-                        <FormHelper variant={v as never} counter={v === "counter" ? { current: 24, max: 280 } : undefined}>
+                        <FormHelper
+                            variant={v as never}
+                            counter={v === "counter" ? { current: 24, max: 280 } : undefined}
+                        >
                             {label}
                         </FormHelper>
                     </div>
@@ -2266,7 +3102,11 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                     <div className="flex w-full max-w-[260px] flex-col gap-1.5">
                         <FormLabel>Email</FormLabel>
                         <Input variant="classic" invalid placeholder="you@team.co" defaultValue="not-an-email" />
-                        <FormError variant={v as never} code={v === "code" ? "ERR_SCHEMA" : undefined} detail={v === "ticked" ? "Try again later." : undefined}>
+                        <FormError
+                            variant={v as never}
+                            code={v === "code" ? "ERR_SCHEMA" : undefined}
+                            detail={v === "ticked" ? "Try again later." : undefined}
+                        >
                             {label}
                         </FormError>
                     </div>
@@ -2321,7 +3161,13 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
             }
             if (v === "stepped") {
                 return (
-                    <Form variant={v} step={2} steps={3} title={label || "Onboarding"} description="Tell us about your team.">
+                    <Form
+                        variant={v}
+                        step={2}
+                        steps={3}
+                        title={label || "Onboarding"}
+                        description="Tell us about your team."
+                    >
                         <FormField title="Team name">
                             <Input variant="classic" placeholder="Atlas Co." />
                         </FormField>
@@ -2361,7 +3207,17 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                 );
             }
             return (
-                <Form variant={v} title={label || "Sign in"} description="Welcome back." footer={<><span>New here?</span><span className="text-[var(--diamond-accent)] underline">Create account</span></>}>
+                <Form
+                    variant={v}
+                    title={label || "Sign in"}
+                    description="Welcome back."
+                    footer={
+                        <>
+                            <span>New here?</span>
+                            <span className="text-[var(--diamond-accent)] underline">Create account</span>
+                        </>
+                    }
+                >
                     <FormField title="Email">
                         <Input variant="classic" placeholder="you@team.co" />
                     </FormField>
@@ -2374,11 +3230,482 @@ function Live({ componentId, variant, label, extraProps }: LiveProps) {
                 </Form>
             );
         }
+
+        case "dialog": {
+            const v = variant as "standard" | "success" | "dark" | "header-footer" | "editorial" | "brutalist";
+            return (
+                <Dialog
+                    variant={v}
+                    trigger={<OverlayTrigger label="Open dialog" />}
+                    title={label || "Invite teammates"}
+                    description={v === "success" ? "Your subscription is now active." : v === "header-footer" ? undefined : v === "dark" ? "For media-rich or cinematic contexts." : v === "editorial" ? "Left-rail accent with quiet mono caption." : v === "brutalist" ? "Hard edges, hard shadow. No fuss." : "Enter emails to send collaboration invites."}
+                    kicker={v === "editorial" ? "DIALOG · 01" : undefined}
+                    actions={
+                        <>
+                            {v !== "success" && v !== "brutalist" ? <button type="button" className="inline-flex h-9 cursor-pointer items-center rounded-md border border-[var(--diamond-border)] bg-[var(--diamond-surface)] px-3 font-medium text-[var(--diamond-ink)] text-[13px]">Cancel</button> : null}
+                            <button type="button" className={v === "brutalist" ? "inline-flex h-9 cursor-pointer items-center rounded-none bg-[var(--diamond-ink)] px-3 font-mono font-semibold text-[var(--diamond-surface)] text-[12px]" : v === "success" ? "inline-flex h-9 w-full cursor-pointer items-center justify-center rounded-md bg-[var(--diamond-accent)] px-3 font-medium text-[var(--diamond-on-accent,white)] text-[13px]" : "inline-flex h-9 cursor-pointer items-center rounded-md bg-[var(--diamond-accent)] px-3 font-medium text-[var(--diamond-on-accent,white)] text-[13px]"}>{v === "brutalist" ? "ACK" : v === "success" ? "Done" : v === "header-footer" ? "Save" : v === "editorial" ? "Continue" : "Send"}</button>
+                        </>
+                    }
+                >
+                    {v === "header-footer" ? "Preferences scrollable body area." : null}
+                </Dialog>
+            );
+        }
+
+        case "alert-dialog": {
+            const v = variant as "destructive" | "unsaved" | "left-rail" | "dark-critical" | "mono-error" | "floating-icon";
+            const copy: Record<typeof v, { title: string; desc: string; cancel: string; action: string }> = {
+                destructive: { title: "Delete this workspace?", desc: "All files, members, and history will be permanently removed. This can't be undone.", cancel: "Cancel", action: "Delete" },
+                unsaved: { title: "Unsaved changes", desc: "Leave the page? Your draft will be lost.", cancel: "Stay", action: "Leave" },
+                "left-rail": { title: "Critical error", desc: "Database connection lost. Reconnecting…", cancel: "Dismiss", action: "Retry" },
+                "dark-critical": { title: "Account suspended", desc: "Access paused due to unusual activity.", cancel: "Contact", action: "Review" },
+                "mono-error": { title: "Merge conflict detected", desc: "3 files have conflicting changes. Resolve manually before continuing.", cancel: "Abort", action: "Override" },
+                "floating-icon": { title: "Permanent deletion", desc: "Type DELETE to confirm.", cancel: "Cancel", action: "Proceed" },
+            };
+            return (
+                <AlertDialog
+                    variant={v}
+                    trigger={<OverlayTrigger label="Show alert" tone="danger" />}
+                    title={label || copy[v].title}
+                    description={copy[v].desc}
+                    cancelLabel={copy[v].cancel}
+                    actionLabel={copy[v].action}
+                />
+            );
+        }
+
+        case "confirm-dialog": {
+            const v = variant as "archive" | "icon-subtitle" | "purchase" | "emoji-deploy" | "persist-checkbox" | "terminal";
+            const copy: Record<typeof v, { title: string; desc: string; cancel?: string; action?: string }> = {
+                archive: { title: "Move to archive?", desc: "You can restore it from Archive later.", cancel: "Cancel", action: "Archive" },
+                "icon-subtitle": { title: "Publish changes?", desc: "Goes live to all users.", cancel: "Not now", action: "Publish" },
+                purchase: { title: "Confirm purchase", desc: "Review your plan before paying.", cancel: "Back", action: "Pay" },
+                "emoji-deploy": { title: "Ship it?", desc: "All tests are passing. Deploy to production?", cancel: "Wait", action: "Deploy" },
+                "persist-checkbox": { title: "Apply to all?", desc: "This action will run on every selected item.", cancel: "Just this", action: "Apply all" },
+                terminal: { title: "deploy --prod", desc: "Push HEAD to production?", cancel: "no", action: "yes" },
+            };
+            return (
+                <ConfirmDialog
+                    variant={v}
+                    trigger={<OverlayTrigger label="Open confirm" />}
+                    title={label || copy[v].title}
+                    description={copy[v].desc}
+                    cancelLabel={copy[v].cancel}
+                    actionLabel={copy[v].action}
+                    summary={v === "purchase" ? [
+                        { label: "Pro plan", value: "$29.00" },
+                        { label: "Total", value: "$29.00", total: true },
+                    ] : undefined}
+                    emoji={v === "emoji-deploy" ? "🚀" : undefined}
+                />
+            );
+        }
+
+        case "bottom-sheet": {
+            const v = variant as "share" | "sort" | "settings" | "quick-contact" | "scrollable" | "media";
+            const items: Record<typeof v, Array<{ id: string; label: React.ReactNode; leading?: React.ReactNode; description?: React.ReactNode; group?: string; trailing?: React.ReactNode }>> = {
+                share: [
+                    { id: "msg", label: "Messages", leading: "💬" },
+                    { id: "mail", label: "Mail", leading: "✉" },
+                    { id: "copy", label: "Copy link", leading: "🔗" },
+                    { id: "more", label: "More", leading: "⋯" },
+                ],
+                sort: [
+                    { id: "newest", label: "Newest first" },
+                    { id: "oldest", label: "Oldest first" },
+                    { id: "az", label: "A → Z" },
+                ],
+                settings: [
+                    { id: "name", label: "Display name", trailing: "Aria Chen", group: "Profile" },
+                    { id: "email", label: "Email", trailing: "aria@team.co", group: "Profile" },
+                    { id: "notif", label: "Notifications", trailing: "On", group: "Preferences" },
+                    { id: "dark", label: "Dark mode", trailing: "Auto", group: "Preferences" },
+                ],
+                "quick-contact": [
+                    { id: "aria", label: "Aria Chen", description: "Designer · SF", leading: "A" },
+                    { id: "call", label: "Call", leading: "📞" },
+                    { id: "msg", label: "Message", leading: "💬" },
+                    { id: "mail", label: "Email", leading: "✉" },
+                ],
+                scrollable: Array.from({ length: 8 }, (_, i) => ({
+                    id: `n${i}`,
+                    label: `Activity ${i + 1}`,
+                    description: `Updated ${i + 1}h ago`,
+                })),
+                media: [
+                    { id: "prev", label: "⏮", onSelect: () => {} },
+                    { id: "play", label: "▶", onSelect: () => {} },
+                    { id: "next", label: "⏭", onSelect: () => {} },
+                ],
+            };
+            return (
+                <BottomSheet
+                    variant={v}
+                    trigger={<OverlayTrigger label="Open sheet" />}
+                    title={label || (v === "share" ? "Share" : v === "sort" ? "Sort by" : v === "settings" ? "Preferences" : v === "media" ? "Atlas Co." : undefined)}
+                    description={v === "media" ? "Quiet Discipline · 2:42 / 4:18" : undefined}
+                    items={items[v]}
+                    selectedId={v === "sort" ? "newest" : undefined}
+                />
+            );
+        }
+
+        case "drawer": {
+            const v = variant as "right-nav" | "left-sidebar" | "top-notifications" | "right-edit" | "right-cart-dark" | "left-file-tree";
+            const body: Record<typeof v, React.ReactNode> = {
+                "right-nav": (
+                    <ul className="m-0 flex list-none flex-col gap-1 p-0 text-[13px]">
+                        {["Home", "Inbox", "Projects", "Settings", "Sign out"].map((l) => (
+                            <li key={l}><button type="button" className="w-full cursor-pointer rounded-md px-3 py-2 text-left hover:bg-[var(--diamond-surface-alt)]">{l}</button></li>
+                        ))}
+                    </ul>
+                ),
+                "left-sidebar": (
+                    <div className="flex flex-col gap-3 text-[12px]">
+                        <input placeholder="Search…" className="w-full rounded-md border border-[var(--diamond-border)] bg-[var(--diamond-surface)] px-3 py-1.5 outline-none" />
+                        {["Inbox", "Drafts", "Sent", "Archive"].map((l) => (
+                            <div key={l} className="px-2 font-medium">{l}</div>
+                        ))}
+                    </div>
+                ),
+                "top-notifications": (
+                    <div className="flex flex-col gap-1.5 text-[12px]">
+                        {["Aria mentioned you", "Build #241 completed", "Monthly report ready"].map((l) => (
+                            <div key={l} className="rounded-md bg-[var(--diamond-surface-alt)] px-3 py-2">{l}</div>
+                        ))}
+                    </div>
+                ),
+                "right-edit": (
+                    <div className="flex flex-col gap-2 text-[12px]">
+                        <label className="flex flex-col gap-1"><span className="font-mono text-[10px] text-[var(--diamond-muted)] uppercase tracking-[0.1em]">Name</span><input defaultValue="Aria Chen" className="rounded-md border border-[var(--diamond-border)] bg-[var(--diamond-surface)] px-2 py-1.5 outline-none" /></label>
+                        <label className="flex flex-col gap-1"><span className="font-mono text-[10px] text-[var(--diamond-muted)] uppercase tracking-[0.1em]">Role</span><input defaultValue="Designer" className="rounded-md border border-[var(--diamond-border)] bg-[var(--diamond-surface)] px-2 py-1.5 outline-none" /></label>
+                    </div>
+                ),
+                "right-cart-dark": (
+                    <div className="flex flex-col gap-2 text-[12px]">
+                        {[
+                            { n: "Horizon Mug", p: "$28" },
+                            { n: "Atlas Tote", p: "$48" },
+                            { n: "Field Notes", p: "$12" },
+                        ].map((it) => (
+                            <div key={it.n} className="flex justify-between border-b border-[#2d2c28] py-2">
+                                <span>{it.n}</span>
+                                <span className="font-mono">{it.p}</span>
+                            </div>
+                        ))}
+                    </div>
+                ),
+                "left-file-tree": (
+                    <ul className="m-0 flex list-none flex-col gap-0.5 p-0 text-[12px]">
+                        {["src/", "  components/", "    button.tsx", "    input.tsx", "  utils.ts", "package.json", "README.md"].map((l) => (
+                            <li key={l} className="px-1">{l}</li>
+                        ))}
+                    </ul>
+                ),
+            };
+            return (
+                <Drawer
+                    variant={v}
+                    trigger={<OverlayTrigger label="Open drawer" />}
+                    title={label || (v === "right-nav" ? "Menu" : v === "left-sidebar" ? "Browse" : v === "top-notifications" ? "Notifications" : v === "right-edit" ? "Edit profile" : v === "right-cart-dark" ? "Cart" : "tree")}
+                >
+                    {body[v]}
+                </Drawer>
+            );
+        }
+
+        case "lightbox": {
+            const v = variant as "arrows" | "caption" | "thumbs" | "toolbar" | "video" | "exif";
+            const slides = GRADIENTS.slice(0, 4).map((g, i) => ({
+                id: String(i),
+                media: <div className="size-[200px] rounded-md" style={{ background: `linear-gradient(135deg, ${g[0]}, ${g[1]})` }} />,
+                thumb: <div className="size-full" style={{ background: `linear-gradient(135deg, ${g[0]}, ${g[1]})` }} />,
+                caption: i === 0 ? "Atlas Co. · Spring 2026 · Shot on Hasselblad X1D" : "Slide caption",
+                exif: i === 0 ? [
+                    ["Camera", "Hasselblad X1D II"],
+                    ["Lens", "65mm f/2.8"],
+                    ["ISO", "100"],
+                    ["Shutter", "1/250s"],
+                    ["Aperture", "f/8.0"],
+                ] as Array<[React.ReactNode, React.ReactNode]> : undefined,
+            }));
+            return (
+                <Lightbox
+                    variant={v}
+                    trigger={<OverlayTrigger label="View media" />}
+                    items={slides}
+                    title={label || "Gallery"}
+                />
+            );
+        }
+
+        case "popconfirm": {
+            const v = variant as "quick" | "accent" | "titled" | "dark-mini" | "emoji" | "terminal";
+            const copy: Record<typeof v, { title: string; desc?: string }> = {
+                quick: { title: "Delete?" },
+                accent: { title: "Remove?" },
+                titled: { title: "Discard draft?", desc: "Your changes won't be saved." },
+                "dark-mini": { title: "Reset?" },
+                emoji: { title: "Move to trash?", desc: "You can restore it later." },
+                terminal: { title: "rm -rf /tmp/cache", desc: "Cannot be undone." },
+            };
+            return (
+                <Popconfirm
+                    variant={v}
+                    side="top"
+                    title={label || copy[v].title}
+                    description={copy[v].desc}
+                    showWarning={v === "quick" || v === "accent" || v === "titled"}
+                >
+                    <OverlayTrigger label={v === "emoji" ? "🗑 Trash" : v === "terminal" ? "$ rm" : "Delete"} tone={v === "dark-mini" ? "neutral" : "danger"} />
+                </Popconfirm>
+            );
+        }
+
+        case "tour": {
+            const v = variant as "step" | "import" | "dark-tip" | "accent-final" | "new-feature" | "spotlight";
+            if (v === "spotlight") return <TourDemo />;
+            const copy: Record<Exclude<typeof v, "spotlight">, { title: string; desc?: string; step?: number; total?: number; badge?: string; primary?: string }> = {
+                step: { title: "Create your first project", desc: "Click + to open the project creator.", step: 1, total: 4, primary: "Next" },
+                import: { title: "Import existing data", desc: "Bring projects, files, and members from your old tools.", step: 2, total: 4, primary: "Got it" },
+                "dark-tip": { title: "Quick tip", desc: "Press ⌘K anywhere to open the command palette." },
+                "accent-final": { title: "You're all set!", desc: "Welcome aboard. Let's get you building.", step: 4, total: 4, primary: "Start" },
+                "new-feature": { title: "Realtime collaboration", desc: "See cursors instantly.", badge: "NEW" },
+            };
+            return (
+                <div className="w-[300px]">
+                    <TourCard
+                        variant={v}
+                        title={label || copy[v].title}
+                        description={copy[v].desc}
+                        step={copy[v].step}
+                        total={copy[v].total}
+                        badge={copy[v].badge}
+                        primaryLabel={copy[v].primary}
+                        skipLabel={v === "step" || v === "import" ? "Skip tour" : undefined}
+                        onClose={v !== "new-feature" ? () => {} : undefined}
+                    />
+                </div>
+            );
+        }
+
+        case "rich-text-editor": {
+            const v = variant as "classic" | "heading" | "quote" | "floating" | "markdown" | "collaborative";
+            const content =
+                v === "markdown"
+                    ? "# Diamond\nA **systematic** toolkit.\n- Semantic formatting\n- Local ownership"
+                    : v === "quote"
+                      ? "Perfection is achieved through quiet, repeatable craft."
+                      : "Diamond is a systematic design toolkit with linked references and semantic formatting.";
+            return <RichTextEditor variant={v} defaultValue={content} />;
+        }
+
+        case "command-palette": {
+            const v = variant as "project" | "suggested" | "terminal" | "jump" | "people" | "ask";
+            return <CommandPalette variant={v} defaultQuery={v === "people" ? "ari" : v === "project" ? "proj" : undefined} promptLabel={label || "Ask Diamond"} />;
+        }
+
+        case "map": {
+            const v = variant as "pin" | "clusters" | "dark" | "route" | "heatmap" | "place-card";
+            return (
+                <DiamondMap
+                    variant={v}
+                    title={v === "place-card" ? "Ferry Building" : label || undefined}
+                    description={v === "place-card" ? "Market St. San Francisco" : undefined}
+                    metric={v === "route" ? "4.2 mi - 14 min" : v === "place-card" ? "Open until 8 PM" : undefined}
+                />
+            );
+        }
+
+        case "chart": {
+            const v = variant as "area-line" | "bars" | "donut" | "scatter" | "target-bars" | "radar";
+            return <Chart variant={v} title={label || "Revenue"} description={v === "radar" ? "Capability score" : "Last six months"} />;
+        }
+
+        case "transfer-list": {
+            const v = variant as "classic" | "drag" | "approval" | "avatars" | "filter" | "scopes-dark";
+            return <TransferList variant={v} />;
+        }
+
+        case "split-pane": {
+            const v = variant as "sidebar" | "console" | "triple" | "preview" | "nav-content" | "decorative";
+            return <SplitPane variant={v} />;
+        }
+
+        case "signature-pad": {
+            const v = variant as "simple" | "line" | "dark" | "color" | "witness" | "certified";
+            return <SignaturePad variant={v} signerLabel={label || undefined} />;
+        }
+
+        case "pdf-viewer": {
+            const v = variant as "single" | "thumbnails" | "search" | "zoom" | "spread" | "annotated";
+            return <PDFViewer variant={v} title={label || "Diamond.pdf"} />;
+        }
+
+        case "qr-code": {
+            const v = variant as "classic" | "branded" | "inverted" | "wifi" | "export" | "error-level";
+            return <QRCode variant={v} caption={label || undefined} />;
+        }
+
+        case "theme-switcher": {
+            const v = variant as "segmented" | "circles" | "toggle" | "previews" | "menu" | "swatches";
+            return <ThemeSwitcher variant={v} defaultValue={v === "toggle" || v === "menu" ? "dark" : "light"} />;
+        }
+
+        case "language-switcher": {
+            const v = variant as "dropdown" | "code" | "menu" | "segmented" | "searchable" | "regional-dark";
+            return <LanguageSwitcher variant={v} defaultValue={v === "regional-dark" ? "en" : "pt"} />;
+        }
+
+        case "cookie-banner": {
+            const v = variant as "classic" | "inverted" | "granular" | "corner-chip" | "terminal" | "editorial";
+            return <CookieBannerDemo variant={v} label={label} />;
+        }
     }
     return <span className="text-[var(--diamond-muted)] italic">No preview yet for {componentId}</span>;
 }
 
-function ToastDemo({ variant, label }: { variant: "success" | "undo" | "progress" | "error" | "minimal" | "action"; label: string }) {
+function CookieBannerDemo({
+    variant,
+    label,
+}: {
+    variant: "classic" | "inverted" | "granular" | "corner-chip" | "terminal" | "editorial";
+    label: string;
+}) {
+    const [open, setOpen] = React.useState(false);
+    const copy: Record<typeof variant, { title: string; desc: string }> = {
+        classic: { title: "We use cookies", desc: "To improve your experience and analyze traffic." },
+        inverted: { title: "We use cookies", desc: "Read our policy." },
+        granular: { title: "Cookie preferences", desc: "Choose which categories you allow." },
+        "corner-chip": { title: "We use cookies", desc: "OK to proceed?" },
+        terminal: { title: "Allow cookies?", desc: "y/n to continue session" },
+        editorial: { title: "A note on cookies.", desc: "We use them sparingly to make this site better. Read more in our policy." },
+    };
+    return (
+        <div className="flex flex-col items-center gap-3">
+            <OverlayTrigger label={open ? "Banner open ↓" : "Show cookie banner"} onClick={() => setOpen(true)} />
+            <CookieBanner
+                variant={variant}
+                open={open}
+                onOpenChange={setOpen}
+                title={label || copy[variant].title}
+                description={copy[variant].desc}
+                dismissible
+                categories={variant === "granular" ? [
+                    { id: "ess", label: "Essential", description: "Required for the site to work.", essential: true },
+                    { id: "perf", label: "Performance", description: "Anonymous analytics.", defaultChecked: true },
+                    { id: "mkt", label: "Marketing", description: "Personalized ads." },
+                ] : undefined}
+            />
+        </div>
+    );
+}
+
+function TourDemo() {
+    const [open, setOpen] = React.useState(false);
+    const targetA = React.useRef<HTMLDivElement>(null);
+    const targetB = React.useRef<HTMLDivElement>(null);
+    const targetC = React.useRef<HTMLDivElement>(null);
+    return (
+        <div className="flex w-full max-w-[320px] flex-col items-stretch gap-3">
+            <OverlayTrigger label="Launch real tour" onClick={() => setOpen(true)} />
+            <div className="rounded-md border border-[var(--diamond-border)] bg-[var(--diamond-surface)] p-3">
+                <div ref={targetA} className="mb-2 inline-flex items-center gap-2 rounded bg-[var(--diamond-surface-alt)] px-2 py-1 text-[11px]">
+                    <span className="size-2 rounded-full bg-[var(--diamond-accent)]" />
+                    Workspace
+                </div>
+                <div ref={targetB} className="mb-2 cursor-pointer rounded-md bg-[var(--diamond-accent)] px-2.5 py-1.5 text-center font-medium text-[11px] text-[var(--diamond-on-accent,white)]">
+                    + New project
+                </div>
+                <div ref={targetC} className="rounded border border-[var(--diamond-border)] px-2 py-1.5 text-[11px] text-[var(--diamond-muted)]">
+                    Search · ⌘K
+                </div>
+            </div>
+            <Tour
+                open={open}
+                onOpenChange={setOpen}
+                steps={[
+                    { target: targetA, title: "Your workspace", description: "Switch projects from here.", placement: "right" },
+                    { target: targetB, title: "Create anything", description: "Press + or ⌘N to start.", placement: "bottom" },
+                    { target: targetC, title: "Search everything", description: "⌘K opens the command palette anywhere.", placement: "top" },
+                    { title: "You're all set!", description: "Have fun building.", variant: "accent-final" },
+                ]}
+                onComplete={() => console.log("Tour complete")}
+                onSkip={() => console.log("Tour skipped")}
+            />
+        </div>
+    );
+}
+
+function OverlayTrigger({
+    label,
+    tone = "accent",
+    className,
+    ...rest
+}: {
+    label: React.ReactNode;
+    tone?: "accent" | "danger" | "neutral";
+} & React.ButtonHTMLAttributes<HTMLButtonElement>) {
+    const toneCls =
+        tone === "danger"
+            ? "bg-rose-500 text-white hover:bg-rose-600"
+            : tone === "neutral"
+              ? "border border-[var(--diamond-border)] bg-[var(--diamond-surface)] text-[var(--diamond-ink)] hover:bg-[var(--diamond-surface-alt)]"
+              : "bg-[var(--diamond-accent)] text-[var(--diamond-on-accent,white)] hover:opacity-90";
+    return (
+        <button
+            type="button"
+            className={`inline-flex h-9 cursor-pointer items-center justify-center rounded-md px-3.5 font-medium text-[13px] transition-colors ${toneCls} ${className ?? ""}`}
+            {...rest}
+        >
+            {label}
+        </button>
+    );
+}
+
+function OverlayPreview({
+    children,
+    height = 240,
+    variant = "light",
+    backdrop = false,
+}: {
+    children: React.ReactNode;
+    height?: number;
+    variant?: "light" | "dark";
+    backdrop?: boolean;
+}) {
+    return (
+        <div
+            className="relative w-full max-w-[360px] overflow-hidden rounded-lg border border-[var(--diamond-border)]"
+            style={{
+                height,
+                background: variant === "dark" ? "#0f0f0e" : "var(--diamond-surface-alt)",
+            }}
+        >
+            <div className="flex items-center gap-1.5 border-b border-[var(--diamond-border)] bg-[var(--diamond-surface)] px-3 py-1.5">
+                <span className="size-2 rounded-full bg-rose-400" />
+                <span className="size-2 rounded-full bg-amber-400" />
+                <span className="size-2 rounded-full bg-emerald-400" />
+                <span className="ml-2 font-mono text-[9px] text-[var(--diamond-muted)] tracking-[0.12em]">app.preview</span>
+            </div>
+            <div className="flex h-[calc(100%-28px)] flex-col gap-1.5 p-3 opacity-50">
+                <div className="h-1.5 w-3/5 rounded-full bg-[var(--diamond-border)]" />
+                <div className="h-1.5 w-4/5 rounded-full bg-[var(--diamond-border)]" />
+                <div className="h-1.5 w-2/5 rounded-full bg-[var(--diamond-border)]" />
+            </div>
+            {backdrop ? <div className="absolute inset-0 bg-black/60" /> : null}
+            <div className="absolute inset-0 flex items-center justify-center">{children}</div>
+        </div>
+    );
+}
+
+function ToastDemo({
+    variant,
+    label,
+}: {
+    variant: "success" | "undo" | "progress" | "error" | "minimal" | "action";
+    label: string;
+}) {
     const { toast } = useToast();
     const fire = () => {
         if (variant === "success") {
@@ -2415,7 +3742,15 @@ function ToastDemo({ variant, label }: { variant: "success" | "undo" | "progress
                 <Toast
                     variant={variant}
                     title={label || undefined}
-                    description={variant === "success" ? "Draft updated" : variant === "error" ? "Check your network" : variant === "action" ? '"can you review this?"' : undefined}
+                    description={
+                        variant === "success"
+                            ? "Draft updated"
+                            : variant === "error"
+                              ? "Check your network"
+                              : variant === "action"
+                                ? '"can you review this?"'
+                                : undefined
+                    }
                     progress={variant === "progress" ? 45 : undefined}
                     actionLabel={variant === "undo" ? "UNDO" : variant === "action" ? "Open" : undefined}
                 />

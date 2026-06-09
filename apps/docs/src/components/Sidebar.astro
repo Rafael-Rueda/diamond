@@ -1,5 +1,5 @@
 ---
-import type { ComponentManifest } from '@/lib/registry';
+import { groupManifestsByCategory, type ComponentManifest } from '@/lib/registry';
 
 interface Props {
   manifests: ComponentManifest[];
@@ -7,31 +7,20 @@ interface Props {
 }
 
 const { manifests, active } = Astro.props;
-
-/* Group by manifest.kind so the sidebar mirrors the lib's component taxonomy. */
-const groups: Record<string, ComponentManifest[]> = {};
-const order = ['ui', 'theme', 'hook', 'util', 'primitive'] as const;
-for (const m of manifests) {
-  (groups[m.kind] ??= []).push(m);
-}
-
-const labels: Record<string, string> = {
-  ui: 'UI',
-  theme: 'Themes',
-  hook: 'Hooks',
-  util: 'Utilities',
-  primitive: 'Primitives',
-};
+const groups = groupManifestsByCategory(manifests);
 ---
 
 <nav class="text-sm space-y-6 sticky top-20">
-  {order.filter((k) => groups[k]?.length).map((kind) => (
+  {groups.map(({ category, manifests: categoryManifests }) => (
     <section>
-      <h3 class="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--diamond-muted)] mb-3">
-        {labels[kind]}
-      </h3>
+      <div class="mb-3 flex items-center justify-between gap-3">
+        <h3 class="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--diamond-muted)]">
+          {category.label}
+        </h3>
+        <span class="font-mono text-[9px] text-[var(--diamond-muted)]">{categoryManifests.length}</span>
+      </div>
       <ul class="space-y-1">
-        {groups[kind]!.map((m) => (
+        {categoryManifests.map((m) => (
           <li>
             <a
               href={`/components/${m.id}`}

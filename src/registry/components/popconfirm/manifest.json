@@ -1,0 +1,35 @@
+{
+  "id": "popconfirm",
+  "name": "Popconfirm",
+  "description": "Inline confirm tooltip anchored to its trigger built on @radix-ui/react-popover — quick yes/no, accent variant, titled detailed, dark mini, emoji delete, terminal style.",
+  "kind": "ui",
+  "files": [
+    { "source": "popconfirm.tsx", "target": "popconfirm.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-popover",  "version": "^1.1.2", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["overlay", "confirm"],
+
+  "documentation": {
+    "groups": {
+      "Popconfirm": ["quick", "accent", "titled", "dark-mini", "emoji", "terminal"]
+    },
+    "samples": {
+      "default": "Delete",
+      "perVariant": {
+        "quick":     { "label": "Delete" },
+        "accent":    { "label": "Remove" },
+        "titled":    { "label": "Discard draft" },
+        "dark-mini": { "label": "Reset" },
+        "emoji":     { "label": "Trash" },
+        "terminal":  { "label": "rm -rf" }
+      }
+    }
+  }
+}

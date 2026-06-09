@@ -1,0 +1,25 @@
+{
+  "id": "tree-view",
+  "name": "Tree View",
+  "description": "Hierarchical tree views for files, workspaces, code highlights, counts, organization charts, and project phases.",
+  "kind": "ui",
+  "files": [
+    { "source": "tree-view.tsx", "target": "tree-view.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["navigation", "tree", "hierarchy"],
+  "documentation": {
+    "groups": {
+      "Tree View": ["files", "workspace", "code", "counts", "org", "phases"]
+    },
+    "samples": {
+      "default": "Tree view",
+      "perVariant": {}
+    }
+  }
+}

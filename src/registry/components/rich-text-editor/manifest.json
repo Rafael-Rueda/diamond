@@ -1,0 +1,32 @@
+{
+  "id": "rich-text-editor",
+  "name": "Rich Text Editor",
+  "description": "Composable rich text editor shell with classic, heading, quote, floating, markdown and collaborative variants.",
+  "kind": "ui",
+  "files": [
+    { "source": "rich-text-editor.tsx", "target": "rich-text-editor.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["editor", "forms", "content"],
+  "documentation": {
+    "groups": {
+      "Editor": ["classic", "heading", "quote", "floating", "markdown", "collaborative"]
+    },
+    "samples": {
+      "default": "Write",
+      "perVariant": {
+        "classic": { "label": "Classic toolbar" },
+        "heading": { "label": "Heading selector" },
+        "quote": { "label": "Pull quote" },
+        "floating": { "label": "Floating toolbar" },
+        "markdown": { "label": "Markdown" },
+        "collaborative": { "label": "Collaboration" }
+      }
+    }
+  }
+}

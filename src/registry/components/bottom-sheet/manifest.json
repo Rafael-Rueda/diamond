@@ -1,0 +1,35 @@
+{
+  "id": "bottom-sheet",
+  "name": "Bottom Sheet",
+  "description": "Panel anchored to the bottom of the viewport built on @radix-ui/react-dialog — share grid, sort with selection, grouped settings, quick contact, scrollable detail, media now-playing.",
+  "kind": "ui",
+  "files": [
+    { "source": "bottom-sheet.tsx", "target": "bottom-sheet.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-dialog",   "version": "^1.1.2", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["overlay", "mobile"],
+
+  "documentation": {
+    "groups": {
+      "Sheet": ["share", "sort", "settings", "quick-contact", "scrollable", "media"]
+    },
+    "samples": {
+      "default": "Open sheet",
+      "perVariant": {
+        "share":         { "label": "Share" },
+        "sort":          { "label": "Sort by" },
+        "settings":      { "label": "Preferences" },
+        "quick-contact": { "label": "Aria Chen" },
+        "scrollable":    { "label": "Activity" },
+        "media":         { "label": "Now playing" }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "stack",
+  "name": "Stack",
+  "description": "Rhythmic stack layouts for tight, loose, horizontal, divided, indented, and separated content groups.",
+  "kind": "ui",
+  "files": [
+    { "source": "stack.tsx", "target": "stack.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["layout", "spacing", "primitive"],
+  "documentation": {
+    "groups": {
+      "Stack": ["tight", "loose", "horizontal", "divided", "indented", "separated"]
+    },
+    "samples": {
+      "default": "Stack",
+      "perVariant": {}
+    }
+  }
+}

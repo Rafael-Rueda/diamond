@@ -37,6 +37,188 @@ export interface ComponentManifest {
     _dir: string;
 }
 
+export interface ComponentCategory {
+    id: string;
+    label: string;
+    description: string;
+    manifestIds: readonly string[];
+}
+
+export interface ComponentCategoryGroup {
+    category: ComponentCategory;
+    manifests: ComponentManifest[];
+}
+
+export const componentCategories: readonly ComponentCategory[] = [
+    {
+        id: "buttons",
+        label: "Buttons",
+        description: "Action controls and CTA surfaces.",
+        manifestIds: ["button"],
+    },
+    {
+        id: "forms",
+        label: "Forms",
+        description: "Inputs, choice controls, pickers and form scaffolds.",
+        manifestIds: [
+            "input",
+            "textarea",
+            "checkbox",
+            "radio",
+            "select",
+            "multi-select",
+            "autocomplete",
+            "switch",
+            "slider",
+            "file-input",
+            "dropzone",
+            "date-picker",
+            "date-range-picker",
+            "time-picker",
+            "color-picker",
+            "rating",
+            "otp-input",
+            "form",
+            "form-field",
+            "fieldset",
+        ],
+    },
+    {
+        id: "feedback",
+        label: "Feedback",
+        description: "Status, loading, notifications and messaging states.",
+        manifestIds: [
+            "alert",
+            "toast",
+            "notification-center",
+            "notification-dot",
+            "tooltip",
+            "popover",
+            "progress",
+            "spinner",
+            "skeleton",
+            "empty-state",
+            "error-state",
+            "offline-indicator",
+        ],
+    },
+    {
+        id: "layout",
+        label: "Layout & Foundation",
+        description: "Spacing, grids, typography and structural primitives.",
+        manifestIds: [
+            "box",
+            "container",
+            "grid",
+            "grid-item",
+            "flex",
+            "stack",
+            "center",
+            "divider",
+            "spacer",
+            "aspect-ratio",
+            "typography",
+            "heading",
+            "paragraph",
+            "visually-hidden",
+            "globals",
+        ],
+    },
+    {
+        id: "navigation",
+        label: "Navigation",
+        description: "Menus, nav rails, wayfinding and page movement.",
+        manifestIds: [
+            "navbar",
+            "sidebar",
+            "bottom-navigation",
+            "breadcrumbs",
+            "pagination",
+            "tabs",
+            "stepper",
+            "link",
+            "menu",
+            "dropdown-menu",
+            "context-menu",
+            "mega-menu",
+            "tree-view",
+            "scrollspy",
+            "skip-link",
+        ],
+    },
+    {
+        id: "overlays",
+        label: "Overlays",
+        description: "Dialogs, drawers, sheets, lightboxes and guided surfaces.",
+        manifestIds: [
+            "dialog",
+            "alert-dialog",
+            "confirm-dialog",
+            "bottom-sheet",
+            "drawer",
+            "lightbox",
+            "popconfirm",
+            "tour",
+            "cookie-banner",
+        ],
+    },
+    {
+        id: "display",
+        label: "Display",
+        description: "Data, media, content and entity presentation.",
+        manifestIds: [
+            "card",
+            "table",
+            "data-grid",
+            "list",
+            "list-item",
+            "accordion",
+            "avatar",
+            "avatar-group",
+            "badge",
+            "chip",
+            "tag",
+            "carousel",
+            "timeline",
+            "calendar",
+            "statistic",
+            "image",
+            "video-player",
+            "audio-player",
+            "code-block",
+            "kbd",
+            "chat-bubble",
+            "kanban",
+            "pricing",
+        ],
+    },
+    {
+        id: "widgets",
+        label: "Widgets",
+        description: "Composed utilities and richer application widgets.",
+        manifestIds: [
+            "rich-text-editor",
+            "command-palette",
+            "map",
+            "chart",
+            "transfer-list",
+            "split-pane",
+            "signature-pad",
+            "pdf-viewer",
+            "qr-code",
+            "theme-switcher",
+            "language-switcher",
+        ],
+    },
+];
+
+const uncategorizedCategory: ComponentCategory = {
+    id: "primitives",
+    label: "Primitives & Utilities",
+    description: "Lower-level helpers and uncategorized registry entries.",
+    manifestIds: [],
+};
+
 let cached: ComponentManifest[] | null = null;
 
 export function loadAllManifests(): ComponentManifest[] {
@@ -62,6 +244,31 @@ export function loadAllManifests(): ComponentManifest[] {
 
 export function findManifest(id: string): ComponentManifest | null {
     return loadAllManifests().find((m) => m.id === id) ?? null;
+}
+
+export function groupManifestsByCategory(manifests: ComponentManifest[]): ComponentCategoryGroup[] {
+    const byId = new Map(manifests.map((manifest) => [manifest.id, manifest]));
+    const seen = new Set<string>();
+
+    const groups = componentCategories
+        .map((category) => {
+            const matched = category.manifestIds.flatMap((id) => {
+                const manifest = byId.get(id);
+                if (!manifest) return [];
+                seen.add(id);
+                return [manifest];
+            });
+
+            return { category, manifests: matched };
+        })
+        .filter((group) => group.manifests.length > 0);
+
+    const uncategorized = manifests.filter((manifest) => !seen.has(manifest.id));
+    if (uncategorized.length > 0) {
+        groups.push({ category: uncategorizedCategory, manifests: uncategorized });
+    }
+
+    return groups;
 }
 
 /** Returns the CSS contents of a theme file, e.g. "themes/kepler.css". */

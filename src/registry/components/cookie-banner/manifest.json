@@ -1,0 +1,34 @@
+{
+  "id": "cookie-banner",
+  "name": "Cookie Banner",
+  "description": "Privacy consent banner — classic bottom bar, inverted slim, granular preferences, corner chip, terminal prompt, editorial note.",
+  "kind": "ui",
+  "files": [
+    { "source": "cookie-banner.tsx", "target": "cookie-banner.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["overlay", "privacy"],
+
+  "documentation": {
+    "groups": {
+      "Cookie": ["classic", "inverted", "granular", "corner-chip", "terminal", "editorial"]
+    },
+    "samples": {
+      "default": "We use cookies",
+      "perVariant": {
+        "classic":     { "label": "We use cookies" },
+        "inverted":    { "label": "We use cookies" },
+        "granular":    { "label": "Cookie preferences" },
+        "corner-chip": { "label": "Cookies" },
+        "terminal":    { "label": "Allow cookies?" },
+        "editorial":   { "label": "A note on cookies." }
+      }
+    }
+  }
+}

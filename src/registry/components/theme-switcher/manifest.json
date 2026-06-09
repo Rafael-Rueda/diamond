@@ -1,0 +1,32 @@
+{
+  "id": "theme-switcher",
+  "name": "Theme Switcher",
+  "description": "Appearance selector with segmented, circular, toggle, preview, menu and swatch variants.",
+  "kind": "ui",
+  "files": [
+    { "source": "theme-switcher.tsx", "target": "theme-switcher.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["theme", "settings", "preferences"],
+  "documentation": {
+    "groups": {
+      "Theme Switcher": ["segmented", "circles", "toggle", "previews", "menu", "swatches"]
+    },
+    "samples": {
+      "default": "Theme",
+      "perVariant": {
+        "segmented": { "label": "Segmented" },
+        "circles": { "label": "Circular icons" },
+        "toggle": { "label": "Toggle" },
+        "previews": { "label": "Visual previews" },
+        "menu": { "label": "Menu" },
+        "swatches": { "label": "Swatches" }
+      }
+    }
+  }
+}

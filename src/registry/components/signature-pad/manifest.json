@@ -1,0 +1,32 @@
+{
+  "id": "signature-pad",
+  "name": "Signature Pad",
+  "description": "Pointer-enabled canvas signature pad with line, dark, color, witness and certified variants.",
+  "kind": "ui",
+  "files": [
+    { "source": "signature-pad.tsx", "target": "signature-pad.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["forms", "canvas", "signature"],
+  "documentation": {
+    "groups": {
+      "Signature": ["simple", "line", "dark", "color", "witness", "certified"]
+    },
+    "samples": {
+      "default": "Sign",
+      "perVariant": {
+        "simple": { "label": "Simple draw" },
+        "line": { "label": "Signature line" },
+        "dark": { "label": "Dark mode" },
+        "color": { "label": "Color picker" },
+        "witness": { "label": "Witness" },
+        "certified": { "label": "Certified" }
+      }
+    }
+  }
+}

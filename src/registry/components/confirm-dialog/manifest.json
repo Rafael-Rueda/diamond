@@ -1,0 +1,35 @@
+{
+  "id": "confirm-dialog",
+  "name": "Confirm Dialog",
+  "description": "“Are you sure?” prompt built on @radix-ui/react-alert-dialog — archive simple, icon + subtitle, purchase summary, emoji deploy, persistence checkbox, terminal confirm.",
+  "kind": "ui",
+  "files": [
+    { "source": "confirm-dialog.tsx", "target": "confirm-dialog.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",        "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-alert-dialog", "version": "^1.1.2", "kind": "runtime" },
+    { "name": "class-variance-authority",     "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                         "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",               "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["overlay", "dialog"],
+
+  "documentation": {
+    "groups": {
+      "Confirm": ["archive", "icon-subtitle", "purchase", "emoji-deploy", "persist-checkbox", "terminal"]
+    },
+    "samples": {
+      "default": "Confirm action",
+      "perVariant": {
+        "archive":          { "label": "Move to archive?" },
+        "icon-subtitle":    { "label": "Publish changes?" },
+        "purchase":         { "label": "Confirm purchase" },
+        "emoji-deploy":     { "label": "Ship it?" },
+        "persist-checkbox": { "label": "Apply to all?" },
+        "terminal":         { "label": "deploy --prod" }
+      }
+    }
+  }
+}

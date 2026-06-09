@@ -1,0 +1,25 @@
+{
+  "id": "sidebar",
+  "name": "Sidebar",
+  "description": "Side navigation menus for grouped, tinted, icon rail, workspace, editorial, and count-pill layouts.",
+  "kind": "ui",
+  "files": [
+    { "source": "sidebar.tsx", "target": "sidebar.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["navigation", "sidebar", "drawer"],
+  "documentation": {
+    "groups": {
+      "Sidebar / Drawer": ["grouped", "tinted", "rail", "workspace", "editorial", "counts"]
+    },
+    "samples": {
+      "default": "Sidebar",
+      "perVariant": {}
+    }
+  }
+}

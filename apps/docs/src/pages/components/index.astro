@@ -1,26 +1,58 @@
 ---
 import DocsLayout from '@/layouts/DocsLayout.astro';
-import { loadAllManifests } from '@/lib/registry';
+import { groupManifestsByCategory, loadAllManifests } from '@/lib/registry';
 
 const manifests = loadAllManifests();
+const groups = groupManifestsByCategory(manifests);
 ---
 
 <DocsLayout title="Components">
-  <h1 class="text-3xl font-semibold tracking-tight mb-8">Components</h1>
-  <ul class="space-y-3">
-    {manifests.map((m) => (
-      <li>
-        <a
-          href={`/components/${m.id}`}
-          class="block rounded-md border border-[var(--diamond-border)] bg-[var(--diamond-surface-alt)] px-4 py-3 hover:border-[var(--diamond-accent)] transition-colors"
-        >
-          <div class="flex items-baseline gap-3">
-            <span class="font-semibold">{m.name}</span>
-            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--diamond-muted)]">{m.kind}</span>
+  <header class="mb-10">
+    <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--diamond-muted)] mb-2">
+      {manifests.length} components · {groups.length} categories
+    </p>
+    <h1 class="text-3xl font-semibold tracking-tight mb-3">Components</h1>
+    <p class="text-[var(--diamond-muted)] max-w-2xl">
+      Components are grouped to mirror the galleries: buttons, forms, feedback, layout, navigation, overlays, display and widgets.
+    </p>
+  </header>
+
+  <div class="space-y-12">
+    {groups.map(({ category, manifests: categoryManifests }, index) => (
+      <section id={category.id} class="scroll-mt-24">
+        <header class="mb-5 flex flex-wrap items-end gap-3 border-[var(--diamond-border)] border-b border-dashed pb-3">
+          <div>
+            <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--diamond-muted)] mb-1">
+              §{String(index + 1).padStart(2, '0')} · {categoryManifests.length} component{categoryManifests.length === 1 ? '' : 's'}
+            </p>
+            <h2 class="text-xl font-semibold tracking-tight">{category.label}</h2>
+            <p class="text-sm text-[var(--diamond-muted)] mt-1">{category.description}</p>
           </div>
-          <p class="text-sm text-[var(--diamond-muted)] mt-1">{m.description}</p>
-        </a>
-      </li>
+          <a
+            href={`#${category.id}`}
+            class="ml-auto font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--diamond-muted)] hover:text-[var(--diamond-accent)]"
+          >
+            #{category.id}
+          </a>
+        </header>
+
+        <ul class="grid grid-cols-1 gap-3 lg:grid-cols-2">
+          {categoryManifests.map((m) => (
+            <li>
+              <a
+                href={`/components/${m.id}`}
+                class="block h-full rounded-md border border-[var(--diamond-border)] bg-[var(--diamond-surface-alt)] px-4 py-3 transition-colors hover:border-[var(--diamond-accent)]"
+              >
+                <div class="flex items-baseline gap-3">
+                  <span class="font-semibold">{m.name}</span>
+                  <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--diamond-muted)]">{m.kind}</span>
+                </div>
+                <p class="text-sm text-[var(--diamond-muted)] mt-1">{m.description}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
     ))}
-  </ul>
+  </div>
 </DocsLayout>

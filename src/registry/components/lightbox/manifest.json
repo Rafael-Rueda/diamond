@@ -1,0 +1,35 @@
+{
+  "id": "lightbox",
+  "name": "Lightbox",
+  "description": "Full-screen media viewer built on @radix-ui/react-dialog with keyboard navigation — counter + arrows, with caption, thumbnail strip, action toolbar, video with scrubber, EXIF metadata.",
+  "kind": "ui",
+  "files": [
+    { "source": "lightbox.tsx", "target": "lightbox.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "@phosphor-icons/react",    "version": "^2.1.7", "kind": "runtime" },
+    { "name": "@radix-ui/react-dialog",   "version": "^1.1.2", "kind": "runtime" },
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx",                     "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge",           "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["overlay", "media"],
+
+  "documentation": {
+    "groups": {
+      "Lightbox": ["arrows", "caption", "thumbs", "toolbar", "video", "exif"]
+    },
+    "samples": {
+      "default": "View media",
+      "perVariant": {
+        "arrows":  { "label": "Gallery" },
+        "caption": { "label": "Caption" },
+        "thumbs":  { "label": "Strip" },
+        "toolbar": { "label": "Toolbar" },
+        "video":   { "label": "Video" },
+        "exif":    { "label": "EXIF" }
+      }
+    }
+  }
+}

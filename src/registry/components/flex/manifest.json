@@ -1,0 +1,25 @@
+{
+  "id": "flex",
+  "name": "Flex",
+  "description": "Flexbox layout primitives for rows, distributed rows, columns, wrapping groups, centering, and baseline-style bars.",
+  "kind": "ui",
+  "files": [
+    { "source": "flex.tsx", "target": "flex.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["layout", "flexbox", "primitive"],
+  "documentation": {
+    "groups": {
+      "Flex": ["row", "space-between", "column", "wrap", "center", "baseline"]
+    },
+    "samples": {
+      "default": "Flex",
+      "perVariant": {}
+    }
+  }
+}

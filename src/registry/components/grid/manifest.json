@@ -1,0 +1,25 @@
+{
+  "id": "grid",
+  "name": "Grid",
+  "description": "CSS Grid scaffolds for uniform columns, fractional columns, auto-fit tracks, twelve-column systems, and masonry-like rows.",
+  "kind": "ui",
+  "files": [
+    { "source": "grid.tsx", "target": "grid.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["layout", "grid", "primitive"],
+  "documentation": {
+    "groups": {
+      "Grid": ["three-col", "four-col", "fractional", "auto-fit", "twelve-col", "masonry"]
+    },
+    "samples": {
+      "default": "Grid",
+      "perVariant": {}
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "bottom-navigation",
+  "name": "Bottom Navigation",
+  "description": "Mobile bottom navigation patterns with labels, icons, center action, active pills, top indicators, and active chips.",
+  "kind": "ui",
+  "files": [
+    { "source": "bottom-navigation.tsx", "target": "bottom-navigation.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["navigation", "mobile", "tabs"],
+  "documentation": {
+    "groups": {
+      "Bottom Navigation": ["labeled", "icons", "fab", "active-pill", "top-indicator", "active-chip"]
+    },
+    "samples": {
+      "default": "Bottom navigation",
+      "perVariant": {}
+    }
+  }
+}

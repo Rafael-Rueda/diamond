@@ -1,0 +1,25 @@
+{
+  "id": "link",
+  "name": "Link",
+  "description": "Anchor variants for default, icon, decorative underline, numbered mono, pill, and editorial link styles.",
+  "kind": "ui",
+  "files": [
+    { "source": "link.tsx", "target": "link.tsx", "alias": "ui" }
+  ],
+  "dependencies": [
+    { "name": "class-variance-authority", "version": "^0.7.0", "kind": "runtime" },
+    { "name": "clsx", "version": "^2.1.1", "kind": "runtime" },
+    { "name": "tailwind-merge", "version": "^2.5.4", "kind": "runtime" }
+  ],
+  "registryDependencies": ["utils"],
+  "tags": ["navigation", "link", "anchor"],
+  "documentation": {
+    "groups": {
+      "Link": ["default", "icon", "decorative", "numbered", "pill", "editorial"]
+    },
+    "samples": {
+      "default": "Open docs",
+      "perVariant": {}
+    }
+  }
+}
