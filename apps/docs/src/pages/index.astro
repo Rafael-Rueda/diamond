@@ -30,7 +30,7 @@ const visual = manifests.filter((m) => m.kind === 'ui');
       <code class="font-mono text-sm bg-[var(--diamond-ink)] text-[var(--diamond-surface)] rounded-md px-4 py-2.5">
         npx "@rueda.dev/gems-diamond" init
       </code>
-      <a href="/components" class="text-sm font-medium text-[var(--diamond-accent)] hover:underline">
+      <a href={`${import.meta.env.BASE_URL}components`} class="text-sm font-medium text-[var(--diamond-accent)] hover:underline">
         Browse components →
       </a>
     </div>
@@ -43,7 +43,7 @@ const visual = manifests.filter((m) => m.kind === 'ui');
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {visual.map((m) => (
         <a
-          href={`/components/${m.id}`}
+          href={`${import.meta.env.BASE_URL}components/${m.id}`}
           class="block rounded-lg border border-[var(--diamond-border)] bg-[var(--diamond-surface-alt)] p-5 hover:border-[var(--diamond-accent)] transition-colors"
         >
           <h3 class="font-semibold tracking-tight mb-1">{m.name}</h3>

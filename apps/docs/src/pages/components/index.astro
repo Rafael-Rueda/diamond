@@ -40,7 +40,7 @@ const groups = groupManifestsByCategory(manifests);
           {categoryManifests.map((m) => (
             <li>
               <a
-                href={`/components/${m.id}`}
+                href={`${import.meta.env.BASE_URL}components/${m.id}`}
                 class="block h-full rounded-md border border-[var(--diamond-border)] bg-[var(--diamond-surface-alt)] px-4 py-3 transition-colors hover:border-[var(--diamond-accent)]"
               >
                 <div class="flex items-baseline gap-3">

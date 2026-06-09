@@ -27,7 +27,7 @@ export default function ThemePicker({ manifests }: Props) {
     React.useEffect(() => {
         const stored = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
         if (stored) setActive(stored);
-        fetch("/themes.json")
+        fetch(`${import.meta.env.BASE_URL}themes.json`)
             .then((r) => r.json())
             .then((data: Record<string, string>) => setThemes(data))
             .catch(() => undefined);

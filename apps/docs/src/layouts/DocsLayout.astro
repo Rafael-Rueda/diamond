@@ -41,13 +41,13 @@ const manifests = loadAllManifests();
   <body class="min-h-screen">
     <header class="border-b border-[var(--diamond-border)] bg-[var(--diamond-surface)]/90 backdrop-blur sticky top-0 z-40">
       <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between gap-6">
-        <a href="/" class="flex items-center gap-2 font-semibold tracking-tight text-lg">
+        <a href={import.meta.env.BASE_URL} class="flex items-center gap-2 font-semibold tracking-tight text-lg">
           <Image src={diamondLogo} alt="Diamond" height={32} width={32} densities={[1, 2]} />
           <span>Diamond</span>
         </a>
         <nav class="flex items-center gap-6 text-sm text-[var(--diamond-muted)]">
-          <a href="/components" class="hover:text-[var(--diamond-ink)]">Components</a>
-          <a href="/themes" class="hover:text-[var(--diamond-ink)]">Themes</a>
+          <a href={`${import.meta.env.BASE_URL}components`} class="hover:text-[var(--diamond-ink)]">Components</a>
+          <a href={`${import.meta.env.BASE_URL}themes`} class="hover:text-[var(--diamond-ink)]">Themes</a>
           <a href="https://github.com" class="hover:text-[var(--diamond-ink)]">GitHub</a>
           <ThemePicker client:load manifests={manifests} />
           <DarkModeToggle client:load />

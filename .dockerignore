@@ -1,0 +1,7 @@
+# Keep the docs Docker build context lean. Host node_modules / build output are
+# never copied — deps are installed and the docs are built inside the image.
+**/node_modules
+**/dist
+.git
+coverage
+*.log

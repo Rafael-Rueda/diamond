@@ -23,7 +23,7 @@ const groups = groupManifestsByCategory(manifests);
         {categoryManifests.map((m) => (
           <li>
             <a
-              href={`/components/${m.id}`}
+              href={`${import.meta.env.BASE_URL}components/${m.id}`}
               class:list={[
                 'block px-2 py-1 rounded-md transition-colors',
                 active === m.id
