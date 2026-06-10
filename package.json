@@ -5,6 +5,9 @@
     "author": "Rueda.Dev",
     "license": "MIT",
     "type": "module",
+    "publishConfig": {
+        "access": "public"
+    },
     "bin": {
         "diamond": "./dist/cli/index.js"
     },
