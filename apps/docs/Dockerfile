@@ -25,17 +25,15 @@ COPY tsconfig.json ./
 COPY src ./src
 COPY apps/docs ./apps/docs
 
-# Served under gems.rueda.dev/diamond/docs — Astro prefixes every asset/link
-# with this base. Change here + the COPY target below to relocate the docs.
-ENV DOCS_BASE=/diamond/docs
+# Served at the root of its own subdomain (docs.diamond.rueda.dev) — no base
+# path. To host under a sub-path instead, set ENV DOCS_BASE=/some/path and nest
+# the COPY target below to match.
 RUN npm run build --workspace apps/docs
 
 # ---- serve stage ----------------------------------------------------------
 FROM nginx:alpine
 RUN apk add --no-cache curl
 COPY apps/docs/nginx.conf /etc/nginx/nginx.conf
-# Nest the static output under the base path so full-path requests
-# (/diamond/docs/...) resolve directly — no proxy prefix-stripping required.
-COPY --from=build /diamond/apps/docs/dist /usr/share/nginx/html/diamond/docs
+COPY --from=build /diamond/apps/docs/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
